@@ -1,0 +1,20 @@
+/* Keep the live areal beneath the sales plan, so the return flight starts at the actual top view. */
+html[data-variant="b"] #explorer[data-project="verde"][data-view="plan"] .stage-area #planView {
+  position:absolute;inset:0;z-index:2;width:100%;height:100%;min-height:0;
+}
+html[data-variant="b"] #explorer[data-project="verde"] #planView.is-returning {
+  opacity:0;transform:scale(.94);pointer-events:none;
+  transition:opacity 800ms ease-in,transform 1050ms ease-in;
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-motion="on"][data-variant="b"] #planView.motion-plan {
+    transform:perspective(1200px) rotateX(22deg) scale(.92) !important;
+    transition-duration:950ms,950ms !important;
+  }
+  html[data-motion="on"][data-variant="b"] #planView.motion-plan.is-revealing {
+    transform:perspective(1200px) rotateX(0) scale(1) !important;
+  }
+  html[data-motion="on"][data-variant="b"] #planView.is-returning {
+    transition-duration:800ms,1050ms !important;
+  }
+}

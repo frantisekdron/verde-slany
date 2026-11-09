@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SO 05 – 3D model</title>
+<meta name="description" content="Verde Slaný II, bytový dům SO 05 – 3D model podle projektové dokumentace (ilustrační).">
+
+
+
+<style>
+  :root {
+    --zelena: #435955;
+    --seda: #a6aba9;
+    --bila: #ffffff;
+    --text: #1f2a28;
+    --panel: rgba(255, 255, 255, 0.92);
+    --nebe-hore: #8fb4d9;
+    --nebe-dole: #e9eef1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --panel: rgba(255, 255, 255, 0.92); }
+  }
+  :root[data-theme="dark"] { --panel: rgba(255, 255, 255, 0.92); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body {
+    font-family: 'Exo 2', system-ui, sans-serif; color: var(--text);
+    background: linear-gradient(180deg, var(--nebe-hore) 0%, var(--nebe-dole) 62%, #dfe4e2 100%);
+    -webkit-tap-highlight-color: transparent; touch-action: none;
+  }
+  #scena { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  .hlavicka {
+    position: fixed; top: max(12px, env(safe-area-inset-top)); left: 16px; right: 16px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; pointer-events: none;
+  }
+  .nazev {
+    background: var(--zelena); color: var(--bila); padding: 8px 12px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; line-height: 1.2; box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  }
+  .nazev small { display: block; font-weight: 400; font-size: 12px; opacity: .85; }
+  .stitek {
+    background: var(--panel); color: var(--zelena); padding: 6px 10px; border-radius: 8px;
+    font-size: 11px; line-height: 1.25; max-width: 190px; text-align: right; box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+  .panel {
+    position: fixed; left: 16px; right: 16px; bottom: max(14px, env(safe-area-inset-bottom));
+    margin: 0 auto; max-width: 560px; background: var(--panel); border-radius: 14px; padding: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.18); backdrop-filter: blur(6px);
+  }
+  .rezimy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .rezimy button {
+    font: inherit; font-size: 13px; font-weight: 600; border: 1.5px solid var(--zelena); color: var(--zelena);
+    background: var(--bila); border-radius: 9px; padding: 9px 4px; min-height: 44px; line-height: 1.1; cursor: pointer;
+  }
+  .rezimy button[aria-pressed="true"] { background: var(--zelena); color: var(--bila); }
+  .rust { margin-top: 10px; display: none; }
+  .rust.vid { display: block; }
+  .rust-radek { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--zelena); }
+  .rust-radek b { font-size: 15px; }
+  input[type=range] { width: 100%; margin: 8px 0 2px; accent-color: var(--zelena); height: 28px; }
+  .stupnice { display: flex; justify-content: space-between; font-size: 10px; color: #6d7472; }
+  .napoveda { font-size: 11px; color: #6d7472; text-align: center; margin-top: 6px; }
+  #nacitani {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column;
+    gap: 12px; color: var(--zelena); font-weight: 600; background: rgba(233,238,241,.75); text-align: center; padding: 16px;
+  }
+  .lista { width: min(260px, 70vw); height: 6px; background: var(--seda); border-radius: 3px; overflow: hidden; }
+  .lista i { display: block; height: 100%; width: 0; background: var(--zelena); transition: width .2s; }
+  #nacitani.chyba { color: #8a2b22; }
+  .skryt { display: none !important; }
+</style>
+</head>
+<body>
+<canvas id="scena" aria-label="3D model bytového domu SO 05"></canvas>
+
+<div class="hlavicka">
+  <div class="nazev">SO 05 · Verde Slaný II<small>bytový dům, 2. etapa</small></div>
+  <div class="stitek">3D model podle projektové dokumentace – ilustrační</div>
+</div>
+
+<div class="panel" role="group" aria-label="Zobrazení modelu">
+  <div class="rezimy">
+    <button type="button" data-rezim="hotovy" aria-pressed="true">Hotový dům</button>
+    <button type="button" data-rezim="hruba" aria-pressed="false">Hrubá stavba</button>
+    <button type="button" data-rezim="rust" aria-pressed="false">Růst po podlažích</button>
+  </div>
+  <div class="rust" id="rust">
+    <div class="rust-radek"><span>Podlaží</span><b id="rustText">1. PP</b></div>
+    <input type="range" id="rustSlider" min="0" max="6" step="1" value="0" aria-label="Růst po podlažích">
+    <div class="stupnice"><span>1PP</span><span>1NP</span><span>2NP</span><span>3NP</span><span>4NP</span><span>5NP</span><span>hotovo</span></div>
+  </div>
+  <div class="napoveda">Otáčení jedním prstem · přiblížení dvěma prsty</div>
+</div>
+
+<div id="nacitani"><div id="nacitaniText">Načítám 3D model…</div><div class="lista"><i id="lista"></i></div></div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "/verde-slany/vendor/three/build/three.module.js",
+  "three/addons/": "/verde-slany/vendor/three/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+const params = new URLSearchParams(location.search);
+const MODEL = params.get('model') || 'so05_v2.glb';
+const canvas = document.getElementById('scena');
+const nac = document.getElementById('nacitani');
+const nacText = document.getElementById('nacitaniText');
+const lista = document.getElementById('lista');
+
+function chyba(msg) {
+  nac.classList.remove('skryt'); nac.classList.add('chyba');
+  nacText.textContent = msg; lista.parentElement.classList.add('skryt');
+}
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+} catch (e) {
+  chyba('Tento prohlížeč nepodporuje 3D zobrazení (WebGL). Zkuste prosím jiný prohlížeč.');
+  throw e;
+}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 2000);
+// start: celý dům v nadhledu od JZ (sever mřížky S-JTSK = −Z)
+camera.position.set(-62, 44, 66);
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 7, 0);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.minDistance = 14; controls.maxDistance = 260;
+controls.maxPolarAngle = THREE.MathUtils.degToRad(87);
+controls.screenSpacePanning = true;
+controls.update();
+
+// obloha pro odrazy skla (PMREM z gradientní koule)
+const pmrem = new THREE.PMREMGenerator(renderer);
+const skyScene = new THREE.Scene();
+const skyGeo = new THREE.SphereGeometry(100, 32, 16);
+const skyMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide,
+  uniforms: {},
+  vertexShader: 'varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+  fragmentShader: 'varying vec3 vP; void main(){ float h = vP.y; vec3 top = vec3(0.30,0.52,0.82); vec3 hor = vec3(0.86,0.90,0.93); vec3 gnd = vec3(0.30,0.33,0.28); vec3 c = h>0.0 ? mix(hor, top, pow(h,0.6)) : mix(hor, gnd, pow(-h,0.4)); gl_FragColor = vec4(c,1.0); }'
+});
+skyScene.add(new THREE.Mesh(skyGeo, skyMat));
+scene.environment = pmrem.fromScene(skyScene, 0.02).texture;
+
+scene.add(new THREE.HemisphereLight(0xdfeaf5, 0x5d6650, 0.55));
+const sun = new THREE.DirectionalLight(0xfff3e2, 2.2);
+// slunce od JJV (azimut 160°, výška 36°) – stíny k severu, jižní a západní fasády nasvícené
+const az = THREE.MathUtils.degToRad(160), el = THREE.MathUtils.degToRad(36);
+sun.position.set(Math.sin(az) * Math.cos(el) * 120, Math.sin(el) * 120, -Math.cos(az) * Math.cos(el) * 120);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -55, right: 55, top: 55, bottom: -55, near: 10, far: 300 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.04;
+scene.add(sun);
+
+const ground = new THREE.Mesh(new THREE.CircleGeometry(900, 96), new THREE.MeshStandardMaterial({ color: 0x9aa58a, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; ground.position.y = -0.2; ground.receiveShadow = true;
+scene.add(ground);
+scene.fog = new THREE.Fog(0xdde4e6, 180, 700);
+
+const draco = new DRACOLoader();
+draco.setDecoderPath('/verde-slany/vendor/three/examples/jsm/libs/draco/gltf/');
+const loader = new GLTFLoader();
+loader.setDRACOLoader(draco);
+
+const casti = [];   // {obj, stav, podlazi}
+loader.load(MODEL, (gltf) => {
+  const root = gltf.scene;
+  root.traverse((o) => {
+    if (o.isMesh) {
+      o.castShadow = true; o.receiveShadow = true;
+      const m = o.material;
+      if (m && m.name === 'sklo') { m.roughness = 0.04; m.metalness = 0.1; m.envMapIntensity = 1.4; }
+      if (m && m.name && m.name.startsWith('beton')) { m.side = THREE.DoubleSide; }
+    }
+    const ud = o.userData || {};
+    if (ud.stav !== undefined && ud.podlazi !== undefined && o.isMesh) {
+      casti.push({ obj: o, stav: ud.stav, podlazi: Number(ud.podlazi) });
+    }
+  });
+  scene.add(root);
+  if (!casti.length) { chyba('Model se načetl, ale chybí v něm podlaží. Kontaktujte prosím FD Studio.'); return; }
+  nastavRezim('hotovy');
+  nac.classList.add('skryt');
+}, (ev) => {
+  if (ev.lengthComputable) lista.style.width = Math.round(100 * ev.loaded / ev.total) + '%';
+}, (err) => {
+  console.error(err);
+  chyba('Model se nepodařilo načíst. Zkontrolujte připojení k internetu a obnovte stránku.');
+});
+
+// režimy zobrazení
+const tlacitka = [...document.querySelectorAll('.rezimy button')];
+const rustBox = document.getElementById('rust');
+const slider = document.getElementById('rustSlider');
+const rustText = document.getElementById('rustText');
+const NAZVY = ['1. PP (hrubá stavba)', '1. NP (hrubá stavba)', '2. NP (hrubá stavba)', '3. NP (hrubá stavba)',
+  '4. NP (hrubá stavba)', '5. NP (hrubá stavba)', 'Hotový dům'];
+let rezim = 'hotovy';
+
+function zobraz(fn) { for (const c of casti) c.obj.visible = fn(c); }
+function nastavRezim(r) {
+  rezim = r;
+  tlacitka.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.rezim === r)));
+  rustBox.classList.toggle('vid', r === 'rust');
+  if (r === 'hotovy') { zobraz((c) => c.stav === 'hotovy'); ground.position.y = -0.2; }
+  if (r === 'hruba') { zobraz((c) => c.stav === 'hruba'); ground.position.y = -0.2; }
+  if (r === 'rust') aplikujRust();
+}
+function aplikujRust() {
+  const s = Number(slider.value);
+  rustText.textContent = NAZVY[s];
+  if (s >= 6) zobraz((c) => c.stav === 'hotovy');
+  else zobraz((c) => c.stav === 'hruba' && c.podlazi <= s && c.podlazi <= 5);
+  ground.position.y = s === 0 ? -3.6 : -0.2;
+}
+tlacitka.forEach((b) => b.addEventListener('click', () => nastavRezim(b.dataset.rezim)));
+slider.addEventListener('input', aplikujRust);
+
+function resize() {
+  const w = window.innerWidth, h = window.innerHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.fov = w < 600 ? 50 : 38;
+  camera.updateProjectionMatrix();
+  if (!uzivatelOtocil) {
+    // celý dům (≈ 64 m na šířku) se vejde i na úzký displej
+    const hfov = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect);
+    const d = Math.max(100, 34 / Math.tan(hfov / 2));
+    const dir = new THREE.Vector3(-62, 37, 66).normalize();
+    camera.position.copy(controls.target).addScaledVector(dir, d);
+    controls.update();
+  }
+}
+let uzivatelOtocil = false;
+controls.addEventListener('start', () => { uzivatelOtocil = true; });
+window.addEventListener('resize', resize);
+resize();
+
+renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+</script>
+</body>
+</html>

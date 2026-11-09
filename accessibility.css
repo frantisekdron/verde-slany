@@ -1,0 +1,127 @@
+/* Load after style.css, explorer.css and variants.css. */
+
+/* Keep the site's green palette while making small copy legible on light panels. */
+:is(.selection-lead,.selection-project,.catalog-guide,.catalog-heading .eyebrow,
+  .selector-section .source-note,.explorer-foot,.explorer-top #explorerHint,
+  .floors>span,.floors #floorButtons button>span,.floors #floorButtons button>small,
+  .floors #allFloors,.building-instruction,.plan-title>span,.plan-scale>span,
+  .plan-help,.legend,.inspector-kicker,.floor-display>span,.inspector-help,
+  .inspector-availability>div>span,.inspector-from>span,.inspector-note,
+  .inspector-metrics span,.inspector-price>span,.inspector-save,
+  .unit-open>span:first-child>small,.more-units,.table-head,
+  .experience-copy small,.contact-section>span,.detail-grid span,
+  .detail-plan>small,.comparison-grid dt,.privacy-note,
+  .simple-instruction>span,.simple-instruction p,.simple-progress button,
+  .variant-review>div>span,.variant-options button,.simple-actions button,
+  .motion-opt-in) { color:#405849 !important; opacity:1; }
+
+.explorer-top .explorer-overline,
+.explorer-top #explorerHint,
+.explorer-top .view-tabs button:not([aria-pressed="true"]) {
+  color:#e4eee7 !important;
+}
+html[data-variant="b"] .explorer-top .simple-actions button { color:#405849 !important; }
+.floors #floorButtons button.active>span,
+.floors #floorButtons button.active>small { color:#fff !important; }
+.location .place>span,.location .place p,footer>span,footer>a {
+  color:#e4eee7;opacity:1;
+}
+.media-credit,.image-label { background:#243b36;color:#fff; }
+.hero-shade {
+  background:linear-gradient(90deg,rgba(18,38,30,.92),rgba(18,38,30,.62) 68%,rgba(18,38,30,.25)),
+             linear-gradient(0deg,rgba(18,38,30,.75),transparent 35%);
+}
+.hero-bottom { background:#243b36e8;padding:14px 18px;border:0; }
+.bb-building-photo:after {
+  background:linear-gradient(90deg,rgba(30,34,29,.91),rgba(30,34,29,.35) 78%);
+}
+html[data-variant="b"] .simple-instruction {
+  background:#f8faf6f2;padding:14px 18px;border-radius:9px;
+}
+
+/* Visible focus across forms, SVG plans and both explorer presentations. */
+:is(a,button,select,input,textarea,[role="button"]):focus-visible {
+  outline:3px solid #8b461b !important;
+  outline-offset:3px !important;
+}
+:is(.hero,.location,footer,.explorer-top,.compare-dock,.bb-building-photo)
+  :is(a,button,select,input,textarea,[role="button"]):focus-visible {
+  outline-color:#ffe08a !important;
+}
+#floorplan polygon[role="button"]:focus-visible {
+  outline:none !important;stroke:#183b2c !important;stroke-width:5 !important;
+  fill:#cce6c9 !important;filter:drop-shadow(0 0 3px #fff);
+}
+
+/* A 44 px minimum for compact controls; preserve their visual styling. */
+header>a,nav a,.contact,.detail-links a,
+.view-tabs button,.variant-options button,.selection-nav>button,.steps button,
+.simple-actions button,.simple-progress button,.floors #allFloors,
+.plan-toolbar .block-tabs button,.plan-scale button,.filterbar #reset,
+.explorer-foot>button,.inspector-kicker button,.inspector-save,
+.save-unit,.close,.compare-dock button,.saved-button,.expand-explorer,
+.detail-save,.detail-tour button,.remove-compare,.transport-card>a,
+.transport-teaser a,.contact-section>a,footer>a { min-height:44px; }
+header>a,nav a,.contact,.detail-links a,.steps button { display:inline-flex;align-items:center; }
+.transport-card>a,.transport-teaser a,footer>a { align-items:center; }
+.plan-scale button { min-width:44px;width:44px; }
+.plan-scale #zoomReset { min-width:54px;width:54px; }
+.inspector-kicker button,.close,.save-unit,.expand-explorer { min-width:44px;width:44px;height:44px; }
+.filterbar .check { min-height:44px; }
+.filterbar .check input { min-width:20px;width:20px;min-height:20px;height:20px; }
+.simple-progress button { padding-top:8px;padding-bottom:8px; }
+.floors #floorButtons button { min-height:62px; }
+.unit-open { min-height:60px; }
+
+/* Let text and controls wrap when zoom reduces the available CSS viewport. */
+dialog { overflow:auto; }
+.filterbar,.explorer-top,.explorer-actions,.plan-toolbar,.explorer-foot,
+.tour-links,.compare-dock { flex-wrap:wrap; }
+.unit-open span,.selection-inspector strong,.comparison-grid article { overflow-wrap:anywhere; }
+@media (max-width:750px) {
+  .hero { height:auto;max-height:none;min-height:560px; }
+  .hero-copy { padding-bottom:150px; }
+  .hero-bottom { left:0;right:0;bottom:0;flex-wrap:wrap;gap:8px; }
+  .explorer-body { display:flex;flex-direction:column; }
+  .floors { overflow-x:auto; }
+  #floorButtons { overflow-x:auto;scrollbar-width:thin; }
+  #floorButtons button { flex:0 0 68px; }
+  #planView,html[data-variant="b"] #planView { height:auto;min-height:0; }
+  #floorplan,html[data-variant="b"] #floorplan { height:auto;min-height:220px; }
+  .plan-canvas { min-height:260px; }
+  .plan-toolbar { align-items:flex-start; }
+  .plan-toolbar .block-tabs { flex-wrap:wrap; }
+  .selection-inspector,.selection-inspector.has-unit,
+  html[data-variant="b"] #selectionInspector.has-unit {
+    display:flex;flex-wrap:wrap;gap:16px;padding:20px;
+  }
+  .selection-inspector>* { min-width:0; }
+  .compare-dock { max-height:35vh;overflow:auto; }
+}
+@media (max-width:420px) {
+  .variant-options { flex-wrap:wrap;border-radius:12px; }
+  .variant-options button { flex:1 1 135px;white-space:normal; }
+  html[data-variant="b"] .floors #floorButtons button { flex:0 0 70px;min-width:70px; }
+  .section-head { flex-wrap:wrap; }
+  .plan-caption { padding-bottom:76px; }
+  .hero h1 { font-size:clamp(38px,12vw,56px);overflow-wrap:anywhere; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto !important; }
+  *,*::before,*::after { animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important; }
+  #planView.motion-plan { transform:none !important; }
+}
+/* Keep explanatory copy readable at the original scale, including variant B. */
+.eyebrow,.section-head>p,.source-note,.image-label,.media-credit,.hero-bottom,
+.explorer-top,.explorer-foot,.simple-actions button,.plan-toolbar .block-tabs button,
+.plan-scale button,.plan-scale>span,.plan-help,.legend,.variant-options button,
+.catalog-guide,.catalog-heading .eyebrow,.table-head,.filterbar label,.filterbar button,
+.floors #floorButtons button>span,.floors #floorButtons button>small,
+.detail-grid span,.detail-plan>small,.experience-copy small,.contact-section>span,
+footer>span,.visualization-caption,.inspector-note,.inspector-kicker,.privacy-note {
+  font-size:12px !important;line-height:1.6;
+}
+.plan-label.sold,.plan-label.reserved,.plan-label.negotiating{opacity:1!important}
+.plan-label text{fill:#243b36!important;font-weight:600}
+.plan-label rect{fill:#fff!important}
+@media(max-width:750px){.hero .eyebrow{letter-spacing:.08em}.hero-copy{padding-top:55px}.hero-image{object-position:65% 50%}}

@@ -1,0 +1,20 @@
+{
+  "updated": "2026-11-09",
+  "phaseVisualizationRevision": "v4",
+  "photographyDate": "2026-10-29",
+  "permitConfirmationDate": "2026-11-02",
+  "futureObjects": [
+    "SO01",
+    "SO03",
+    "SO04"
+  ],
+  "constructionDates": null,
+  "phaseNumberMapping": null,
+  "latestGalleryRevision": "v18",
+  "latestGalleryViews": [
+    "areal-v18-celek",
+    "areal-v18-shora",
+    "areal-v18-ulice"
+  ],
+  "interactiveArealRevision": "v15b-web-integration"
+}

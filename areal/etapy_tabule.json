@@ -1,0 +1,8 @@
+{
+  "_pozn": "Texty tabulí k dalším etapám. Do pole „termin“ doplnit text (např. „zahájení 2027 · dokončení 2029“), jinak se zobrazí „termín výstavby upřesníme“. Povolení: Petr Hrubý potvrdil 8. 11. 2026 vydané a pravomocné u všech tří. Termíny výstavby SO 01/03/04 nejsou známé.",
+  "SO05": { "radek1": "SO 05 · VERDE SLANÝ II", "radek2": "ve výstavbě · 48 bytů", "radek3": "dokončení 2Q 2028", "zdroj": "web verdeslany.cz, e-mail P. Hrubého 26. 10. 2026" },
+  "SO01": { "nazev": "SO 01 · BYTOVÝ DŮM", "stav": "další etapa", "povoleni": "stavební povolení vydáno · pravomocné", "termin": null },
+  "SO03": { "nazev": "SO 03 · BYTOVÝ DŮM", "stav": "další etapa", "povoleni": "stavební povolení vydáno · pravomocné", "termin": null },
+  "SO04": { "nazev": "SO 04 · BYTOVÝ DŮM", "stav": "další etapa", "povoleni": "stavební povolení vydáno · pravomocné", "termin": null },
+  "bez_terminu": "termín výstavby upřesníme"
+}
