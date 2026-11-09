@@ -4,6 +4,7 @@ export function createFloorMotion({THREE,camera,controls,groups,parts,root,onSte
   const originalMeshes=parts.map(p=>({mesh:p.mesh,visible:p.mesh.visible,castShadow:p.mesh.castShadow}));
   const originals=parts.flatMap(p=>p.materials.map(({m})=>({m,opacity:m.opacity,transparent:m.transparent,depthWrite:m.depthWrite})));
   const smooth=t=>{t=Math.min(1,Math.max(0,t));return t*t*(3-2*t)};
+  const ramp=t=>{t=Math.min(1,Math.max(0,t));return t<.5?16*t*t*t*t*t:1-Math.pow(-2*t+2,5)/2};
   let animation=null,held=false,home=null,selectedFloor=0;
   function restore(){
     for(const g of originalGroups){g.object.position.copy(g.position);g.object.visible=true}
@@ -27,7 +28,8 @@ export function createFloorMotion({THREE,camera,controls,groups,parts,root,onSte
     const v=THREE.MathUtils.degToRad(camera.fov/2);
     const topDistance=Math.max(size.z/2/Math.tan(v),size.x/2/(Math.tan(v)*camera.aspect))*1.22;
     const top=targetTop.clone().add(new THREE.Vector3(0,Math.max(44,topDistance),0));
-    animation={kind:'open',floor,start:performance.now(),camera:startPosition,target:startTarget,explodedCamera,explodedTarget,top,targetTop,topUp,phase:-1};
+    const approach=targetTop.clone().add(new THREE.Vector3(0,Math.max(18,topDistance*.58),0));
+    animation={kind:'open',floor,start:performance.now(),camera:startPosition,target:startTarget,explodedCamera,explodedTarget,top,approach,targetTop,topUp,phase:-1};
     selectedFloor=floor;controls.enabled=false;onStep('opening',floor);return true;
   }
   function close(){
@@ -48,14 +50,14 @@ export function createFloorMotion({THREE,camera,controls,groups,parts,root,onSte
       if(t>=1850){animation=null;restore();camera.up.copy(home.up);controls.enabled=true;controls.update();home=null;selectedFloor=0;onReturn()}
       return true;
     }
-    const spread=smooth(t/900),turn=smooth((t-1150)/1300),fade=smooth((t-1050)/1050);
+    const spread=smooth((t-300)/700),turn=smooth((t-1000)/1150),fade=smooth((t-1250)/950),dive=ramp((t-2150)/850);
     applyParts(a.floor,spread,fade);
-    camera.position.copy(a.camera).lerp(a.explodedCamera,spread).lerp(a.top,turn);
+    camera.position.copy(a.camera).lerp(a.explodedCamera,spread).lerp(a.top,turn).lerp(a.approach,dive);
     controls.target.copy(a.target).lerp(a.explodedTarget,spread).lerp(a.targetTop,turn);
     camera.up.set(0,1,0).lerp(a.topUp,turn).normalize();camera.lookAt(controls.target);
-    const phase=t<1150?0:t<1500?1:t<2500?2:3;
+    const phase=t<1000?0:t<2600?1:t<3250?2:3;
     if(phase!==a.phase){a.phase=phase;onStep(['opening','overhead','reveal','plan'][phase],a.floor)}
-    if(t>=3000){const floor=a.floor;animation=null;held=true;onComplete(floor)}
+    if(t>=3250){const floor=a.floor;animation=null;held=true;onComplete(floor)}
     return true;
   }
   function applyParts(floor,spread,fade){
