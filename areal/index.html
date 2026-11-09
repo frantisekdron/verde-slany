@@ -58,6 +58,7 @@
   .panel button[aria-pressed="true"], .panel button.plny { background: var(--zelena); color: var(--bila); }
   .panel button svg { flex: none; }
   .akce.etapy { grid-template-columns: 1fr; }
+  body:not(.etapy-povoleny) .akce.etapy { display: none !important; }      /* v20: přepínač „Další etapy“ jen s ?etapy=1 */
   .panel button small { font-weight: 400; font-size: 11px; opacity: .85; }
   .rust { margin-top: 10px; display: none; }
   .rust.vid { display: block; }
@@ -353,9 +354,9 @@ function nastavStin(c, r) {
   const sx = Math.round(c.x / t) * t, sz = Math.round(c.z / t) * t;
   const dir = svetloSmer;
   sun.target.position.set(sx, 0, sz);
-  sun.position.set(sx + dir.x * 150, dir.y * 150, sz + dir.z * 150);
+  sun.position.set(sx + dir.x * 240, dir.y * 240, sz + dir.z * 240);
   const cam = sun.shadow.camera;
-  if (cam.right !== r) { Object.assign(cam, { left: -r, right: r, top: r, bottom: -r, near: 20, far: 320 }); cam.updateProjectionMatrix(); }
+  if (cam.right !== r) { Object.assign(cam, { left: -r, right: r, top: r, bottom: -r, near: 5, far: 520 }); cam.updateProjectionMatrix(); }
 }
 const svetloSmer = SLUNCE.clone();
 
@@ -379,17 +380,17 @@ const U_ZEM = {
   tAsf: { value: DET.asf }, tZat: { value: DET.zat }, tDla: { value: DET.dla }, tTra: { value: DET.tra },
   uRam: { value: new THREE.Vector4(OKOLI.x0, OKOLI.x1, OKOLI.y0, OKOLI.y1) },
 };
-const U_DIRA = { value: 0 }, U_DIRA_R = { value: new THREE.Vector4(-66, 211, -133, 106) };     // díra v nekonečné zemi pod terénem dalších etap
-function zemMaterial(base, splat, dira = false, ramU = null, infra = 0) {
+const U_DIRA = { value: 0 }, U_DIRA_R = { value: new THREE.Vector4(-96, 296, -156, 146) };   // v17: terén 1 m přes celý rám (−100…300 × −160…150)     // díra v nekonečné zemi pod terénem dalších etap
+function zemMaterial(base, splat, dira = false, ramU = null, infra = 0, fix = null) {    // v18: fix = pevné váhy materiálů (3D pásy silnic)
   const m = new THREE.MeshStandardMaterial({ roughness: 0.95, metalness: 0 });
   m.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, U_ZEM, { tBase: { value: base }, tSplat: { value: splat }, uMaSplat: { value: base ? 1 : 0 }, uDiraOn: dira ? U_DIRA : { value: 0 }, uDira: U_DIRA_R });
     if (ramU) sh.uniforms.uRam = ramU;
-    sh.uniforms.uInfra = { value: infra };
+    sh.uniforms.uInfra = { value: infra }; sh.uniforms.uFix = { value: fix || new THREE.Vector4() }; sh.uniforms.uUseFix = { value: fix ? 1 : 0 };
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vW;')
       .replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\nvW = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-      varying vec3 vW; uniform sampler2D tAsf, tZat, tDla, tTra, tBase, tSplat; uniform float uMaSplat, uDiraOn, uInfra; uniform vec4 uRam, uDira;
+      varying vec3 vW; uniform sampler2D tAsf, tZat, tDla, tTra, tBase, tSplat; uniform float uMaSplat, uDiraOn, uInfra, uUseFix; uniform vec4 uRam, uDira, uFix;
       float gH, gR;
       float h21(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
       float vn(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
@@ -405,21 +406,29 @@ function zemMaterial(base, splat, dira = false, ramU = null, infra = 0) {
       vec2 uvR = vec2((p.x - uRam.x) / (uRam.y - uRam.x), (p.y - uRam.z) / (uRam.w - uRam.z));
       vec4 w = vec4(0.0, 0.0, 1.0, 0.0); vec3 base = vec3(0.0);
       if (uMaSplat > 0.5 && uvR.x > 0.0 && uvR.x < 1.0 && uvR.y > 0.0 && uvR.y < 1.0) { w = texture2D(tSplat, uvR); base = texture2D(tBase, uvR).rgb; }
+      if (uUseFix > 0.5) { w = uFix; base = vec3(0.0); }
       float rest = clamp(1.0 - (w.r + w.g + w.b + w.a), 0.0, 1.0);
       if (uInfra > 0.5) {                                          // infrastruktura: jen kde situace něco má (jinak průhledné), plán nikdy v rámu SO 05
         bool vR = uvR.x > 0.0 && uvR.x < 1.0 && uvR.y > 0.0 && uvR.y < 1.0;
-        if (uInfra > 2.5) { if (!vR || (w.r + w.g + w.a + w.b < 0.4 && dot(base, vec3(0.333)) < 0.5)) discard; }   // v8: zóna podle ortofota je neprůhledná vč. trávy
-        else if (!vR || (w.r + w.g + w.a < 0.4 && dot(base, vec3(0.333)) < 0.5)) discard;
-        if (uInfra < 1.5 && ((p.x < -5.0 && p.y > -62.0 && p.y < 56.0) || (p.x < 50.0 && p.y > -60.0 && p.y < 55.0 && p.x < 34.0 && p.y < 12.0))) discard;
+        if (uInfra > 2.5) { if (!vR || (w.r + w.g + w.a < 0.4 && dot(base, vec3(0.333)) < 0.3)) discard; }   // v16: tráva vrstvy = terén pod ní (lem trávy jen kvůli hladkému okraji)
+        else if (!vR || (w.r + w.g + w.a < 0.4 && dot(base, vec3(0.333)) < 0.3)) discard;
+        if (uInfra < 1.5 && ((p.x < -5.0 && p.y > -62.0 && p.y < 56.0) || (p.x < 50.0 && p.y > -60.0 && p.y < 55.0 && p.x < 34.0 && p.y < 12.0 && !(p.x > 14.0 && p.y < -3.0) && !(p.x > 12.0 && p.x < 17.5 && p.y < -2.5 && p.y > -3.5)))) discard;   // v18: výřez x>14, y<−3 smí kreslit i plán
       }
-      if (uMaSplat > 0.5 && uInfra < 0.5 && p.x > 14.0 && p.x < 52.0 && p.y < -3.0) discard;      // v8: tuto část okolí přebírá zóna podle ortofota (žádný šev na okraji rámu)
+      if (uMaSplat > 0.5 && uInfra < 0.5 && ((p.x > 14.0 && p.x < 52.0 && p.y < -3.0) || (p.x > 12.0 && p.x < 17.5 && p.y < -2.5 && p.y > -3.5))) discard;      // v18: + náběh cesty SO 05 → park      // v8: tuto část okolí přebírá zóna podle ortofota (žádný šev na okraji rámu)
       float mac = mix(0.84, 1.16, vn(p * 0.09) * 0.65 + vn(p * 0.31) * 0.35);
-      vec3 cA = texture2D(tAsf, p / 2.0).rgb, cZ = texture2D(tZat, p / 0.8).rgb, cD = texture2D(tDla, p / 1.2).rgb, cT = texture2D(tTra, p / 1.6).rgb;
+      vec3 cA = texture2D(tAsf, p / 2.0).rgb, cZ = texture2D(tZat, p / 0.8).rgb, cD = texture2D(tDla, p / 1.2).rgb;
+      // v18: trávník bez opakování – dvě měřítka a natočení textury, prolnutí šumem, velkoplošné variace odstínu (svěží / sušší / tmavší místa)
+      vec2 pr = mat2(0.8, -0.6, 0.6, 0.8) * p;
+      vec3 cT1 = texture2D(tTra, p / 1.6).rgb, cT2 = texture2D(tTra, pr / 3.7 + vec2(0.37, 0.11)).rgb, cT3 = texture2D(tTra, p.yx / 0.9 + vec2(0.5)).rgb;
+      float blT = smoothstep(0.2, 0.8, vn(p * 0.06 + 7.3));
+      vec3 cT = mix(mix(cT1, cT2, 0.35 + 0.45 * blT), cT3, 0.18);
+      vec3 tintT = mix(vec3(0.82, 0.92, 0.72), vec3(1.08, 1.06, 0.88), clamp(vn(p * 0.022) * 0.65 + vn(p * 0.085) * 0.35, 0.0, 1.0));
+      cT *= tintT; cT = mix(cT, cT * vec3(1.14, 1.06, 0.78), smoothstep(0.6, 0.86, vn(p * 0.04 + 3.1)) * 0.45); cT *= mix(0.9, 1.06, vn(p * 0.6));
       vec3 alb = cA * w.r * mix(0.92, 1.08, vn(p * 0.2)) + cZ * w.g * mix(0.94, 1.06, vn(p * 0.4)) + cT * w.b * mac + cD * w.a * mix(0.95, 1.05, vn(p * 0.15)) + base * rest;
       diffuseColor.rgb *= alb;
       if (uMaSplat > 0.5 && uInfra < 0.5) { float ed = min(min(p.x - uRam.x, uRam.y - p.x), min(p.y - uRam.z, uRam.w - p.y)); diffuseColor.a *= smoothstep(0.0, 8.0, ed); }
       float fade = smoothstep(60.0, 6.0, length(vViewPosition));
-      gH = (lum(cA) * 0.012 * w.r + lum(cZ) * 0.06 * w.g + lum(cT) * 0.035 * w.b + lum(cD) * 0.02 * w.a) * fade;
+      gH = (lum(cA) * 0.012 * w.r + lum(cZ) * 0.06 * w.g + (lum(cT1) * 0.05 + lum(cT3) * 0.03) * w.b + lum(cD) * 0.02 * w.a) * fade;
       gR = 0.9 * w.r + 0.93 * w.g + 1.0 * w.b + 0.8 * w.a + 0.9 * rest;`)
       .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\nroughnessFactor = gR;')
       .replace('#include <normal_fragment_maps>', '#include <normal_fragment_maps>\nnormal = zemBump(-vViewPosition, normal, vec2(dFdx(gH), dFdy(gH)), faceDirection);');
@@ -429,11 +438,11 @@ function zemMaterial(base, splat, dira = false, ramU = null, infra = 0) {
 const ground = new THREE.Mesh(new THREE.CircleGeometry(1400, 96), zemMaterial(null, null, true));
 ground.rotation.x = -Math.PI / 2; ground.position.y = -0.2; ground.receiveShadow = true;
 scene.add(ground);
-const okoliBase = tex('okoli.jpg', true, false), okoliSplat = tex('okoli_tridy.png', false, false);
+const okoliBase = tex('okoli_v20.jpg', true, false), okoliSplat = tex('okoli_tridy_v20.png', false, false);      // v20: čistý podklad okolí (priprava_v20_okoli.py), původní okoli.jpg / okoli_tridy.png beze změny
 okoliBase.wrapS = okoliBase.wrapT = okoliSplat.wrapS = okoliSplat.wrapT = THREE.ClampToEdgeWrapping;
 const okoli = new THREE.Mesh(new THREE.PlaneGeometry(OKOLI.x1 - OKOLI.x0, OKOLI.y1 - OKOLI.y0), (() => { const mm = zemMaterial(okoliBase, okoliSplat); mm.transparent = true; return mm; })());
 okoli.rotation.x = -Math.PI / 2; okoli.position.set((OKOLI.x0 + OKOLI.x1) / 2, ZEM_Y, -(OKOLI.y0 + OKOLI.y1) / 2);
-okoli.receiveShadow = true; scene.add(okoli);
+okoli.receiveShadow = true; okoli.material.polygonOffset = true; okoli.material.polygonOffsetFactor = -1; okoli.material.polygonOffsetUnits = -1; scene.add(okoli);   // v17: přednost před terénem 3 cm pod ním
 const okoliNacteno = true;
 const okoliGrp = new THREE.Group(); scene.add(okoliGrp);       // auta, stromy, lampy, cedule – mizí s podkladem u 1. PP
 
@@ -489,6 +498,18 @@ let dumRoot = null;
 let selectMotion = null, selectStats = [], pendingFloor = 0;
 const selectParts = [], selectGroups = [];
 function postSelect(message) { if (SELECT_MODE && parent !== window) parent.postMessage(message, location.origin); }
+// v17: střecha SO 05 – stejný odstín a materiál jako střechy SO 01/03/04 (#3c3f43, drsnost 0,5, kov 0,45); textura falců zůstane jen jako jemná struktura
+function ztmavStrechu(m) {
+  const cil = new THREE.Color(0x3c3f43);
+  const nastav = () => {
+    let r = 1, g = 1, b = 1;
+    try { const im = m.map && m.map.image; if (im && im.width) { const c = document.createElement('canvas'); c.width = c.height = 32; const x = c.getContext('2d'); x.drawImage(im, 0, 0, 32, 32); const d = x.getImageData(0, 0, 32, 32).data; let R = 0, G = 0, B = 0; const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; for (let i = 0; i < d.length; i += 4) { R += lin(d[i]); G += lin(d[i + 1]); B += lin(d[i + 2]); } const n = d.length / 4; r = R / n; g = G / n; b = B / n; } } catch (e) { /* bez měření */ }
+    const K = window.__strechaK || 0.58;                    // sedlová střecha SO 05 je strmější a víc nastavená slunci/obloze než ploché střechy etap → ztmavit, aby v renderu vyšla stejně (měřeno vedle sebe)
+    m.color.setRGB(Math.min(1, K * cil.r / Math.max(r, 0.02)), Math.min(1, K * cil.g / Math.max(g, 0.02)), Math.min(1, K * cil.b / Math.max(b, 0.02)));
+    m.roughness = 0.7; m.metalness = 0.2; m.needsUpdate = true;          // méně lesku: strmý svah SO 05 jinak odráží oblohu a vychází světle šedý (měřeno: svah ke slunci ~110, ploché střechy etap ~115)
+  };
+  if (m.map && m.map.image && m.map.image.width) nastav(); else setTimeout(nastav, 1500);
+}
 loader.load(MODEL, (gltf) => {
   const root = gltf.scene; dumRoot = root;
   const hotove = new Set();
@@ -502,6 +523,7 @@ loader.load(MODEL, (gltf) => {
         hotove.add(m); envReg(m);
         if (m.name === 'sklo') { m.roughness = 0.04; m.metalness = 0.1; m.userData.env0 = 1.4; m.envMapIntensity = 1.4 * envK; zarOken(m, 0.55); }
         if (m.name === 'interier') zarOken(m, 1.7);
+        if (m.name === 'strecha_035') ztmavStrechu(m);       // v17: střecha Verde II stejně tmavá jako SO 01/03/04 (Franta 9. 11.)
         if (m.name && m.name.startsWith('beton')) m.side = THREE.DoubleSide;
         if (m.name === 'zabradli_vypln') {                    // výplň zábradlí balkonů (Franta 4. 11.: „vypadá jako bez zábradlí“)
           m.transparent = true; m.opacity = 0.55; m.depthWrite = false; m.side = THREE.DoubleSide;
@@ -548,15 +570,16 @@ for (const [u0, u1, v0, v1] of DUM_BOXY) kolizeDum.push({ c: uvW((u0 + u1) / 2, 
 
 // ---------------------------------------------------------------- okolí jako 3D: auta, stromy, lampy (okoli/prohlizec_okoli.py)
 const kolizeAuta = [], kolizeKruhy = [];
+let MOB = null;
 const LAMPY = [];
 fetch('okoli_objekty.json').then((r) => r.json()).then(async (OBJ) => {
   OBJ.stromy = (OBJ.stromy || []).filter((s) => s.x > -70 && s.x < 50 && s.y > -60 && s.y < 55);
   try { const ex = await fetch(('auta_extra.json' + BUST)).then((r) => r.json()); for (let i = 0; i < 80 && !etapyZem; i++) await new Promise((r) => setTimeout(r, 100));
     try { const ep = await fetch(('auta_etapy.json' + BUST)).then((r) => r.json()); OBJ.auta = OBJ.auta.concat(ep.map((a) => Object.assign({}, a, { extra: true, z: vyskaZem(a.x, a.y) + 0.03 }))); } catch (e) { /* bez aut dalších etap */ }   // v15: auta na stáních dalších etap (jen při zapnutých etapách)
     try { const ox = await fetch(('okoli_extra.json' + BUST)).then((r) => r.json());          // v11: lampy a stromy podél ulic a parkovišť (ve stylu SO 05)
-      for (const k of (ox.kere || [])) OBJ.stromy.push({ x: k.x, y: k.y, h: 1.1 + k.r * 1.7, rot: k.g * 6.28, z0: vyskaZem(k.x, k.y) });   // v13: keře = stejný model/textury jako stromy SO 05 v menším měřítku
+      for (const k of (ox.kere || [])) OBJ.stromy.push({ x: k.x, y: k.y, h: 1.1 + k.r * 1.7, rot: k.g * 6.28, z0: vyskaZem(k.x, k.y), etapy: !!k.etapy });   // v13: keře = stejný model/textury jako stromy SO 05 v menším měřítku
       for (const t of ox.stromy) OBJ.stromy.push(Object.assign({}, t, { z0: vyskaZem(t.x, t.y) }));
-      for (const l of ox.lampy) OBJ.lampy.push({ x: l.x, y: l.y, z0: vyskaZem(l.x, l.y), h: vyskaZem(l.x, l.y) + l.hr }); } catch (e) { /* bez doplněných lamp a stromů */ }
+      MOB = ox; for (const l of ox.lampy) OBJ.lampy.push({ x: l.x, y: l.y, z0: vyskaZem(l.x, l.y), h: vyskaZem(l.x, l.y) + l.hr, etapy: !!l.etapy }); } catch (e) { /* bez doplněných lamp a stromů */ }
     OBJ.auta = OBJ.auta.concat(ex.map((a) => Object.assign({}, a, { extra: true, z: vyskaZem(a.x, a.y) + 0.03 }))); } catch (e) { /* bez doplněných aut */ }
   // auta – šablony karoserií, lak podle auta (klarlak, odlesky oblohy)
   loader.load('auta-glb.webm', (g) => {
@@ -617,21 +640,22 @@ fetch('okoli_objekty.json').then((r) => r.json()).then(async (OBJ) => {
     });
     const k = new THREE.Mesh(kartaGeo, mS); k.scale.set(W * s, W * s, 1); k.rotation.x = -Math.PI / 2; k.position.y = 0.6 * t.h;
     k.castShadow = true; gr.add(k);
-    okoliGrp.add(gr);
-    const bl = blob(2.6 * s, 2.6 * s, 0.35); bl.position.set(gr.position.x, g0 + 0.01, gr.position.z); okoliGrp.add(bl);
-    kolizeKruhy.push({ x: gr.position.x, z: gr.position.z, r: 0.3 });
+    const GG = t.etapy ? etapyGrp : okoliGrp; GG.add(gr);
+    const bl = blob(2.6 * s, 2.6 * s, 0.35); bl.position.set(gr.position.x, g0 + 0.01, gr.position.z); GG.add(bl);
+    if (!t.etapy) kolizeKruhy.push({ x: gr.position.x, z: gr.position.z, r: 0.3 });
   }
   // lampy veřejného osvětlení: sloup, rameno, svítidlo; v noci světelná skvrna na zemi
   const mSloup = envReg(new THREE.MeshStandardMaterial({ color: 0x3a3f43, metalness: 0.6, roughness: 0.45 }));
   for (const l of OBJ.lampy) {
     const G0 = l.z0 !== undefined ? l.z0 : ZEM_Y; const p = xyW(l.x, l.y, G0); const h = Math.max(4, l.h - G0);
-    const sl = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.075, h, 12), mSloup); sl.position.set(p.x, G0 + h / 2, p.z); sl.castShadow = true; okoliGrp.add(sl);
+    const sl = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.075, h, 12), mSloup); sl.position.set(p.x, G0 + h / 2, p.z); sl.castShadow = true; const GL = l.etapy ? etapyGrp : okoliGrp; GL.add(sl);
     const mH = new THREE.MeshStandardMaterial({ color: 0x2b2f33, emissive: 0xffd9a0, emissiveIntensity: 0, roughness: 0.4 });
-    const hl = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.1, 0.24), mH); hl.position.set(p.x, G0 + h, p.z); hl.castShadow = true; okoliGrp.add(hl);
-    const pool = svetelnaSkvrna(7.5, 0xffc98a); pool.position.set(p.x, G0 + 0.03, p.z); okoliGrp.add(pool);
+    const hl = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.1, 0.24), mH); hl.position.set(p.x, G0 + h, p.z); hl.castShadow = true; GL.add(hl);
+    const pool = svetelnaSkvrna(7.5, 0xffc98a); pool.position.set(p.x, G0 + 0.03, p.z); GL.add(pool);
     LAMPY.push({ mH, pool, prah: Math.random() * 0.4 });
-    kolizeKruhy.push({ x: p.x, z: p.z, r: 0.2 });
+    if (!l.etapy) kolizeKruhy.push({ x: p.x, z: p.z, r: 0.2 });
   }
+  if (MOB) postavMobiliar(MOB);
   aplikujNoc(noc);
 }).catch((e) => console.warn('okolí 3D', e));
 
@@ -1155,14 +1179,19 @@ const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const promit = new THREE.Vector3();
 // ---------------------------------------------------------------- další etapy (SO 01 / SO 03 / SO 04): poloprůhledné hmoty, přepínač, tabule
 // Soubory: etapy-glb.webm (GLB, Draco), etapy_zem.json (terén pod domy), etapy_domy.json (kotvy tabulí, křídla), etapy_tabule.json (TEXTY A TERMÍNY – doplnit sem).
-const ETAPY_GLB = params.get('etapy') || 'etapy-glb.webm';
+// v20 (Franta 9. 11.): etapy VERDE III a IV (SO 03 + 04, SO 01) a jejich infrastruktura se zatím NEUKAZUJÍ – přepínač „Další etapy“ je skrytý a model je beze zbytku ve stavu „dnes“.
+// Kód a data etap zůstávají; zapnou se parametrem ?etapy=1 (nebo ?etapy=soubor.glb pro jiný model; ladění ?zapnout=etapy také odemkne přepínač).
+const ETAPY_PARAM = params.get('etapy');
+const ETAPY_POVOLENY = (ETAPY_PARAM !== null && ETAPY_PARAM !== '0' && ETAPY_PARAM !== 'false') || params.get('zapnout') === 'etapy';
+if (ETAPY_POVOLENY) document.body.classList.add('etapy-povoleny');
+const ETAPY_GLB = (ETAPY_PARAM && !/^(1|true|ano)$/i.test(ETAPY_PARAM) && ETAPY_PARAM !== '0') ? ETAPY_PARAM : 'etapy-glb.webm';
 const ETAPY_OP = 1.0, ETAPY_HRANA = 0.0, ETAPY_TRVANI = 0.8;   // Franta 8. 11.: bez průhlednosti – projekt normálně naskočí              // neprůhlednost hmot, hran a doba plynulého objevení (s)
 const etapyGrp = new THREE.Group(); etapyGrp.visible = false; scene.add(etapyGrp);
 const etapyMat = [], etapyHrany = [], etapyTab = [];
 let etapyT = 0, etapyCil = 0, etapyZem = null, etapyTeren = null, etapyDomy = null;
 const btnEtapy = document.getElementById('btnEtapy');
 function vyskaZem(x, y) {
-  if (x > -70 && x < 50 && y > -60 && y < 55) return ZEM_Y;                                      // výška terénu dalších etap (bilineárně z etapy_zem.json)
+  if (x > -70 && x < 50 && y > -60 && y < 55 && !(x > 14 && x < 52 && y < -3)) return ZEM_Y;     // podklad SO 05 (plochý); ve výřezu, kde kreslí zóna, platí terén (v17)
   if (!etapyZem) return ZEM_Y;
   const Z = etapyZem, fx = (x - Z.x0) / Z.res, fy = (y - Z.y0) / Z.res;
   const i = Math.floor(fx), j = Math.floor(fy);
@@ -1171,6 +1200,17 @@ function vyskaZem(x, y) {
   return (a * (1 - tx) + b * tx) * (1 - ty) + (c * (1 - tx) + d * tx) * ty;
 }
 
+// v16: výška přesně na trojúhelnících sítě terénu (etapyTeren: a,b,c / b,d,c) – vrstvy ploch a obrubníky nikdy pod trávou (dříve bilineárně → terén místy prorážel šikmým pruhem)
+function vyskaTer(x, y) {
+  if (!etapyZem) return ZEM_Y;
+  const Z = etapyZem, fx = (x - Z.x0) / Z.res, fy = (y - Z.y0) / Z.res, i = Math.floor(fx), j = Math.floor(fy);
+  if (i < 0 || j < 0 || i >= Z.nx - 1 || j >= Z.ny - 1) return ZEM_Y;
+  const hv = (ii, jj) => { const X = Z.x0 + ii * Z.res, Y = Z.y0 + jj * Z.res; return (X > -70 && X < 50 && Y > -60 && Y < 55 && !(X > 14 && X < 52 && Y < -3)) ? ZEM_Y : Z.h[jj * Z.nx + ii]; };   // stejné výšky vrcholů jako síť terénu
+  const tx = fx - i, ty = fy - j, a = hv(i, j), b = hv(i + 1, j), c = hv(i, j + 1), d = hv(i + 1, j + 1);
+  return tx + ty <= 1 ? a + (b - a) * tx + (c - a) * ty : d + (c - d) * (1 - tx) + (b - d) * (1 - ty);
+}
+// plochy a obrubníky: mimo otvor v nekonečné zemi (okraj terénu) nikdy pod úrovní nekonečné země (−0,2)
+function vyskaPlochy(x, y) { const h = vyskaTer(x, y); const R = U_DIRA_R.value; return (x > R.x && x < R.y && y > R.z && y < R.w) ? h : Math.max(h, -0.2); }
 // ---------------------------------------------------------------- infrastruktura dalších etap (plán) + hlavní ulice U Benaru (vždy)
 const INFRA = { ram: new THREE.Vector4(-80, 262, -140, 110) };
 const U_INFRA_RAM = { value: INFRA.ram };
@@ -1179,22 +1219,132 @@ const infraSplat = (u) => { const t = tex(u, false, false); t.wrapS = t.wrapT = 
 let infraPlan = null, infraUlice = null, infraZona = null;
 function infraMesh(splatUrl, baseUrl, mode, ramV) {
   const m = zemMaterial(infraBase(baseUrl), infraSplat(splatUrl), false, ramV ? { value: ramV } : U_INFRA_RAM, mode);
-  m.polygonOffset = true; m.polygonOffsetFactor = mode === 3 ? -3 : -2; m.polygonOffsetUnits = mode === 3 ? -3 : -2;
+  m.polygonOffset = true; m.polygonOffsetFactor = mode === 1 ? -4 : -3; m.polygonOffsetUnits = mode === 1 ? -4 : -3;     // v16: plán etap nad zónou (překryje ústí a hrany stavu)
   m.transparent = true; m.opacity = mode >= 2 ? 1 : 0;
-  const R = ramV || INFRA.ram, st = mode === 3 ? 2.0 : 1.5, nx = Math.round((R.y - R.x) / st), ny = Math.round((R.w - R.z) / st);
+  const R = ramV || INFRA.ram, st = 1.0, nx = Math.round((R.y - R.x) / st), ny = Math.round((R.w - R.z) / st);     // v16: mřížka 1 m – plochy přesně na terénu
   const pos = [], idx = [];
-  for (let j = 0; j <= ny; j++) for (let i = 0; i <= nx; i++) { const X = R.x + i * st, Y = R.z + j * st; pos.push(X, (mode === 3 ? vyskaZem(X, Y) : Math.max(vyskaZem(X, Y), -3)) + 0.05, -Y); }
+  for (let j = 0; j <= ny; j++) for (let i = 0; i <= nx; i++) { const X = R.x + i * st, Y = R.z + j * st; pos.push(X, vyskaPlochy(X, Y) + 0.01, -Y); }      // v16: bez ořezu na −3 m (plán ve dvoře SO 01 plaval nad terénem)
   for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const a = j * (nx + 1) + i, b = a + 1, c = a + nx + 1, d = c + 1; idx.push(a, b, c, b, d, c); }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
-  const me = new THREE.Mesh(g, m); me.receiveShadow = true; me.renderOrder = mode === 3 ? 3 : 2; return me;
+  const me = new THREE.Mesh(g, m); me.receiveShadow = true; me.renderOrder = mode === 1 ? 4 : 3; return me;
+}
+// v16: 3D obrubníky (0,15 × 0,12 m, beton jako obrubník SO 05) podél všech hran asfalt/dlažba × tráva a silnice × chodník; výška z terénu
+const OBRUB = {};
+function postavObrubniky(D) {
+  const mat = envReg(new THREE.MeshStandardMaterial({ color: 0xbab7af, roughness: 0.82, metalness: 0, polygonOffset: true, polygonOffsetFactor: -6, polygonOffsetUnits: -6 }));   // přednost před plochými vrstvami i při šikmém pohledu
+  const hw = (D.sirka || 0.15) / 2, top = D.vyska || 0.12, bot = -0.09;
+  const mk = (lines) => {
+    const P = [], N = [], I = [];
+    const quad = (a, b, c, d, n) => { const o = P.length / 3; P.push(...a, ...b, ...c, ...d); for (let k = 0; k < 4; k++) N.push(...n); I.push(o, o + 1, o + 2, o, o + 2, o + 3); };
+    for (const L0 of lines) {
+      const L = [];                                                  // převzorkovat po ≤ 0,5 m (výška z terénu)
+      for (let i = 0; i < L0.length - 1; i++) { const [ax, ay] = L0[i], [bx, by] = L0[i + 1]; const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 0.5)); for (let k = 0; k < n; k++) L.push([ax + (bx - ax) * k / n, ay + (by - ay) * k / n]); }
+      L.push(L0[L0.length - 1]); if (L.length < 2) continue;
+      const S = L.map((p, i) => {
+        const a = L[Math.max(i - 1, 0)], b = L[Math.min(i + 1, L.length - 1)]; let tx = b[0] - a[0], ty = b[1] - a[1]; const l = Math.hypot(tx, ty) || 1; tx /= l; ty /= l;
+        const h = vyskaPlochy(p[0], p[1]) + 0.01; return { x: p[0], y: p[1], nx: -ty, ny: tx, h };
+      });
+      const V = (s, side, z) => [s.x + s.nx * hw * side, s.h + z, -(s.y + s.ny * hw * side)];
+      for (let i = 0; i < S.length - 1; i++) {
+        const a = S[i], b = S[i + 1];
+        quad(V(a, -1, top), V(b, -1, top), V(b, 1, top), V(a, 1, top), [0, 1, 0]);
+        quad(V(a, 1, bot), V(a, 1, top), V(b, 1, top), V(b, 1, bot), [a.nx, 0, -a.ny]);
+        quad(V(b, -1, bot), V(b, -1, top), V(a, -1, top), V(a, -1, bot), [-a.nx, 0, a.ny]);
+      }
+      for (const [s, sg] of [[S[0], -1], [S[S.length - 1], 1]]) { const tx = s.ny, ty = -s.nx; quad(V(s, -1, bot), V(s, -1, top), V(s, 1, top), V(s, 1, bot), [tx * sg, 0, -ty * sg]); }
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('normal', new THREE.Float32BufferAttribute(N, 3)); g.setIndex(I);
+    const m = new THREE.Mesh(g, mat); m.material.side = THREE.DoubleSide; m.receiveShadow = true; m.castShadow = false; return m;
+  };
+  OBRUB.vzdy = mk(D.vzdy || []); scene.add(OBRUB.vzdy);
+  OBRUB.bez = mk(D.bez_etap || []); scene.add(OBRUB.bez);
+  OBRUB.etapy = mk(D.etapy || []); etapyGrp.add(OBRUB.etapy);
+}
+// ---------------------------------------------------------------- v18: silnice jako 3D pásy z vyhlazené osy (konstantní šířka, čisté okraje), vodorovné značení jako geometrie, trsy trávy, mobiliář
+const V18 = {};
+function pasy(lines, mat, dz, offset) {             // lines: [{w, p:[[x,y]...]}] → ploché pásy na terénu (příčně vodorovné: výška ze středu)
+  const P = [], I = [];
+  for (const L of lines) {
+    const p = L.p; if (p.length < 2) continue; const o = P.length / 3;
+    for (let i = 0; i < p.length; i++) {
+      const a = p[Math.max(i - 1, 0)], b = p[Math.min(i + 1, p.length - 1)]; let tx = b[0] - a[0], ty = b[1] - a[1]; const l = Math.hypot(tx, ty) || 1; tx /= l; ty /= l;
+      const h = vyskaPlochy(p[i][0], p[i][1]) + dz, hw = L.w / 2;
+      P.push(p[i][0] - ty * hw, h, -(p[i][1] + tx * hw), p[i][0] + ty * hw, h, -(p[i][1] - tx * hw));
+      if (i) { const k = o + 2 * i; I.push(k - 2, k - 1, k, k - 1, k + 1, k); }
+    }
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setIndex(I); g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat); m.receiveShadow = true; m.renderOrder = 5; return m;
+}
+function polyMesh(polys, mat, dz) {
+  const P = [], I = [];
+  for (const q of polys) { const o = P.length / 3; for (const [x, y] of q) P.push(x, vyskaPlochy(x, y) + dz, -y); for (let i = 1; i < q.length - 1; i++) I.push(o, o + i + 1, o + i); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setIndex(I); g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat); m.receiveShadow = true; m.renderOrder = 6; return m;
+}
+function postavSilnice(D) {
+  const mat = zemMaterial(null, null, false, null, 0, new THREE.Vector4(1, 0, 0, 0)); mat.polygonOffset = true; mat.polygonOffsetFactor = -5; mat.polygonOffsetUnits = -5;
+  V18.silnice = pasy(D.vzdy, mat, 0.012); scene.add(V18.silnice);
+  etapyGrp.add(pasy(D.etapy, mat, 0.012));
+}
+function postavZnaceni18(D) {
+  const mat = envReg(new THREE.MeshStandardMaterial({ color: 0xf1f1ec, roughness: 0.55, metalness: 0, polygonOffset: true, polygonOffsetFactor: -7, polygonOffsetUnits: -7 }));
+  const grp = (G) => { const g = new THREE.Group(); g.add(pasy(G.cary, mat, 0.022)); if (G.poly.length) g.add(polyMesh(G.poly, mat, 0.022)); return g; };
+  V18.znac = grp(D.vzdy); scene.add(V18.znac); V18.znacBez = grp(D.bez_etap); scene.add(V18.znacBez); etapyGrp.add(grp(D.etapy));
+}
+function postavTravu(D) {
+  const b = atob(D.xy), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); const xy = new Int16Array(u.buffer);
+  const c = document.createElement('canvas'); c.width = 128; c.height = 128; const x = c.getContext('2d');
+  for (let i = 0; i < 70; i++) {                       // stébla: tenké zahnuté klíny, různé odstíny zelené
+    const bx = 8 + Math.random() * 112, hh = 60 + Math.random() * 66, lean = (Math.random() - 0.5) * 30, wd = 1.5 + Math.random() * 2.2;
+    const g = 150 + Math.random() * 80; x.fillStyle = `rgb(${Math.round(g * 0.62)},${Math.round(g)},${Math.round(g * 0.36)})`;
+    x.beginPath(); x.moveTo(bx - wd, 128); x.quadraticCurveTo(bx + lean * 0.3, 128 - hh * 0.6, bx + lean, 128 - hh); x.quadraticCurveTo(bx + lean * 0.3 + wd * 0.4, 128 - hh * 0.6, bx + wd, 128); x.fill();
+  }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const geo = new THREE.BufferGeometry(); const P = [], N = [], UV = [], I = [];
+  for (let k = 0; k < 3; k++) { const a = k * Math.PI / 3, ca = Math.cos(a) * 0.24, sa = Math.sin(a) * 0.24, o = P.length / 3;
+    P.push(-ca, 0, -sa, ca, 0, sa, ca, 0.3, sa, -ca, 0.3, -sa); for (let j = 0; j < 4; j++) N.push(0, 1, 0); UV.push(0, 0, 1, 0, 1, 1, 0, 1); I.push(o, o + 1, o + 2, o, o + 2, o + 3, o, o + 2, o + 1, o, o + 3, o + 2); }   // obě strany jako přední (normála nahoru → stébla nikdy tmavá)
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); geo.setAttribute('normal', new THREE.Float32BufferAttribute(N, 3)); geo.setAttribute('uv', new THREE.Float32BufferAttribute(UV, 2)); geo.setIndex(I);
+  const mat = new THREE.MeshLambertMaterial({ map: t, alphaTest: 0.5, side: THREE.FrontSide, color: new THREE.Color().setRGB(1.05, 1.1, 0.95) });
+  const n = D.n, im = new THREE.InstancedMesh(geo, mat, n), M = new THREE.Matrix4(), Q = new THREE.Quaternion(), V = new THREE.Vector3(), S = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
+  for (let i = 0; i < n; i++) { const X = xy[2 * i] / 10, Yy = xy[2 * i + 1] / 10, sc = 0.45 + Math.random() * 0.45; Q.setFromAxisAngle(Y, Math.random() * 6.28); S.set(sc, sc * (0.7 + Math.random() * 0.6), sc); M.compose(V.set(X, vyskaPlochy(X, Yy) - 0.02, -Yy), Q, S); im.setMatrixAt(i, M); }
+  im.receiveShadow = true; okoliGrp.add(im); V18.trava = im;
+}
+function postavMobiliar(D) {                        // lavičky (dřevo + tmavý kov), koše, stojany na kola – jednotný styl, instancované
+  const mDrevo = envReg(new THREE.MeshStandardMaterial({ color: 0x8a6646, roughness: 0.72 })), mKov = envReg(new THREE.MeshStandardMaterial({ color: 0x3a3f43, roughness: 0.45, metalness: 0.6 }));
+  const B = (w, h, d, x, y, z, m, rx = 0) => ({ g: new THREE.BoxGeometry(w, h, d), m, M: new THREE.Matrix4().compose(new THREE.Vector3(x, y, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(rx, 0, 0)), new THREE.Vector3(1, 1, 1)) });
+  const C = (r, h, x, y, z, m, seg = 16) => ({ g: new THREE.CylinderGeometry(r, r, h, seg), m, M: new THREE.Matrix4().makeTranslation(x, y, z) });
+  const lavicka = [B(0.06, 0.44, 0.5, -0.8, 0.22, 0, mKov), B(0.06, 0.44, 0.5, 0.8, 0.22, 0, mKov), B(0.05, 0.42, 0.05, -0.8, 0.66, -0.25, mKov, -0.15), B(0.05, 0.42, 0.05, 0.8, 0.66, -0.25, mKov, -0.15),
+    B(1.8, 0.04, 0.12, 0, 0.46, -0.15, mDrevo), B(1.8, 0.04, 0.12, 0, 0.46, 0, mDrevo), B(1.8, 0.04, 0.12, 0, 0.46, 0.15, mDrevo), B(1.8, 0.11, 0.035, 0, 0.66, -0.27, mDrevo, -0.15), B(1.8, 0.11, 0.035, 0, 0.82, -0.29, mDrevo, -0.15)];
+  const kos = [C(0.22, 0.78, 0, 0.39, 0, mKov), C(0.245, 0.05, 0, 0.8, 0, mKov), C(0.03, 0.1, 0, 0.87, 0, mKov, 8)];
+  const oblouk = (x) => { const g = new THREE.TorusGeometry(0.3, 0.024, 8, 16, Math.PI); return { g, m: mKov, M: new THREE.Matrix4().makeTranslation(x, 0.5, 0) }; };
+  const stojan = [];
+  for (const z of [-0.8, 0, 0.8]) { const t = oblouk(0); t.M = new THREE.Matrix4().makeRotationY(Math.PI / 2).premultiply(new THREE.Matrix4().makeTranslation(0, 0.5, z)); stojan.push(t);
+    for (const sx of [-0.3, 0.3]) { const c = C(0.024, 0.5, 0, 0.25, z + sx, mKov, 8); stojan.push(c); } }
+  const osad = (list, parts) => {
+    for (const et of [false, true]) {
+      const L = list.filter((o) => !!o.etapy === et); if (!L.length) continue;
+      for (const pt of parts) {
+        const im = new THREE.InstancedMesh(pt.g, pt.m, L.length), M = new THREE.Matrix4(), Q = new THREE.Quaternion(), Yax = new THREE.Vector3(0, 1, 0);
+        L.forEach((o, i) => { const a = o.uhel * DEG; Q.setFromAxisAngle(Yax, Math.atan2(Math.cos(a), -Math.sin(a))); M.compose(new THREE.Vector3(o.x, vyskaPlochy(o.x, o.y) - 0.02, -o.y), Q, new THREE.Vector3(1, 1, 1)).multiply(pt.M); im.setMatrixAt(i, M); });
+        im.castShadow = true; im.receiveShadow = true; (et ? etapyGrp : okoliGrp).add(im);
+      }
+    }
+  };
+  osad(D.lavicky || [], lavicka); osad(D.kose || [], kos); osad(D.stojany || [], stojan);
 }
 function postavInfra() {
   if (infraPlan || !etapyZem) return;
-  infraUlice = infraMesh(('etapy_infra_ulice.png' + BUST), ('etapy_infra_ulice_base.png' + BUST), 2); scene.add(infraUlice);
-  infraZona = infraMesh(('etapy_zona.png' + BUST), ('etapy_zona_base.png' + BUST), 3, new THREE.Vector4(-60, 200, -125, 30)); scene.add(infraZona);   // v8: zóna Verde 1 + BB + ulice podle ortofota 0309
+  // v16: jedna vrstva stavu přes celý rám (dřívější etapy_infra_ulice se už nepoužívá), 0,1 m/px, generuje priprava_v16.py
+  infraZona = infraMesh(('etapy_zona.png' + BUST), ('etapy_zona_base.png' + BUST), 3, new THREE.Vector4(-80, 262, -140, 110)); scene.add(infraZona);
+  fetch('etapy_obrubniky.json' + BUST).then((r) => r.json()).then(postavObrubniky).catch((e) => console.warn('obrubníky', e));
+  fetch('v18_silnice.json' + BUST).then((r) => r.json()).then(postavSilnice).catch((e) => console.warn('silnice', e));
+  fetch('v18_znaceni.json' + BUST).then((r) => r.json()).then(postavZnaceni18).catch((e) => console.warn('značení', e));
+  fetch('v18_trava.json' + BUST).then((r) => r.json()).then(postavTravu).catch((e) => console.warn('tráva', e));
   infraPlan = infraMesh(('etapy_infra_plan.png' + BUST), ('etapy_infra_plan_base.png' + BUST), 1); etapyGrp.add(infraPlan);
 }
 fetch(('etapy_zem.json' + BUST)).then((r) => r.json()).then((Z) => {
+  if (Z.h16) { const b = atob(Z.h16), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); const i16 = new Int16Array(u.buffer); Z.h = new Float32Array(i16.length); for (let i = 0; i < i16.length; i++) Z.h[i] = i16[i] / 100; }   // v17: výšky v cm (int16)
   etapyZem = Z;
   const pos = [], idx = [], O = Z.okoli;
   for (let j = 0; j < Z.ny; j++) for (let i = 0; i < Z.nx; i++) pos.push(Z.x0 + i * Z.res, vyskaZem(Z.x0 + i * Z.res, Z.y0 + j * Z.res), -(Z.y0 + j * Z.res));
@@ -1204,7 +1354,7 @@ fetch(('etapy_zem.json' + BUST)).then((r) => r.json()).then((Z) => {
     idx.push(a, b, c, b, d, c);
   }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
-  etapyTeren = new THREE.Mesh(g, zemMaterial(null, null)); etapyTeren.receiveShadow = true; etapyTeren.visible = false; etapyTeren.position.y = -0.1; /* pod podkladem okolí, aby se na styku nelepily plochy */ scene.add(etapyTeren);
+  etapyTeren = new THREE.Mesh(g, zemMaterial(null, null)); etapyTeren.receiveShadow = true; etapyTeren.visible = false; etapyTeren.position.y = -0.03; /* v17: jen 3 cm pod plochami (dřív 10 cm → plochy „plavaly“); podklad okolí má přednost přes polygonOffset */ scene.add(etapyTeren);
   postavTabule(); postavInfra();
 });
 loader.load(ETAPY_GLB, (gltf) => {
@@ -1214,6 +1364,7 @@ loader.load(ETAPY_GLB, (gltf) => {
     if (!o.isMesh) return;
     const m = o.material.clone(); o.material = m; envReg(m);
     m.transparent = true; m.depthWrite = false; m.opacity = 0; m.userData.op = (m.name === 'sklo') ? 0.8 : ETAPY_OP;
+    m.shadowSide = THREE.DoubleSide;                           // v16b: stín domů etap plný (jednostranné stěny propouštěly ve stínové mapě světlo → světlejší/tmavší pruhy přes parkoviště SO 04)
     o.castShadow = true; o.receiveShadow = true; etapyMat.push(m);
     if (hrany.has(m.name)) {                                    // světlá hrana hmot
       const l = new THREE.LineSegments(new THREE.EdgesGeometry(o.geometry, 28), new THREE.LineBasicMaterial({ color: 0xf1f6f4, transparent: true, opacity: 0, depthWrite: false }));
@@ -1250,7 +1401,7 @@ async function postavTabule() {
     const p = xyW(d.x, d.y, vyskaZem(d.x, d.y));
     mk(p, [t.nazev, t.stav, t.povoleni, t.termin || T.bez_terminu], id);
   }
-  const s5 = T.SO05; if (s5) mk(uvW(38, 3, ZEM_Y), [s5.radek1, s5.radek2, s5.radek3, ''], 'SO05');
+  const s5 = T.SO05; if (s5) mk(uvW(12.5, 10.0, ZEM_Y), [s5.radek1, s5.radek2, s5.radek3, ''], 'SO05')      /* v20b: cedule u chodníku k hlavnímu vchodu (západní fasáda, dveře JZ u 4,29), ne na trávníku u jižního nároží */;
   // kolize chůze s novými domy (jen když jsou zobrazené)
   window.__etapyKolize = [];
   for (const id of ['SO01', 'SO03', 'SO04']) for (const w of etapyDomy[id].kridla) {
@@ -1265,7 +1416,7 @@ btnEtapy.addEventListener('click', () => {
 // ladicí/náhledové parametry: ?kamera=etapy (přehledový pohled na všechny etapy), ?zapnout=etapy (přepínač zapnutý po načtení)
 if (/^-?[\d.]+(,-?[\d.]+){5}$/.test(params.get('kamera') || '')) { const q = params.get('kamera').split(',').map(Number); camera.position.set(q[0], q[1], q[2]); controls.target.set(q[3], q[4], q[5]); controls.update(); }
 if (params.get('kamera') === 'etapy') { camera.position.set(-85, 110, 100); controls.target.set(62, -3, -22); controls.update(); }
-if (params.get('zapnout') === 'etapy') { btnEtapy.click(); if (params.get('bezui') === '1') etapyT = 1; }
+if (ETAPY_POVOLENY) { btnEtapy.click(); if (params.get('bezui') === '1') etapyT = 1; }      // v20: s ?etapy=1 (nebo ?zapnout=etapy) se etapy po načtení rovnou zobrazí a přepínač je k dispozici
 window.__etapy = { look(C, T, f = 2000, W = 3072, H = 2048) { const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]], nrm = (v) => { const l = Math.hypot(...v); return v.map((x) => x / l); }, cr = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
     const fw = nrm(sub(T, C)), rt = nrm(cr(fw, [0, 0, 1])), dn = cr(fw, rt); this.setCV([rt, dn, fw], C, f, W, H); }, grp: etapyGrp, tab: etapyTab, THREE, camera, controls, scene, renderer, stavGrp: () => stavGrp, etapyGrp, setCV(R, C, f, W, H) {
   const T = (v) => new THREE.Vector3(v[0], v[2], -v[1]);
@@ -1279,6 +1430,8 @@ function etapyTick(dt) {
   const e = etapyT * etapyT * (3 - 2 * etapyT);
   if (infraUlice) infraUlice.visible = okoli.visible && ground.position.y > -1;
   if (infraZona) infraZona.visible = okoli.visible && ground.position.y > -1;
+  if (OBRUB.vzdy) OBRUB.vzdy.visible = infraZona.visible; if (OBRUB.bez) OBRUB.bez.visible = infraZona.visible && etapyT < 0.5;
+  for (const k of ['silnice', 'znac']) if (V18[k]) V18[k].visible = infraZona.visible; if (V18.znacBez) V18.znacBez.visible = infraZona.visible && etapyT < 0.5;
   const zemVid = okoli.visible && ground.position.y > -1;                // terén kolem a stávající domy BB / SO 07: vždy (stav skutečnosti)
   if (etapyTeren) etapyTeren.visible = zemVid; U_DIRA.value = zemVid && etapyTeren ? 1 : 0; stavGrp.visible = zemVid;
   const vid = e > 0.001 && okoli.visible && stav !== 'chuze';
@@ -1560,7 +1713,7 @@ renderer.setAnimationLoop(() => {
     vstupBtn.classList.toggle('vid', !!blizkeDvere);
   }
   // stíny: v nadhledu celé okolí, při chůzi ostřeji kolem hráče
-  if (stav === 'chuze') nastavStin(hrac.p, 34); else nastavStin(STIN_ORBIT.c, STIN_ORBIT.r);
+  if (stav === 'chuze') nastavStin(hrac.p, 34); else if (etapyGrp.visible || stavGrp.visible) { const rr = Math.min(176, Math.max(64, Math.ceil(camera.position.distanceTo(controls.target) * 1.05 / 16) * 16)); nastavStin(controls.target, rr); } else nastavStin(STIN_ORBIT.c, STIN_ORBIT.r);   // v16b: stínová kamera kryje celý viditelný areál (dřív jen 64 m kolem SO 05 → stíny domů etap uřízlé rovnými hranami = tmavé pruhy)
   // pulz značek u dveří
   const tt = hodiny.elapsedTime;
   for (const d of DVERE) if (d.kruh) { const s = 1 + Math.sin(tt * 2.4) * 0.06; d.kruh.scale.set(s, s, 1); d.pap.material.opacity = 0.22 + 0.1 * Math.sin(tt * 2.4) + 0.2 * U_NOC.value; }

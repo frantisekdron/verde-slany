@@ -5,3 +5,5 @@
 body.select-mode .model-close,body.select-mode .model-note{display:none!important}
 /* The page already has its own close control; keep the tour toolbar unobstructed. */
 body:has(#byt:not(.skryt)) .model-close{display:none}
+
+body.bezui .model-close,body.bezui .model-note,body.bezui .model-error-link{display:none!important}

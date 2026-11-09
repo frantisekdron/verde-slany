@@ -1,0 +1,175 @@
+{
+  "revision": "v20b",
+  "integrated": "2026-11-10",
+  "sourceUpdated": "2026-11-09 21:58 Europe/Prague",
+  "sourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023",
+  "assets": [
+    {
+      "file": "auta-glb.webm",
+      "sha256": "b1f0e49c4f2f02c02158119fb5faa51e22f8f1d9ee7e52db07483cb044336e48",
+      "bytes": 296388
+    },
+    {
+      "file": "auta_etapy.json",
+      "sha256": "13aaea9ff4c254d60d54ddeeb4ca6f31b0aae064250cabc7cd48e166f1fe26a3",
+      "bytes": 7444
+    },
+    {
+      "file": "auta_extra.json",
+      "sha256": "00340fe9aa3e7a57f81d856c7a21127cede348baab14075ab0f5fa01310d112b",
+      "bytes": 4166
+    },
+    {
+      "file": "detail_asfalt.jpg",
+      "sha256": "d3119a61000613634f87634f67ebced5b0cc53b3678be034f719d670594def9e",
+      "bytes": 128220
+    },
+    {
+      "file": "detail_dlazba.jpg",
+      "sha256": "e3af96a787d7c31b58f4ae7c77f8e3a6374a5da4c4c5c996ee352ece8e690e6e",
+      "bytes": 98229
+    },
+    {
+      "file": "detail_travnik.jpg",
+      "sha256": "cc722050afe1e73ba8079e609e7b0780994a527049218d4b48ca2f107fc2889c",
+      "bytes": 427781
+    },
+    {
+      "file": "detail_zatrav.jpg",
+      "sha256": "7c1b61e4f319ab1cf4a4cd639236eb2870b05aaf38673c1bc00c18dc3b486612",
+      "bytes": 325492
+    },
+    {
+      "file": "etapy-glb.webm",
+      "sha256": "bed5d8bfe6eb90ee91b1770530bf856d2803a9d8e1de303096b00c6c907db9bb",
+      "bytes": 686976
+    },
+    {
+      "file": "etapy_domy.json",
+      "sha256": "3891dac4633ec4ba16223d1aa2bb8699ff84a71170187cc2b1042180a97cdbb0",
+      "bytes": 1412
+    },
+    {
+      "file": "etapy_infra.json",
+      "sha256": "e1a4b59d22bb30049e69ee26aa0e5d530fa12d36fa307ea3443e91e015bba515",
+      "bytes": 339
+    },
+    {
+      "file": "etapy_infra_plan.png",
+      "sha256": "727b88dd70a44fe4e4402d61c8a4447a680048d5881f29220fb6c83e84e3b3bb",
+      "bytes": 409425
+    },
+    {
+      "file": "etapy_infra_plan_base.png",
+      "sha256": "01136a83977a4a458d6a5d48bb7e653ba124ba5cfba3900a6a76dca91c8705f2",
+      "bytes": 90537
+    },
+    {
+      "file": "etapy_obrubniky.json",
+      "sha256": "4792fd6b06d218d7e4b5877f92616cb78b7c24214276329eca6da5682bf066c2",
+      "bytes": 26295
+    },
+    {
+      "file": "etapy_stavajici.json",
+      "sha256": "b2d7c299681500309d397bbc74a275ad56b8682831885dbb1cd5d63f103291e1",
+      "bytes": 3925
+    },
+    {
+      "file": "etapy_tabule.json",
+      "sha256": "5959d21bb352a279d97ab2f18fa2f388e3f7bb099d790d9a6dfd8ed7396f809c",
+      "bytes": 999
+    },
+    {
+      "file": "etapy_zem.json",
+      "sha256": "69f6ff1f555fe2b234b0098ef7c723114c611b447da7551b6f698b7f58d56e32",
+      "bytes": 332681
+    },
+    {
+      "file": "etapy_zona.json",
+      "sha256": "d6cfd2173aeb4d9beda3995655c42ef35cd45722fe7fe12ab7a838918fbf420e",
+      "bytes": 1604
+    },
+    {
+      "file": "etapy_zona.png",
+      "sha256": "0aae1fd1886dd176f7d138433a860a475080141dd0dfdba58fcda499794d5051",
+      "bytes": 222110
+    },
+    {
+      "file": "etapy_zona_base.png",
+      "sha256": "181144369a7b593de0c6176d5594a7a1dbeea16040f453b00bf52059e71137cb",
+      "bytes": 63991
+    },
+    {
+      "file": "okoli_extra.json",
+      "sha256": "6516dddfa77c0c5d582722af03c100c5ea3cb65d349e760fe582875851831b61",
+      "bytes": 27777
+    },
+    {
+      "file": "okoli_objekty.json",
+      "sha256": "dde5be0488672b89034d614c136ceeeebb795c8a500b8ab5f5ba98bc7f09bed4",
+      "bytes": 6886
+    },
+    {
+      "file": "okoli_tridy_v20.png",
+      "sha256": "1508e7b916dfe7af43a5a7fbd357980d48742cd208f64592e7e6f3005b63e481",
+      "bytes": 777491
+    },
+    {
+      "file": "okoli_v20.jpg",
+      "sha256": "6afa295bd10b0d103adc9c50fe20e833647e6828911169a2e8a5c508dec32935",
+      "bytes": 437911
+    },
+    {
+      "file": "so05-glb.webm",
+      "sha256": "233a5998b59b0739266ea253c94c7c7f28741292208b51b3cb8e6303ac6d23ed",
+      "bytes": 4123228
+    },
+    {
+      "file": "strom_0.webp",
+      "sha256": "6c2933443ef220a59dba6340a075c882c5560648172275b0259e0e692d351710",
+      "bytes": 101024
+    },
+    {
+      "file": "strom_1.webp",
+      "sha256": "c63f3ebbadbc970d456c4ec2459b0ee9f5ff30b1ce518a23e78d0d3970f8d1ab",
+      "bytes": 166698
+    },
+    {
+      "file": "strom_2.webp",
+      "sha256": "2956af2389d93e0f7970b513fa6c25856d3b573999bda7adb558da3da01d36a8",
+      "bytes": 142316
+    },
+    {
+      "file": "strom_shora.webp",
+      "sha256": "bc4478032cca7cdcd4d491988b59278d1e48c8d400a0d3da7e608b61fe99862e",
+      "bytes": 142354
+    },
+    {
+      "file": "v18_silnice.json",
+      "sha256": "4df7f9c21d4bbed19c3d2e60dda188f5b19ad53a036657c800acde58c01dfff6",
+      "bytes": 26782
+    },
+    {
+      "file": "v18_trava.json",
+      "sha256": "b19c19b1bf307e669de92bce6a8654c8687d272ad92dae503d45d1fbd5a9ba1f",
+      "bytes": 143836
+    },
+    {
+      "file": "v18_znaceni.json",
+      "sha256": "173b6cca21d4ac27aae8e84222f271852641d21675c84e5490071493728f0f4b",
+      "bytes": 19744
+    },
+    {
+      "file": "verde_logo.png",
+      "sha256": "a5996609e20914eabb83b636a6efe890685466f175367a00a9c0cadc2891d0d9",
+      "bytes": 91880
+    },
+    {
+      "file": "verde_symbol.png",
+      "sha256": "9ece13a25aa5332de61ab43bd4878d2088d05f73484551eb42a9cfe904ffe229",
+      "bytes": 20070
+    }
+  ],
+  "scope": "Přenos posledního dodaného modelu a jeho podkladů, zachováno stávající ovládání webu.",
+  "limits": "Ilustrační model; dokumentované limity terénu a okolí ze zdrojové verze zůstávají."
+}

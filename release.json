@@ -1,8 +1,10 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "sourceCommit": "27ecb6764f9eb15da5cee2e03f07a78450eebf56",
   "exportFingerprint": "16238cb370694133193c0a5ce53df58fd97575724a120668818e2bad2a0f999b",
   "units": 72,
   "inquiry": "mailto",
-  "adminSync": false
+  "adminSync": false,
+  "modelRevision": "v20b",
+  "modelSourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023"
 }

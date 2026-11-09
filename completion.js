@@ -10,7 +10,7 @@
  gallery.addEventListener('close',()=>{document.querySelector('#galleryDialogImage').removeAttribute('src');galleryTrigger?.focus()});
  function openAreal(trigger){
   arealTrigger=trigger;document.querySelector('#mediaTitle').textContent=trigger.dataset.interior?'Z areálu do ukázkového interiéru':'Celý areál Verde Slaný ve 3D';media.classList.add('areal-media');
-  const url=new URL('/verde-slany/areal/',location.origin);if(trigger.dataset.interior)url.searchParams.set('interior',trigger.dataset.interior);if(trigger.dataset.etapy)url.searchParams.set('zapnout','etapy');
+  const url=new URL('/verde-slany/areal/?v=v20b',location.origin);if(trigger.dataset.interior)url.searchParams.set('interior',trigger.dataset.interior);if(trigger.dataset.etapy)url.searchParams.set('zapnout','etapy');
   body.innerHTML='<p class="areal-access"><a target="_blank" rel="noopener">Otevřít model v samostatném okně ↗</a><button id="arealToCatalog" type="button">Vybrat byt podle půdorysu →</button></p>';
   body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title='Ilustrační 3D areál Verde Slaný s volitelnými dalšími etapami a vstupem do bytu';frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
   body.querySelector('#arealToCatalog').onclick=()=>{media.close();document.querySelector('#vyber').scrollIntoView();document.querySelector('[data-project="verde"]').focus()};media.showModal();
