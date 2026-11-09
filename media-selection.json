@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-10",
+  "assets": [
+    {
+      "file": "assets/photos/obyvaci-prostor.webp",
+      "sourceName": "P1182232.jpg",
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
+      "caption": "Obývací prostor s výstupem na balkon"
+    },
+    {
+      "file": "assets/photos/galerie-mezonetu.webp",
+      "sourceName": "P1182132.jpg",
+      "sourceSHA256": "9194602959707c46ef0f29e0fbf4376ec72958b3e19b8bc314da69a59304e92c",
+      "caption": "Galerie propojující dvě podlaží"
+    },
+    {
+      "file": "assets/photos/balkon-u-zelene.webp",
+      "sourceName": "P1182247.jpg",
+      "sourceSHA256": "baba8803aee7991a1913ea15e4f0069f96618326baf7be7f9bb8b3611d569280",
+      "caption": "Balkon u zeleně"
+    },
+    {
+      "file": "assets/photos/koupelna.webp",
+      "sourceName": "P1182283.jpg",
+      "sourceSHA256": "f5d2320e98deb40feae999f27dffaf081a6aaa00e87587d5d339a5495bf788e2",
+      "caption": "Koupelna mezonetu"
+    },
+    {
+      "file": "assets/photos/pokoj.webp",
+      "sourceName": "P1182187.jpg",
+      "sourceSHA256": "d74278d513f1ed34b22ff08c664d1825d51bc6e30e22d230d0699da3fca0cf3f",
+      "caption": "Pokoj s výhledem do zeleně"
+    },
+    {
+      "file": "assets/photos/podkrovi.webp",
+      "sourceName": "P1182292.jpg",
+      "sourceSHA256": "0ef06c0c6ef1480131ff59281d563413ee0d81a57f5487a566653f44f9066921",
+      "caption": "Světlé podkroví"
+    },
+    {
+      "file": "assets/etapy-shora.webp",
+      "sourceName": "03_Verde_etapy_shora.jpg",
+      "sourceSHA256": "a66f8345b0a831a098420a3f9012b687d1d30b098d382cf405ab5c9eb1ba7b24",
+      "caption": "Přehled etap Verde I–IV a mezonetů"
+    },
+    {
+      "file": "assets/etapy-parkoviste.webp",
+      "sourceName": "04_Verde_dalsi_etapy_pohled_od_parkoviste_A_fotoreal.jpg",
+      "sourceSHA256": "054e0fdb250fd9fcfc09f440f0e1a6517ada88904627304df2ce9a1419d017d3",
+      "caption": "Další etapy od parkoviště"
+    },
+    {
+      "file": "assets/verde-vizualizace.webp",
+      "sourceName": "F_travnik_zapad.png",
+      "sourceSHA256": "c3a6a932bdab7b197ad68a43f234dc4990716a64a3817ad9bfd0c59f8be22390",
+      "caption": "Budoucí podoba Verde II od západu"
+    },
+    {
+      "file": "assets/film-vecerni-pohled.webp",
+      "sourceName": "G_jih_schody_modra.png",
+      "sourceSHA256": "17cf43e52cc0220ae9719ee1df80200c356f4e4f905aad2ad76706905ccde6e2",
+      "caption": "Večerní vizualizace Verde II"
+    }
+  ],
+  "removedGalleryItems": 3,
+  "galleryCount": 20,
+  "realPhotographs": 6
+}

@@ -6,5 +6,8 @@
   "inquiry": "mailto",
   "adminSync": false,
   "modelRevision": "v20b",
-  "modelSourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023"
+  "modelSourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023",
+  "mediaUpdate": "2026-11-10",
+  "galleryCount": 20,
+  "realPhotographs": 6
 }
