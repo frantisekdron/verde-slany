@@ -5,11 +5,11 @@
   "units": 72,
   "inquiry": "mailto",
   "adminSync": false,
-  "modelRevision": "v20b",
-  "modelSourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023",
+  "modelRevision": "approved-final-20261110",
+  "modelSourceViewerSHA256": "bc4fc14fcda2af810c9ad733c6b29a2a3ad0018d5f095da297d85dff76015905",
   "mediaUpdate": "2026-11-10",
-  "galleryCount": 20,
-  "realPhotographs": 6,
+  "galleryCount": 21,
+  "realPhotographs": 7,
   "projectCardImages": 3,
   "contactRedesign": "2026-11-10",
   "selectionViewer": "standalone-house",
@@ -17,5 +17,8 @@
   "maisonetteSelection": "photo, combined floor, explicit unit availability",
   "localityUpdate": "2026-11-10",
   "localityPhotos": 5,
-  "selectionHandoff": "soft-focus crossfade with completed CSS transitions"
+  "selectionHandoff": "soft-focus crossfade with completed CSS transitions",
+  "filmVersion": "v14",
+  "filmDuration": 103.68,
+  "approvedFinal": true
 }

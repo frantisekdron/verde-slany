@@ -1,8 +1,7 @@
 {
-  "revision": "v20b",
-  "integrated": "2026-11-10",
-  "sourceUpdated": "2026-11-09 21:58 Europe/Prague",
-  "sourceViewerSHA256": "ad2daa08e2530be0841efdceb39fcaae89bc1c56a706e6a3c5b7e6059386c023",
+  "revision": "approved-final-20261110",
+  "sourceViewerSHA256": "bc4fc14fcda2af810c9ad733c6b29a2a3ad0018d5f095da297d85dff76015905",
+  "sourceGeometrySHA256": "233a5998b59b0739266ea253c94c7c7f28741292208b51b3cb8e6303ac6d23ed",
   "assets": [
     {
       "file": "auta-glb.webm",
@@ -111,13 +110,13 @@
     },
     {
       "file": "okoli_tridy_v20.png",
-      "sha256": "1508e7b916dfe7af43a5a7fbd357980d48742cd208f64592e7e6f3005b63e481",
-      "bytes": 777491
+      "sha256": "678ea960543cc323b87c724a1be441b1ed2eeea5c292583803dea011d08af571",
+      "bytes": 773069
     },
     {
       "file": "okoli_v20.jpg",
-      "sha256": "6afa295bd10b0d103adc9c50fe20e833647e6828911169a2e8a5c508dec32935",
-      "bytes": 437911
+      "sha256": "d98acb0e6f6be6be91b2cbb1c4da70fa1d3f736a173470a8d3b0957a6d9b5f7b",
+      "bytes": 435827
     },
     {
       "file": "so05-glb.webm",
@@ -170,6 +169,5 @@
       "bytes": 20070
     }
   ],
-  "scope": "Přenos posledního dodaného modelu a jeho podkladů, zachováno stávající ovládání webu.",
-  "limits": "Ilustrační model; dokumentované limity terénu a okolí ze zdrojové verze zůstávají."
+  "selectorPreserved": true
 }

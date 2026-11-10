@@ -1,68 +1,493 @@
 {
   "date": "2026-11-10",
+  "approvedPackage": "PRO_PETRA_FINAL",
+  "galleryCount": 21,
   "assets": [
     {
       "file": "assets/photos/obyvaci-prostor.webp",
-      "sourceName": "P1182232.jpg",
+      "source": "54_P1182232.jpg",
       "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
-      "caption": "Obývací prostor s výstupem na balkon"
+      "sha256": "baa9f7b1b4424f6885dbbe3d95032c1adda874f27e05dbd26fa879e4ecb5f791",
+      "bytes": 118734,
+      "width": 1920,
+      "height": 1278
     },
     {
       "file": "assets/photos/galerie-mezonetu.webp",
-      "sourceName": "P1182132.jpg",
+      "source": "35_P1182132.jpg",
       "sourceSHA256": "9194602959707c46ef0f29e0fbf4376ec72958b3e19b8bc314da69a59304e92c",
-      "caption": "Galerie propojující dvě podlaží"
+      "sha256": "2e71291271e72a176fac4c4ec29142cff0c8d4b098880007d27cb4a74fb405cb",
+      "bytes": 62438,
+      "width": 1920,
+      "height": 1278
     },
     {
       "file": "assets/photos/balkon-u-zelene.webp",
-      "sourceName": "P1182247.jpg",
+      "source": "57_P1182247.jpg",
       "sourceSHA256": "baba8803aee7991a1913ea15e4f0069f96618326baf7be7f9bb8b3611d569280",
-      "caption": "Balkon u zeleně"
+      "sha256": "8f62389dd301842291ae23da359edb4b2c054319df578586aab2fb1b20f68501",
+      "bytes": 631484,
+      "width": 1920,
+      "height": 1279
     },
     {
       "file": "assets/photos/koupelna.webp",
-      "sourceName": "P1182283.jpg",
-      "sourceSHA256": "f5d2320e98deb40feae999f27dffaf081a6aaa00e87587d5d339a5495bf788e2",
-      "caption": "Koupelna mezonetu"
+      "source": "63_P1182283.jpg",
+      "sourceSHA256": "e9c089294227aff2e9de170c045ed69ba025ad7df149d547dd9891577ce8aaa1",
+      "sha256": "4f4523f429ec557caf92023376fdd5ef15fabb54cff7de1d87922161ee8ec2df",
+      "bytes": 120566,
+      "width": 1920,
+      "height": 1279
     },
     {
       "file": "assets/photos/pokoj.webp",
-      "sourceName": "P1182187.jpg",
+      "source": "46_P1182187.jpg",
       "sourceSHA256": "d74278d513f1ed34b22ff08c664d1825d51bc6e30e22d230d0699da3fca0cf3f",
-      "caption": "Pokoj s výhledem do zeleně"
+      "sha256": "3ef09b654d891f572131e10b36be626a724b64fc94e275d503f14203e1cace47",
+      "bytes": 92460,
+      "width": 1920,
+      "height": 1276
     },
     {
       "file": "assets/photos/podkrovi.webp",
-      "sourceName": "P1182292.jpg",
+      "source": "65_P1182292.jpg",
       "sourceSHA256": "0ef06c0c6ef1480131ff59281d563413ee0d81a57f5487a566653f44f9066921",
-      "caption": "Světlé podkroví"
+      "sha256": "1371f696240b49e49fbb5bcdc0fa5970181affc0a35786ad2a13d6204cc22dd8",
+      "bytes": 43686,
+      "width": 1920,
+      "height": 1276
     },
     {
-      "file": "assets/etapy-shora.webp",
-      "sourceName": "03_Verde_etapy_shora.jpg",
-      "sourceSHA256": "a66f8345b0a831a098420a3f9012b687d1d30b098d382cf405ab5c9eb1ba7b24",
-      "caption": "Přehled etap Verde I–IV a mezonetů"
+      "file": "assets/photos/exterier-domu.webp",
+      "source": "70_P1182318.jpg",
+      "sourceSHA256": "e68818f0738054800255f24a2a3dcc21107a7318db251354f2445251cd910c38",
+      "sha256": "c67f6b1d5d9b20de3526d2b96c828061ddaea17af88da69bbd83890fca1739dd",
+      "bytes": 438198,
+      "width": 1920,
+      "height": 1277
     },
     {
-      "file": "assets/etapy-parkoviste.webp",
-      "sourceName": "04_Verde_dalsi_etapy_pohled_od_parkoviste_A_fotoreal.jpg",
-      "sourceSHA256": "054e0fdb250fd9fcfc09f440f0e1a6517ada88904627304df2ce9a1419d017d3",
-      "caption": "Další etapy od parkoviště"
+      "file": "assets/borovskeho.webp",
+      "source": "70_P1182318.jpg",
+      "sourceSHA256": "e68818f0738054800255f24a2a3dcc21107a7318db251354f2445251cd910c38",
+      "sha256": "e3c67eb217417983d83e2978ea2923105a164383ce023f5104e6cd10d9aa913b",
+      "bytes": 332138,
+      "width": 1600,
+      "height": 1064
+    },
+    {
+      "file": "assets/borovskeho-detail.webp",
+      "source": "54_P1182232.jpg",
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
+      "sha256": "240097cf270742d1221caa7b0de57c03f0ebffe2e0930b5322dc16371379fe12",
+      "bytes": 88082,
+      "width": 1600,
+      "height": 1065
+    },
+    {
+      "file": "assets/mezonet-interior.webp",
+      "source": "54_P1182232.jpg",
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
+      "sha256": "240097cf270742d1221caa7b0de57c03f0ebffe2e0930b5322dc16371379fe12",
+      "bytes": 88082,
+      "width": 1600,
+      "height": 1065
+    },
+    {
+      "file": "assets/tour-mezonet.webp",
+      "source": "54_P1182232.jpg",
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
+      "sha256": "240097cf270742d1221caa7b0de57c03f0ebffe2e0930b5322dc16371379fe12",
+      "bytes": 88082,
+      "width": 1600,
+      "height": 1065
+    },
+    {
+      "file": "assets/gallery/exterior-top.webp",
+      "source": "01_Top_shot.jpg",
+      "sourceSHA256": "3b81ad0d76622a514329c6971aaf4f2113605416704db852e4c241162b3b6b85",
+      "sha256": "921131f4fce7906d6cd3d681dcccb970a179bb679d4ee8e7715f0365929f0ccf",
+      "bytes": 758280,
+      "width": 1920,
+      "height": 1280
+    },
+    {
+      "file": "assets/hero.webp",
+      "source": "02_Od_zapadu_z_dronu.jpg",
+      "sourceSHA256": "b143cca77c4ad679ab894017cb760315622cb519878994d5f007881309259a39",
+      "sha256": "be144d783c29bebc3b2bcadf8482d4c0ddfd9094ead43935d159c9a11851f352",
+      "bytes": 539442,
+      "width": 1920,
+      "height": 1280
+    },
+    {
+      "file": "assets/gallery/exterior-northeast.webp",
+      "source": "03_Od_severovychodu_z_dronu.jpg",
+      "sourceSHA256": "8ec7bb42f27a9dd2b47e8aff0a0cc3e6b3825347e52590a61e9bf97552737dbc",
+      "sha256": "ad9fc98c0dab7adbbdd38db6b5c07318ec535641dc29377c0787e4c8f82d51f4",
+      "bytes": 696892,
+      "width": 1920,
+      "height": 1280
+    },
+    {
+      "file": "assets/gallery/exterior-street.webp",
+      "source": "04_Od_zapadu_ulice_podel_domu.png",
+      "sourceSHA256": "628878e6bd15bc82edce2c660b89e3d96b993c8298b2c0d2f093a81c0560a980",
+      "sha256": "c91b24a4b4a6900bafa3719449132f4dd30121fda5abc14539b1f214c1a35a44",
+      "bytes": 452696,
+      "width": 1920,
+      "height": 1288
+    },
+    {
+      "file": "assets/gallery/exterior-west.webp",
+      "source": "05_Od_zapadu_z_travniku.png",
+      "sourceSHA256": "c3a6a932bdab7b197ad68a43f234dc4990716a64a3817ad9bfd0c59f8be22390",
+      "sha256": "35632245a3090b2e285aa066d2349e2070b62a4d1148dffec560c4fb6987f329",
+      "bytes": 456422,
+      "width": 1920,
+      "height": 1288
+    },
+    {
+      "file": "assets/gallery/exterior-southeast.webp",
+      "source": "06_Od_jihovychodu_svah_se_schody.png",
+      "sourceSHA256": "d7291146de4eb543348f23bc48b4c43645b412fa7b22a769f0d966a00ecb86c9",
+      "sha256": "f0049826748a406e6ba05b26f744dabab9433a716f39329dea369a2bd9bf1364",
+      "bytes": 479540,
+      "width": 1920,
+      "height": 1288
+    },
+    {
+      "file": "assets/exterior.webp",
+      "source": "02_Od_zapadu_z_dronu.jpg",
+      "sourceSHA256": "b143cca77c4ad679ab894017cb760315622cb519878994d5f007881309259a39",
+      "sha256": "db9a7c0813dac38b447065aa611f20217e10cfe4bf4084866fd8c6b852e0ec16",
+      "bytes": 380220,
+      "width": 1600,
+      "height": 1067
     },
     {
       "file": "assets/verde-vizualizace.webp",
-      "sourceName": "F_travnik_zapad.png",
+      "source": "05_Od_zapadu_z_travniku.png",
       "sourceSHA256": "c3a6a932bdab7b197ad68a43f234dc4990716a64a3817ad9bfd0c59f8be22390",
-      "caption": "Budoucí podoba Verde II od západu"
+      "sha256": "2333903585e35281af81f0f46f43a73f66b32c9ff853b20308e2c1590599f406",
+      "bytes": 338192,
+      "width": 1600,
+      "height": 1073
+    },
+    {
+      "file": "assets/areal-preview.webp",
+      "source": "01_Top_shot.jpg",
+      "sourceSHA256": "3b81ad0d76622a514329c6971aaf4f2113605416704db852e4c241162b3b6b85",
+      "sha256": "50d7181469876fb1d47c3fe4899b250e3feb9edac2df22cd61c5f78ee3fafa6f",
+      "bytes": 545842,
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "file": "assets/areal-preview-v20b.webp",
+      "source": "01_Top_shot.jpg",
+      "sourceSHA256": "3b81ad0d76622a514329c6971aaf4f2113605416704db852e4c241162b3b6b85",
+      "sha256": "50d7181469876fb1d47c3fe4899b250e3feb9edac2df22cd61c5f78ee3fafa6f",
+      "bytes": 545842,
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "file": "assets/gallery/verde-byt-obyvak.webp",
+      "source": "01_Obyvak_s_kuchynskym_koutem.png",
+      "sourceSHA256": "c684b69bb445002ddc51b0bf317025f0b684c3ccc641e9283d0b87c805946459",
+      "sha256": "86b472abde357cc62c7355e5fa4f956bdd19857d448ccc53b4839a42653d4638",
+      "bytes": 173620,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "assets/gallery/verde-byt-kuchyn.webp",
+      "source": "02_Kuchyn.png",
+      "sourceSHA256": "7f716bacdcab51074084b23397011c18627589fc2dd8c6ae80eaf9f1d26ccab8",
+      "sha256": "4305b58cca41158f3e18553ae060afad5d8a4093e5ee2382fd53d276202dfe42",
+      "bytes": 60622,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "assets/gallery/verde-byt-loznice-v2.webp",
+      "source": "03_Loznice.png",
+      "sourceSHA256": "f2daa8743f3b3ab56282d149c7b666c0da3f4f4bee1288dd720c0298d12c9687",
+      "sha256": "95485795b2f5ea873a7208967f7a7237952446af769f670e22c8b8d6d6369cb7",
+      "bytes": 130050,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "assets/gallery/verde-byt-pokoj.webp",
+      "source": "04_Pokoj.png",
+      "sourceSHA256": "7dd6fe8fa20cd68ad8163c83239fb35a8eefc85924801c6618fe42f3884c38fe",
+      "sha256": "39a7ccb69787a92286ec2a9fd79b1d7adf1e06b440e344391aea38c318e582ee",
+      "bytes": 76596,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "assets/gallery/verde-byt-pokoj-balkon.webp",
+      "source": "05_Pokoj_s_vystupem_na_balkon.png",
+      "sourceSHA256": "b65a87736a73a834ea5f7a484565296f45e8c4774199f48266b189636847fd39",
+      "sha256": "0a74843beafc75ddcb50432dc579d44baec618fa4e7fd17643cd7ad1078db880",
+      "bytes": 190172,
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "file": "assets/tour-byt.webp",
+      "source": "01_Obyvak_s_kuchynskym_koutem.png",
+      "sourceSHA256": "c684b69bb445002ddc51b0bf317025f0b684c3ccc641e9283d0b87c805946459",
+      "sha256": "60c9932624aeb7c0e6ad3cce76e122cce5da67229d189ee9a802cbe8ded78458",
+      "bytes": 97144,
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "file": "assets/etapy-shora.webp",
+      "source": "etapy-shora.webp",
+      "sourceSHA256": "92217c98186701274474b672ccee9dd8e392fb317e95cf52543d99fa4d6ef5a9",
+      "sha256": "92217c98186701274474b672ccee9dd8e392fb317e95cf52543d99fa4d6ef5a9",
+      "bytes": 1103404
+    },
+    {
+      "file": "assets/etapy-parkoviste.webp",
+      "source": "etapy-parkoviste.webp",
+      "sourceSHA256": "8818d05c2f90d07e8c0ad0145916416a489e2fe6545ff3a112f893baa18b566e",
+      "sha256": "8818d05c2f90d07e8c0ad0145916416a489e2fe6545ff3a112f893baa18b566e",
+      "bytes": 600924
+    },
+    {
+      "file": "assets/gallery/etapy-d2-v4.webp",
+      "source": "etapy-d2-v4.webp",
+      "sourceSHA256": "4ea5f21fd45569c067542114efa6fe1b1599d4f6cfc6288f1f1d980636dc01e0",
+      "sha256": "4ea5f21fd45569c067542114efa6fe1b1599d4f6cfc6288f1f1d980636dc01e0",
+      "bytes": 726254
+    },
+    {
+      "file": "_cms/files/be753068-6bef-4400-9fde-1cb716d976f8.mp4",
+      "source": "film_verde_II_v14_web.mp4",
+      "sha256": "7392df191590a014e3541eb75f486334ce4d7649d1f5c9c3788c21e388623153",
+      "bytes": 36599602,
+      "duration": 103.68,
+      "faststart": true
     },
     {
       "file": "assets/film-vecerni-pohled.webp",
-      "sourceName": "G_jih_schody_modra.png",
-      "sourceSHA256": "17cf43e52cc0220ae9719ee1df80200c356f4e4f905aad2ad76706905ccde6e2",
-      "caption": "Večerní vizualizace Verde II"
+      "source": "film_verde_II_v14_web.mp4 @ 00:01:37.400",
+      "sourceSHA256": "7392df191590a014e3541eb75f486334ce4d7649d1f5c9c3788c21e388623153",
+      "sha256": "f4a1ea3f74a37827012710c488ef15d68d03e7c0f8dd54f6d1d97608f6091580",
+      "bytes": 105598,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "assets/film-v10-poster.webp",
+      "source": "film_verde_II_v14_web.mp4 @ 00:01:37.400",
+      "sourceSHA256": "7392df191590a014e3541eb75f486334ce4d7649d1f5c9c3788c21e388623153",
+      "sha256": "f4a1ea3f74a37827012710c488ef15d68d03e7c0f8dd54f6d1d97608f6091580",
+      "bytes": 105598,
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "file": "prohlidka-mezonet/tours/demo/branding/og.jpg",
+      "source": "54_P1182232.jpg",
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1",
+      "sha256": "b1b894facf891afdcee2cfafab8c06dcb29bf59f021f29af17af4329a3095f15",
+      "bytes": 95300,
+      "width": 1200,
+      "height": 799
+    },
+    {
+      "file": "prohlidka-byt/tours/demo/branding/og.jpg",
+      "source": "01_Obyvak_s_kuchynskym_koutem.png",
+      "sourceSHA256": "c684b69bb445002ddc51b0bf317025f0b684c3ccc641e9283d0b87c805946459",
+      "sha256": "0416d245bb3d4c5cf631bdc14d8faacad4234b32712b2fb87b34f6661a6d1987",
+      "bytes": 140310,
+      "width": 1200,
+      "height": 675
+    },
+    {
+      "file": "assets/locality/slany-s-popisky.webp",
+      "source": "01_Slany_shora_Verde_a_9_mist_v_okoli.jpg",
+      "sourceSHA256": "d5aa4e658633e6e409d26d271306895b3bd93aeb9c7cb2ceba7fece7a439a872",
+      "sha256": "db2a989961001389ca03b5d63f96d9e235a65e317a1022e9575cc8536e2a04ea",
+      "bytes": 613860,
+      "unchangedSourceMatchesFinalPackage": true
+    },
+    {
+      "file": "assets/locality/kumpanova-zahrada.webp",
+      "source": "DJI_20261029094431_0297_D.jpg",
+      "sourceSHA256": "ae243cf6d542dd7c270befa7df18cdc6875d78c502ed13f02b3ea2f50b66aeb8",
+      "sha256": "6ac9d0df3d28b9c1f2d38b5f4b25049b4b3d370ab5f6619dbd5a18bb8984f2f8",
+      "bytes": 1174546,
+      "unchangedSourceMatchesFinalPackage": true
+    },
+    {
+      "file": "assets/locality/mestska-plovarna.webp",
+      "source": "DJI_20261029093629_0257_D.jpg",
+      "sourceSHA256": "137e3b56ea3097fe82cb924c911537095f30e74e258c11211e6eeadab4f89bff",
+      "sha256": "f79612f2b3fd4769ea8685f0a5dc8d9bce487c14becde441d28a75fc7296b5bf",
+      "bytes": 1072238,
+      "unchangedSourceMatchesFinalPackage": true
+    },
+    {
+      "file": "assets/locality/masarykovo-namesti.webp",
+      "source": "DJI_20261029120148_0407_D.jpg",
+      "sourceSHA256": "605971073227a1b01c677d7a24d95d4fa827bb46d5f7fe41aada7fb9f2f84583",
+      "sha256": "84d1cfd7bbbfd29c9895a9727447bd0ffb145de7be0f4e23bbd6163198f83026",
+      "bytes": 905336,
+      "unchangedSourceMatchesFinalPackage": true
+    },
+    {
+      "file": "assets/locality/podzimni-zelen.webp",
+      "source": "DJI_20261029103014_0375_D.jpg",
+      "sourceSHA256": "c05cbf603c97489bbb1d75239494b7659562d7654f4a04ddb2d1ab0cb5e5836e",
+      "sha256": "a07d5f704f15ca014149f754981e6886a7815853ffdb1b7bf2464289d32f3677",
+      "bytes": 1032326,
+      "unchangedSourceMatchesFinalPackage": true
     }
   ],
-  "removedGalleryItems": 3,
-  "galleryCount": 20,
-  "realPhotographs": 6
+  "tourPhotos": [
+    {
+      "photo": 1,
+      "source": "22_P1182069.jpg",
+      "aspectChange": 0.00113,
+      "sourceSHA256": "dd321827c807b97ddea25dd8338ae0a3bcca04b0f48fa8d8f0c4f62c966d823a"
+    },
+    {
+      "photo": 2,
+      "source": "43_P1182172.jpg",
+      "aspectChange": 0.00038,
+      "sourceSHA256": "dedb096c64fe30259a2405f268a18b997efba2b458caaf6e183bc95bba9273d2"
+    },
+    {
+      "photo": 3,
+      "source": "61_P1182268.jpg",
+      "aspectChange": 0.00787,
+      "sourceSHA256": "882a53238dff5325e01eb5fe04e83356d62c01278ae7e6ea5289041ffc5deedf"
+    },
+    {
+      "photo": 4,
+      "source": "63_P1182283.jpg",
+      "aspectChange": 0.00038,
+      "sourceSHA256": "e9c089294227aff2e9de170c045ed69ba025ad7df149d547dd9891577ce8aaa1"
+    },
+    {
+      "photo": 5,
+      "source": "01_P1181937.jpg",
+      "aspectChange": 0.00356,
+      "sourceSHA256": "ed428bd77f39543f08eb266c25495b822f1a0c6706f6fdb98e2d5c1aadaaac60"
+    },
+    {
+      "photo": 6,
+      "source": "54_P1182232.jpg",
+      "aspectChange": 0.00207,
+      "sourceSHA256": "8591188f74e2d207b1fa13117ca67c3a0c8411106133d7bcd6b3306cfea881c1"
+    },
+    {
+      "photo": 7,
+      "source": "53_P1182229.jpg",
+      "aspectChange": 0.00056,
+      "sourceSHA256": "977e87cde88acd88f4b9a4678c51ef7e9635fbfb84dfd2b11322777da8d1ae26"
+    },
+    {
+      "photo": 8,
+      "source": "52_P1182223.jpg",
+      "aspectChange": 0.00207,
+      "sourceSHA256": "6a3d6ee8c4cf70c2e15d25e98a2b6420ee6ab29487ea5475eae74a9f10db6a41"
+    },
+    {
+      "photo": 9,
+      "source": "58_P1182252.jpg",
+      "aspectChange": 0.00263,
+      "sourceSHA256": "957187eecb7a35d3c42e28ed4ae9c24f97ffba48ffdba9c5a5dab81469a5203b"
+    },
+    {
+      "photo": 10,
+      "source": "56_P1182242.jpg",
+      "aspectChange": 0.00056,
+      "sourceSHA256": "ce80406c7758a78df8d87bafd9c85a50576101af1f96c4c6034d59121e522a11"
+    },
+    {
+      "photo": 11,
+      "source": "46_P1182187.jpg",
+      "aspectChange": 0.00357,
+      "sourceSHA256": "d74278d513f1ed34b22ff08c664d1825d51bc6e30e22d230d0699da3fca0cf3f"
+    },
+    {
+      "photo": 12,
+      "source": "47_P1182192.jpg",
+      "aspectChange": 0.00357,
+      "sourceSHA256": "09069edcd9d4c59806b07283335f4c87d9b95969d2e88cfbf6ecec979f02f512"
+    },
+    {
+      "photo": 13,
+      "source": "64_P1182287.jpg",
+      "aspectChange": 0.03,
+      "sourceSHA256": "5ccd90e50b5b3fa2452fb0901d8d84e622505692904acbbbc4a5bda77b8a7eeb"
+    },
+    {
+      "photo": 14,
+      "source": "67_P1182305.jpg",
+      "aspectChange": 0.00282,
+      "sourceSHA256": "70f40777a9b20a60b4b5ed3533e0c75284b45c998f19a920be15a885ba25cbd8"
+    },
+    {
+      "photo": 15,
+      "source": "23_P1182072.jpg",
+      "aspectChange": 0.00206,
+      "sourceSHA256": "d5e8f7d441d22595aa9b5bf4a3b25901802ce918ee5eee1a9efc8622ec132973"
+    },
+    {
+      "photo": 16,
+      "source": "40_P1182158.jpg",
+      "aspectChange": 0.00282,
+      "sourceSHA256": "a9fe23a49dd4891d993c3886db3af6c41bb40f0436c909f7d875fbed3b456f8b"
+    },
+    {
+      "photo": 17,
+      "source": "24_P1182078.jpg",
+      "aspectChange": 0.00281,
+      "sourceSHA256": "88fcb33bcd7e1f4f5cca92ff0619cfd8803f493475cc9f70b17454985a3cb32e"
+    },
+    {
+      "photo": 18,
+      "source": "34_P1182127.jpg",
+      "aspectChange": 0.00113,
+      "sourceSHA256": "57e7325102254e7caf0ce2dd0c34e46634a425ef7e8883d351425f17bdc27fba"
+    },
+    {
+      "photo": 19,
+      "source": "37_P1182143.jpg",
+      "aspectChange": 0.00207,
+      "sourceSHA256": "0d2870862e6a995d2f84f8aa493eeb06c5d8213e65b4d1911971cef60cbeb4d3"
+    },
+    {
+      "photo": 20,
+      "source": "36_P1182138.jpg",
+      "aspectChange": 0.02133,
+      "sourceSHA256": "1915acea0c3e9d7e6ab5437a441245b54341656525d4d0839f8dee4b48a12fd4"
+    },
+    {
+      "photo": 21,
+      "source": "38_P1182148.jpg",
+      "aspectChange": 0.00207,
+      "sourceSHA256": "a345fa5b680babfe0ea0571d848d3b86aed2097a89e236d0fa2e765be1c0ab4b"
+    }
+  ],
+  "removedRejectedFiles": [
+    "VIZ01_obyvak.webp",
+    "VIZ02_kuchyn.webp",
+    "VIZ03_loznice.webp",
+    "VIZ04_detsky.webp",
+    "VIZ05_podkrovi.webp",
+    "exterior-d3.webp",
+    "verde-byt-balkon.webp"
+  ],
+  "selectorPreserved": true
 }
