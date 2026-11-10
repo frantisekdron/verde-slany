@@ -50,14 +50,14 @@ export function createFloorMotion({THREE,camera,controls,groups,parts,root,onSte
       if(t>=1850){animation=null;restore();camera.up.copy(home.up);controls.enabled=true;controls.update();home=null;selectedFloor=0;onReturn()}
       return true;
     }
-    const spread=smooth((t-300)/700),turn=smooth((t-1000)/1150),fade=smooth((t-1250)/950),dive=ramp((t-2150)/850);
+    const spread=smooth((t-300)/700),turn=smooth((t-1000)/1150),fade=smooth((t-1250)/950),dive=ramp((t-2150)/1100);
     applyParts(a.floor,spread,fade);
     camera.position.copy(a.camera).lerp(a.explodedCamera,spread).lerp(a.top,turn).lerp(a.approach,dive);
     controls.target.copy(a.target).lerp(a.explodedTarget,spread).lerp(a.targetTop,turn);
     camera.up.set(0,1,0).lerp(a.topUp,turn).normalize();camera.lookAt(controls.target);
-    const phase=t<1000?0:t<2600?1:t<3250?2:3;
+    const phase=t<1000?0:t<2350?1:t<3550?2:3;
     if(phase!==a.phase){a.phase=phase;onStep(['opening','overhead','reveal','plan'][phase],a.floor)}
-    if(t>=3250){const floor=a.floor;animation=null;held=true;onComplete(floor)}
+    if(t>=3550){const floor=a.floor;animation=null;held=true;onComplete(floor)}
     return true;
   }
   function applyParts(floor,spread,fade){

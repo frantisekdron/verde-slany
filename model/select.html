@@ -15,7 +15,7 @@ html[data-scene=park].in-motion .reset,html[data-scene=park].in-motion .hint{vis
 html[data-embedded="true"] .caption{display:none}html.in-motion .reset,html.in-motion .hint{visibility:hidden}</style><script>document.documentElement.dataset.scene=new URLSearchParams(location.search).get('scene')==='park'?'park':'plain';document.documentElement.dataset.embedded=String(parent!==window);</script><script type="importmap">{"imports":{"three":"/verde-slany/vendor/three/build/three.module.js","three/addons/":"/verde-slany/vendor/three/examples/jsm/"}}</script><link rel="stylesheet" href="/verde-slany/model-select-ui.css"></head><body><canvas id="scene" aria-label="Otáčivý model Verde Slaný II. Kliknutím na fasádu vyberete podlaží. Podlaží lze zvolit i tlačítky vedle modelu."></canvas><div class="caption">VERDE SLANÝ II <small>Vizualizace podle projektové dokumentace</small></div><button class="reset" id="reset">Výchozí pohled ↺</button><div class="hint" id="hint" hidden></div><div class="loading" id="loading"><span id="loadText">Načítáme dům…</span><div class="progress"><i id="progress"></i></div><small id="loadHelp">Mezitím si můžete vybrat podlaží pomocí tlačítek vedle modelu.</small></div>
 <script type="module">
 import * as THREE from 'three';
-import {createFloorMotion} from './floor-motion.js?v=house-20261110';
+import {createFloorMotion} from './floor-motion.js?v=handoff-20261110';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';

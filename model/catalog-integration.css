@@ -1,12 +1,21 @@
 /* Preserve the same house scene beneath the plan for a continuous return flight. */
 html[data-variant="b"] #explorer[data-project="verde"][data-view="plan"] .stage-area #planView{position:absolute;inset:0;z-index:2;width:100%;height:100%;min-height:0}
-html[data-variant="b"] #planView.motion-plan{transform:scale(.86);transform-origin:50% 50%;transition:opacity 600ms cubic-bezier(.25,.1,.25,1),transform 600ms cubic-bezier(.2,.7,.2,1)}
-html[data-variant="b"] #planView.motion-plan.is-revealing{transform:scale(1);opacity:1}
+html[data-variant="b"] #planView.motion-plan{transform:scale(1.055);filter:blur(7px);transform-origin:50% 50%;transition:opacity 1000ms cubic-bezier(.22,.61,.36,1),transform 1100ms cubic-bezier(.16,1,.3,1),filter 1000ms ease-out}
+html[data-variant="b"] #planView.motion-plan.is-revealing{transform:scale(1);filter:blur(0);opacity:1}
 html[data-variant="b"] #explorer[data-project="verde"] #planView.is-returning{opacity:0;transform:scale(.94);pointer-events:none;transition:opacity 800ms ease-in,transform 1050ms ease-in}
 @media(prefers-reduced-motion:reduce){
  html[data-motion="off"] #planView{transition:none!important;animation:none!important;transform:none!important}
  /* A visitor can explicitly enable the animation using the accessible toggle. */
- html[data-motion="on"][data-variant="b"] #planView.motion-plan{transform:scale(.86)!important;transition-duration:600ms,600ms!important}
+ html[data-motion="on"][data-variant="b"] #planView.motion-plan{transform:scale(1.055)!important;transition:opacity 1000ms cubic-bezier(.22,.61,.36,1),transform 1100ms cubic-bezier(.16,1,.3,1),filter 1000ms ease-out!important}
  html[data-motion="on"][data-variant="b"] #planView.motion-plan.is-revealing{transform:scale(1)!important}
- html[data-motion="on"][data-variant="b"] #planView.is-returning{transition-duration:800ms,1050ms!important}
+ html[data-motion="on"][data-variant="b"] #planView.is-returning{transition:opacity 800ms ease-in,transform 1050ms ease-in!important}
 }
+
+/* A soft focus veil bridges the different 3D and drawing perspectives. */
+html[data-variant="b"] #explorer[data-project="verde"] #planView{animation:none}
+html[data-motion="on"] #explorer.is-handoff .stage-area:after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 50% 48%,#f7f9f5f7,#edf3ebed 65%,#edf3eba6);animation:floor-focus-veil 1200ms ease-in-out both}
+html[data-motion="on"] #explorer.is-opening .simple-progress{z-index:5}
+@keyframes floor-focus-veil{0%,100%{opacity:0}24%{opacity:.66}52%{opacity:.42}}
+/* The visitor's explicit motion toggle also enables the handoff veil. */
+html[data-motion="on"] #explorer.is-handoff .stage-area:after{animation-duration:1200ms!important}
+html[data-variant="b"] #explorer.is-opening .simple-instruction{opacity:0}

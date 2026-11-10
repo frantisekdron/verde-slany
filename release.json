@@ -16,5 +16,6 @@
   "selectionMotion": "highlight-overhead-speedramp",
   "maisonetteSelection": "photo, combined floor, explicit unit availability",
   "localityUpdate": "2026-11-10",
-  "localityPhotos": 5
+  "localityPhotos": 5,
+  "selectionHandoff": "soft-focus crossfade with completed CSS transitions"
 }
