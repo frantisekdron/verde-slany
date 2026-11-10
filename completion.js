@@ -6,8 +6,11 @@
  if(grid&&toggle&&grid.children.length>4){grid.classList.add('is-collapsible');toggle.hidden=false;const total=grid.children.length;toggle.textContent='Zobrazit všech '+total+' snímků';toggle.addEventListener('click',()=>{const open=grid.classList.toggle('is-expanded');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Zobrazit méně':'Zobrazit všech '+total+' snímků';if(!open)document.querySelector('#galerie').scrollIntoView({block:'start'});});}
 
  let galleryTrigger=null,arealTrigger=null;
- document.querySelectorAll('.gallery-open').forEach(button=>button.addEventListener('click',()=>{galleryTrigger=button;document.querySelector('#galleryDialogTitle').textContent=button.dataset.caption;const image=document.querySelector('#galleryDialogImage');image.src=button.dataset.image;image.alt=button.querySelector('img').alt;gallery.showModal()}));
- gallery.addEventListener('close',()=>{document.querySelector('#galleryDialogImage').removeAttribute('src');galleryTrigger?.focus()});
+ const mapZoom=document.querySelector('#localityMapZoom');
+ function resetMapZoom(){document.querySelector('.gallery-image-viewport').tabIndex=-1;gallery.classList.remove('is-map-zoomed');mapZoom.setAttribute('aria-pressed','false');mapZoom.textContent='Přiblížit popisky +';}
+ mapZoom.addEventListener('click',()=>{const zoomed=gallery.classList.toggle('is-map-zoomed');document.querySelector('.gallery-image-viewport').tabIndex=zoomed?0:-1;mapZoom.setAttribute('aria-pressed',String(zoomed));mapZoom.textContent=zoomed?'Zobrazit celý snímek −':'Přiblížit popisky +';});
+ document.querySelectorAll('.gallery-open, .locality-zoom').forEach(button=>button.addEventListener('click',()=>{galleryTrigger=button;resetMapZoom();const isMap=button.classList.contains('locality-map');gallery.classList.toggle('is-locality-map',isMap);mapZoom.hidden=!isMap;document.querySelector('#galleryDialogTitle').textContent=button.dataset.caption;const image=document.querySelector('#galleryDialogImage');image.src=button.dataset.image;image.alt=button.querySelector('img').alt;gallery.showModal()}));
+ gallery.addEventListener('close',()=>{resetMapZoom();gallery.classList.remove('is-locality-map');mapZoom.hidden=true;document.querySelector('#galleryDialogImage').removeAttribute('src');galleryTrigger?.focus()});
  function openAreal(trigger){
   arealTrigger=trigger;document.querySelector('#mediaTitle').textContent=trigger.dataset.interior?'Z areálu do ukázkového interiéru':'Celý areál Verde Slaný ve 3D';media.classList.add('areal-media');
   const url=new URL('/verde-slany/areal/?v=v20b',location.origin);if(trigger.dataset.interior)url.searchParams.set('interior',trigger.dataset.interior);if(trigger.dataset.etapy)url.searchParams.set('zapnout','etapy');
