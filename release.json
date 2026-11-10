@@ -13,5 +13,6 @@
   "projectCardImages": 3,
   "contactRedesign": "2026-11-10",
   "selectionViewer": "standalone-house",
-  "selectionMotion": "highlight-overhead-speedramp"
+  "selectionMotion": "highlight-overhead-speedramp",
+  "maisonetteSelection": "photo, combined floor, explicit unit availability"
 }

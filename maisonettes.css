@@ -1,0 +1,80 @@
+/* Both projects use the same house → floor → unit progression. */
+#selectionWorkspace .steps{display:flex}
+#selectionWorkspace .selection-nav{justify-content:space-between}
+.bb-availability{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 28px;border-top:1px solid #e0e7df;border-bottom:1px solid #d4e1d5;background:#edf5ed;color:#234d35}
+.bb-availability[hidden],.bb-plan-choices[hidden]{display:none!important}
+.bb-availability>div>strong{font-size:25px;font-weight:550;letter-spacing:-.025em;line-height:1.25}
+.bb-availability p{margin:6px 0 0;font-size:13px;line-height:1.5}
+.bb-availability-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12px;color:#405849}
+.bb-state{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:5px;font-size:10px;font-weight:600;line-height:1.4;white-space:nowrap}
+.bb-state.available{background:#e7f3e8;color:#24583c}.bb-state.available:before{content:'';width:5px;height:5px;background:currentColor;border-radius:50%}
+.bb-state.negotiating{background:#fff0d0;color:#74500f}
+#explorer[data-project=borovskeho] .explorer-body{display:flex;flex-direction:column}
+#explorer[data-project=borovskeho] .explorer-body.list-mode{display:none}
+#explorer[data-project=borovskeho] .stage-area{width:100%;order:1}
+#explorer[data-project=borovskeho] #buildingView{height:auto;min-height:0}
+#explorer[data-project=borovskeho] #selectionInspector,#explorer[data-project=borovskeho] #simpleInstruction{display:none!important}
+#explorer[data-project=borovskeho] .floors{order:2;border-top:1px solid #dce5db;display:flex;justify-content:center;padding:12px}
+#explorer[data-project=borovskeho] .floors>span,#explorer[data-project=borovskeho] #allFloors{display:none}
+#explorer[data-project=borovskeho] #floorButtons{display:flex;justify-content:center;width:auto;max-width:100%}
+#explorer[data-project=borovskeho] #floorButtons button{width:auto;min-width:180px;max-width:100%;padding:10px 26px;min-height:62px}
+.bb-house-overview{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(300px,1fr);background:#f8faf6}
+.bb-house-photo{position:relative;min-height:430px;overflow:hidden;background:#e7ece6}
+.bb-house-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.bb-house-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 30%,#182d24bd);pointer-events:none}
+.bb-house-caption{position:absolute;left:28px;bottom:26px;right:22px;z-index:1;color:white}
+.bb-house-caption>span{font-size:9px;letter-spacing:.12em;line-height:1.5}
+.bb-house-caption h3{font-size:32px;line-height:1.1;margin:11px 0 18px;font-weight:450;letter-spacing:-.03em;color:white}
+.bb-house-caption .button{font-size:12px;min-height:44px;padding:12px 18px}
+.bb-photo-credit{position:absolute;right:12px;top:12px;z-index:1;background:#ffffffee;color:#344b40;padding:5px 8px;font-size:9px}
+.bb-house-offer{padding:24px 26px;min-width:0}
+.bb-house-offer>.eyebrow{font-size:10px;margin:0 0 14px;color:#405849}
+.bb-free-cards{display:grid;gap:11px}
+.bb-unit-card{display:block;width:100%;text-align:left;border:1px solid #629172;border-left:4px solid #36724b;border-radius:8px;background:white;color:#243b36;padding:14px 16px;cursor:pointer;transition:background .16s,box-shadow .16s}
+.bb-unit-card:hover{background:#f4faf2;box-shadow:0 3px 12px #284a3214}
+.bb-unit-top,.bb-unit-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bb-unit-top>strong{font-size:24px;font-weight:550;letter-spacing:-.025em;line-height:1.2}
+.bb-unit-metrics{display:block;font-size:12px;line-height:1.6;color:#405849;margin:8px 0 10px}
+.bb-unit-bottom>b{font-size:17px;font-weight:550}.bb-unit-bottom>span{font-size:11px;color:#305d40}
+.bb-negotiating{display:flex;align-items:center;gap:12px;justify-content:space-between;width:100%;border:1px solid #d4c7aa;border-radius:7px;background:#fffcf4;color:#624511;padding:10px 13px;margin-top:12px;cursor:pointer;text-align:left}
+.bb-negotiating>strong{font-size:15px}.bb-negotiating>span:last-child{margin-left:auto}
+.bb-sold-note,.bb-no-free{font-size:11px;line-height:1.6;color:#4e6056;margin:12px 0 0}
+#explorer[data-project=borovskeho] #planView{position:relative;height:auto;min-height:0;background:#f7f9f5}
+#explorer[data-project=borovskeho] .plan-canvas{padding:10px 20px 48px}
+#explorer[data-project=borovskeho] #floorplan{height:300px;min-height:0}
+#explorer[data-project=borovskeho] .plan-caption{padding-bottom:18px}
+#explorer[data-project=borovskeho] .bb-plan-label.available rect{fill:#e4f4e6!important;stroke:#2e7646!important;stroke-width:1.5}
+#explorer[data-project=borovskeho] .bb-plan-label.available text{fill:#1c5732!important}
+#explorer[data-project=borovskeho] .bb-plan-label.negotiating rect{fill:#fff0cf!important;stroke:#926921!important;stroke-width:1.2}
+#explorer[data-project=borovskeho] .bb-plan-label.negotiating text{fill:#68470f!important}
+#explorer[data-project=borovskeho] .bb-plan-label.sold rect{fill:#f1f3f0!important;stroke:#a2ada3!important}
+#explorer[data-project=borovskeho] .bb-plan-label.sold text{fill:#59675b!important}
+#explorer[data-project=borovskeho] .bb-plan-label .bb-plan-state{font-size:9px;font-weight:600}
+#explorer[data-project=borovskeho] #floorplan polygon.available{fill:#4b9a6755;stroke:#267344;stroke-width:2}
+#explorer[data-project=borovskeho] #floorplan polygon.negotiating{fill:#e8b14655;stroke:#9b6b19;stroke-width:1.8}
+.bb-plan-choices{padding:23px 28px;border-top:1px solid #dbe5d8;background:white}
+.bb-plan-choices h3{font-size:19px;font-weight:500;margin:0 0 16px;color:#243b36}
+.bb-plan-choices .bb-free-cards{grid-template-columns:1fr 1fr;gap:16px}
+.bb-plan-choices .bb-negotiating{max-width:440px}
+.bb-unit-card:focus-visible,.bb-negotiating:focus-visible,.bb-house-caption button:focus-visible{outline:3px solid #97492e;outline-offset:4px}
+#vyber[data-project=borovskeho] .selection-nav .steps li{font-size:11px}
+@media(max-width:760px){
+ .bb-availability{padding:17px 18px;display:block}.bb-availability>div>strong{font-size:24px}.bb-availability-meta{flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:space-between;margin-top:12px;font-size:11px;gap:8px}
+ .bb-house-overview{grid-template-columns:1fr}.bb-house-photo{min-height:250px}.bb-house-caption{left:20px;bottom:20px}.bb-house-caption h3{font-size:29px;margin:9px 0 14px}.bb-house-photo>img{object-position:50% 46%}
+ .bb-house-offer{padding:20px}.bb-unit-card{padding:14px}.bb-unit-top>strong{font-size:25px}.bb-unit-metrics{font-size:12px}.bb-unit-bottom>b{font-size:17px}.bb-photo-credit{font-size:8px}
+ #explorer[data-project=borovskeho] #floorplan{height:230px}.bb-plan-choices{padding:20px 17px}.bb-plan-choices .bb-free-cards{grid-template-columns:1fr;gap:12px}.bb-plan-choices h3{font-size:18px}
+ #explorer[data-project=borovskeho] .plan-canvas{padding-left:8px;padding-right:8px}
+ #explorer[data-project=borovskeho] .plan-toolbar{gap:8px;flex-wrap:wrap}
+ #selectionWorkspace .steps{flex-wrap:wrap;row-gap:8px}
+ #vyber[data-project=borovskeho] .selection-nav .steps li{font-size:10px}
+}
+@media(max-width:360px){.bb-house-offer{padding:16px}.bb-unit-metrics{font-size:11px}.bb-unit-card{padding:12px}.bb-unit-top>strong{font-size:23px}.bb-state{font-size:9px}.bb-availability-meta{display:block}.bb-availability-meta>.bb-state{margin-top:8px}.bb-unit-bottom>b{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.bb-unit-card{transition:none}}
+/* Keep the same three steps visible in the active selection header. */
+#explorer .steps{margin:0 auto;align-items:center;flex-shrink:0;gap:10px}
+#explorer .steps li{white-space:nowrap}
+#explorer .steps li:not(:last-child):after{width:16px}
+@media(max-width:1050px){#explorer .explorer-top{flex-wrap:wrap}#explorer .steps{order:3;width:100%;justify-content:center;border-top:1px solid #e1e8de;padding-top:10px;margin-top:4px}#explorer .simple-actions{margin-left:auto}}
+@media(max-width:600px){#explorer .steps{gap:7px;padding-top:9px}#explorer .steps li{font-size:10px}#explorer .steps li:not(:last-child):after{width:9px}}
+
+.bb-availability-source{display:block;font-size:10px;line-height:1.6;color:#405849;margin-top:6px}
