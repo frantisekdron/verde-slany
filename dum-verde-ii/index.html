@@ -202,7 +202,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
 const params = new URLSearchParams(location.search);
-const MODEL = 'verde-ii-so05.glb';
+const MODEL = 'verde-ii-so05.glb?v=25';
 const PROHLIDKA = '../prohlidka-byt/index.html';     // 3D prohlídka typového bytu (podsložka Petrovy stránky)
 const DOTYK = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
 if (DOTYK) document.body.classList.add('dotyk');
@@ -485,11 +485,20 @@ loader.load(MODEL, (gltf) => {
 // půdorys domu pro chůzi (bloky A, jádro, B z KN 337/62 + terasy 1. NP a schody k O41), v osách u, v
 const DUM_BOXY = [
   [-29.729, 3.071, -9.485, 4.57], [3.071, 5.586, -3.73, 4.57], [5.586, 29.886, -3.73, 10.318],
-  [-18.6, -13.3, 4.57, 6.2],                                                       // vnější schody k O41
+  // v25: schody k O41 kolmo od fasády (u −18,423…−16,483, v 4,57…8,77): kolize jen zábradlí po stranách, rameno je pochozí (výška viz vyskaSchodu)
+  [-18.47, -18.37, 4.57, 8.77], [-16.53, -16.43, 4.57, 8.77],
   ...[9.1, 18.3, 27.5].flatMap((c) => [[-29.729 + c - 2, -29.729 + c + 2, 4.57, 7.07], [-29.729 + c - 2, -29.729 + c + 2, -11.985, -9.485]]),
   [5.586 + 11.6 - 2, 5.586 + 11.6 + 2, 10.318, 12.818], [5.586 + 11.6 - 2, 5.586 + 11.6 + 2, -6.23, -3.73],
 ];
 for (const [u0, u1, v0, v1] of DUM_BOXY) kolizeDum.push({ c: uvW((u0 + u1) / 2, (v0 + v1) / 2), a: U_W, b: V_W, ha: (u1 - u0) / 2, hb: (v1 - v0) / 2 });
+// v25: výška pochozí plochy schodů k O41 (práh +1,625, podesta 1,5 m, 9 stupňů po 0,3 m × 0,1775 m); X, Y = světové (Y = −z)
+function vyskaSchodu(X, Y) {
+  const u = X * OSA_U[0] + Y * OSA_U[1], v = X * OSA_V[0] + Y * OSA_V[1];
+  if (u < -18.423 || u > -16.483 || v < 4.4 || v > 8.77) return ZEM_Y;
+  const d = v - 4.57; if (d < 1.5) return 1.625;
+  return Math.max(ZEM_Y, 1.625 - (Math.floor((d - 1.5) / 0.3) + 1) * 0.1775);
+}
+let chuzeY = ZEM_Y;
 
 // ---------------------------------------------------------------- okolí jako 3D: auta, stromy, lampy (okoli/prohlizec_okoli.py)
 const kolizeAuta = [], kolizeKruhy = [];
@@ -1105,7 +1114,8 @@ renderer.setAnimationLoop(() => {
     if (hrac.cil && ujel < 0.15 * dt && hrac.v.length() > 0.5) hrac.cil = null;     // narazil – nečekat
     hrac.krok += ujel * 1.9;
     const houp = Math.sin(hrac.krok * Math.PI) * 0.028 * Math.min(1, hrac.v.length() / 1.5);
-    camera.position.set(hrac.p.x, ZEM_Y + OCI + houp, hrac.p.z);
+    chuzeY += (vyskaSchodu(hrac.p.x, -hrac.p.z) - chuzeY) * Math.min(1, dt * 12);   // v25: i po schodech k O41
+    camera.position.set(hrac.p.x, chuzeY + OCI + houp, hrac.p.z);
     camera.quaternion.copy(kvatOd(hrac.yaw, hrac.pitch));
     if (camera.fov !== 70) { camera.fov = 70; camera.updateProjectionMatrix(); }
     aktualizujKompas();

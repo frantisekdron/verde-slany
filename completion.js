@@ -15,7 +15,7 @@
   arealTrigger=trigger;
   document.querySelector('#mediaTitle').textContent='Verde Slaný II · 3D model domu';
   media.classList.add('areal-media');
-  const url=new URL('/verde-slany/dum-verde-ii/index.html',location.origin);
+  const url=new URL('/verde-slany/dum-verde-ii/index.html?v=25',location.origin);
   body.innerHTML='<p class="areal-access"><a target="_blank" rel="noopener">Otevřít model v samostatném okně ↗</a><button id="arealToCatalog" type="button">Přejít na nabídku bytů →</button></p>';
   body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title='3D model domu Verde Slaný II s bezprostředním okolím';frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
   body.querySelector('#arealToCatalog').onclick=()=>{arealTrigger=null;media.close();document.querySelector('#changeProject').click()};media.showModal();

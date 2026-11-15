@@ -31,7 +31,7 @@ controls.target.set(0,7,0);controls.enableDamping=true;controls.dampingFactor=.0
 scene.add(new THREE.HemisphereLight(0xeaf3f8,0x7a8277,1.5));const sun=new THREE.DirectionalLight(0xfffaf3,2.5);sun.position.set(-40,80,55);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-60;sun.shadow.camera.right=60;sun.shadow.camera.top=50;sun.shadow.camera.bottom=-50;sun.shadow.bias=-.001;scene.add(sun);const fill=new THREE.DirectionalLight(0xe5efff,.7);fill.position.set(50,30,-60);scene.add(fill);
 const ground=new THREE.Mesh(new THREE.CircleGeometry(90,80),new THREE.MeshStandardMaterial({color:0xe1e9db,roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.3;ground.receiveShadow=true;if(park)ground.material=new THREE.ShadowMaterial({opacity:.16});scene.add(ground);scene.fog=new THREE.Fog(0xe9efe8,160,300);
 const draco=new DRACOLoader();draco.setDecoderPath('/verde-slany/vendor/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);
-loader.load('so05_v2.glb',gltf=>{
+loader.load('so05_v2.glb?v=25',gltf=>{
  const allParts=[],groups=[];
  gltf.scene.traverse(o=>{const u=o.userData||{};if(o.isMesh){o.castShadow=true;o.receiveShadow=true}if(u.stav==='hruba')o.visible=false;
   if(u.stav==='hotovy'&&Number.isFinite(Number(u.podlazi))){
