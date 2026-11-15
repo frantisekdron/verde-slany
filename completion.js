@@ -23,7 +23,7 @@
  document.querySelectorAll('#openAreal,.open-areal-inline').forEach(button=>button.addEventListener('click',()=>openAreal(button)));
  media.addEventListener('close',()=>{media.classList.remove('connected-media');if(media.classList.contains('areal-media')){media.classList.remove('areal-media');arealTrigger?.focus()}});
  window.addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==body.querySelector('iframe')?.contentWindow)return;if(event.data?.type==='verde-close-model')media.close()});
- const phaseNames={SO01:'Verde IV · plánovaný dům',SO03:'Verde III · plánované domy',SO04:'Verde III · plánovaný dům'};
+ const phaseNames={SO04:'3. etapa · plánovaný dům (SO 04)',SO03:'4. etapa · plánovaný dům (SO 03)',SO01:'5. etapa · plánovaný dům (SO 01)'};
  document.querySelectorAll('[data-phase]').forEach(button=>button.addEventListener('click',()=>{const code=button.dataset.phase;document.querySelectorAll('[data-phase]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===code)));const status=document.querySelector('#phaseStatus');status.replaceChildren();const heading=document.createElement('h3');heading.textContent=phaseNames[code];const p=document.createElement('p');p.textContent=document.getElementById('phaseText'+code)?.textContent||'Termíny výstavby upřesní prodejce.';status.append(heading,p)}));
  document.querySelectorAll('.film-play').forEach(button=>{const video=document.getElementById(button.dataset.film);button.addEventListener('click',()=>{button.hidden=true;video.play().catch(()=>{button.hidden=false})});video.addEventListener('play',()=>button.hidden=true);video.addEventListener('ended',()=>button.hidden=false)});
 })();
