@@ -16,9 +16,10 @@
   "localityUpdate": "2026-11-10",
   "localityPhotos": 5,
   "selectionHandoff": "soft-focus crossfade with completed CSS transitions",
-  "filmVersion": "F2 v32",
+  "filmVersion": "F2 v32 · opravené sledování etap",
   "filmDuration": 105.8,
   "dronePhotographs": 49,
   "galleryClips": 8,
-  "phaseUpdate": "2026-11-16"
+  "phaseUpdate": "2026-11-16",
+  "phaseClips": 2
 }

@@ -6,7 +6,10 @@
     "width": 1920,
     "height": 1080,
     "duration": 105.8,
-    "file": "assets/media-20261115/verde-ii-final-v32.mp4"
+    "file": "assets/media-20261115/verde-ii-final-v32.mp4",
+    "revision": "F2 v32 · opravený export s obrysy a popisky pevně v záběru",
+    "masterSha256": "cb68b7ca4ab18e90ec3458757ffbc6a438fbe7fc9359a5f844e13314502349ce",
+    "sha256": "38d0e2478142e3332845a23a4976a70135273ff205842d0ea677992164d77baa"
   },
   "model": {
     "building": "Verde II · SO 05",
@@ -1665,5 +1668,19 @@
     "SO04": "SO04_D.1.1.14_SO_04_-_JIZNI_POHLED.png",
     "SO03": "SO03_D.1.1.11_SO_03_-_SEVERNI_POHLED.png",
     "SO01": "SO01_D1.1.17_POHLED_JIHOZAPADNI.png"
-  }
+  },
+  "stageClips": [
+    {
+      "file": "assets/podklady-etap/etapy-shora.mp4",
+      "start": 83.4,
+      "duration": 5,
+      "sha256": "3ce926e2b29820140116e12418c024e10be7d4b12878bcd39fe8092ff7623d7c"
+    },
+    {
+      "file": "assets/podklady-etap/etapy-parkoviste.mp4",
+      "start": 88.4,
+      "duration": 5,
+      "sha256": "11465bd86c188d52d686fc9124d2bb26d34874fc21d10880b8f3984d8ffa3ef8"
+    }
+  ]
 }
