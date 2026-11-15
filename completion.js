@@ -52,6 +52,12 @@
   if (!section) return;
   const player = section.querySelector('video');
   const choices = section.querySelectorAll('[data-interior-clip]');
+  function openWhenLinked() {
+    if (location.hash === '#vizualizace-mezonetu') section.open = true;
+  }
+  openWhenLinked();
+  window.addEventListener('hashchange', openWhenLinked);
+
   for (const choice of choices) choice.addEventListener('click', () => {
     for (const item of choices) item.setAttribute('aria-pressed', String(item === choice));
     if (player.getAttribute('src') !== choice.dataset.interiorClip) {

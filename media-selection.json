@@ -93,8 +93,9 @@
       "thumb": "thumb/verde-shora.webp",
       "width": 2100,
       "height": 1400,
-      "source": "01_Top_shot.jpg",
-      "sha256": "9cddbaef08344d9a6474bd5faf7cef8a8b1d6b7a34919f5248e6334a02da994c"
+      "source": "VIZ_D1_podzim_v5.jpg",
+      "sha256": "c661f6b825d10a5841770a8c0a2d40444d137c1b13bb8307f8aa78b5a3277897",
+      "sourceSha256": "15b5a59e2183b1bdaa76392b9af6c2bc3cc94cea83305c635c641044f179a060"
     },
     {
       "slug": "verde-vecer",
@@ -1733,5 +1734,19 @@
       "poster": "assets/media-20261115/visual/mezonet-loznice.webp",
       "sha256": "1e5a222273360956e8a77677534fbe335447b0e3b0d005dd342cbb08eccc28a9"
     }
-  ]
+  ],
+  "stageViews": {
+    "vyz_top_stitky": {
+      "source": "TOP_v31_PD_podzim_silnice_stitky.jpg",
+      "sourceSha256": "821151808a7f32261522432404673edf45d4f4422620fdebefe2f8e9e5c6044e",
+      "file": "assets/etapy-shora.webp",
+      "sha256": "0b3dad5506349bb52f4881f52633692deb95cb9281f8bcdd8e9046107acb73e6"
+    },
+    "vyz_park_B_stitky": {
+      "source": "VIZ_ETAPY_D2_v31_B_stitky.jpg",
+      "sourceSha256": "f77372f71c277d835b3b2ebb56118538f27d4fbbbb76eb0970e6f36aa8bf04b9",
+      "file": "assets/gallery/etapy-d2-v31.webp",
+      "sha256": "35f9b6864839c2f4ee95eeda50b5f1d3ff9c06ceda8340f006580c6365eff0f6"
+    }
+  }
 }
