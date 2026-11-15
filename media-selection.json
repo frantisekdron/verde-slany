@@ -51,8 +51,9 @@
       "thumb": "thumb/verde-severovychod.webp",
       "width": 2100,
       "height": 1400,
-      "source": "03_Od_severovychodu_z_dronu.jpg",
-      "sha256": "28f63b0ddc9e9a959ea3463647086bf2fb116016cfeff3029e4a6668ec021349"
+      "source": "VIZ_D4_podzim_v5.jpg",
+      "sha256": "7c2692c97f7a0ab6129f7b7ec7244c1fc1a0bfa26dbc53e9bd2c2fb4bb82f55a",
+      "sourceSha256": "887ba58fd8b0efd78302cf1de680dd96843e2bbcbcf4533bed498e443af54b8c"
     },
     {
       "slug": "verde-travnik",
@@ -93,9 +94,9 @@
       "thumb": "thumb/verde-shora.webp",
       "width": 2100,
       "height": 1400,
-      "source": "VIZ_D1_podzim_v5.jpg",
-      "sha256": "c661f6b825d10a5841770a8c0a2d40444d137c1b13bb8307f8aa78b5a3277897",
-      "sourceSha256": "15b5a59e2183b1bdaa76392b9af6c2bc3cc94cea83305c635c641044f179a060"
+      "source": "VIZ_D1_podzim_v5b.jpg",
+      "sha256": "3fdfbba318cf7fb4e1895ffe1a8206246ab6c6e48529d5236b4ba2729dddbf59",
+      "sourceSha256": "920a0ad35747dcc6eeb116d33093e7f9ceda9be9a5510803bc75c3010ca0afab"
     },
     {
       "slug": "verde-vecer",
