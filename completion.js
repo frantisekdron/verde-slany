@@ -23,7 +23,21 @@
  document.querySelectorAll('#openAreal,.open-areal-inline').forEach(button=>button.addEventListener('click',()=>openAreal(button)));
  media.addEventListener('close',()=>{media.classList.remove('connected-media');if(media.classList.contains('areal-media')){media.classList.remove('areal-media');arealTrigger?.focus()}});
  window.addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==body.querySelector('iframe')?.contentWindow)return;if(event.data?.type==='verde-close-model')media.close()});
- const phaseNames={SO01:'Verde IV · plánovaný dům',SO03:'Verde III · plánované domy',SO04:'Verde III · plánovaný dům'};
- document.querySelectorAll('[data-phase]').forEach(button=>button.addEventListener('click',()=>{const code=button.dataset.phase;document.querySelectorAll('[data-phase]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===code)));const status=document.querySelector('#phaseStatus');status.replaceChildren();const heading=document.createElement('h3');heading.textContent=phaseNames[code];const p=document.createElement('p');p.textContent=document.getElementById('phaseText'+code)?.textContent||'Termíny výstavby upřesní prodejce.';status.append(heading,p)}));
+ const photoLink = document.querySelector('#fotografie a[href$="#fotky-mezonetu"]');
+ const photoCollection = document.getElementById('fotky-mezonetu');
+ if (photoLink && photoCollection) photoLink.addEventListener('click', () => { photoCollection.open = true; });
+ const cover = document.querySelector('.hero-image[data-default-image]');
+ if (cover && cover.getAttribute('src') !== cover.dataset.defaultImage) cover.removeAttribute('srcset');
+ const phaseSection = document.getElementById('etapy');
+ if (phaseSection) {
+  const buttons = phaseSection.querySelectorAll('button[data-phase]');
+  const panels = phaseSection.querySelectorAll('[data-phase-panel]');
+  for (const button of buttons) {
+   button.addEventListener('click', () => {
+    for (const item of buttons) item.setAttribute('aria-pressed', String(item === button));
+    for (const panel of panels) panel.hidden = panel.dataset.phasePanel !== button.dataset.phase;
+   });
+  }
+ }
  document.querySelectorAll('.film-play').forEach(button=>{const video=document.getElementById(button.dataset.film);button.addEventListener('click',()=>{button.hidden=true;video.play().catch(()=>{button.hidden=false})});video.addEventListener('play',()=>button.hidden=true);video.addEventListener('ended',()=>button.hidden=false)});
 })();

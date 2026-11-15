@@ -52,19 +52,25 @@
     },
     {
       "slug": "verde-travnik",
-      "caption": "Průčelí od západního trávníku",
+      "caption": "Vstupní schody a prosklené schodiště",
       "group": "Verde II · exteriér",
       "kind": "visual",
-      "src": "visual/verde-travnik.webp",
-      "thumb": "thumb/verde-travnik.webp",
-      "width": 2100,
-      "height": 1409,
-      "source": "05_Od_zapadu_z_travniku.png",
-      "sha256": "82dcb83cf748979e8cfb982d0b3b0b96b21814823742435598e114580a46df9c"
+      "src": "visual/verde-vstup-detail.webp",
+      "thumb": "thumb/verde-vstup-detail.webp",
+      "width": 1200,
+      "height": 750,
+      "source": "VIZ_ETAPY_D2_v31_realisticky.jpg",
+      "sha256": "fcb47ed92bffadfae9533039de8b22ee16f0a80f871c277a87096ab31c54d57d",
+      "sourceCrop": [
+        1740,
+        1080,
+        2940,
+        1830
+      ]
     },
     {
       "slug": "verde-svah",
-      "caption": "Schodiště a výsadba na svahu",
+      "caption": "Jihovýchodní nároží a osázený svah",
       "group": "Verde II · exteriér",
       "kind": "visual",
       "src": "visual/verde-svah.webp",
@@ -165,27 +171,27 @@
     },
     {
       "slug": "byt-kuchyne",
-      "caption": "Kuchyně typového bytu",
+      "caption": "Kuchyňský kout s výhledem do zeleně",
       "group": "Verde II · typový byt",
       "kind": "visual",
-      "src": "visual/byt-kuchyne.webp",
-      "thumb": "thumb/byt-kuchyne.webp",
+      "src": "visual/byt-kuchyne-zelen.webp",
+      "thumb": "thumb/byt-kuchyne-zelen.webp",
       "width": 1672,
       "height": 941,
-      "source": "02_Kuchyn.png",
-      "sha256": "21b37b418b352afd4679766a87234442e58500b525ecec8ac37fb67cbc07ddfc"
+      "source": "GPT_obyvak_0.jpg",
+      "sha256": "7bec86835692b3899e4104c3fd79091f4f97fd1e4f16358539cc76e48dc5edd1"
     },
     {
       "slug": "byt-pokoj",
-      "caption": "Pokoj typového bytu",
+      "caption": "Zařízení ložnice a výhled do korun stromů",
       "group": "Verde II · typový byt",
       "kind": "visual",
-      "src": "visual/byt-pokoj.webp",
-      "thumb": "thumb/byt-pokoj.webp",
+      "src": "visual/byt-loznice-detail.webp",
+      "thumb": "thumb/byt-loznice-detail.webp",
       "width": 1672,
       "height": 941,
-      "source": "04_Pokoj.png",
-      "sha256": "3e4b758d62f460edbff985f25cf8ab80bfe97908708c25d163c065091aa4fda1"
+      "source": "GPT_loznice_2.5.jpg",
+      "sha256": "b2b5885d62eff399ddfe6192392a5248c04e6418c16ce5ec059aa4a53e6b3984"
     },
     {
       "slug": "mezonet-obyvak",
@@ -1068,8 +1074,8 @@
     },
     {
       "slug": "dron-0206",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0206.webp",
       "thumb": "thumb/dron-0206.webp",
@@ -1080,8 +1086,8 @@
     },
     {
       "slug": "dron-0207",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0207.webp",
       "thumb": "thumb/dron-0207.webp",
@@ -1092,8 +1098,8 @@
     },
     {
       "slug": "dron-0208",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0208.webp",
       "thumb": "thumb/dron-0208.webp",
@@ -1104,8 +1110,8 @@
     },
     {
       "slug": "dron-0216",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0216.webp",
       "thumb": "thumb/dron-0216.webp",
@@ -1116,8 +1122,8 @@
     },
     {
       "slug": "dron-0218",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0218.webp",
       "thumb": "thumb/dron-0218.webp",
@@ -1128,8 +1134,8 @@
     },
     {
       "slug": "dron-0385",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0385.webp",
       "thumb": "thumb/dron-0385.webp",
@@ -1140,8 +1146,8 @@
     },
     {
       "slug": "dron-0389",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0389.webp",
       "thumb": "thumb/dron-0389.webp",
@@ -1152,8 +1158,8 @@
     },
     {
       "slug": "dron-0395",
-      "caption": "Stavba domu Verde II",
-      "group": "Výstavba Verde II",
+      "caption": "Výstavba 2. etapy Verde",
+      "group": "2. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0395.webp",
       "thumb": "thumb/dron-0395.webp",
@@ -1164,8 +1170,8 @@
     },
     {
       "slug": "dron-0233",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0233.webp",
       "thumb": "thumb/dron-0233.webp",
@@ -1176,8 +1182,8 @@
     },
     {
       "slug": "dron-0235",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0235.webp",
       "thumb": "thumb/dron-0235.webp",
@@ -1188,8 +1194,8 @@
     },
     {
       "slug": "dron-0237",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0237.webp",
       "thumb": "thumb/dron-0237.webp",
@@ -1200,8 +1206,8 @@
     },
     {
       "slug": "dron-0238",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0238.webp",
       "thumb": "thumb/dron-0238.webp",
@@ -1212,8 +1218,8 @@
     },
     {
       "slug": "dron-0249",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0249.webp",
       "thumb": "thumb/dron-0249.webp",
@@ -1224,8 +1230,8 @@
     },
     {
       "slug": "dron-0253",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0253.webp",
       "thumb": "thumb/dron-0253.webp",
@@ -1236,8 +1242,8 @@
     },
     {
       "slug": "dron-0254",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0254.webp",
       "thumb": "thumb/dron-0254.webp",
@@ -1248,8 +1254,8 @@
     },
     {
       "slug": "dron-0256",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0256.webp",
       "thumb": "thumb/dron-0256.webp",
@@ -1260,8 +1266,8 @@
     },
     {
       "slug": "dron-0304",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0304.webp",
       "thumb": "thumb/dron-0304.webp",
@@ -1272,8 +1278,8 @@
     },
     {
       "slug": "dron-0345",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0345.webp",
       "thumb": "thumb/dron-0345.webp",
@@ -1284,8 +1290,8 @@
     },
     {
       "slug": "dron-0346",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0346.webp",
       "thumb": "thumb/dron-0346.webp",
@@ -1296,8 +1302,8 @@
     },
     {
       "slug": "dron-0348",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0348.webp",
       "thumb": "thumb/dron-0348.webp",
@@ -1308,8 +1314,8 @@
     },
     {
       "slug": "dron-0372",
-      "caption": "Dokončený dům Verde I",
-      "group": "Verde I",
+      "caption": "Dokončený dům 1. etapy Verde",
+      "group": "1. etapa Verde",
       "kind": "drone",
       "src": "drone/dron-0372.webp",
       "thumb": "thumb/dron-0372.webp",
@@ -1654,5 +1660,10 @@
       "source": "DJI_20261029120421_0415_D.jpg",
       "sha256": "00d05b29d80afe7dfbf3582422db060a2e4c857deb470e382dbbb628807ae074"
     }
-  ]
+  ],
+  "phaseDrawings": {
+    "SO04": "SO04_D.1.1.14_SO_04_-_JIZNI_POHLED.png",
+    "SO03": "SO03_D.1.1.11_SO_03_-_SEVERNI_POHLED.png",
+    "SO01": "SO01_D1.1.17_POHLED_JIHOZAPADNI.png"
+  }
 }

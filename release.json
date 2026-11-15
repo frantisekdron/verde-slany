@@ -5,7 +5,7 @@
   "inquiry": "mailto",
   "adminSync": false,
   "modelRevision": "SO05-v25",
-  "mediaUpdate": "2026-11-15",
+  "mediaUpdate": "2026-11-16",
   "galleryCount": 17,
   "realPhotographs": 70,
   "projectCardImages": 3,
@@ -19,5 +19,6 @@
   "filmVersion": "F2 v32",
   "filmDuration": 105.8,
   "dronePhotographs": 49,
-  "galleryClips": 8
+  "galleryClips": 8,
+  "phaseUpdate": "2026-11-16"
 }

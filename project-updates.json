@@ -1,15 +1,21 @@
 {
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "photographyDate": "2026-10-29",
   "permitConfirmationDate": "2026-11-02",
   "futureObjects": [
-    "SO01",
+    "SO04",
     "SO03",
-    "SO04"
+    "SO01"
   ],
   "constructionDates": null,
-  "phaseNumberMapping": null,
-  "latestGalleryRevision": "2026-11-15",
+  "phaseNumberMapping": {
+    "SO07": 1,
+    "SO05": 2,
+    "SO04": 3,
+    "SO03": 4,
+    "SO01": 5
+  },
+  "latestGalleryRevision": "2026-11-16",
   "latestGalleryViews": [
     "verde-zapad",
     "verde-ulice",
@@ -29,5 +35,5 @@
     "mezonet-koupelna",
     "mezonet-loznice"
   ],
-  "interactiveHouseRevision": "SO05-v24"
+  "interactiveHouseRevision": "SO05-v25"
 }
