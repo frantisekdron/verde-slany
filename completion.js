@@ -28,6 +28,11 @@
  if (photoLink && photoCollection) photoLink.addEventListener('click', () => { photoCollection.open = true; });
  const cover = document.querySelector('.hero-image[data-default-image]');
  if (cover && cover.getAttribute('src') !== cover.dataset.defaultImage) cover.removeAttribute('srcset');
+ document.querySelectorAll('.phase-film-image img[data-default-image]').forEach(image => {
+  if (image.getAttribute('src') !== image.dataset.defaultImage) image.removeAttribute('srcset');
+ });
+ const maisonetteNote = document.querySelector('[data-project-film-note="borovskeho"]');
+ if (maisonetteNote && document.getElementById('film-borovskeho')) maisonetteNote.hidden = true;
  const phaseSection = document.getElementById('etapy');
  if (phaseSection) {
   const buttons = phaseSection.querySelectorAll('button[data-phase]');

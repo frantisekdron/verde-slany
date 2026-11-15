@@ -70,3 +70,16 @@ html[data-variant="b"] .floors #floorButtons button{min-width:130px;width:130px;
 @media(max-width:620px){.photo-story-grid{grid-template-columns:1fr}}
 
 .phase-panel figure{margin:0}
+
+.phase-film-views{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,3vw,2.5rem);margin-bottom:2rem}
+.phase-film-views figure,.phase-film-angle{margin:0;min-width:0}
+.phase-film-top,.phase-film-angle{display:flex;flex-direction:column}
+.phase-film-views figcaption,.phase-film-angle summary{font-size:.88rem;line-height:1.45;color:#45584e}
+.phase-film-top figcaption,.phase-film-angle summary{font-weight:650;margin:0 0 .5rem;min-height:1.35em}
+.phase-film-top figcaption{order:-1}.phase-film-angle summary{display:list-item;cursor:pointer}
+.phase-film-angle:not([open]) figure{display:none}
+.phase-film-image{width:100%;display:block;position:relative;padding:0;border:0;background:transparent;cursor:zoom-in}
+.phase-film-image img{display:block;width:100%;height:auto;aspect-ratio:1.5;object-fit:contain}
+.phase-film-image span{position:absolute;right:.55rem;bottom:.55rem;background:#fff;color:#183529;padding:.2rem .5rem;font-size:.75rem}
+.phase-film-angle figcaption{margin-top:.35rem}.film-pending{margin:.7rem 0;color:#405348}
+@media(max-width:760px){.phase-film-views{grid-template-columns:1fr}}
