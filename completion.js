@@ -3,7 +3,7 @@
  const media=document.querySelector('#media'),body=document.querySelector('#mediaBody'),gallery=document.querySelector('#galleryDialog');
  if(!media||!body||!gallery)return;
  const grid=document.querySelector('#visualGallery'),toggle=document.querySelector('#galleryToggle');
- if(grid&&toggle&&grid.children.length>4){grid.classList.add('is-collapsible');toggle.hidden=false;const total=grid.children.length;toggle.textContent='Zobrazit všech '+total+' snímků';toggle.addEventListener('click',()=>{const open=grid.classList.toggle('is-expanded');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Zobrazit méně':'Zobrazit všech '+total+' snímků';if(!open)document.querySelector('#galerie').scrollIntoView({block:'start'});});}
+ if(grid&&toggle&&grid.children.length>4){grid.classList.add('is-collapsible');toggle.hidden=false;const total=grid.children.length;toggle.textContent='Zobrazit všech '+total+' vizualizací';toggle.addEventListener('click',()=>{const open=grid.classList.toggle('is-expanded');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Zobrazit méně':'Zobrazit všech '+total+' vizualizací';if(!open)document.querySelector('#galerie').scrollIntoView({block:'start'});});}
 
  let galleryTrigger=null,arealTrigger=null;
  const mapZoom=document.querySelector('#localityMapZoom');
@@ -12,16 +12,18 @@
  document.querySelectorAll('.gallery-open, .locality-zoom').forEach(button=>button.addEventListener('click',()=>{galleryTrigger=button;resetMapZoom();const isMap=button.classList.contains('locality-map');gallery.classList.toggle('is-locality-map',isMap);mapZoom.hidden=!isMap;document.querySelector('#galleryDialogTitle').textContent=button.dataset.caption;const image=document.querySelector('#galleryDialogImage');image.src=button.dataset.image;image.alt=button.querySelector('img').alt;gallery.showModal()}));
  gallery.addEventListener('close',()=>{resetMapZoom();gallery.classList.remove('is-locality-map');mapZoom.hidden=true;document.querySelector('#galleryDialogImage').removeAttribute('src');galleryTrigger?.focus()});
  function openAreal(trigger){
-  arealTrigger=trigger;document.querySelector('#mediaTitle').textContent=trigger.dataset.interior?'Z areálu do ukázkového interiéru':'Celý areál Verde Slaný ve 3D';media.classList.add('areal-media');
-  const url=new URL('/verde-slany/areal/?v=final-20261110',location.origin);if(trigger.dataset.interior)url.searchParams.set('interior',trigger.dataset.interior);if(trigger.dataset.etapy)url.searchParams.set('zapnout','etapy');
+  arealTrigger=trigger;
+  document.querySelector('#mediaTitle').textContent='Verde Slaný II · 3D model domu';
+  media.classList.add('areal-media');
+  const url=new URL('/verde-slany/dum-verde-ii/index.html',location.origin);
   body.innerHTML='<p class="areal-access"><a target="_blank" rel="noopener">Otevřít model v samostatném okně ↗</a><button id="arealToCatalog" type="button">Přejít na nabídku bytů →</button></p>';
-  body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title='Ilustrační 3D areál Verde Slaný s volitelnými dalšími etapami a vstupem do bytu';frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
+  body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title='3D model domu Verde Slaný II s bezprostředním okolím';frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
   body.querySelector('#arealToCatalog').onclick=()=>{arealTrigger=null;media.close();document.querySelector('#changeProject').click()};media.showModal();
  }
  document.querySelectorAll('#openAreal,.open-areal-inline').forEach(button=>button.addEventListener('click',()=>openAreal(button)));
  media.addEventListener('close',()=>{media.classList.remove('connected-media');if(media.classList.contains('areal-media')){media.classList.remove('areal-media');arealTrigger?.focus()}});
  window.addEventListener('message',event=>{if(event.origin!==location.origin||event.source!==body.querySelector('iframe')?.contentWindow)return;if(event.data?.type==='verde-close-model')media.close()});
  const phaseNames={SO01:'Verde IV · plánovaný dům',SO03:'Verde III · plánované domy',SO04:'Verde III · plánovaný dům'};
- document.querySelectorAll('[data-phase]').forEach(button=>button.addEventListener('click',()=>{const code=button.dataset.phase;document.querySelectorAll('[data-phase]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===code)));const status=document.querySelector('#phaseStatus');status.replaceChildren();const heading=document.createElement('h3');heading.textContent=phaseNames[code];const p=document.createElement('p');p.textContent=document.getElementById('phaseText'+code)?.textContent||'Termíny výstavby upřesní prodejce.';const date=document.createElement('p');date.textContent='Aktualizace: '+(document.querySelector('.update-stamp time')?.textContent||'9. 11. 2026')+' · ilustrační návrh budoucího stavu.';status.append(heading,p,date)}));
+ document.querySelectorAll('[data-phase]').forEach(button=>button.addEventListener('click',()=>{const code=button.dataset.phase;document.querySelectorAll('[data-phase]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.phase===code)));const status=document.querySelector('#phaseStatus');status.replaceChildren();const heading=document.createElement('h3');heading.textContent=phaseNames[code];const p=document.createElement('p');p.textContent=document.getElementById('phaseText'+code)?.textContent||'Termíny výstavby upřesní prodejce.';status.append(heading,p)}));
  document.querySelectorAll('.film-play').forEach(button=>{const video=document.getElementById(button.dataset.film);button.addEventListener('click',()=>{button.hidden=true;video.play().catch(()=>{button.hidden=false})});video.addEventListener('play',()=>button.hidden=true);video.addEventListener('ended',()=>button.hidden=false)});
 })();

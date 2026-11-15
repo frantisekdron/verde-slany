@@ -1,6 +1,5 @@
 {
-  "updated": "2026-11-09",
-  "phaseVisualizationRevision": "v4",
+  "updated": "2026-11-15",
   "photographyDate": "2026-10-29",
   "permitConfirmationDate": "2026-11-02",
   "futureObjects": [
@@ -10,11 +9,25 @@
   ],
   "constructionDates": null,
   "phaseNumberMapping": null,
-  "latestGalleryRevision": "v18",
+  "latestGalleryRevision": "2026-11-15",
   "latestGalleryViews": [
-    "areal-v18-celek",
-    "areal-v18-shora",
-    "areal-v18-ulice"
+    "verde-zapad",
+    "verde-ulice",
+    "verde-severovychod",
+    "verde-travnik",
+    "verde-svah",
+    "verde-shora",
+    "verde-vecer",
+    "byt-obyvak-sofa",
+    "byt-obyvak",
+    "byt-loznice",
+    "byt-koupelna",
+    "byt-balkon",
+    "byt-kuchyne",
+    "byt-pokoj",
+    "mezonet-obyvak",
+    "mezonet-koupelna",
+    "mezonet-loznice"
   ],
-  "interactiveArealRevision": "v15b-web-integration"
+  "interactiveHouseRevision": "SO05-v24"
 }

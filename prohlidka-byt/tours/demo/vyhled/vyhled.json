@@ -1,0 +1,34 @@
+{
+ "version": 1,
+ "note": "Výhled = zeleň v2 (Verde 14. 11. 2026, vyhled_zelen.py, styl malba 1.0): dron DJI_20261029103018_0377_D.jpg výřez x 0.1–0.82 bez staveb, převod podle EXIF (náklon -4.9°, HFOV 65.5°), 8 × 45.0° zrcadleně, pod −6…−11° koruny z DJI_20261029103014_0375_D.jpg 7 kopií s prolnutím (bez zrcadlení), nebe po sloupcích bez švu, promítnuto z oka y 1.5 m na válec R 7.99 m a zem y -1.05 m (zakrývá trávník enginu) → horizont ve výšce očí, pod ním koruny jako z patra.",
+ "photos": [
+  "dron/expik/DJI_20261029103018_0377_D.jpg",
+  "dron/expik/DJI_20261029103014_0375_D.jpg"
+ ],
+ "cylinder": {
+  "url": "vyhled-valec.jpg",
+  "center": [
+   5.595,
+   3.962
+  ],
+  "radius": 7.99,
+  "bottom": -1.2,
+  "top": 26.1,
+  "sectors": [
+   [
+    0.0,
+    360.0
+   ]
+  ]
+ },
+ "ground": {
+  "url": "vyhled-zem.jpg",
+  "rect": [
+   -2.3950000000000005,
+   -4.0280000000000005,
+   15.98,
+   15.98
+  ],
+  "y": -1.09
+ }
+}

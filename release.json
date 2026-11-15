@@ -1,15 +1,13 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-15",
   "sourceCommit": "27ecb6764f9eb15da5cee2e03f07a78450eebf56",
-  "exportFingerprint": "16238cb370694133193c0a5ce53df58fd97575724a120668818e2bad2a0f999b",
   "units": 72,
   "inquiry": "mailto",
   "adminSync": false,
-  "modelRevision": "approved-final-20261110",
-  "modelSourceViewerSHA256": "bc4fc14fcda2af810c9ad733c6b29a2a3ad0018d5f095da297d85dff76015905",
-  "mediaUpdate": "2026-11-10",
-  "galleryCount": 21,
-  "realPhotographs": 7,
+  "modelRevision": "SO05-v24",
+  "mediaUpdate": "2026-11-15",
+  "galleryCount": 17,
+  "realPhotographs": 70,
   "projectCardImages": 3,
   "contactRedesign": "2026-11-10",
   "selectionViewer": "standalone-house",
@@ -18,7 +16,8 @@
   "localityUpdate": "2026-11-10",
   "localityPhotos": 5,
   "selectionHandoff": "soft-focus crossfade with completed CSS transitions",
-  "filmVersion": "v14",
-  "filmDuration": 103.68,
-  "approvedFinal": true
+  "filmVersion": "F2 v32",
+  "filmDuration": 105.8,
+  "dronePhotographs": 49,
+  "galleryClips": 8
 }

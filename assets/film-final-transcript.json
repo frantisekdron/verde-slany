@@ -1,60 +1,66 @@
 {
-  "duration": 103.68,
+  "version": "F2 v32",
+  "duration": 105.8,
   "segments": [
     {
       "id": "F2_1",
-      "start": 5.88,
-      "end": 10.085688000000001,
+      "start": 5.957,
+      "end": 9.899,
       "text": "Slaný. Třicet pět minut autobusem od pražského metra."
     },
     {
-      "id": "F2_8",
-      "start": 12.32,
-      "end": 20.914250000000003,
-      "text": "Pár kroků od parku už stojí první etapa Verde a mezonety Byty Borovského a vedle se z výkresu stává další dům."
+      "id": "F2_8a_v32",
+      "start": 17.778,
+      "end": 20.284,
+      "text": "Z výkresu se tu stává nový dům."
+    },
+    {
+      "id": "F2_8b_v32",
+      "start": 24.542,
+      "end": 29.879,
+      "text": "A hned vedle už stojí Viladům, Byty Borovského a první etapa Verde."
     },
     {
       "id": "F2_2",
-      "start": 24.88,
-      "end": 36.765688,
+      "start": 30.232,
+      "end": 41.838,
       "text": "Tady vyrůstá druhá etapa Verde Slaný. Pět podlaží a čtyřicet osm bytů, od jedna plus ká ká po čtyři plus ká ká, s balkonem, terasou nebo předzahrádkou."
     },
     {
-      "id": "F2_9k",
-      "start": 39.92,
-      "end": 43.41102,
-      "text": "Kolem domu šedesát sedm parkovacích stání."
+      "id": "F2_9v16",
+      "start": 45.21,
+      "end": 48.465,
+      "text": "A před domem šedesát sedm parkovacích stání."
     },
     {
-      "id": "F2_3",
-      "start": 47.64,
-      "end": 51.506063,
-      "text": "Uvnitř světlé byty s balkonem a výhledem do zeleně."
+      "id": "F2_10v26",
+      "start": 52.48,
+      "end": 59.492,
+      "text": "Takhle může vypadat zařízený byt tři plus ká ká. Obývák s kuchyní, ložnice a koupelna s vanou."
     },
     {
-      "id": "F2_4",
-      "start": 57.56,
-      "end": 65.840813,
-      "text": "Vyjdete z domu a za pár kroků jste v parku. Kumpánova zahrada s alejemi a fontánou, a v létě plovárna hned vedle."
+      "id": "F2_4v16",
+      "start": 59.645,
+      "end": 67.565,
+      "text": "Vyjdete z domu pár kroků a jste v parku. Kumpánova zahrada s alejemi a fontánou, a v létě plovárna hned vedle."
     },
     {
-      "id": "F2_5",
-      "start": 69.48,
-      "end": 78.152625,
-      "text": "Do centra a na nákup deset minut pěšky. A autem po dé sedm, kterou tu právě dostavují, jste za dvacet pět minut na Pražském okruhu."
+      "id": "F2_5v16",
+      "start": 71.58,
+      "end": 79.872,
+      "text": "Do centra a na nákup deset minut pěšky. A autem po dé sedm, kterou tu právě dostavují, jste za dvacet minut na Pražském okruhu."
     },
     {
       "id": "F2_7",
-      "start": 81.84,
-      "end": 87.40406300000001,
+      "start": 83.942,
+      "end": 89.267,
       "text": "A tohle je teprve začátek. Na další tři domy je stavební povolení už vydané."
     },
     {
       "id": "F2_6",
-      "start": 88.72,
-      "end": 98.280813,
+      "start": 91.216,
+      "end": 100.537,
       "text": "Dokončení je plánované na rok dva tisíce dvacet osm a do kolaudace stačí zaplatit deset procent. Druhá etapa Verde Slaný."
     }
-  ],
-  "source": "Final v14 edit timing and approved narration; F2_8 locally transcribed"
+  ]
 }
