@@ -46,3 +46,21 @@
  }
  document.querySelectorAll('.film-play').forEach(button=>{const video=document.getElementById(button.dataset.film);button.addEventListener('click',()=>{button.hidden=true;video.play().catch(()=>{button.hidden=false})});video.addEventListener('play',()=>button.hidden=true);video.addEventListener('ended',()=>button.hidden=false)});
 })();
+
+(() => {
+  const section = document.getElementById('vizualizace-mezonetu');
+  if (!section) return;
+  const player = section.querySelector('video');
+  const choices = section.querySelectorAll('[data-interior-clip]');
+  for (const choice of choices) choice.addEventListener('click', () => {
+    for (const item of choices) item.setAttribute('aria-pressed', String(item === choice));
+    if (player.getAttribute('src') !== choice.dataset.interiorClip) {
+      player.pause();
+      player.poster = choice.dataset.poster;
+      player.src = choice.dataset.interiorClip;
+    }
+    player.setAttribute('aria-label', choice.textContent.trim());
+    player.play().catch(() => {});
+  });
+  section.addEventListener('toggle', () => { if (!section.open) player.pause(); });
+})();

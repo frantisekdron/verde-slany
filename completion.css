@@ -83,3 +83,13 @@ html[data-variant="b"] .floors #floorButtons button{min-width:130px;width:130px;
 .phase-film-image span{position:absolute;right:.55rem;bottom:.55rem;background:#fff;color:#183529;padding:.2rem .5rem;font-size:.75rem}
 .phase-film-angle figcaption{margin-top:.35rem}.film-pending{margin:.7rem 0;color:#405348}
 @media(max-width:760px){.phase-film-views{grid-template-columns:1fr}}
+
+.interior-motions{margin-top:24px;border-top:1px solid #cbd6cc;border-bottom:1px solid #cbd6cc}
+.interior-motions summary{cursor:pointer;padding:18px 4px;font-weight:650;color:#234c38}
+.interior-motions summary span{display:inline-block;font-size:.8em;font-weight:400;margin-left:.7em}
+.interior-view{display:grid;grid-template-columns:minmax(0,2fr) minmax(210px,1fr);gap:20px;align-items:center;padding:0 0 22px}
+.interior-view video{display:block;width:100%;aspect-ratio:16/9;background:#17241d;border-radius:12px;object-fit:contain}
+.interior-choices{display:flex;flex-direction:column;gap:6px}
+.interior-choices button{text-align:left;border:1px solid #b7c6ba;background:transparent;color:#244b36;border-radius:7px;padding:9px 12px;cursor:pointer;font:inherit;font-size:.88rem}
+.interior-choices button[aria-pressed="true"]{background:#234c38;color:white;border-color:#234c38}
+@media(max-width:760px){.interior-view{grid-template-columns:1fr;gap:12px}.interior-choices{display:grid;grid-template-columns:1fr 1fr}.interior-choices button{min-height:44px}}

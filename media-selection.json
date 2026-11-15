@@ -26,8 +26,9 @@
       "thumb": "thumb/verde-zapad.webp",
       "width": 2100,
       "height": 1400,
-      "source": "02_Od_zapadu_z_dronu.jpg",
-      "sha256": "d932eaa97cbe87d5746804431d0f943509d1e001cb5c9c7e87fe6ffed73ca267"
+      "source": "VIZ_D2_schody_v3.jpg",
+      "sha256": "e29689868087382b5d7871f12e6b446aad9e6cd06307144d8485ca952899865d",
+      "sourceSha256": "cf825d325099bd9d3ed7d99bee1e4fa47707ee75e9e61376d5e1963bd24ceb13"
     },
     {
       "slug": "verde-ulice",
@@ -1681,6 +1682,56 @@
       "start": 88.4,
       "duration": 5,
       "sha256": "11465bd86c188d52d686fc9124d2bb26d34874fc21d10880b8f3984d8ffa3ef8"
+    }
+  ],
+  "maisonetteClips": [
+    {
+      "slug": "mezonet-pred-zarizenim",
+      "title": "Obývací pokoj před zařízením",
+      "source": "hf_20261110_141008_4e773d41-9d46-4943-b700-a0b1c6e74f4a.mp4",
+      "video": "assets/media-20261115/clips/mezonet-pred-zarizenim.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-pred-zarizenim.webp",
+      "sha256": "528e52ef829d3d07109fb07804c05f90004eb0412360da7301390fd84c9a4e7c"
+    },
+    {
+      "slug": "mezonet-obyvak",
+      "title": "Obývací pokoj s kamny",
+      "source": "hf_20261110_141029_35f9945b-e379-4bfe-ac11-6d0bddab20a4.mp4",
+      "video": "assets/media-20261115/clips/mezonet-obyvak.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-obyvak.webp",
+      "sha256": "ebcb55c6082195080f85f3669e5ac810951a8446138d82660a8feadfee6c6c94"
+    },
+    {
+      "slug": "mezonet-jidelna",
+      "title": "Jídelna s kuchyní",
+      "source": "hf_20261110_144434_4aec691d-76c4-4da6-a66d-8e71a7bf2a75.mp4",
+      "video": "assets/media-20261115/clips/mezonet-jidelna.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-jidelna.webp",
+      "sha256": "3415c30ded1e3a4e525511e4902a92d9c277acc2fa864bbbfe3c2f88e2e34c71"
+    },
+    {
+      "slug": "mezonet-loznice-okno",
+      "title": "Ložnice s francouzským oknem",
+      "source": "hf_20261110_152205_3c83ee61-0c29-4ecc-bf27-e5deb72aadb8.mp4",
+      "video": "assets/media-20261115/clips/mezonet-loznice-okno.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-loznice-okno.webp",
+      "sha256": "25cab896649c60a9349ecbde0a8f61e0c4d26edc9cfec4288a6cd3be633bfe93"
+    },
+    {
+      "slug": "mezonet-koupelna",
+      "title": "Koupelna s vanou",
+      "source": "hf_20261110_153746_f17efcf2-c30d-4a9f-b19b-404f53b828d2.mp4",
+      "video": "assets/media-20261115/clips/mezonet-koupelna.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-koupelna.webp",
+      "sha256": "4cad8cb2c5e4b700b4463b2d148c737fde6397252fd8ac5fc7d8b83e7c252e26"
+    },
+    {
+      "slug": "mezonet-loznice",
+      "title": "Podkrovní ložnice",
+      "source": "hf_20261110_154558_addd2d2a-506b-4c57-b0ea-24ef7002f146.mp4",
+      "video": "assets/media-20261115/clips/mezonet-loznice.mp4",
+      "poster": "assets/media-20261115/visual/mezonet-loznice.webp",
+      "sha256": "1e5a222273360956e8a77677534fbe335447b0e3b0d005dd342cbb08eccc28a9"
     }
   ]
 }
