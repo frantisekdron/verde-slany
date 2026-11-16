@@ -1,0 +1,336 @@
+.verde-home {
+  --forest: #193e31;
+  --ink: #172f26;
+  --muted: #50635a;
+  --sage: #e9eee5;
+  --paper: #fcfcf8;
+  --line: #cbd5cb;
+  --inverse: #f7f8ee;
+  --inverse-muted: #c5d3c6;
+  --inset: clamp(22px, 5vw, 78px);
+  --measure: 1216px;
+  --band: clamp(54px, 6.5vw, 94px);
+  --sans: "Verde Sans", Arial, sans-serif;
+  --serif: "Verde Serif", Georgia, serif;
+  font: 400 16px/1.55 var(--sans); color: var(--ink); background: var(--paper);
+}
+.verde-home [hidden] { display: none !important }
+.verde-home :is(a, button, summary, h1, h2, h3, p) { overflow-wrap: break-word }
+.verde-home :is(button, input, select, textarea) { font-family: var(--sans) }
+.verde-home :is(.chapter-inner, #vyber > .wrap, .locality-inner) {
+  width: min(var(--measure), calc(100% - 2 * var(--inset)));
+  max-width: none; margin: 0 auto; padding: 0;
+}
+html:has(.verde-home) { scroll-padding-top: 72px }
+.verde-home :is(section, details, [role=tabpanel])[id], .verde-home .media-tabs { scroll-margin-top: 12px }
+.verde-home .site-header {
+  position: sticky; inset: 0 0 auto; z-index: 35; display: flex; align-items: center;
+  justify-content: flex-start; flex-wrap: nowrap; gap: clamp(20px, 3vw, 50px); width: 100%;
+  height: 72px; min-height: 0; padding: 0 max(var(--inset), calc((100% - var(--measure)) / 2));
+  border: 0; border-bottom: 1px solid #dce1d9; background: var(--paper); box-shadow: none;
+}
+.site-header .brand { display: inline-flex; align-items: center; gap: 10px; flex: none; text-decoration: none }
+.brand-signet { position: relative; display: block; width: 30px; height: 30px; overflow: hidden }
+.site-header .brand-signet img { position: absolute; width: 49px; height: auto; max-width: none; left: -9.5px; top: -1px; object-fit: initial }
+.brand-word { font: 590 22px/1 var(--sans); letter-spacing: -.065em; color: var(--forest); white-space: nowrap }
+.site-header #siteNavigation { display: flex; flex: 0 1 auto; gap: clamp(20px, 2.8vw, 43px); margin-left: auto; padding: 0; order: 0; width: auto; overflow: visible }
+.site-header #siteNavigation a, .site-header .contact {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0;
+  font: 500 13px/1.2 var(--sans); text-decoration: none; text-transform: none;
+  letter-spacing: 0; white-space: nowrap; border: 0; color: var(--ink);
+}
+.site-header #siteNavigation a { position: relative }
+.site-header #siteNavigation a::after { content: ""; position: absolute; bottom: 5px; left: 0; right: 0; height: 1px; background: currentColor; opacity: 0 }
+.site-header #siteNavigation a:is(:hover,[aria-current="location"])::after { opacity: 1 }
+.site-header .contact { background: transparent; border: 1px solid #91a295; border-radius: 30px; padding: 0 21px; min-height: 38px; margin: 0; order: 0 }
+.site-header .contact:hover { background: var(--sage) }
+.site-header .site-menu { display: none }
+.verde-home .hero {
+  display: grid; grid-template-columns: minmax(0, 43fr) minmax(0, 57fr); align-items: stretch;
+  isolation: isolate; height: auto; min-height: 0; max-height: none; margin: 0; padding: 0;
+  background: var(--sage); color: var(--ink); overflow: visible;
+}
+.verde-home .hero .hero-copy {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  position: static; transform: none; margin: 0; width: auto; max-width: none;
+  padding: clamp(48px, 5vw, 76px) clamp(28px, 4vw, 68px) clamp(50px, 5.3vw, 84px) max(var(--inset), calc((100vw - var(--measure)) / 2));
+  color: var(--ink); text-shadow: none;
+}
+.verde-home .hero .eyebrow { margin: 0 0 24px; font: 600 11px/1.45 var(--sans); letter-spacing: .10em; text-transform: uppercase; color: #405c4e }
+.verde-home .hero h1, .verde-home .hero h1 em {
+  font: 400 clamp(74px, 7.7vw, 128px)/.91 var(--serif); letter-spacing: -.045em;
+  text-transform: none; max-width: none; color: var(--ink); margin: 0;
+}
+.verde-home .hero h1 em { font-style: italic; color: #345f48 }
+.verde-home .hero-copy > p:not(.eyebrow) { margin: 23px 0 0; max-width: 345px; color: #385045; font: 400 clamp(15px, 1.13vw, 18px)/1.58 var(--sans) }
+.hero-actions { display: flex; gap: clamp(15px, 2vw, 26px); flex-wrap: wrap; align-items: center; margin-top: 29px }
+.verde-home .hero .hero-primary, .verde-home .contact-primary {
+  display: inline-flex; justify-content: space-between; align-items: center; gap: 21px;
+  width: auto; min-height: 46px; min-width: 0; padding: 12px 22px; margin: 0; border: 0;
+  border-radius: 30px; background: var(--forest); color: white; text-decoration: none;
+  text-transform: none; letter-spacing: 0; font: 560 14px/1.3 var(--sans); box-shadow: none;
+}
+.hero-primary span { margin: 0; font-size: 19px; line-height: 1 }
+.hero-primary:hover { background: #285540 }
+.hero-film-link { padding: 6px 0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; color: var(--forest); font: 510 13px/1.4 var(--sans) }
+.hero .hero-figure { position: relative; margin: 0; min-height: clamp(455px, 39vw, 620px); overflow: hidden; background: #c8cfc3 }
+.verde-home .hero-figure .hero-image { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 53% 52%; filter: none; opacity: 1; transform: none }
+.hero-figure figcaption { position: absolute; left: 16px; bottom: 16px; color: white; background: #16271fd9; border-radius: 3px; padding: 5px 9px; font: 450 11px/1.3 var(--sans) }
+
+/* Each destination in the navigation has its own surface and common alignment. */
+.verde-home #vyber, .verde-home #etapy, .verde-home #lokalita, .verde-home #kontakt, .verde-home .media-chapter {
+  display: block; margin: 0; width: 100%; max-width: none; padding: var(--band) 0;
+  border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: var(--paper);
+}
+.verde-home #vyber { background: #fff }
+.verde-home :is(#selectionHeading,#mediaHeading,#phaseTitle,#localityTitle,#contactTitle), .verde-home #aktuality h2 {
+  font: 400 clamp(42px, 4.7vw, 74px)/1.02 var(--serif); letter-spacing: -.035em;
+  text-transform: none; margin: 0; max-width: none; color: var(--ink);
+}
+.verde-home :is(#vyber, #etapy) .section-head, .verde-home .locality-heading, .media-heading {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 25px;
+  margin: 0 0 clamp(24px, 3vw, 42px); padding: 0; border: 0;
+}
+.verde-home .section-head > p { font: 400 15px/1.6 var(--sans); color: var(--muted); max-width: 315px; margin: 0 }
+.verde-home #vyber:is([data-project=""],:not([data-project])) .selection-lead { display: none }
+.verde-home .saved-button { flex: none; margin: 0; border: 0; border-radius: 0; padding: 8px 0 8px 8px; min-height: 42px; font: 500 13px/1.4 var(--sans); background: none; color: var(--forest) }
+.verde-home .saved-button span { background: var(--sage); border-radius: 50%; color: var(--forest) }
+.verde-home .project-choices { gap: clamp(18px, 2.6vw, 38px); grid-auto-rows: auto }
+.verde-home .project-choice {
+  display: flex; flex-direction: column; position: relative; text-align: left; min-width: 0;
+  padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none;
+  overflow: visible; transform: none; color: var(--ink);
+}
+.verde-home .project-choice:hover { transform: none; box-shadow: none }
+.verde-home .project-choice .project-cover { position: relative; width: 100%; height: auto; min-height: 0; aspect-ratio: 2.12; overflow: hidden; border-radius: 4px; background: var(--sage) }
+.verde-home .project-cover .project-picture { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 54%; transition: transform .35s ease }
+.verde-home .project-choice:hover .project-picture { transform: scale(1.025) }
+.type-credit { position: absolute; bottom: 9px; left: 10px; background: #182a22cc; color: white; border-radius: 3px; padding: 3px 7px; font: 450 10px/1.4 var(--sans) }
+.verde-home .project-choice .project-description { display: block; position: relative; width: 100%; min-height: 0; padding: 19px 0 0; margin: 0; background: transparent; border: 0 }
+.verde-home .project-description .project-status { color: var(--muted); font: 580 11px/1.3 var(--sans); text-transform: uppercase; letter-spacing: .075em; margin: 0 0 7px }
+.verde-home .project-description h3 { min-height: 0; color: var(--ink); font: 400 clamp(32px,3vw,46px)/1.04 var(--serif); letter-spacing: -.025em; margin: 0 0 5px; text-transform: none }
+.verde-home .project-description > p:not(.project-status) { margin: 0; min-height: 0; color: var(--muted); font: 420 14px/1.45 var(--sans) }
+.verde-home .project-bottom { display: flex; flex-direction: row; flex-wrap: wrap; min-height: 0; align-items: center; justify-content: space-between; gap: 10px; margin: 17px 0 0; padding: 12px 0 0; border: 0; border-top: 1px solid var(--line) }
+.verde-home .project-bottom > :is(span,strong) { flex: none }
+.verde-home .project-bottom > span { color: var(--muted); font: 450 12px/1.5 var(--sans); text-transform: none; letter-spacing: 0 }
+.verde-home .project-bottom strong { display: inline-flex; gap: 9px; align-items: center; margin: 0; color: var(--forest); font: 560 13px/1.4 var(--sans) }
+.project-bottom strong span { font-size: 17px }
+.project-about { margin-top: 27px; border: 0; font-size: 14px; color: var(--muted) }
+.project-about summary, .places-more summary { width: fit-content; cursor: pointer; font-weight: 530; padding: 8px 0; color: var(--forest) }
+.project-about > p { max-width: 780px; margin: 8px 0 }
+.project-about .visualization-disclaimer { max-width: 780px; margin: 12px 0 0; padding: 12px 16px }
+.verde-home #selectionWorkspace .explorer { border-radius: 5px }
+.verde-home dialog::backdrop { background: rgb(13 32 24 / .7); backdrop-filter: none }
+.verde-home :is(#detail,#comparison,#inquiry) { border-radius: 5px; background: var(--paper) }
+.verde-home :is(#detailTitle,#comparison h2,#inquiry h2) {
+  font: 400 clamp(31px,4vw,54px)/1.07 var(--serif); letter-spacing: -.03em;
+}
+.verde-home :is(#detail,#comparison,#inquiry,#media,#galleryDialog) .close { border-radius: 50% }
+
+.verde-home .media-chapter { background: var(--forest); color: var(--inverse); border-color: var(--forest) }
+.verde-home #mediaHeading { color: var(--inverse) }
+.media-heading { flex-wrap: wrap; row-gap: 20px }
+.media-tabs { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; padding: 3px; border: 1px solid #738e7d; border-radius: 24px }
+.media-tabs button { background: none; border: 0; color: var(--inverse-muted); padding: 9px 15px; border-radius: 22px; min-height: 38px; font: 500 13px/1.35 var(--sans); cursor: pointer }
+.media-tabs button:hover { color: white; background: #2d5142 }
+.media-tabs button[aria-selected=true] { background: var(--inverse); color: var(--forest) }
+.verde-home .media-pane > section { display: block; width: 100%; max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; color: var(--inverse); background: transparent }
+.verde-home .media-pane .section-head { display: block; padding: 0; margin: 0 0 17px; border: 0 }
+.media-pane .section-head h3 { margin: 0; color: var(--inverse-muted); font: 500 14px/1.45 var(--sans); letter-spacing: 0 }
+.verde-home .media-pane .visual-gallery, .verde-home .photo-story-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; margin: 0 }
+.verde-home .visual-gallery.is-collapsible:not(.is-expanded) > figure:nth-child(n+4) { display: none }
+.verde-home .media-pane :is(.visual-gallery,.photo-story-grid) figure { min-width: 0; margin: 0; padding: 0; background: transparent; border: 0 }
+.verde-home .media-pane :is(.visual-gallery,.photo-story-grid) .gallery-open { position: relative; border: 0; border-radius: 3px; padding: 0; overflow: hidden; width: 100%; background: #2c4e3e }
+.verde-home .media-pane :is(.visual-gallery,.photo-story-grid) img { display: block; width: 100%; height: auto; aspect-ratio: 1.62; object-fit: cover; border-radius: 3px }
+.verde-home .media-pane :is(.visual-gallery,.photo-story-grid,.media-collection) figcaption { padding: 9px 0 2px; color: var(--inverse-muted); background: transparent; font: 420 12px/1.5 var(--sans) }
+.verde-home .media-pane .gallery-toggle { display: inline-flex; gap: 10px; min-height: 41px; margin: 24px 0 0; padding: 10px 17px; color: var(--inverse); background: transparent; border: 1px solid #91a99a; border-radius: 22px; font: 510 13px/1.3 var(--sans) }
+.verde-home .media-pane :is(.interior-motions,.media-collection) { width: 100%; color: var(--inverse); background: transparent; margin: 0; padding: 0; border: 0; border-bottom: 1px solid #547363; border-radius: 0 }
+.verde-home .media-pane .interior-motions { margin-top: 19px; border-top: 1px solid #547363 }
+.verde-home .media-pane :is(.media-collection,.interior-motions) > summary { cursor: pointer; padding: 14px 0; color: var(--inverse); font: 500 14px/1.5 var(--sans) }
+.verde-home .media-pane .interior-choices button { color: var(--inverse); background: transparent; border-color: #819c8c }
+.verde-home .media-pane .interior-choices button[aria-pressed=true] { color: var(--forest); background: var(--inverse) }
+.verde-home .media-pane .project-film { margin: 0; max-width: none; width: 100% }
+.verde-home .media-pane .film-section { display: block }
+.verde-home .media-pane .film-stage { width: min(890px,100%); max-width: none; border-radius: 4px; overflow: hidden; background: #0d271b }
+.verde-home .media-pane .film-stage video { width: 100%; height: auto; max-height: 550px; display: block; aspect-ratio: 16/9; object-fit: contain }
+.verde-home .media-pane :is(.visualization-inline,.film-pending,.project-film figcaption) { color: var(--inverse-muted); background: none; max-width: 890px; padding: 0; border: 0; margin: 12px 0 0; font: 420 13px/1.6 var(--sans) }
+.verde-home .media-pane .film-pending { color: var(--inverse) }
+.verde-home .media-pane .tour-overview-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px }
+.verde-home .tour-overview-card { display: grid; grid-template-columns: minmax(120px,.8fr) 1.2fr; overflow: hidden; border: 0; border-radius: 4px; background: var(--sage); color: var(--ink) }
+.verde-home .tour-overview-card > div { padding: 20px }
+.verde-home .tour-overview-card .tour-preview { display: block; position: relative; padding: 0; border: 0; background: #728778; height: 100%; width: 100%; min-height: 170px }
+.verde-home .tour-overview-card .tour-preview img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover }
+.verde-home .tour-overview-card > div h3 { font: 400 29px/1.05 var(--serif); margin: 6px 0 }
+.verde-home .tour-overview-card > div > p { color: var(--muted); font: 420 13px/1.45 var(--sans) }
+.verde-home .tour-overview-card .eyebrow { font: 590 10px/1.4 var(--sans); letter-spacing: .055em }
+.verde-home .tour-overview-card .tour-3d-badge, .verde-home .tour-overview-card .tour-preview-caption { display: none }
+.verde-home .media-pane #areal { margin-top: 26px }
+.verde-home .media-pane .areal-card { display: grid; grid-template-columns: minmax(170px,1fr) 1.6fr; gap: 0; background: var(--sage); color: var(--ink); border-radius: 4px; overflow: hidden; border: 0 }
+.verde-home .media-pane .areal-launch { height: 172px; border-radius: 0 }
+.verde-home .media-pane .areal-description { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 18px 26px }
+
+.verde-home #etapy { background: var(--paper) }
+.verde-home .phase-browser { display: block; margin-bottom: clamp(26px,3vw,40px) }
+.verde-home .phase-options { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; padding: 0 }
+.verde-home .phase-options .phase-card { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; min-width: 0; min-height: 64px; padding: 10px 12px; border: 0; border-radius: 0; border-bottom: 3px solid transparent; font: 500 14px/1.25 var(--sans); color: var(--ink); background: none }
+.verde-home .phase-options .phase-card span { color: var(--muted); font-size: 12px }
+.verde-home .phase-options .phase-card[aria-pressed=true] { background: var(--sage); color: var(--forest); border-bottom-color: var(--forest) }
+.verde-home .phase-detail { margin-top: 14px; border: 0 }
+.verde-home .phase-panel { display: grid; grid-template-columns: minmax(210px,.8fr) 1.45fr; gap: 5px 30px; align-content: center; background: #edf1e9; padding: 14px; border: 0; border-radius: 4px }
+.verde-home .phase-panel figure { grid-column: 1; grid-row: 1 / 4; margin: 0 }
+.verde-home .phase-panel h3 { grid-column: 2; align-self: end; font: 400 clamp(26px,2.6vw,38px)/1.1 var(--serif); margin: 0; padding: 14px 14px 0 0 }
+.verde-home .phase-panel > p { grid-column: 2; margin: 0; padding-right: 15px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 560px }
+.verde-home .phase-panel .phase-image img { width: 100%; height: 142px; object-fit: contain; background: #e0e7dd }
+.verde-home .phase-panel figcaption { margin: 6px 0 0; font-size: 11px; color: var(--muted) }
+.verde-home .phase-film-views { gap: clamp(15px,3vw,38px); margin: 0 }
+.verde-home .phase-film-views .phase-film-image img { border-radius: 3px; background: #e2e8dd; object-fit: contain; height: auto }
+.verde-home .phase-film-views figcaption, .verde-home .phase-film-angle summary { color: var(--muted); font-family: var(--sans) }
+.verde-home .phase-film-image span, .verde-home .phase-image small { font: 510 11px/1.3 var(--sans); padding: 5px 8px; border-radius: 2px }
+.verde-home .stage-source { font: 480 12px/1.6 var(--sans); color: var(--forest); text-underline-offset: 4px }
+
+.verde-home #lokalita { background: var(--sage) }
+.verde-home #lokalita .locality-inner { padding: 0 }
+.verde-home .locality-overview { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(25px,4.5vw,70px); align-items: center; margin: 0 }
+.verde-home .locality-map-stack { margin: 0; padding: 0 }
+.verde-home .locality-map { border: 0; border-radius: 4px; box-shadow: none; padding: 0 }
+.verde-home .locality-map > img { border-radius: 4px; aspect-ratio: 1.72; width: 100%; object-fit: cover }
+.verde-home .locality-copy { color: var(--ink); background: none; border: 0; padding: 0; box-shadow: none }
+.verde-home .locality-copy .place { display: block; background: transparent; margin: 0; border: 0; border-bottom: 1px solid #c2cfc3; padding: 13px 0 }
+.verde-home .locality-place-icon { display: none }
+.verde-home .locality-copy h3 { font: 400 28px/1.12 var(--serif); letter-spacing: -.015em; margin: 0 0 5px }
+.verde-home .locality-copy p { font: 420 14px/1.5 var(--sans); color: #42584a; margin: 0 }
+.places-more { border-bottom: 1px solid #c2cfc3; margin-top: 25px; padding: 4px 0 }
+.places-more summary { font-size: 14px; padding: 10px 0 }
+.verde-home .locality-cards { margin: 10px 0 16px; gap: 15px }
+.verde-home #doprava { background: transparent; width: 100%; padding: 28px 0 0; margin: 0; border: 0 }
+.verde-home #doprava > .wrap { width: 100%; max-width: none; margin: 0; padding: 0 }
+.verde-home .transport-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin: 0; border: 0; padding: 0 }
+.verde-home .transport-heading h3 { color: var(--ink); font: 400 32px/1.1 var(--serif); margin: 0; letter-spacing: -.025em }
+.verde-home .transport-heading > p { margin: 0; color: var(--muted); font: 420 14px/1.5 var(--sans); max-width: 530px }
+.verde-home .transport-details { margin: 12px 0 0; padding: 0; background: none; border: 0 }
+.verde-home .transport-details > summary { cursor: pointer; font: 520 13px/1.5 var(--sans); padding: 8px 0; color: var(--forest) }
+
+.verde-home #kontakt { background: #16382c; color: var(--inverse); border: 0 }
+.verde-home #kontakt .contact-panel { display: grid; grid-template-columns: 1.12fr 1fr; align-items: center; gap: clamp(30px,7vw,96px); padding: 0; margin: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none }
+.verde-home #kontakt .contact-invite, .verde-home #kontakt .contact-person-card { padding: 0; background: none; border: 0; margin: 0; border-radius: 0; box-shadow: none }
+.verde-home #kontakt .contact-invite::after { display: none }
+.verde-home #contactTitle { color: var(--inverse); max-width: 7.5em }
+.verde-home .contact-lead { margin: 17px 0 23px; color: var(--inverse-muted); max-width: 395px; font: 420 16px/1.6 var(--sans) }
+.verde-home .contact-primary { color: var(--forest); background: var(--inverse) }
+.verde-home .contact-primary:hover { background: white; color: var(--forest) }
+.verde-home .contact-person-heading { display: flex; align-items: center; gap: 16px }
+.verde-home .contact-portrait { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 0 }
+.verde-home #kontakt .contact-person-heading h3 { color: var(--inverse); font: 400 35px/1.1 var(--serif); margin: 0 }
+.verde-home #kontakt .contact-role, .verde-home #kontakt .contact-location { color: var(--inverse-muted); font: 420 12px/1.5 var(--sans) }
+.verde-home .contact-channels { display: grid; gap: 0; margin: 19px 0 0 }
+.verde-home .contact-channel { display: flex; align-items: center; gap: 12px; margin: 0; padding: 10px 0; border: 0; border-top: 1px solid #486657; border-radius: 0; background: none; box-shadow: none; color: var(--inverse); text-decoration: none }
+.verde-home .contact-channel:hover { background: transparent; color: white; transform: none }
+.verde-home .contact-channel strong, .verde-home .contact-channel b { color: var(--inverse); font: 530 16px/1.4 var(--sans) }
+.verde-home .contact-channel small, .verde-home .contact-channel .contact-channel-label { color: var(--inverse-muted) }
+.verde-home .contact-icon { color: var(--inverse-muted); background: transparent }
+.verde-home .contact-location { padding-top: 12px; border-top: 1px solid #486657; margin-top: 0 }
+.verde-home footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 21px max(var(--inset), calc((100% - var(--measure)) / 2)); background: #16382c; border-top: 1px solid #486657; color: var(--inverse-muted); text-transform: none; font: 430 12px/1.5 var(--sans) }
+.verde-home footer img { display: none }
+.verde-home footer a { color: var(--inverse); text-underline-offset: 4px }
+.verde-home footer .footer-top { margin-left: auto; text-decoration: none }
+.verde-home #aktuality:not([hidden]) { padding: 54px 0; width: min(var(--measure),calc(100% - 2 * var(--inset))) }
+.verde-home :is(.media-chapter,#kontakt) :focus-visible { outline: 3px solid #efdda0; outline-offset: 3px }
+.verde-home :is(.hero,.site-header,#vyber,#etapy,#lokalita) :focus-visible { outline: 3px solid #326b51 !important; outline-offset: 3px }
+
+@media (max-width: 920px) {
+  .verde-home { --inset: clamp(20px,4.5vw,40px) }
+  .verde-home .hero { grid-template-columns: 43fr 57fr }
+  .verde-home .hero h1, .verde-home .hero h1 em { font-size: clamp(68px,9.2vw,87px) }
+  .verde-home .hero .hero-copy { padding-right: 22px }
+  .verde-home .hero-figure { min-height: 410px }
+  .verde-home .tour-overview-card { grid-template-columns: 1fr }
+  .verde-home .tour-overview-card .tour-preview { min-height: 150px; height: 150px }
+}
+@media (max-width: 720px) {
+  .verde-home { --inset: 21px; --band: 46px }
+  html:has(.verde-home) { scroll-padding-top: 60px }
+  .verde-home .site-header { height: 60px; min-height: 60px; gap: 13px; padding: 0 var(--inset) }
+  .site-header .brand { gap: 7px }
+  .site-header .brand-word { font-size: 20px }
+  .site-header .contact { margin-left: auto; padding: 0 13px; font-size: 12px; min-height: 34px }
+  .site-header .site-menu:not([hidden]) { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 0 0 0 4px; border: 0; background: none; font: 510 12px/1 var(--sans); color: var(--forest) }
+  .menu-glyph { display: block; width: 17px; height: 9px; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor }
+  .site-header .site-menu[aria-expanded=true] .menu-glyph { height: 0; border-bottom: 0 }
+  .site-header #siteNavigation { flex: 1 0 100%; flex-wrap: wrap; gap: 0 15px; padding: 0; margin: 0 }
+  .site-header:not(.menu-ready) { height: auto; flex-wrap: wrap; padding-top: 8px }
+  .site-header:not(.menu-ready) #siteNavigation { order: 3 }
+  .site-header.menu-ready #siteNavigation { display: none !important }
+  .site-header.menu-ready.menu-open #siteNavigation { position: absolute; top: 100%; inset-inline: 0; display: flex !important; flex-direction: column; align-items: stretch; padding: 8px var(--inset) 15px; border-bottom: 1px solid var(--line); background: var(--paper); box-shadow: 0 12px 20px #142c2212 }
+  .site-header.menu-open #siteNavigation a { justify-content: flex-start; min-height: 44px; border-bottom: 1px solid #e0e5dc }
+  .site-header #siteNavigation a::after { display: none }
+  .verde-home .hero { display: flex; flex-direction: column; min-height: 0; height: auto; max-height: none }
+  .verde-home .hero .hero-copy { order: 1; padding: 29px var(--inset) 33px; width: 100% }
+  .verde-home .hero .hero-figure { order: 0; width: 100%; height: clamp(195px,53vw,335px); min-height: 0 }
+  .verde-home .hero-figure .hero-image { object-position: 50% 52% }
+  .hero-figure figcaption { left: 10px; bottom: 9px; font-size: 10px }
+  .verde-home .hero .eyebrow { font-size: 10px; margin-bottom: 11px }
+  .verde-home .hero h1, .verde-home .hero h1 em { font-size: clamp(48px,12.2vw,80px); line-height: .99; letter-spacing: -.035em }
+  .verde-home .hero h1.has-emphasis br { display: none }
+  .verde-home .hero h1 em::before { content: " " }
+  .verde-home .hero-copy > p:not(.eyebrow) { margin-top: 12px; font-size: 14px; line-height: 1.55; max-width: 420px }
+  .hero-actions { margin-top: 18px; gap: 23px }
+  .verde-home .hero .hero-primary { min-height: 43px; padding: 11px 17px }
+  .verde-home :is(#selectionHeading,#mediaHeading,#phaseTitle,#localityTitle,#contactTitle) { font-size: clamp(39px,8.7vw,54px) }
+  .verde-home :is(#vyber,#etapy) .section-head, .verde-home .locality-heading, .media-heading { align-items: flex-start; gap: 12px; margin-bottom: 21px }
+  .verde-home #vyber > .wrap > .section-head { display: flex; flex-wrap: nowrap; flex-direction: row; align-items: center; justify-content: space-between; gap: 8px }
+  .verde-home #vyber .section-head > div { min-width: 0; width: auto }
+  .verde-home .saved-button { font-size: 12px }
+  .verde-home .project-choices { grid-template-columns: 1fr; gap: 27px }
+  .verde-home .project-choice .project-cover { aspect-ratio: 2.13 }
+  .verde-home .project-choice .project-description { padding: 13px 0 0 }
+  .verde-home .project-description h3 { font-size: 33px }
+  .verde-home .project-description .project-status { font-size: 10px }
+  .verde-home .project-bottom { margin-top: 11px; padding-top: 8px }
+  .verde-home .project-about { margin-top: 18px }
+  .media-heading { flex-direction: column; gap: 16px }
+  .media-tabs { width: 100%; display: grid; grid-template-columns: 1.15fr 1.1fr .72fr 1.23fr; gap: 0; padding: 2px }
+  .media-tabs button { padding: 9px 3px; min-height: 39px; font-size: 12px; white-space: nowrap }
+  .verde-home .media-pane :is(.visual-gallery,.photo-story-grid) { grid-template-columns: 1fr 1fr; gap: 12px }
+  .verde-home .media-pane :is(.visual-gallery.is-collapsible:not(.is-expanded),.photo-story-grid) > figure:first-child { grid-column: 1 / -1 }
+  .verde-home .media-pane :is(.visual-gallery,.photo-story-grid) img { aspect-ratio: 1.64 }
+  .verde-home .media-pane :is(.visual-gallery.is-collapsible:not(.is-expanded),.photo-story-grid) > figure:first-child img { aspect-ratio: 2 }
+  .verde-home .media-pane .tour-overview-grid { gap: 13px }
+  .verde-home .tour-overview-card > div { padding: 13px }
+  .verde-home .tour-overview-card > div h3 { font-size: 25px }
+  .verde-home .tour-overview-card .tour-preview { min-height: 110px; height: 110px }
+  .verde-home .tour-overview-card .button { min-height: 40px; padding: 7px 8px; font-size: 11px }
+  .verde-home .tour-button-icon, .verde-home .tour-button-arrow { display: none }
+  .verde-home .media-pane .areal-card { grid-template-columns: 1fr 1.1fr }
+  .verde-home .media-pane .areal-launch { height: 100%; min-height: 135px }
+  .verde-home .media-pane .areal-description { padding: 12px; font-size: 12px }
+  .verde-home .phase-options { grid-template-columns: repeat(3,minmax(0,1fr)) }
+  .verde-home .phase-options .phase-card { min-height: 56px; padding: 8px 5px; font-size: 12px }
+  .verde-home .phase-options .phase-card span { font-size: 10px }
+  .verde-home .phase-panel { grid-template-columns: 1fr; padding: 11px; gap: 5px }
+  .verde-home .phase-panel figure,.verde-home .phase-panel h3,.verde-home .phase-panel > p { grid-column: 1; grid-row: auto; padding: 0 }
+  .verde-home .phase-panel h3 { font-size: 26px; margin-top: 7px }
+  .verde-home .phase-panel .phase-image img { height: 128px }
+  .verde-home .phase-film-views { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px }
+  .verde-home .phase-film-top figcaption, .verde-home .phase-film-angle summary { min-height: 3.8em; margin: 0; font-size: 11px }
+  .verde-home .phase-film-angle figcaption { font-size: 10px }
+  .verde-home .phase-film-image span { right: 3px; bottom: 3px; font-size: 9px; padding: 3px }
+  .verde-home .locality-overview { grid-template-columns: 1fr; gap: 13px }
+  .verde-home .locality-copy .place { padding: 10px 0 }
+  .verde-home .locality-copy h3 { font-size: 25px }
+  .verde-home .locality-cards { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .verde-home .transport-heading { display: block }
+  .verde-home .transport-heading > p { margin-top: 7px }
+  .verde-home #kontakt .contact-panel { grid-template-columns: 1fr; gap: 29px }
+  .verde-home #contactTitle { max-width: none }
+  .verde-home #kontakt .contact-person-card { padding-top: 23px; border-top: 1px solid #486657 }
+  .verde-home footer { padding-block: 16px; gap: 8px; font-size: 11px }
+}
+@media (max-width: 360px) {
+  .verde-home { --inset: 15px }
+  .site-header .brand-word { font-size: 18px }
+  .media-tabs button { font-size: 11px }
+  .verde-home .media-pane .tour-overview-grid { grid-template-columns: 1fr }
+}
+@media (prefers-reduced-motion: reduce) {
+  .verde-home .project-cover .project-picture { transition: none }
+}

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Verde Serif";
+  src: url("assets/fonts/instrument-serif.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: "Verde Serif";
+  src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2");
+  font-style: italic; font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: "Verde Sans";
+  src: url("assets/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 100 900; font-display: swap;
+}
+body.unit-route, body:has(main.news-page) {
+  background: #f5f6ef;
+  color: #172f26;
+  font: 400 16px/1.55 "Verde Sans", Arial, sans-serif;
+}
+body.unit-route > main, body .news-page {
+  width: min(100%, 850px);
+  margin-inline: auto;
+  padding: clamp(22px, 4vw, 50px);
+}
+body.unit-route main > a, body .news-page > a:first-child {
+  font: 530 14px/1.4 "Verde Sans", Arial, sans-serif;
+  color: #254c38;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+body.unit-route main h1, body main.news-page h1 {
+  margin: 24px 0 26px;
+  font: 400 clamp(44px, 6vw, 74px)/1.06 "Verde Serif", Georgia, serif;
+  letter-spacing: -.035em;
+}
+body.unit-route main p:has(strong) {
+  display: grid;
+  grid-template-columns: minmax(128px,.75fr) 1.25fr;
+  gap: 14px;
+  border-top: 1px solid #cbd5cb;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 15px;
+}
+.unit-route p strong { color: #50635a; font-weight: 500 }
+body.unit-route main p a { color: #254c38; text-decoration: underline; text-underline-offset: 3px }
+body main.news-page .button { border-radius: 28px; background: #193e31; color: #fff }

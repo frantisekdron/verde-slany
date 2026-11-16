@@ -1,6 +1,6 @@
 {
   "date": "2026-11-16",
-  "sourceCommit": "dfe16c1ebcd15d557ff9025c62492146e99dc167",
+  "sourceCommit": "033c9311e9d0253a0b857333074bb92f70e5fa33",
   "units": 72,
   "inquiry": "mailto",
   "adminSync": false,
@@ -22,5 +22,6 @@
   "galleryClips": 8,
   "phaseUpdate": "2026-11-16",
   "phaseClips": 2,
-  "maisonetteClips": 6
+  "maisonetteClips": 6,
+  "layoutIntegration": "Preserved concurrent residence layout and media tabs"
 }
