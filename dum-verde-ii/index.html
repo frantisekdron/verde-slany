@@ -1004,7 +1004,12 @@ const odznak = document.getElementById('odznak');
 odznak.addEventListener('click', () => zacniChuzi());
 // v22: značky prohlídek – klik přeletí kamerou před dveře s cedulí „Vstoupit“ (přirozenější než rovnou otevřít: člověk vidí dům, vstup a může dojít sám nebo kliknout na Vstoupit)
 function kPohlidce(jm) {
-  const d = DVERE.find((x) => x.jm === jm); if (!d || !d.bod || stav !== 'orbit') return;
+  if (stav === 'prelet' && prelet.cil === 'orbit') {
+    prelet.dalsiProhlidka = jm;
+    return;
+  }
+  const d = DVERE.find((x) => x.jm === jm);
+  if (!d?.bod || stav !== 'orbit') return;
   zacniChuzi(d.bod.clone().addScaledVector(d.n, d.off ? 2.6 : 3.2), Math.atan2(d.n.x, d.n.z));
 }
 document.querySelectorAll('[data-dvere]').forEach((b) => b.addEventListener('click', () => kPohlidce(b.dataset.dvere)));
@@ -1640,8 +1645,14 @@ renderer.setAnimationLoop(() => {
     camera.fov = THREE.MathUtils.lerp(prelet.fov0, prelet.fov1, e); camera.near = prelet.cil === 'chuze' ? THREE.MathUtils.lerp(0.5, 0.06, e) : 0.5;
     camera.updateProjectionMatrix();
     if (t >= 1) {
+      const dalsiProhlidka = prelet.dalsiProhlidka;
       stav = prelet.cil; prelet = null;
-      if (stav === 'orbit') { controls.enabled = true; controls.update(); if (panacek) panacek.visible = true; }
+      if (stav === 'orbit') {
+        controls.enabled = true;
+        controls.update();
+        if (panacek) panacek.visible = true;
+        if (dalsiProhlidka) kPohlidce(dalsiProhlidka);
+      }
     }
   } else if (stav === 'chuze') {
     // chůze: zrychlení a dobrzdění, běh se Shiftem, krok do cíle po kliknutí
