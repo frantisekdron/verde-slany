@@ -1,5 +1,5 @@
 (()=>{
- const review=document.querySelector('.variant-review');if(review){review.hidden=false;if(new URLSearchParams(location.search).get("review")==="1")review.open=true;}
+ const review=document.querySelector('.variant-review');if (review) { const params = new URLSearchParams(location.search); review.hidden = !(['a','b'].includes(params.get('variant')) || params.get('review') === '1'); if (params.get('review') === '1') review.open = true; }
  const media=document.querySelector('#media'),body=document.querySelector('#mediaBody'),gallery=document.querySelector('#galleryDialog');
  if(!media||!body||!gallery)return;
  const grid=document.querySelector('#visualGallery'),toggle=document.querySelector('#galleryToggle');
