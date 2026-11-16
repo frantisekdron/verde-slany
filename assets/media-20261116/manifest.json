@@ -74,29 +74,34 @@
     "thumb": "thumb/verde-northeast.webp",
     "width": 2100,
     "height": 1400,
-    "bytes": 1040394,
-    "sha256": "4e479ad54233f3e659db72f69d5199d7b7bb1b588635125870886fe3f86a5d98",
+    "bytes": 1040318,
+    "sha256": "fc48cd43a52738d87852b05f46142424c5f591c64dff707ad88a8fabd1cc710c",
     "responsive": [
       {
         "file": "responsive/verde-northeast-480.webp",
         "width": 480,
-        "bytes": 51158,
-        "sha256": "a341f5fec98c3e9701c1953da36f3e6a30d602130920418bf728e80b722d9f04"
+        "bytes": 51204,
+        "sha256": "df7a293295be0ea7a3a030ac529a486a496230c795bfbea152c9dbf9c19307fa"
       },
       {
         "file": "responsive/verde-northeast-960.webp",
         "width": 960,
-        "bytes": 183802,
-        "sha256": "1c233a0a3b2effa9641ec1094478c6cd3e1a58e6faaa2ab76b01872d64897d7a"
+        "bytes": 183690,
+        "sha256": "e841c28024f02ecdea7b8735d7ebb30633e2da28acc7f285f8bbabb2c531b9ba"
       },
       {
         "file": "responsive/verde-northeast-1440.webp",
         "width": 1440,
-        "bytes": 402384,
-        "sha256": "070db9ce3d913f419d8b0eefc52eba274716855372e5e057c898922da08644b0"
+        "bytes": 402198,
+        "sha256": "741fb627822e5e4150895fe1d43c22ac859692fe3aaaf7edbf2cfcc0359c61ad"
       }
     ],
-    "thumbSHA256": "ebbb793b471a59399b21a813ee66901359cf76e2e9daad291b9be6c57344a5f4"
+    "thumbSHA256": "1911d310785e6c14d2b7250a01a47ffe1a218e294efddbdb8f7542f4dc229c2a",
+    "webMaster": {
+      "file": "Verde-II-severovychod-bez-spoje.jpg",
+      "sha256": "b8db053b4d527caa6148718115cf4824b3de8f222493288d3031ed50c01044dc",
+      "edit": "Lokální retuš přechodu mezi trávníkem a chodníkem před domem."
+    }
   },
   {
     "source": "04_Vizualizace_exterier/04_Od_zapadu_ulice_podel_domu.png",
@@ -450,90 +455,102 @@
   },
   {
     "source": "05_Etapy_a_vyznaceni/03_Etapy_od_parkoviste_se_stitky.jpg",
-    "sourceSHA256": "f77372f71c277d835b3b2ebb56118538f27d4fbbbb76eb0970e6f36aa8bf04b9",
+    "sourceSHA256": "d28e0ed944ae14456127b106541294d0371b81971860d59553447d364098ee85",
     "slug": "etapy-parking-labelled",
     "kind": "stages",
     "full": "visual/etapy-parking-labelled.webp",
     "thumb": "thumb/etapy-parking-labelled.webp",
     "width": 2560,
     "height": 1707,
-    "bytes": 864798,
-    "sha256": "1477b6fe7fbc422590bb346a8ed773628e5e539d0770cd7a1f007f4d1ccc1ccc",
+    "bytes": 824320,
+    "sha256": "e5f73752eac54de280d763a0a07eb8a0f677750f8dc9917dceb6f679dfbb0f74",
     "responsive": [
       {
         "file": "responsive/etapy-parking-labelled-480.webp",
         "width": 480,
-        "bytes": 40368
+        "bytes": 42222,
+        "sha256": "3b4820ee358211ce7ed7fd8eaff8a92ab63e1fd4444dab1fbbd1735a7ba5cbb3"
       },
       {
         "file": "responsive/etapy-parking-labelled-960.webp",
         "width": 960,
-        "bytes": 126742
+        "bytes": 133304,
+        "sha256": "a72116c10503f2145f9ceb1f5fb9daac8688528a7533ce290b48e36c98475092"
       },
       {
         "file": "responsive/etapy-parking-labelled-1440.webp",
         "width": 1440,
-        "bytes": 251946
+        "bytes": 260940,
+        "sha256": "98d7b6b6e43316e5005dbe998561c7db28cf2616fe6f1ddbec3905ae7efb3876"
       }
-    ]
+    ],
+    "thumbSHA256": "e475c54510c580989a9289bc16478123fd7182b4e88f3365f9a2e8fc8727e0e9"
   },
   {
     "source": "05_Etapy_a_vyznaceni/04_Etapy_od_parkoviste_bez_stitku.jpg",
-    "sourceSHA256": "90da1fe83d28941574ceeb3faaa739a64a3dee31f8e03820ab3a09219444e1b5",
+    "sourceSHA256": "d89ed9046fdb28170c139f1fa6b595efa7b8faf780570ba648fcf37a924c47ad",
     "slug": "etapy-parking",
     "kind": "stages",
     "full": "visual/etapy-parking.webp",
     "thumb": "thumb/etapy-parking.webp",
     "width": 2560,
     "height": 1707,
-    "bytes": 918554,
-    "sha256": "270f6c721a38e626dddab95c91c61aba39207331236b02400936fe3319ef0c72",
+    "bytes": 864100,
+    "sha256": "d05efe9fbbf69fbfc39f50e0b26413e31b6b27249842033e668ca4617f4a650a",
     "responsive": [
       {
         "file": "responsive/etapy-parking-480.webp",
         "width": 480,
-        "bytes": 40040
+        "bytes": 42200,
+        "sha256": "75fd90e2333e815e9d4f73f00eb21c5e3d7484afe313342ff7f59108e6e9a284"
       },
       {
         "file": "responsive/etapy-parking-960.webp",
         "width": 960,
-        "bytes": 129440
+        "bytes": 133340,
+        "sha256": "7130b727a76788882d0b24a0570cd7a7487a2a6a578ac3fc4604d831403eec5d"
       },
       {
         "file": "responsive/etapy-parking-1440.webp",
         "width": 1440,
-        "bytes": 256480
+        "bytes": 266374,
+        "sha256": "4ba58a044f5cbcf7ac2aa938ce1babf432b64cee529c85f2061a86763d644daa"
       }
-    ]
+    ],
+    "thumbSHA256": "2061be8c327bbaa3f69d0e9713681a4b635001ab1b86f1922acbb254b0010f69"
   },
   {
     "source": "05_Etapy_a_vyznaceni/05_Etapy_od_parkoviste_bez_zeleneho_odstinu.jpg",
-    "sourceSHA256": "6790ca9e49cc3e10c1a12f0d463a5aa564f02f051fdd44a6807294575973e013",
+    "sourceSHA256": "50ec832037ce81b0c2aa3e5f2ed1e435fe175f7a3767e26c8a37fc40e2348e4f",
     "slug": "etapy-parking-neutral",
     "kind": "stages",
     "full": "visual/etapy-parking-neutral.webp",
     "thumb": "thumb/etapy-parking-neutral.webp",
     "width": 2560,
     "height": 1707,
-    "bytes": 921168,
-    "sha256": "b700afe2ab4e70ff2e9befab3001395ee302fc1201a068807b8b671b896b6bb0",
+    "bytes": 866192,
+    "sha256": "a5b4c0ada141607f24b0114e7c97dae6ae4c54557610eebed6f76388b99b3dbe",
     "responsive": [
       {
         "file": "responsive/etapy-parking-neutral-480.webp",
         "width": 480,
-        "bytes": 40250
+        "bytes": 42370,
+        "sha256": "2e0fb7bf67ff5a0b13730697a749690a2645b2db76c034ccabc82fbb03ea5d0e"
       },
       {
         "file": "responsive/etapy-parking-neutral-960.webp",
         "width": 960,
-        "bytes": 129830
+        "bytes": 133906,
+        "sha256": "b8f6494e55c86abe9a77e38bc35da9a74895d1bfc1db102799667d7bc368a446"
       },
       {
         "file": "responsive/etapy-parking-neutral-1440.webp",
         "width": 1440,
-        "bytes": 257152
+        "bytes": 267148,
+        "sha256": "8390e2dea24906eba4adf5230508a92acbf141e6ff99172576b8eaffa6b37f83"
       }
-    ]
+    ],
+    "thumbSHA256": "0f7c57a528657bfcd9757468b9eedcb2c8df290ca26c407c083c73c55f3fae2d"
   },
   {
     "source": "07_Fotky_mezonetu_upravene/01_P1181937.jpg",
