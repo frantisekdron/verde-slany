@@ -39,22 +39,26 @@
         {
           "file": "responsive/verde-top-480.webp",
           "width": 480,
-          "bytes": 48556
+          "bytes": 48556,
+          "sha256": "2e8711a5093898ed072d781f62065e8dc38c5cb0b984ad22a07b989a1944aa9b"
         },
         {
           "file": "responsive/verde-top-960.webp",
           "width": 960,
-          "bytes": 182692
+          "bytes": 182692,
+          "sha256": "789d9f300039e444d81322d89489f5ad13a439dda9922eaef05acbad87aa71b7"
         },
         {
           "file": "responsive/verde-top-1440.webp",
           "width": 1440,
-          "bytes": 404524
+          "bytes": 404524,
+          "sha256": "8b0316430b600518b42dbd284522a7462580f2b5325a5dfa2d379e8536656e7e"
         }
       ],
       "src": "assets/media-20261116/visual/verde-top.webp",
       "caption": "Dům a přilehlé parkování shora",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "4b7127eae42d56d4582f27b79ba277577932df779e2ba0fdcdfd96e73d5e54d9"
     },
     {
       "source": "04_Vizualizace_exterier/02_Od_zapadu_z_dronu.jpg",
@@ -71,22 +75,26 @@
         {
           "file": "responsive/verde-west-drone-480.webp",
           "width": 480,
-          "bytes": 39728
+          "bytes": 39728,
+          "sha256": "7227643e9d765dc23a927ca17f86f0cdced3d7b318e9f7130808bd3b32ef8806"
         },
         {
           "file": "responsive/verde-west-drone-960.webp",
           "width": 960,
-          "bytes": 135294
+          "bytes": 135294,
+          "sha256": "9104d2888830d2f54e5bdba77e7e5546f5608958eb2ffe796c7036de8d39ad8d"
         },
         {
           "file": "responsive/verde-west-drone-1440.webp",
           "width": 1440,
-          "bytes": 267480
+          "bytes": 267480,
+          "sha256": "b1280bd6c0161b9cec1f280031176a5c38608e482b6bc51ff641ae70d3c18f52"
         }
       ],
       "src": "assets/media-20261116/visual/verde-west-drone.webp",
       "caption": "Západní průčelí z dronu",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "cb9015732b3826bae594c123c8994ec3ffba21d12886000f229cd4a9f31420e5"
     },
     {
       "source": "04_Vizualizace_exterier/03_Zezadu_od_severovychodu.jpg",
@@ -97,28 +105,32 @@
       "thumb": "assets/media-20261116/thumb/verde-northeast.webp",
       "width": 2100,
       "height": 1400,
-      "bytes": 980166,
-      "sha256": "1e3bd27ba18b708c29703ce3042ed4183f7424727a34841020dedb4afab2dc03",
+      "bytes": 1040394,
+      "sha256": "4e479ad54233f3e659db72f69d5199d7b7bb1b588635125870886fe3f86a5d98",
       "responsive": [
         {
           "file": "responsive/verde-northeast-480.webp",
           "width": 480,
-          "bytes": 48886
+          "bytes": 51158,
+          "sha256": "a341f5fec98c3e9701c1953da36f3e6a30d602130920418bf728e80b722d9f04"
         },
         {
           "file": "responsive/verde-northeast-960.webp",
           "width": 960,
-          "bytes": 179248
+          "bytes": 183802,
+          "sha256": "1c233a0a3b2effa9641ec1094478c6cd3e1a58e6faaa2ab76b01872d64897d7a"
         },
         {
           "file": "responsive/verde-northeast-1440.webp",
           "width": 1440,
-          "bytes": 382922
+          "bytes": 402384,
+          "sha256": "070db9ce3d913f419d8b0eefc52eba274716855372e5e057c898922da08644b0"
         }
       ],
       "src": "assets/media-20261116/visual/verde-northeast.webp",
       "caption": "Dům zezadu od severovýchodu",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "ebbb793b471a59399b21a813ee66901359cf76e2e9daad291b9be6c57344a5f4"
     },
     {
       "source": "04_Vizualizace_exterier/04_Od_zapadu_ulice_podel_domu.png",
@@ -135,22 +147,26 @@
         {
           "file": "responsive/verde-street-480.webp",
           "width": 480,
-          "bytes": 29758
+          "bytes": 29758,
+          "sha256": "a7b64ca3d14f9f7cfc6361b42a93c5a3b2af9f235500c99aa135876d9758b05d"
         },
         {
           "file": "responsive/verde-street-960.webp",
           "width": 960,
-          "bytes": 104740
+          "bytes": 104740,
+          "sha256": "6fb98c06ce3496cc10a105cbe6895b66d5ee660ef9d74c5336657c1f5ae47581"
         },
         {
           "file": "responsive/verde-street-1440.webp",
           "width": 1440,
-          "bytes": 223556
+          "bytes": 223556,
+          "sha256": "8bd1ded052f01f2525e96b394465ada2a950aa85c6416216490a0bc9fe999474"
         }
       ],
       "src": "assets/media-20261116/visual/verde-street.webp",
       "caption": "Ulice podél domu",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "7d92c0df59ca6c5911b86919517343fd26ef6feb24dafd7a8ee0b8eaa6cd8c31"
     },
     {
       "source": "04_Vizualizace_exterier/05_Od_zapadu_z_travniku.png",
@@ -167,22 +183,26 @@
         {
           "file": "responsive/verde-west-garden-480.webp",
           "width": 480,
-          "bytes": 36976
+          "bytes": 36976,
+          "sha256": "309cff408ea093b6492d841b522ff2b1e828d29c4edeebd61fa2b332e277b755"
         },
         {
           "file": "responsive/verde-west-garden-960.webp",
           "width": 960,
-          "bytes": 121660
+          "bytes": 121660,
+          "sha256": "816ff72b2b93da388e0c70749b8b96c2ee1fe8c74f4d68914f2cc8916a4d1004"
         },
         {
           "file": "responsive/verde-west-garden-1440.webp",
           "width": 1440,
-          "bytes": 243084
+          "bytes": 243084,
+          "sha256": "8d5b3165952cc2a9b476a6a96d2fc0bf67f8f4cfd4bc65607b66d97b10493462"
         }
       ],
       "src": "assets/media-20261116/visual/verde-west-garden.webp",
       "caption": "Dům od západu z trávníku",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "4d3dbbee676b87100579cb6a5dbd91301b8e5dfdda3a8d5ca8816b395704892a"
     },
     {
       "source": "04_Vizualizace_exterier/06_Od_jihovychodu_svah_s_vysadbou.png",
@@ -199,22 +219,26 @@
         {
           "file": "responsive/verde-southeast-480.webp",
           "width": 480,
-          "bytes": 32070
+          "bytes": 32070,
+          "sha256": "f343f98edcc05767bf06d8bcda0271f991bb059cb0029525a3505f456e9812ab"
         },
         {
           "file": "responsive/verde-southeast-960.webp",
           "width": 960,
-          "bytes": 114652
+          "bytes": 114652,
+          "sha256": "fadfe3e5676f26f94ee923dcfce516c77be5552401585583dbf6f5ecd0786440"
         },
         {
           "file": "responsive/verde-southeast-1440.webp",
           "width": 1440,
-          "bytes": 243578
+          "bytes": 243578,
+          "sha256": "aad918bcb8a7f33ec85d2363a4acaa9512446ae16d2cd84f7a2932e0c2eff353"
         }
       ],
       "src": "assets/media-20261116/visual/verde-southeast.webp",
       "caption": "Jihovýchodní nároží a osázený svah",
-      "group": "Verde II · exteriér"
+      "group": "Verde II · exteriér",
+      "thumbSHA256": "2173a2793e7bd5d90e71cc0936de26eea5d3fb586f6e1bfb7124ab0dfc125bc8"
     },
     {
       "source": "06_Typovy_byt_vizualizace/00_Snimek_z_3D_prohlidky.png",
