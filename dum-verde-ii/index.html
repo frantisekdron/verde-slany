@@ -248,7 +248,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 const params = new URLSearchParams(location.search);
 const BUST = '?v=domy-20261116';
 const MODEL = 'verde-ii-so05.glb?v=25';
-const PROHLIDKA = '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3Db42dff8b9f';
+const PROHLIDKA = '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3Dae4dbc8634';
 const DOTYK = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
 if (DOTYK) document.body.classList.add('dotyk');
 if (params.get('bezui') === '1') document.body.classList.add('bezui');
@@ -716,7 +716,7 @@ const DVERE = [
   { u: 4.29, v: 4.57, n: V_W.clone(), jm: 'JZ', nadpis: 'VSTOUPIT DO BYTU', popis: 'Typový byt 3+kk, 3. NP · 3D prohlídka', titul: '3D prohlídka – Typový byt 3+kk, 3. NP' },                        // od parkoviště (ZJZ)
   { u: 4.33, v: -3.73, n: V_W.clone().negate(), jm: 'SV', nadpis: 'VSTOUPIT DO BYTU', popis: 'Typový byt 3+kk, 3. NP · 3D prohlídka', titul: '3D prohlídka – Typový byt 3+kk, 3. NP' },               // od SV
 ];
-const MEZONET_URL = '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3Ddc0f2ad142';
+const MEZONET_URL = '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3De75fc0dd85';
 const BB_FRONTA = []; let pridejZnackuDveri = null;                            // dveře BB se registrují z postavy stávajících domů (asynchronně)
 function registrujDvere(d) { if (pridejZnackuDveri) { pridejZnackuDveri(d); DVERE.push(d); } else BB_FRONTA.push(d); }
 const nazevVerdeI = document.getElementById('nazevVerdeI');

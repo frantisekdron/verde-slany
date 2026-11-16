@@ -36,7 +36,7 @@
   });
   document.querySelectorAll('#visualGallery figcaption').forEach(caption => {
     const words = caption.textContent.trim().split(' · ');
-    if (words.length > 2 && ['Verde II', 'Byty Borovského'].includes(words[0])) caption.textContent = words[words.length - 1];
+    if (words.length > 2 && ['Verde II', 'Byty Borovského'].includes(words[0])) caption.textContent = words.at(-1) === 'Vizualizace' ? words.slice(-2).join(' · ') : words.at(-1);
   });
 
   const tabList = document.querySelector('.media-tabs');
