@@ -14,7 +14,14 @@
   "model": {
     "building": "Verde II · SO 05",
     "version": "v25",
-    "sha256": "11514d31979ace2f0db74d685a8a96bb7eb0dacf25bc0c0313953c2c99171653"
+    "sha256": "11514d31979ace2f0db74d685a8a96bb7eb0dacf25bc0c0313953c2c99171653",
+    "contextBuildings": [
+      "Verde I · SO 07",
+      "Byty Borovského"
+    ],
+    "contextGeometry": "dum-verde-ii/domy.json",
+    "contextSha256": "b2d7c299681500309d397bbc74a275ad56b8682831885dbb1cd5d63f103291e1",
+    "viewerRevision": "domy-20261116"
   },
   "gallery": [
     {
@@ -1748,6 +1755,16 @@
       "sourceSha256": "f77372f71c277d835b3b2ebb56118538f27d4fbbbb76eb0970e6f36aa8bf04b9",
       "file": "assets/gallery/etapy-d2-v31.webp",
       "sha256": "35f9b6864839c2f4ee95eeda50b5f1d3ff9c06ceda8340f006580c6365eff0f6"
+    }
+  },
+  "tours": {
+    "byt": {
+      "manifest": "prohlidka-byt/tours/demo/tour.json",
+      "sha256": "b42dff8b9f8a94372ac4efb773167476f7ad6fae55fa333e566baac952944047"
+    },
+    "mezonet": {
+      "manifest": "prohlidka-mezonet/tours/demo/tour.json",
+      "sha256": "dc0f2ad142b864a3af524ad9e74bdb8bdfd522efb1f20194b7acf549e4dcd73d"
     }
   }
 }

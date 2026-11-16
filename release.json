@@ -4,7 +4,7 @@
   "units": 72,
   "inquiry": "mailto",
   "adminSync": false,
-  "modelRevision": "SO05-v25",
+  "modelRevision": "SO05-v25, SO07 a Byty Borovského",
   "mediaUpdate": "2026-11-16",
   "galleryCount": 17,
   "realPhotographs": 70,
@@ -22,5 +22,6 @@
   "galleryClips": 8,
   "phaseUpdate": "2026-11-16",
   "phaseClips": 2,
-  "maisonetteClips": 6
+  "maisonetteClips": 6,
+  "tourUpdate": "domy-20261116"
 }

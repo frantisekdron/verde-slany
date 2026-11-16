@@ -5,8 +5,8 @@ const sectionLinks=$$('a[href^="#"]').map(element=>({element,hash:element.getAtt
 function updateSectionLinks(){for(const {element,hash} of sectionLinks){const url=new URL(location.href);url.hash=hash;element.href=url.href}}
 let data=window.VERDE_DATA;
 const projects={
- verde:{name:'Verde Slaný II',short:'Verde II',floors:[5,4,3,2,1],logo:'assets/logo.svg',photo:'assets/hero.webp?v=final-20261110',tour:'prohlidka-byt/index.html',tourTitle:'Ukázkový byt 3+kk B.3.3 · návrh zařízení',height:350},
- borovskeho:{name:'Byty Borovského',short:'Borovského',floors:[3],logo:'assets/logo-bb.svg',photo:'assets/borovskeho.webp?v=final-20261110',tour:'prohlidka-mezonet/index.html',tourTitle:'Ukázkový mezonet 4+kk · návrh zařízení',height:250}
+ verde:{name:'Verde Slaný II',short:'Verde II',floors:[5,4,3,2,1],logo:'assets/logo.svg',photo:'assets/hero.webp?v=final-20261110',tour:'prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3Db42dff8b9f',tourTitle:'Ukázkový byt 3+kk B.3.3 · návrh zařízení',height:350},
+ borovskeho:{name:'Byty Borovského',short:'Borovského',floors:[3],logo:'assets/logo-bb.svg',photo:'assets/borovskeho.webp?v=final-20261110',tour:'prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3Ddc0f2ad142',tourTitle:'Ukázkový mezonet 4+kk · návrh zařízení',height:250}
 };
 const hosted=location.pathname.startsWith('/web');
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

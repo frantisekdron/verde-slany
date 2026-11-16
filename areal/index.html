@@ -1,5 +1,5 @@
-<!doctype html><html lang="cs"><meta charset="utf-8"><title>Verde II ve 3D</title><script>
+<!doctype html><html lang="cs"><meta charset="utf-8"><title>Verde Slaný ve 3D</title><script>
 const q = new URLSearchParams(location.search);
 const t = q.get('interior');
-location.replace(t === 'borovskeho' ? '../prohlidka-mezonet/index.html' : t === 'verde' ? '../prohlidka-byt/index.html' : q.get('mode') === 'select' ? '../model/select.html' : '../dum-verde-ii/index.html');
-</script><a href="../dum-verde-ii/index.html">Otevřít 3D model domu Verde II</a></html>
+location.replace(t === 'borovskeho' ? '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3Ddc0f2ad142' : t === 'verde' ? '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3Db42dff8b9f' : q.get('mode') === 'select' ? '../model/select.html' : '../dum-verde-ii/index.html');
+</script><a href="../dum-verde-ii/index.html">Otevřít 3D model tří domů</a></html>
