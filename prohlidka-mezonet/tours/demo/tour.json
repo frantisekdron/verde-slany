@@ -1,6 +1,6 @@
 {
  "version": 1,
- "title": "Mezonet 4+kk – Verde Slaný · rozpracováno",
+ "title": "Mezonet 4+kk – Byty Borovského",
  "source": "demo",
  "units": "m",
  "spawn": {
@@ -2468,9 +2468,9 @@
    {
     "id": "tv-obyvak",
     "title": "Ukázka videa – sem patří video projektu",
-    "video": "video/fd-reel.mp4",
-    "videoSd": "video/fd-reel-720.mp4",
-    "poster": "video/fd-reel-poster.jpg",
+    "video": "video/fd-reel.mp4?v=final-20261116",
+    "videoSd": "video/fd-reel-720.mp4?v=final-20261116",
+    "poster": "video/fd-reel-poster.jpg?v=final-20261116",
     "roomId": "obyvak",
     "x": 4.811,
     "z": 8.3,
@@ -3285,8 +3285,8 @@
  "photos": [
   {
    "id": "foto-01",
-   "url": "fotky/foto-01.jpg",
-   "thumb": "fotky/mini-01.jpg",
+   "url": "fotky/foto-01.jpg?v=final-20261116",
+   "thumb": "fotky/mini-01.jpg?v=final-20261116",
    "roomId": "chodba",
    "position": [
     2.986,
@@ -3316,8 +3316,8 @@
   },
   {
    "id": "foto-02",
-   "url": "fotky/foto-02.jpg",
-   "thumb": "fotky/mini-02.jpg",
+   "url": "fotky/foto-02.jpg?v=final-20261116",
+   "thumb": "fotky/mini-02.jpg?v=final-20261116",
    "roomId": "chodba",
    "position": [
     4.12,
@@ -3350,8 +3350,8 @@
   },
   {
    "id": "foto-03",
-   "url": "fotky/foto-03.jpg",
-   "thumb": "fotky/mini-03.jpg",
+   "url": "fotky/foto-03.jpg?v=final-20261116",
+   "thumb": "fotky/mini-03.jpg?v=final-20261116",
    "roomId": "obyvak",
    "position": [
     3.959,
@@ -3384,8 +3384,8 @@
   },
   {
    "id": "foto-04",
-   "url": "fotky/foto-04.jpg",
-   "thumb": "fotky/mini-04.jpg",
+   "url": "fotky/foto-04.jpg?v=final-20261116",
+   "thumb": "fotky/mini-04.jpg?v=final-20261116",
    "roomId": "koupelna",
    "position": [
     2.254,
@@ -3415,8 +3415,8 @@
   },
   {
    "id": "foto-05",
-   "url": "fotky/foto-05.jpg",
-   "thumb": "fotky/mini-05.jpg",
+   "url": "fotky/foto-05.jpg?v=final-20261116",
+   "thumb": "fotky/mini-05.jpg?v=final-20261116",
    "roomId": "chodba",
    "position": [
     2.998,
@@ -3446,8 +3446,8 @@
   },
   {
    "id": "foto-06",
-   "url": "fotky/foto-06.jpg",
-   "thumb": "fotky/mini-06.jpg",
+   "url": "fotky/foto-06.jpg?v=final-20261116",
+   "thumb": "fotky/mini-06.jpg?v=final-20261116",
    "roomId": "obyvak",
    "position": [
     0.716,
@@ -3477,8 +3477,8 @@
   },
   {
    "id": "foto-07",
-   "url": "fotky/foto-07.jpg",
-   "thumb": "fotky/mini-07.jpg",
+   "url": "fotky/foto-07.jpg?v=final-20261116",
+   "thumb": "fotky/mini-07.jpg?v=final-20261116",
    "roomId": "obyvak",
    "position": [
     0.864,
@@ -3508,8 +3508,8 @@
   },
   {
    "id": "foto-08",
-   "url": "fotky/foto-08.jpg",
-   "thumb": "fotky/mini-08.jpg",
+   "url": "fotky/foto-08.jpg?v=final-20261116",
+   "thumb": "fotky/mini-08.jpg?v=final-20261116",
    "roomId": "obyvak",
    "position": [
     4.235,
@@ -3539,8 +3539,8 @@
   },
   {
    "id": "foto-09",
-   "url": "fotky/foto-09.jpg",
-   "thumb": "fotky/mini-09.jpg",
+   "url": "fotky/foto-09.jpg?v=final-20261116",
+   "thumb": "fotky/mini-09.jpg?v=final-20261116",
    "roomId": "balkon",
    "position": [
     3.964,
@@ -3571,8 +3571,8 @@
   },
   {
    "id": "foto-10",
-   "url": "fotky/foto-10.jpg",
-   "thumb": "fotky/mini-10.jpg",
+   "url": "fotky/foto-10.jpg?v=final-20261116",
+   "thumb": "fotky/mini-10.jpg?v=final-20261116",
    "roomId": "balkon",
    "position": [
     1.805,
@@ -3603,8 +3603,8 @@
   },
   {
    "id": "foto-11",
-   "url": "fotky/foto-11.jpg",
-   "thumb": "fotky/mini-11.jpg",
+   "url": "fotky/foto-11.jpg?v=final-20261116",
+   "thumb": "fotky/mini-11.jpg?v=final-20261116",
    "roomId": "loznice",
    "position": [
     5.098,
@@ -3634,8 +3634,8 @@
   },
   {
    "id": "foto-12",
-   "url": "fotky/foto-12.jpg",
-   "thumb": "fotky/mini-12.jpg",
+   "url": "fotky/foto-12.jpg?v=final-20261116",
+   "thumb": "fotky/mini-12.jpg?v=final-20261116",
    "roomId": "loznice",
    "position": [
     6.794,
@@ -3665,8 +3665,8 @@
   },
   {
    "id": "foto-13",
-   "url": "fotky/foto-13.jpg",
-   "thumb": "fotky/mini-13.jpg",
+   "url": "fotky/foto-13.jpg?v=final-20261116",
+   "thumb": "fotky/mini-13.jpg?v=final-20261116",
    "roomId": "pokoj",
    "position": [
     2.797,
@@ -3696,8 +3696,8 @@
   },
   {
    "id": "foto-14",
-   "url": "fotky/foto-14.jpg",
-   "thumb": "fotky/mini-14.jpg",
+   "url": "fotky/foto-14.jpg?v=final-20261116",
+   "thumb": "fotky/mini-14.jpg?v=final-20261116",
    "roomId": "pokoj",
    "position": [
     3.822,
@@ -3727,8 +3727,8 @@
   },
   {
    "id": "foto-15",
-   "url": "fotky/foto-15.jpg",
-   "thumb": "fotky/mini-15.jpg",
+   "url": "fotky/foto-15.jpg?v=final-20261116",
+   "thumb": "fotky/mini-15.jpg?v=final-20261116",
    "roomId": "schodiste",
    "position": [
     7.342,
@@ -3758,8 +3758,8 @@
   },
   {
    "id": "foto-16",
-   "url": "fotky/foto-16.jpg",
-   "thumb": "fotky/mini-16.jpg",
+   "url": "fotky/foto-16.jpg?v=final-20261116",
+   "thumb": "fotky/mini-16.jpg?v=final-20261116",
    "roomId": "chodba-4np",
    "position": [
     5.446,
@@ -3789,8 +3789,8 @@
   },
   {
    "id": "foto-17",
-   "url": "fotky/foto-17.jpg",
-   "thumb": "fotky/mini-17.jpg",
+   "url": "fotky/foto-17.jpg?v=final-20261116",
+   "thumb": "fotky/mini-17.jpg?v=final-20261116",
    "roomId": "chodba-4np",
    "position": [
     6.916,
@@ -3820,8 +3820,8 @@
   },
   {
    "id": "foto-18",
-   "url": "fotky/foto-18.jpg",
-   "thumb": "fotky/mini-18.jpg",
+   "url": "fotky/foto-18.jpg?v=final-20261116",
+   "thumb": "fotky/mini-18.jpg?v=final-20261116",
    "roomId": "chodba-4np",
    "position": [
     6.862,
@@ -3851,8 +3851,8 @@
   },
   {
    "id": "foto-19",
-   "url": "fotky/foto-19.jpg",
-   "thumb": "fotky/mini-19.jpg",
+   "url": "fotky/foto-19.jpg?v=final-20261116",
+   "thumb": "fotky/mini-19.jpg?v=final-20261116",
    "roomId": "loznice-4np",
    "position": [
     0.834,
@@ -3882,8 +3882,8 @@
   },
   {
    "id": "foto-20",
-   "url": "fotky/foto-20.jpg",
-   "thumb": "fotky/mini-20.jpg",
+   "url": "fotky/foto-20.jpg?v=final-20261116",
+   "thumb": "fotky/mini-20.jpg?v=final-20261116",
    "roomId": "loznice-4np",
    "position": [
     4.674,
@@ -3913,8 +3913,8 @@
   },
   {
    "id": "foto-21",
-   "url": "fotky/foto-21.jpg",
-   "thumb": "fotky/mini-21.jpg",
+   "url": "fotky/foto-21.jpg?v=final-20261116",
+   "thumb": "fotky/mini-21.jpg?v=final-20261116",
    "roomId": "loznice-4np",
    "position": [
     1.204,
@@ -4062,7 +4062,7 @@
   },
   "intro": {
    "subtitle": "Mezonet 4+kk · Slaný – Kvíček · 85 m²",
-   "text": "Prohlídka je rozpracovaná – ještě na ní pracujeme (nábytek, světlo, detaily). Projděte si zatím rozvržení mezonetu; výsledná verze bude dotažená."
+   "text": "Projděte si mezonet ve 3D – chůzí, pohledem shora nebo s průvodcem. Zařízení je ilustrační."
   },
   "outro": {
    "title": "Děkujeme za prohlídku",
