@@ -9,8 +9,39 @@
  const mapZoom=document.querySelector('#localityMapZoom');
  function resetMapZoom(){document.querySelector('.gallery-image-viewport').tabIndex=-1;gallery.classList.remove('is-map-zoomed');mapZoom.setAttribute('aria-pressed','false');mapZoom.textContent='Přiblížit popisky +';}
  mapZoom.addEventListener('click',()=>{const zoomed=gallery.classList.toggle('is-map-zoomed');document.querySelector('.gallery-image-viewport').tabIndex=zoomed?0:-1;mapZoom.setAttribute('aria-pressed',String(zoomed));mapZoom.textContent=zoomed?'Zobrazit celý snímek −':'Přiblížit popisky +';});
- document.querySelectorAll('.gallery-open, .locality-zoom').forEach(button=>button.addEventListener('click',()=>{galleryTrigger=button;resetMapZoom();const isMap=button.classList.contains('locality-map');gallery.classList.toggle('is-locality-map',isMap);mapZoom.hidden=!isMap;document.querySelector('#galleryDialogTitle').textContent=button.dataset.caption;const image=document.querySelector('#galleryDialogImage');image.src=button.dataset.image;image.alt=button.querySelector('img').alt;gallery.showModal()}));
- gallery.addEventListener('close',()=>{resetMapZoom();gallery.classList.remove('is-locality-map');mapZoom.hidden=true;document.querySelector('#galleryDialogImage').removeAttribute('src');galleryTrigger?.focus()});
+ const galleryImage = document.querySelector('#galleryDialogImage');
+ document.querySelectorAll('.gallery-open, .locality-zoom').forEach(button => {
+  button.addEventListener('click', () => {
+   galleryTrigger = button;
+   resetMapZoom();
+   const isMap = button.classList.contains('locality-map');
+   gallery.classList.toggle('is-locality-map', isMap);
+   mapZoom.hidden = !isMap;
+   document.querySelector('#galleryDialogTitle').textContent = button.dataset.caption;
+
+   const thumbnail = button.querySelector('img');
+   const fullURL = new URL(button.dataset.image, document.baseURI).href;
+   galleryImage.alt = thumbnail.alt;
+   galleryImage.src = thumbnail.currentSrc || thumbnail.src || fullURL;
+   gallery.showModal();
+
+   if (galleryImage.src === fullURL) return;
+   const fullImage = new Image();
+   fullImage.onload = () => {
+    if (gallery.open && galleryTrigger === button) galleryImage.src = fullURL;
+   };
+   fullImage.src = fullURL;
+  });
+ });
+ gallery.addEventListener('close', () => {
+  if (gallery.open) return;
+  resetMapZoom();
+  gallery.classList.remove('is-locality-map');
+  mapZoom.hidden = true;
+  galleryImage.removeAttribute('src');
+  galleryTrigger?.focus();
+  galleryTrigger = null;
+ });
  function openAreal(trigger){
   arealTrigger=trigger;
   document.querySelector('#mediaTitle').textContent='3D model · Verde II, Verde I a Byty Borovského';
