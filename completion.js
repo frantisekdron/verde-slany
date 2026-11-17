@@ -52,7 +52,7 @@ if (window.matchMedia('(max-width: 700px)').matches) {
   arealTrigger=trigger;
   document.querySelector('#mediaTitle').textContent="3D model · Verde II, Verde I and Byty Borovského";
   media.classList.add('areal-media');
-  const url=new URL('/verde-slany/dum-verde-ii/index.html?v=domy-20261116-2',location.origin);
+  const url=new URL('/verde-slany/dum-verde-ii/index.html?v=english-20261117',location.origin);
   body.innerHTML="<p class=\"areal-access\"><a target=\"_blank\" rel=\"noopener\">Open the model in a separate window ↗</a><button id=\"arealToCatalog\" type=\"button\">Go to apartment listings →</button></p>";
   body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title="3D model of Verde II, Verde I and Byty Borovského";frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
   body.querySelector('#arealToCatalog').onclick=()=>{arealTrigger=null;media.close();document.querySelector('#changeProject').click()};media.showModal();
