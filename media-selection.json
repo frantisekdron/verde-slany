@@ -3236,7 +3236,7 @@
         "en": "prohlidka-byt/tours/demo/tour.json",
         "cs": "prohlidka-byt/tours/demo/tour-cs.json"
       },
-      "csSHA256": "ea2bdce1f15a6af9da7b54801215c4b94568823a8c068fe637ef4988edb1e06f"
+      "csSHA256": "e64251dae831b7373e67ba72b8db35a037016fc5bb7344f04c6e49eabf4c9f00"
     },
     "mezonet": {
       "manifest": "prohlidka-mezonet/tours/demo/tour.json",
@@ -3245,7 +3245,7 @@
         "en": "prohlidka-mezonet/tours/demo/tour.json",
         "cs": "prohlidka-mezonet/tours/demo/tour-cs.json"
       },
-      "csSHA256": "6909fb3f7f3bdbc5ea3fc197eee01fbdc517c86021e4d76e3a6252ffb5f6023b"
+      "csSHA256": "3f6508844c96aadace504394422c7582739d0be1a4592aff60a992c7932d3df1"
     }
   },
   "localizedMedia": {
