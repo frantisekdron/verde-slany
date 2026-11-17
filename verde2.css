@@ -1,0 +1,100 @@
+/* Verde II: one public inventory, one connected exterior/interior experience. */
+.verde-home .site-header #siteNavigation { gap: clamp(12px, 1.5vw, 24px) }
+.verde-home .site-header { gap: clamp(12px, 1.7vw, 27px) }
+.hero-model svg, .experience-card svg, .experience-page svg { width: 23px; height: 23px; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; flex: none }
+.verde-home .hero-figure.hero-model { background: #dde5dc }
+.verde-home .hero-model .hero-image { object-fit: cover; object-position: center }
+.hero-model iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #dde5dc; opacity: 0; pointer-events: none }
+.hero-model.is-active iframe { opacity: 1; pointer-events: auto }
+.hero-model-start { position: absolute; bottom: 62px; left: 24px; display: inline-flex; gap: 12px; align-items: center; min-height: 52px; max-width: calc(100% - 48px); padding: 13px 18px; border: 1px solid #ffffff66; border-radius: 4px; color: #fff; background: #193e31; box-shadow: 0 5px 24px #132c2526; font: 550 14px/1.35 var(--sans); cursor: pointer }
+.hero-model-start:hover { background: #2d5945 }
+.hero-model-start b { margin-left: 8px; font: 400 21px/1 var(--sans) }
+.hero-model:not(.is-active) .hero-model-start { top: 22px; bottom: auto }
+.hero-model-full { position: absolute; bottom: 21px; right: 24px; color: #173e30; background: #fcfcf8f2; padding: 8px 11px; border-radius: 3px; font: 550 12px/1.3 var(--sans); text-underline-offset: 3px }
+.hero-model.is-active figcaption { top: 16px; bottom: auto; pointer-events: none }
+.hero-model.is-active .hero-model-full { background: #fcfcf8 }
+.hero-model.is-loading .hero-model-start { opacity: .92; cursor: wait }
+.hero-model.is-active .hero-model-start { display: none }
+.verde-home .hero-model figcaption { left: 24px; bottom: 23px; font-size: 10px }
+.experience-card { display: grid; grid-template-columns: 1.15fr 1fr; min-width: 0; overflow: hidden; color: var(--ink); background: var(--sage); text-decoration: none; border-radius: 4px }
+.experience-art { position: relative; min-width: 0; background: #dbe4d9; min-height: 310px }
+.experience-art img { position: absolute; width: 100%; height: 100%; object-fit: cover; inset: 0; transition: transform .45s ease }
+.experience-card:hover .experience-art img { transform: scale(1.025) }
+.experience-badge { position: absolute; display: flex; gap: 9px; align-items: center; left: 22px; top: 22px; padding: 10px 13px; border-radius: 3px; background: #193e31; color: #fff; font: 650 16px/1 var(--sans) }
+.experience-copy { padding: clamp(25px, 4vw, 54px); align-self: center }
+.experience-copy h3 { font: 400 clamp(32px, 3.6vw, 52px)/1.05 var(--serif); letter-spacing: -.025em; margin: 13px 0 20px }
+.experience-copy .eyebrow { font: 600 10px/1.5 var(--sans); letter-spacing: .08em }
+.experience-copy > p:not(.eyebrow) { color: #40594c; font: 400 15px/1.6 var(--sans); margin: 0 0 25px }
+.experience-copy .button { display: inline-flex; border-radius: 30px; padding: 13px 19px; font: 550 13px/1.4 var(--sans); background: #193e31; color: #fff; min-height: 46px }
+.verde-home #fotky-z-dronu { margin-top: 0 }
+.verde-home #fotky-z-dronu > summary { font-size: 16px }
+.experience-page .site-header { position: relative }
+.experience-back { margin-left: auto; font: 550 13px/1.4 var(--sans); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; color: var(--forest) }
+.experience-main { width: min(1440px, calc(100% - 2 * var(--inset))); margin: 0 auto; padding: 35px 0 25px }
+.experience-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 0 0 27px }
+.experience-heading .eyebrow { color: #405c4e; font: 650 10px/1.4 var(--sans); letter-spacing: .12em; margin: 0 0 11px }
+.experience-heading h1 { font: 400 clamp(34px, 4.2vw, 60px)/1.06 var(--serif); letter-spacing: -.03em; margin: 0; max-width: none; text-transform: none }
+.experience-heading h1 em { color: #345f48; font-weight: 400 }
+.experience-heading > p { max-width: 240px; color: #50635a; font: 400 13px/1.55 var(--sans); margin: 0 0 3px }
+.experience-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 0 0 14px }
+.experience-tabs { display: flex; gap: 5px; padding: 4px; background: #e9eee5; border: 1px solid #cbd5cb; border-radius: 6px }
+.experience-tabs button { display: flex; justify-content: center; align-items: center; gap: 10px; min-height: 46px; border: 0; border-radius: 3px; padding: 10px 18px; font: 550 14px/1.3 var(--sans); cursor: pointer; background: transparent; color: #193e31 }
+.experience-tabs button[aria-selected=true] { background: #193e31; color: white; box-shadow: 0 2px 4px #193e3112 }
+.experience-tabs button:not([aria-selected=true]):hover { background: #d6e1d3 }
+#experience-open { color: #193e31; font: 550 12px/1.4 var(--sans); min-height: 44px; display: flex; align-items: center; gap: 6px; text-underline-offset: 4px }
+.experience-viewer { position: relative; height: min(69vh, 780px); min-height: 440px; background: #e5ece1; border: 1px solid #b9c8b8; border-radius: 5px; overflow: hidden; isolation: isolate }
+.experience-viewer iframe { border: 0; position: absolute; inset: 0; width: 100%; height: 100%; background: #e5ece1 }
+.experience-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 13px; color: #193e31; font: 500 15px/1.4 var(--sans); pointer-events: none; z-index: 1; background: #e5ece1 }
+.experience-guidance { display: flex; gap: 25px; align-items: start; justify-content: space-between; padding: 17px 0 25px; border-bottom: 1px solid var(--line) }
+.experience-guidance p { max-width: 720px; font: 400 12px/1.65 var(--sans); color: #50635a; margin: 0 }
+.experience-guidance a { color: #193e31; white-space: nowrap; font: 550 13px/1.6 var(--sans); text-underline-offset: 4px }
+.experience-context { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; padding-top: 22px }
+.experience-context p { font: 400 11px/1.65 var(--sans); margin: 0; color: #50635a; max-width: 600px }
+.experience-context strong { display: block; color: #193e31; font-weight: 600; margin-bottom: 3px }
+.experience-footer { display: flex; justify-content: space-between; gap: 20px; padding: 22px var(--inset); background: #e9eee5; border-top: 1px solid var(--line); font: 500 12px/1.5 var(--sans) }
+.experience-footer a { color: #193e31; text-decoration: none; min-height: 30px; display: inline-flex; align-items: center }
+.experience-page :is(a,button,[tabindex]):focus-visible, .hero-model :focus-visible, .experience-card:focus-visible { outline: 3px solid #326b51; outline-offset: 4px }
+.experience-page .skip-link { position: absolute; z-index: 100; left: 10px; top: -100px; background: #193e31; color: #fff; padding: 12px 20px }
+.experience-page .skip-link:focus { top: 10px }
+@media (min-width: 721px) and (max-width: 1000px) {
+  .verde-home .site-header { padding-inline: 20px; gap: 12px }
+  .verde-home .site-header .brand-word { font-size: 19px }
+  .verde-home .site-header #siteNavigation { gap: 12px }
+  .verde-home .site-header #siteNavigation a { font-size: 12px }
+  .verde-home .site-header .contact { padding-inline: 10px }
+  .hero-model-full { bottom: 63px; left: 24px; right: auto }
+  .hero-model-start { bottom: 105px }
+  .hero-model.is-active .hero-model-full { bottom: 21px }
+}
+@media (max-width: 720px) {
+  .verde-home .site-header { gap: 9px }
+  .verde-home .hero .hero-figure.hero-model { height: 290px; min-height: 290px }
+  .hero-model-start { left: 17px; bottom: 58px; font-size: 13px; min-height: 47px; padding: 10px 14px }
+  .hero-model:not(.is-active) .hero-model-start { top: 17px; bottom: auto }
+  .verde-home .hero-model figcaption { left: 17px; bottom: 17px; font-size: 9px }
+  .hero-model-full { right: 14px; bottom: 16px; font-size: 10px; padding: 7px }
+  .experience-card { grid-template-columns: 1fr }
+  .experience-art { min-height: 230px }
+  .experience-copy { padding: 25px }
+  .experience-page .site-header { padding-inline: 18px; gap: 15px }
+  .experience-page .brand-word { font-size: 19px }
+  .experience-page .experience-back { max-width: 93px; font-size: 11px; line-height: 1.4 }
+  .experience-main { width: calc(100% - 30px); padding-top: 25px }
+  .experience-heading { display: block; margin-bottom: 22px }
+  .experience-heading h1 { font-size: 36px; line-height: 1.08 }
+  .experience-heading h1 em { display: block }
+  .experience-heading > p { max-width: none; margin: 12px 0 0; font-size: 12px }
+  .experience-toolbar { flex-wrap: wrap; gap: 4px; padding-bottom: 8px }
+  .experience-tabs { width: 100% }
+  .experience-tabs button { flex: 1; padding: 10px 8px; font-size: 12px; gap: 7px }
+  .experience-tabs svg { width: 20px; height: 20px }
+  #experience-open { margin-left: auto; min-height: 34px; font-size: 11px }
+  .experience-viewer { height: 62svh; min-height: 410px; max-height: 620px }
+  .experience-guidance { display: block; padding: 12px 0 20px }
+  .experience-guidance a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 7px }
+  .experience-context { grid-template-columns: 1fr; gap: 16px; padding-top: 18px }
+  .experience-footer { padding-inline: 18px; font-size: 11px }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-art img { transition: none }
+}

@@ -2,7 +2,7 @@
   const language = document.documentElement.lang === 'cs' ? 'cs' : 'en';
   const cs = language === 'cs';
   const siteRoot = '/verde-slany/';
-  const home = siteRoot + (cs ? 'cs/' : '');
+  const home = siteRoot + (cs ? '' : 'en/');
 
   function syncLanguageLinks() {
     document.querySelectorAll('a[data-locale-link]').forEach(link => {
