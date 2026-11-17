@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Verde II, Verde I a Byty Borovského ve 3D</title>
+<title>Verde II, Verde I and Byty Borovského in 3D</title>
 <link rel="icon" href="verde_symbol.png">
-<meta name="description" content="Prozkoumejte Verde II, Verde I a Byty Borovského. Vstupte do ukázkového bytu 3+kk nebo mezonetu 4+kk.">
+<meta name="description" content="Explore Verde II, Verde I and Byty Borovského. Step inside a sample two-bedroom apartment or three-bedroom maisonette.">
 <style>
   @font-face { font-family: 'Exo 2'; src: url('../assets/Exo2.ttf'); font-weight: 100 900; font-display: swap; }
   :root {
@@ -176,62 +176,62 @@
 </style>
 </head>
 <body>
-<canvas id="scena" tabindex="0" aria-label="3D model domů Verde II, Verde I a Byty Borovského"></canvas>
+<canvas id="scena" tabindex="0" aria-label="3D model of Verde II, Verde I and Byty Borovského"></canvas>
 
 <div class="hlavicka">
   <div class="nazev">Verde Slaný<small>Verde II · Verde I · Byty Borovského</small></div>
-  <div class="stitek">Ilustrační 3D model</div>
+  <div class="stitek">Illustrative 3D model</div>
 </div>
 
 <div class="kompas" aria-hidden="true"><div class="kompas-pas" id="kompasPas"></div><div class="kompas-stred"></div></div>
 <div class="kompas-stupne" id="kompasText" aria-live="off"></div>
 
-<button class="odznak skryt" id="odznak" type="button" aria-label="Projít se kolem domu – začít na parkovišti">
+<button class="odznak skryt" id="odznak" type="button" aria-label="Walk around the building – start in the car park">
   <svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><circle cx="9" cy="3.4" r="2.6" fill="#fff"/><path d="M9 7.2c-2.2 0-3.6 1.4-3.6 3.4v4.2h1.7V21h3.8v-6.2h1.7v-4.2c0-2-1.4-3.4-3.6-3.4z" fill="#fff"/></svg>
-  Projít se odsud
+  Walk from here
 </button>
 
-<button class="znacka skryt" id="znackaByt" type="button" data-dvere="JZ" aria-label="Prohlídka bytu 3+kk ve VERDE II – přejít ke vchodu"><span class="ikona"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17M13 12.5v.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Verde II</b><small>Prohlídka bytu 3+kk</small></span><span class="sipka" aria-hidden="true">➜</span></button>
-<button class="znacka skryt" id="znackaMez" type="button" data-dvere="BB" aria-label="Prohlídka mezonetu v Bytech Borovského – přejít ke vchodu"><span class="ikona"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17M13 12.5v.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Byty Borovského</b><small>Prohlídka mezonetu 4+kk</small></span><span class="sipka" aria-hidden="true">➜</span></button>
+<button class="znacka skryt" id="znackaByt" type="button" data-dvere="JZ" aria-label="Tour a two-bedroom apartment at VERDE II – go to the entrance"><span class="ikona"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17M13 12.5v.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Verde II</b><small>Two-bedroom apartment tour</small></span><span class="sipka" aria-hidden="true">➜</span></button>
+<button class="znacka skryt" id="znackaMez" type="button" data-dvere="BB" aria-label="Tour a Byty Borovského maisonette – go to the entrance"><span class="ikona"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17M13 12.5v.2" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Byty Borovského</b><small>Three-bedroom maisonette tour</small></span><span class="sipka" aria-hidden="true">➜</span></button>
 
 <p id="nazevVerdeI" class="nazev-domu skryt">Verde I</p>
 
-<div class="panel" role="group" aria-label="Zobrazení modelu">
+<div class="panel" role="group" aria-label="Model view">
   <div class="rezimy orbit-jen">
-    <button type="button" data-rezim="hotovy" aria-pressed="true">Hotový dům</button>
-    <button type="button" data-rezim="hruba" aria-pressed="false">Hrubá stavba</button>
-    <button type="button" data-rezim="rust" aria-pressed="false">Růst po podlažích</button>
+    <button type="button" data-rezim="hotovy" aria-pressed="true">Completed building</button>
+    <button type="button" data-rezim="hruba" aria-pressed="false">Structural shell</button>
+    <button type="button" data-rezim="rust" aria-pressed="false">Build level by level</button>
   </div>
   <div class="rust orbit-jen" id="rust">
-    <div class="rust-radek"><span>Podlaží</span><b id="rustText">1. PP</b></div>
-    <input type="range" id="rustSlider" min="0" max="6" step="1" value="0" aria-label="Růst po podlažích">
-    <div class="stupnice"><span>1PP</span><span>1NP</span><span>2NP</span><span>3NP</span><span>4NP</span><span>5NP</span><span>hotovo</span></div>
+    <div class="rust-radek"><span>Level</span><b id="rustText">Basement</b></div>
+    <input type="range" id="rustSlider" min="0" max="6" step="1" value="0" aria-label="Build level by level">
+    <div class="stupnice"><span>B1</span><span>L1</span><span>L2</span><span>L3</span><span>L4</span><span>L5</span><span>complete</span></div>
   </div>
   <div class="akce orbit-jen">
-    <button type="button" id="btnChuze" class="plny" aria-label="Projít se kolem domu jako chodec">
+    <button type="button" id="btnChuze" class="plny" aria-label="Walk around the building at ground level">
       <svg width="20" height="24" viewBox="0 0 18 22" aria-hidden="true"><circle cx="9" cy="3.4" r="2.6" fill="currentColor"/><path d="M9 7.2c-2.2 0-3.6 1.4-3.6 3.4v4.2h1.7V21h3.8v-6.2h1.7v-4.2c0-2-1.4-3.4-3.6-3.4z" fill="currentColor"/></svg>
-      Projít se kolem domu
+      Walk around the building
     </button>
-    <button type="button" class="btnNoc" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><span>Noc</span></button>
+    <button type="button" class="btnNoc" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><span>Night</span></button>
   </div>
   <div class="akce prohlidky orbit-jen">
-    <button type="button" data-prohlidka="JZ" aria-label="Prohlídka bytu 3+kk ve VERDE II"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prohlídka bytu <small>VERDE II</small></span></button>
-    <button type="button" data-prohlidka="BB" aria-label="Prohlídka mezonetu v Bytech Borovského"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prohlídka mezonetu</span></button>
+    <button type="button" data-prohlidka="JZ" aria-label="Tour a two-bedroom apartment at VERDE II"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Apartment tour <small>VERDE II</small></span></button>
+    <button type="button" data-prohlidka="BB" aria-label="Tour a Byty Borovského maisonette"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21V4.5L16 3v18M16 5.5l3 1.2V21M4 21h17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Maisonette tour</span></button>
   </div>
   <div class="chuze-lista">
-    <button type="button" id="btnZpet">← Zpět na model</button>
-    <button type="button" class="btnNoc" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><span>Noc</span></button>
+    <button type="button" id="btnZpet">← Back to the model</button>
+    <button type="button" class="btnNoc" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><span>Night</span></button>
   </div>
-  <div class="napoveda" id="napoveda">Otáčení jedním prstem · přiblížení dvěma prsty</div>
+  <div class="napoveda" id="napoveda">Rotate with one finger · pinch to zoom</div>
 </div>
 
 <div class="joy" id="joy" aria-hidden="true"><i id="joyKnob"></i></div>
-<button class="vstup" id="vstup" type="button"><img src="verde_symbol.png" alt=""><span><b id="vstupNadpis">VSTOUPIT DO BYTU</b><small id="vstupPopis">Typový byt 3+kk, 3. NP · 3D prohlídka</small></span></button>
+<button class="vstup" id="vstup" type="button"><img src="verde_symbol.png" alt=""><span><b id="vstupNadpis">ENTER APARTMENT</b><small id="vstupPopis">Sample two-bedroom apartment, Level 3 · 3D tour</small></span></button>
 
 <div id="prechod"></div>
-<div id="byt" class="skryt" role="dialog" aria-label="3D prohlídka bytu"><button id="bytZpet" type="button">← Zpět ven</button></div>
+<div id="byt" class="skryt" role="dialog" aria-label="3D apartment tour"><button id="bytZpet" type="button">← Back outside</button></div>
 
-<div id="nacitani"><div id="nacitaniText">Načítám 3D model…</div><div class="lista"><i id="lista"></i></div></div>
+<div id="nacitani"><div id="nacitaniText">Loading the 3D model…</div><div class="lista"><i id="lista"></i></div></div>
 
 <script type="importmap">
 { "imports": {
@@ -248,7 +248,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 const params = new URLSearchParams(location.search);
 const BUST = '?v=domy-20261116';
 const MODEL = 'verde-ii-so05.glb?v=25';
-const PROHLIDKA = '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3Dae4dbc8634';
+const PROHLIDKA = '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3De71a30f1ba80';
 const DOTYK = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
 if (DOTYK) document.body.classList.add('dotyk');
 if (params.get('bezui') === '1') document.body.classList.add('bezui');
@@ -280,7 +280,7 @@ let renderer;
 try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, preserveDrawingBuffer: true, powerPreference: 'high-performance' });
 } catch (e) {
-  chyba('Tento prohlížeč nepodporuje 3D zobrazení (WebGL). Zkuste prosím jiný prohlížeč.');
+  chyba("This browser does not support 3D viewing (WebGL). Please try another browser.");
   throw e;
 }
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -554,7 +554,7 @@ const hlavniDum = loader.loadAsync(MODEL, (ev) => {
     if (ud.stav !== undefined && ud.podlazi !== undefined && o.isMesh) casti.push({ obj: o, stav: ud.stav, podlazi: Number(ud.podlazi) });
   });
   scene.add(root);
-  if (!casti.length) throw new Error('V modelu Verde II chybí podlaží.');
+  if (!casti.length) throw new Error("Levels are missing from the Verde II model.");
   nastavRezim('hotovy');
 });
 // půdorys domu pro chůzi (bloky A, jádro, B z KN 337/62 + terasy 1. NP a schody k O41), v osách u, v
@@ -711,12 +711,12 @@ function cedule(sirka, vyska, hloubka, tx) {
 const mKov = envReg(new THREE.MeshStandardMaterial({ color: 0x2f3437, metalness: 0.7, roughness: 0.35 }));
 const mSeda = envReg(new THREE.MeshStandardMaterial({ color: SED, metalness: 0.5, roughness: 0.35 }));
 
-// dveře do jádra (O40) z obou stran – 3D prohlídka typového bytu
+// dveře do jádra (O40) z obou stran – 3D tour typového bytu
 const DVERE = [
-  { u: 4.29, v: 4.57, n: V_W.clone(), jm: 'JZ', nadpis: 'VSTOUPIT DO BYTU', popis: 'Typový byt 3+kk, 3. NP · 3D prohlídka', titul: '3D prohlídka – Typový byt 3+kk, 3. NP' },                        // od parkoviště (ZJZ)
-  { u: 4.33, v: -3.73, n: V_W.clone().negate(), jm: 'SV', nadpis: 'VSTOUPIT DO BYTU', popis: 'Typový byt 3+kk, 3. NP · 3D prohlídka', titul: '3D prohlídka – Typový byt 3+kk, 3. NP' },               // od SV
+  { u: 4.29, v: 4.57, n: V_W.clone(), jm: 'JZ', nadpis: "ENTER APARTMENT", popis: "Sample two-bedroom apartment, Level 3 · 3D tour", titul: "3D tour – sample two-bedroom apartment, Level 3" },                        // od parkoviště (ZJZ)
+  { u: 4.33, v: -3.73, n: V_W.clone().negate(), jm: 'SV', nadpis: "ENTER APARTMENT", popis: "Sample two-bedroom apartment, Level 3 · 3D tour", titul: "3D tour – sample two-bedroom apartment, Level 3" },               // od SV
 ];
-const MEZONET_URL = '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3De75fc0dd85';
+const MEZONET_URL = '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3D1a058b9a0547';
 const BB_FRONTA = []; let pridejZnackuDveri = null;                            // dveře BB se registrují z postavy stávajících domů (asynchronně)
 function registrujDvere(d) { if (pridejZnackuDveri) { pridejZnackuDveri(d); DVERE.push(d); } else BB_FRONTA.push(d); }
 const nazevVerdeI = document.getElementById('nazevVerdeI');
@@ -733,13 +733,13 @@ async function postavZnaceni() {
   const tP = platno(2048, 920, (g, w, h) => {
     stitekPodklad(g, w, h, 30);
     if (sym) g.drawImage(sym, 96, 70, 150, 150);
-    pis(g, 'PARKOVÁNÍ 2. ETAPY', 290, 178, 96, 600, '#fff');
+    pis(g, "PHASE 2 PARKING", 290, 178, 96, 600, '#fff');
     g.fillStyle = SED; g.fillRect(290, 222, 1660, 7);
     pis(g, '67', 284, 560, 330, 700, '#fff', 0);
-    pis(g, 'parkovacích stání', 760, 545, 108, 500, '#fff', 0.01);
-    pis(g, '49 na parkovišti · 18 podél domu a příjezdu', 290, 700, 66, 400, '#fff', 0.01);
-    pis(g, '4 pro vozíčkáře · zatravňovací dlažba jako u Verde I', 290, 790, 58, 400, SED, 0.01);
-    pis(g, 'podle areálové situace 30. 10. 2026', 290, 868, 42, 400, SED, 0.02);
+    pis(g, "parking spaces", 760, 545, 108, 500, '#fff', 0.01);
+    pis(g, "49 in the car park · 18 by the building and driveway", 290, 700, 66, 400, '#fff', 0.01);
+    pis(g, "4 accessible spaces · grass paving as at Verde I", 290, 790, 58, 400, SED, 0.01);
+    pis(g, "based on the site plan dated 30 October 2026", 290, 868, 42, 400, SED, 0.02);
   });
   const ced = new THREE.Group();
   const cp = cedule(4.0, 1.8, 0.1, tP); cp.position.y = 1.2 + 0.9; ced.add(cp);
@@ -755,7 +755,7 @@ async function postavZnaceni() {
   const smer = V_W.clone();                                                   // štítky hledí k ZJZ (k parkovišti)
   pod.position.copy(roh); pod.rotation.y = rotNa(smer);
   const tyc = new THREE.Mesh(new THREE.BoxGeometry(0.07, 16.22, 0.07), mSeda); tyc.position.y = 16.22 / 2; tyc.castShadow = true; pod.add(tyc);
-  const KOTY = [['1. NP', '±0,00'], ['2. NP', '+3,25'], ['3. NP', '+6,50'], ['4. NP', '+9,75'], ['5. NP', '+13,00']];
+  const KOTY = [['L1', '±0.00'], ['L2', '+3.25'], ['L3', '+6.50'], ['L4', '+9.75'], ['L5', '+13.00']];
   KOTY.forEach(([nm, kt], i) => {
     const z = i * 3.25;
     const tk = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.04, 0.04), mSeda); tk.position.set(-0.2, z + 0.02, 0); pod.add(tk);
@@ -765,10 +765,10 @@ async function postavZnaceni() {
   const tH = platno(1400, 560, (g, w, h) => {
     stitekPodklad(g, w, h, 22);
     if (sym) g.drawImage(sym, 70, 64, 120, 120);
-    pis(g, '5 NADZEMNÍCH', 230, 140, 92, 600, '#fff'); pis(g, 'PODLAŽÍ', 230, 250, 92, 600, '#fff');
+    pis(g, "5 ABOVE-GROUND", 230, 140, 92, 600, '#fff'); pis(g, "LEVELS", 230, 250, 92, 600, '#fff');
     g.fillStyle = SED; g.fillRect(230, 290, 1080, 6);
-    pis(g, '+ 1. PP pod domem', 230, 390, 64, 400, '#fff', 0.01);
-    pis(g, 'okap +16,22 m · podle PD SO 05', 230, 480, 50, 400, SED, 0.01);
+    pis(g, "+ basement below the building", 230, 390, 64, 400, '#fff', 0.01);
+    pis(g, "eaves +16.22 m · per SO 05 documentation", 230, 480, 50, 400, SED, 0.01);
   });
   const hl = cedule(2.6, 1.04, 0.06, tH); hl.position.set(-1.0, 16.22 + 0.9, 0); pod.add(hl);
   const dr = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.9, 0.05), mSeda); dr.position.set(0, 16.22 + 0.4, 0); pod.add(dr);
@@ -782,8 +782,8 @@ async function postavZnaceni() {
     if (logo) { const lw = 340, lh = lw * logo.height / logo.width; g.drawImage(logo, (w - lw) / 2, 120, lw, lh); }
     g.fillStyle = SED; g.fillRect(96, 720, 320, 5);
     pis(g, 'II', w / 2, 860, 120, 600, '#fff', 0.05, 'center');
-    pis(g, '2. ETAPA', w / 2, 980, 64, 600, '#fff', 0.12, 'center');
-    pis(g, 'bytový dům SO 05', w / 2, 1060, 40, 400, SED, 0.02, 'center');
+    pis(g, "PHASE 2", w / 2, 980, 64, 600, '#fff', 0.12, 'center');
+    pis(g, "apartment building SO 05", w / 2, 1060, 40, 400, SED, 0.02, 'center');
   });
   const tot = cedule(0.9, 2.3, 0.22, tT);
   const tp = uvW(0.0, 10.3, ZEM_Y + 1.15); tot.position.copy(tp); tot.rotation.y = rotNa(V_W);
@@ -801,11 +801,11 @@ async function postavZnaceni() {
       g.strokeStyle = a % 45 === 0 ? '#fff' : SED; g.lineWidth = a % 45 === 0 ? 8 : 4;
       g.beginPath(); g.moveTo(c + Math.sin(a * DEG) * r0, c - Math.cos(a * DEG) * r0); g.lineTo(c + Math.sin(a * DEG) * r1, c - Math.cos(a * DEG) * r1); g.stroke();
     }
-    [['S', 0], ['V', 90], ['J', 180], ['Z', 270]].forEach(([p, a]) => {
+    [['N', 0], ['E', 90], ['S', 180], ['W', 270]].forEach(([p, a]) => {
       g.save(); g.translate(c + Math.sin(a * DEG) * 250, c - Math.cos(a * DEG) * 250); g.rotate(a * DEG);
       pis(g, p, 0, 50, 150, 700, '#fff', 0, 'center'); g.restore();
     });
-    [['SV', 45], ['JV', 135], ['JZ', 225], ['SZ', 315]].forEach(([p, a]) => {
+    [['NE', 45], ['SE', 135], ['SW', 225], ['NW', 315]].forEach(([p, a]) => {
       g.save(); g.translate(c + Math.sin(a * DEG) * 268, c - Math.cos(a * DEG) * 268); g.rotate(a * DEG);
       pis(g, p, 0, 22, 64, 600, SED, 0, 'center'); g.restore();
     });
@@ -827,10 +827,10 @@ async function postavZnaceni() {
   const tD = platno(1024, 400, (g, w, h) => {
     stitekPodklad(g, w, h, 18);
     if (sym) g.drawImage(sym, 54, 70, 104, 104);
-    pis(g, 'VSTOUPIT', 194, 158, 96, 600, '#fff', 0.08);
+    pis(g, "ENTER", 194, 158, 96, 600, '#fff', 0.08);
     g.fillStyle = SED; g.fillRect(194, 196, 760, 5);
-    pis(g, 'Typový byt 3+kk, 3. NP', 194, 278, 56, 500, '#fff', 0.01);
-    pis(g, '3D prohlídka · projděte se uvnitř', 194, 350, 44, 400, SED, 0.01);
+    pis(g, "Two-bedroom apartment, Level 3", 194, 278, 56, 500, '#fff', 0.01);
+    pis(g, "3D tour · explore inside", 194, 350, 44, 400, SED, 0.01);
   });
   const kruhTex = platno(512, 512, (g) => {
     g.strokeStyle = '#fff'; g.lineWidth = 26; g.beginPath(); g.arc(256, 256, 214, 0, Math.PI * 2); g.stroke();
@@ -844,10 +844,10 @@ async function postavZnaceni() {
   const tDm = platno(1024, 400, (g, w, h) => {                      // v21: cedule u vchodu do ukázkového mezonetu BB
     stitekPodklad(g, w, h, 18);
     if (sym) g.drawImage(sym, 54, 70, 104, 104);
-    pis(g, 'VSTOUPIT', 194, 158, 96, 600, '#fff', 0.08);
+    pis(g, "ENTER", 194, 158, 96, 600, '#fff', 0.08);
     g.fillStyle = SED; g.fillRect(194, 196, 760, 5);
-    pis(g, 'Ukázkový mezonet 4+kk', 194, 278, 56, 500, '#fff', 0.01);
-    pis(g, '3D prohlídka · projděte se uvnitř', 194, 350, 44, 400, SED, 0.01);
+    pis(g, "Sample three-bedroom maisonette", 194, 278, 56, 500, '#fff', 0.01);
+    pis(g, "3D tour · explore inside", 194, 350, 44, 400, SED, 0.01);
   });
   pridejZnackuDveri = (d) => {
     const gr = new THREE.Group(); gr.position.copy(d.w ? xyW(d.w[0], d.w[1], d.zg) : uvW(d.u, d.v, ZEM_Y)); gr.rotation.y = rotNa(d.n);
@@ -889,8 +889,8 @@ const tlacitka = [...document.querySelectorAll('.rezimy button')];
 const rustBox = document.getElementById('rust');
 const slider = document.getElementById('rustSlider');
 const rustText = document.getElementById('rustText');
-const NAZVY = ['1. PP (hrubá stavba)', '1. NP (hrubá stavba)', '2. NP (hrubá stavba)', '3. NP (hrubá stavba)',
-  '4. NP (hrubá stavba)', '5. NP (hrubá stavba)', 'Hotový dům'];
+const NAZVY = ["Basement (structural shell)", "Level 1 (structural shell)", "Level 2 (structural shell)", "Level 3 (structural shell)",
+  "Level 4 (structural shell)", "Level 5 (structural shell)", "Completed building"];
 let rezim = 'hotovy';
 
 function zobraz(fn) { for (const c of casti) c.obj.visible = fn(c); }
@@ -944,7 +944,7 @@ function aplikujNoc(t) {
   for (const d of DVERE) if (d.skvrna) { d.skvrna.material.opacity = 0.5 * e; d.skvrna.visible = e > 0.001; }
   document.querySelectorAll('.btnNoc').forEach((b) => {
     b.setAttribute('aria-pressed', String(nocCil === 1));
-    b.querySelector('span').textContent = nocCil === 1 ? 'Den' : 'Noc';
+    b.querySelector('span').textContent = nocCil === 1 ? "Day" : "Night";
     b.querySelector('svg').innerHTML = nocCil === 1
       ? '<circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g>'
       : '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/>';
@@ -969,10 +969,10 @@ const klavesy = new Set();
 const joy = { x: 0, y: 0, id: null };
 const btnChuze = document.getElementById('btnChuze'), btnZpet = document.getElementById('btnZpet');
 const napoveda = document.getElementById('napoveda');
-const NAP_ORBIT = DOTYK ? 'Táhnutím otočíte model · dvěma prsty ho přiblížíte' : 'Tažením otočíte model · kolečkem ho přiblížíte';
+const NAP_ORBIT = DOTYK ? "Drag to rotate the model · pinch to zoom" : "Drag to rotate the model · scroll to zoom";
 napoveda.textContent = NAP_ORBIT;
-const NAP_CHUZE = DOTYK ? 'Joystick = chůze · táhni prstem = rozhlížení · ťukni na zem = dojdi tam'
-  : 'W A S D / šipky = chůze · táhni myší = rozhlížení · klik na zem = dojdi tam · Shift = rychleji';
+const NAP_CHUZE = DOTYK ? "Joystick = walk · drag = look around · tap the ground = walk there"
+  : "W A S D / arrows = walk · drag = look around · click ground = walk there · Shift = faster";
 
 function kvatOd(yaw, pitch) { return new THREE.Quaternion().setFromEuler(new THREE.Euler(pitch, yaw, 0, 'YXZ')); }
 function zacniChuzi(pos, yaw) {
@@ -1121,7 +1121,7 @@ function vysunZ(p) {
 const kompasPas = document.getElementById('kompasPas'), kompasText = document.getElementById('kompasText');
 const PX_STUPEN = 2.4;
 (() => {
-  const STR = { 0: 'S', 45: 'SV', 90: 'V', 135: 'JV', 180: 'J', 225: 'JZ', 270: 'Z', 315: 'SZ' };
+  const STR = { 0: 'N', 45: 'NE', 90: 'E', 135: 'SE', 180: 'S', 225: 'SW', 270: 'W', 315: 'NW' };
   let h = '';
   for (let a = -360; a <= 720; a += 15) {
     const n = ((a % 360) + 360) % 360, x = a * PX_STUPEN;
@@ -1130,7 +1130,7 @@ const PX_STUPEN = 2.4;
   }
   kompasPas.innerHTML = h;
 })();
-const NAZ_SM = ['sever', 'severovýchod', 'východ', 'jihovýchod', 'jih', 'jihozápad', 'západ', 'severozápad'];
+const NAZ_SM = ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"];
 function aktualizujKompas() {
   const f = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion); f.y = 0; f.normalize();
   const az = ((Math.atan2(f.dot(VYCHOD), f.dot(SEVER)) / DEG) + 360) % 360;
@@ -1150,7 +1150,7 @@ function otevriByt(d) {
   prechod.classList.add('vid');
   setTimeout(() => {
     const f = document.createElement('iframe');
-    f.title = d.titul || '3D prohlídka'; f.allow = 'fullscreen; xr-spatial-tracking'; f.src = d.url || PROHLIDKA;
+    f.title = d.titul || '3D tour'; f.allow = 'fullscreen; xr-spatial-tracking'; f.src = d.url || PROHLIDKA;
     bytEl.appendChild(f); bytEl.classList.remove('skryt');
     requestAnimationFrame(() => { bytEl.classList.add('vid'); prechod.classList.remove('vid'); });
     setTimeout(() => { try { f.focus(); } catch (e) { /* jiný původ */ } }, 600);
@@ -1577,7 +1577,7 @@ function postavStavajici(D) {
     const r1 = dv.filter((q) => q.Y < -48).sort((a, b) => a.X - b.X), r2 = dv.filter((q) => q.Y >= -48).sort((a, b) => a.X - b.X);
     window.__bbKandidati = [r1[0], r1[r1.length - 1], r2[0], r2[r2.length - 1]].filter(Boolean).map((q, i) => ({ n: i + 1, x: q.X, y: q.Y }));
     const best = r1.length ? r1[0].o : null;
-    if (best) registrujDvere({ w: [best[0], -best[2]], zg: best[1] - 1.05, n: new THREE.Vector3(Math.sin(best[3]), 0, Math.cos(best[3])), jm: 'BB', off: 0.9, zpet: 0.8, nadpis: 'VSTOUPIT DO MEZONETU', popis: 'Ukázkový mezonet 4+kk · 3D prohlídka', titul: '3D prohlídka – ukázkový mezonet 4+kk', url: MEZONET_URL }); }
+    if (best) registrujDvere({ w: [best[0], -best[2]], zg: best[1] - 1.05, n: new THREE.Vector3(Math.sin(best[3]), 0, Math.cos(best[3])), jm: 'BB', off: 0.9, zpet: 0.8, nadpis: "ENTER MAISONETTE", popis: "Sample three-bedroom maisonette · 3D tour", titul: "3D tour – sample three-bedroom maisonette", url: MEZONET_URL }); }
   const mDv = envReg(new THREE.MeshStandardMaterial({ color: 0x2b2d30, roughness: 0.5 })), dm = new THREE.InstancedMesh(new THREE.BoxGeometry(1.0, 2.1, 0.08), mDv, dvere.length);
   dvere.forEach((o, i) => { Q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), o[3]); M.compose(V.set(o[0], o[1], o[2]), Q, Sx); dm.setMatrixAt(i, M); }); stavGrp.add(dm);
   const mStr = envReg(new THREE.MeshStandardMaterial({ color: 0x4a4f54, roughness: 0.5, metalness: 0.4 })), sm2 = new THREE.InstancedMesh(new THREE.BoxGeometry(2.8, 0.12, 1.6), mStr, strechy.length), stp2 = new THREE.InstancedMesh(new THREE.BoxGeometry(2.0, 0.16, 1.2), envReg(new THREE.MeshStandardMaterial({ color: 0xb9b7b0, roughness: 0.9 })), stupne.length);
@@ -1624,7 +1624,7 @@ Promise.all([nactiJSON('domy.json'), hlavniDum, terenPripraven, znackyPripraveny
   nac.classList.add('skryt');
 }).catch(error => {
   console.error(error);
-  chyba('Model se nepodařilo načíst. Zkontrolujte připojení a obnovte stránku.');
+  chyba("The model could not be loaded. Check your connection and reload the page.");
 });
 
 renderer.setAnimationLoop(() => {
@@ -1689,7 +1689,7 @@ renderer.setAnimationLoop(() => {
     // blízko dveří: tlačítko Vstoupit
     blizkeDvere = null;
     for (const d of DVERE) if (d.bod && Math.hypot(d.bod.x - hrac.p.x, d.bod.z - hrac.p.z) < 3.6) blizkeDvere = d;
-    if (blizkeDvere) { document.getElementById('vstupNadpis').textContent = blizkeDvere.nadpis || 'VSTOUPIT'; document.getElementById('vstupPopis').textContent = blizkeDvere.popis || ''; }
+    if (blizkeDvere) { document.getElementById('vstupNadpis').textContent = blizkeDvere.nadpis || "ENTER"; document.getElementById('vstupPopis').textContent = blizkeDvere.popis || ''; }
     vstupBtn.classList.toggle('vid', !!blizkeDvere);
   }
   // stíny: v nadhledu celé okolí, při chůzi ostřeji kolem hráče

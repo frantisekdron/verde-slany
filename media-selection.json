@@ -1,13 +1,17 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "film": {
-    "file": "assets/media-20261116/verde-ii-final.mp4",
-    "poster": "assets/media-20261116/film-poster.jpg",
-    "duration": 105.8,
+    "file": "assets/media-20261117/verde-ii-en-v34.mp4",
+    "poster": "assets/media-20261117/film-poster-en.webp",
+    "mobile": "assets/media-20261117/verde-ii-en-v34-720.mp4",
+    "captions": "assets/media-20261117/verde-ii-en.vtt",
+    "language": "en",
+    "duration": 103.742667,
     "width": 1920,
     "height": 1080,
-    "revision": "final-20261116",
-    "sha256": "6e9c5a1eee2adb46f4165984bbe6815be2ea8c4510aca1891eea6ea779ce4c54"
+    "revision": "v34-en-final-20261117",
+    "sha256": "f3410bfaa3c46e38009f3023a30f7af8b0c8e6ab1a965715399f30986ebaddcd",
+    "source": "_strih/strih/final_v2/export_4K/Verde_F2_phase_two_v34_EN_FINAL.mp4"
   },
   "model": {
     "building": "Verde II · SO 05",
@@ -56,8 +60,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-top.webp",
-      "caption": "Dům a přilehlé parkování shora",
-      "group": "Verde II · exteriér",
+      "caption": "Building and adjacent parking from above",
+      "group": "Verde II · exterior",
       "thumbSHA256": "4b7127eae42d56d4582f27b79ba277577932df779e2ba0fdcdfd96e73d5e54d9"
     },
     {
@@ -92,8 +96,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-west-drone.webp",
-      "caption": "Západní průčelí z dronu",
-      "group": "Verde II · exteriér",
+      "caption": "West facade from the air",
+      "group": "Verde II · exterior",
       "thumbSHA256": "cb9015732b3826bae594c123c8994ec3ffba21d12886000f229cd4a9f31420e5"
     },
     {
@@ -128,8 +132,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-northeast.webp",
-      "caption": "Dům zezadu od severovýchodu",
-      "group": "Verde II · exteriér",
+      "caption": "Rear view from the north-east",
+      "group": "Verde II · exterior",
       "thumbSHA256": "1911d310785e6c14d2b7250a01a47ffe1a218e294efddbdb8f7542f4dc229c2a",
       "webMaster": {
         "file": "Verde-II-severovychod-bez-spoje.jpg",
@@ -169,8 +173,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-street.webp",
-      "caption": "Ulice podél domu",
-      "group": "Verde II · exteriér",
+      "caption": "Street alongside the building",
+      "group": "Verde II · exterior",
       "thumbSHA256": "7d92c0df59ca6c5911b86919517343fd26ef6feb24dafd7a8ee0b8eaa6cd8c31"
     },
     {
@@ -205,8 +209,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-west-garden.webp",
-      "caption": "Dům od západu z trávníku",
-      "group": "Verde II · exteriér",
+      "caption": "Building from the lawn to the west",
+      "group": "Verde II · exterior",
       "thumbSHA256": "4d3dbbee676b87100579cb6a5dbd91301b8e5dfdda3a8d5ca8816b395704892a"
     },
     {
@@ -241,8 +245,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/verde-southeast.webp",
-      "caption": "Jihovýchodní nároží a osázený svah",
-      "group": "Verde II · exteriér",
+      "caption": "South-east corner and landscaped slope",
+      "group": "Verde II · exterior",
       "thumbSHA256": "2173a2793e7bd5d90e71cc0936de26eea5d3fb586f6e1bfb7124ab0dfc125bc8"
     },
     {
@@ -264,8 +268,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/byt-screen.webp",
-      "caption": "Snímek z 3D prohlídky",
-      "group": "Verde II · typový byt"
+      "caption": "Still from the 3D tour",
+      "group": "Verde II · sample apartment"
     },
     {
       "source": "06_Typovy_byt_vizualizace/01_Obyvak_s_kuchynskym_koutem.png",
@@ -296,8 +300,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/byt-obyvak.webp",
-      "caption": "Obývací pokoj s kuchyňským koutem",
-      "group": "Verde II · typový byt"
+      "caption": "Living room with kitchenette",
+      "group": "Verde II · sample apartment"
     },
     {
       "source": "06_Typovy_byt_vizualizace/02_Kuchyn.png",
@@ -328,8 +332,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/byt-kuchyn.webp",
-      "caption": "Kuchyň",
-      "group": "Verde II · typový byt"
+      "caption": "Kitchen",
+      "group": "Verde II · sample apartment"
     },
     {
       "source": "06_Typovy_byt_vizualizace/03_Loznice.png",
@@ -360,8 +364,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/byt-loznice.webp",
-      "caption": "Ložnice",
-      "group": "Verde II · typový byt"
+      "caption": "Bedroom",
+      "group": "Verde II · sample apartment"
     },
     {
       "source": "06_Typovy_byt_vizualizace/04_Pokoj.png",
@@ -392,8 +396,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/byt-pokoj.webp",
-      "caption": "Pokoj",
-      "group": "Verde II · typový byt"
+      "caption": "Room",
+      "group": "Verde II · sample apartment"
     },
     {
       "source": "05_Etapy_a_vyznaceni/02_Etapy_shora_bez_stitku.jpg",
@@ -424,8 +428,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/etapy-top.webp",
-      "caption": "Etapy shora bez štítků",
-      "group": "Etapy výstavby"
+      "caption": "Phases from above without labels",
+      "group": "Construction phases"
     },
     {
       "source": "05_Etapy_a_vyznaceni/04_Etapy_od_parkoviste_bez_stitku.jpg",
@@ -459,8 +463,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/etapy-parking.webp",
-      "caption": "Etapy od parkoviště bez štítků",
-      "group": "Etapy výstavby",
+      "caption": "Phases viewed from the car park without labels",
+      "group": "Construction phases",
       "thumbSHA256": "2061be8c327bbaa3f69d0e9713681a4b635001ab1b86f1922acbb254b0010f69"
     },
     {
@@ -495,8 +499,8 @@
         }
       ],
       "src": "assets/media-20261116/visual/etapy-parking-neutral.webp",
-      "caption": "Etapy od parkoviště bez zeleného odstínu",
-      "group": "Etapy výstavby",
+      "caption": "Phases viewed from the car park without a green tint",
+      "group": "Construction phases",
       "thumbSHA256": "0f7c57a528657bfcd9757468b9eedcb2c8df290ca26c407c083c73c55f3fae2d"
     },
     {
@@ -512,7 +516,7 @@
       "sha256": "13ef60799ec406161db0e815cb227ddecb7b39dffe7c81eaccf2489b233e474e",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-01_p1181937.webp",
-      "caption": "Toaleta s umyvadlem",
+      "caption": "Toilet with basin",
       "group": "Byty Borovského"
     },
     {
@@ -528,7 +532,7 @@
       "sha256": "5865e36f42df74fa467b5917c85b02d0753494241ce4305d39e5592466611414",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-02_p1181947.webp",
-      "caption": "Koupelna s vanou",
+      "caption": "Bathroom with bathtub",
       "group": "Byty Borovského"
     },
     {
@@ -544,7 +548,7 @@
       "sha256": "cadf26c8608de2b9623622a1f86faf7a7261eabcaf03600c92d17e04f9dc3825",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-03_p1181962.webp",
-      "caption": "Pokoj pod střešním oknem",
+      "caption": "Room beneath a roof window",
       "group": "Byty Borovského"
     },
     {
@@ -560,7 +564,7 @@
       "sha256": "5f2d35f0a31fd06a1260fa746af29c604d1f5648a3db3c24de001d20460aee76",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-04_p1181967.webp",
-      "caption": "Podkroví se dvěma střešními okny",
+      "caption": "Attic with two roof windows",
       "group": "Byty Borovského"
     },
     {
@@ -576,7 +580,7 @@
       "sha256": "5c0acade755e0fa9668a46af42a6079e8e1dfea7cc4edee0ff6b935d3eb991ae",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-05_p1181974.webp",
-      "caption": "Chodba",
+      "caption": "Hallway",
       "group": "Byty Borovského"
     },
     {
@@ -592,7 +596,7 @@
       "sha256": "d4df7217ea217090eb82ac42631bd3430ee2c47ca39fdd3d2c9caca32f2363e9",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-06_p1181977.webp",
-      "caption": "Vstupní hala",
+      "caption": "Entrance hall",
       "group": "Byty Borovského"
     },
     {
@@ -608,7 +612,7 @@
       "sha256": "7ffd3a77878554fb4db202d84b3bdc8e00f1a8caebb4f294acd1996e0a012422",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-07_p1181982.webp",
-      "caption": "Schodiště ze vstupní haly",
+      "caption": "Staircase from the entrance hall",
       "group": "Byty Borovského"
     },
     {
@@ -624,7 +628,7 @@
       "sha256": "c8f69ef3cb40baa53df11ddf6af22804fe281072a15cd9417fd65774219f6b7c",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-08_p1181987.webp",
-      "caption": "Schodiště a chodba",
+      "caption": "Staircase and hallway",
       "group": "Byty Borovského"
     },
     {
@@ -640,7 +644,7 @@
       "sha256": "8b1a07c3e613a5b8a8d34669b0d3de2104a5ba3997c5ab7b6ed573736e52dae4",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-09_p1181992.webp",
-      "caption": "Dvoupodlažní obytný prostor",
+      "caption": "Double-height living area",
       "group": "Byty Borovského"
     },
     {
@@ -656,7 +660,7 @@
       "sha256": "33679e002a94ea71c911fc29ac1d5bf6e005240d06c87893c1da30fa6b6d9daf",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-10_p1181997.webp",
-      "caption": "Okno v obývacím pokoji",
+      "caption": "Living room window",
       "group": "Byty Borovského"
     },
     {
@@ -672,7 +676,7 @@
       "sha256": "3c04f07a8a1841998948dcdbbdd60ff324fdfdc3768ccb1a3bcfe3f94f43b634",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-11_p1182002.webp",
-      "caption": "Obývací pokoj s kamny",
+      "caption": "Living room with stove",
       "group": "Byty Borovského"
     },
     {
@@ -688,7 +692,7 @@
       "sha256": "51b362b7b9eb5d16cb3c4e3d3c7658ed96ac139901c3dadac1110c29c0517b86",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-12_p1182007.webp",
-      "caption": "Kamna a galerie",
+      "caption": "Stove and gallery",
       "group": "Byty Borovského"
     },
     {
@@ -704,7 +708,7 @@
       "sha256": "c34c49b6d7e949d6832c205ab9bb874d29fe153010cf6756a57913abac8013d1",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-13_p1182017.webp",
-      "caption": "Kamna u prosklených dveří",
+      "caption": "Stove beside glazed doors",
       "group": "Byty Borovského"
     },
     {
@@ -720,7 +724,7 @@
       "sha256": "140f9787093722ec4c8fdbc63989668798b865895d3447d09ea12bd7185de470",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-14_p1182022.webp",
-      "caption": "Balkon podél domu",
+      "caption": "Balcony along the building",
       "group": "Byty Borovského"
     },
     {
@@ -736,7 +740,7 @@
       "sha256": "5074f1da903633937bb68383462eafc279641641c4cef916de2a35d35c1b80ed",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-15_p1182029.webp",
-      "caption": "Balkon a výhled",
+      "caption": "Balcony and view",
       "group": "Byty Borovského"
     },
     {
@@ -752,7 +756,7 @@
       "sha256": "d4c945a7cb5764a3cdb792951215be9e1482fe8e0294c596421451dfe9529a15",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-16_p1182033.webp",
-      "caption": "Zeleň před balkonem",
+      "caption": "Greenery outside the balcony",
       "group": "Byty Borovského"
     },
     {
@@ -768,7 +772,7 @@
       "sha256": "41108164b9c5546985f3b197d01b518b63316011a0db479950d4dc9f30511c95",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-17_p1182037.webp",
-      "caption": "Detail střechy",
+      "caption": "Roof detail",
       "group": "Byty Borovského"
     },
     {
@@ -784,7 +788,7 @@
       "sha256": "8643e022c9abfb7f47a20c914c7437b5527b6b5a070402efdb51bb513ebab66e",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-18_p1182042.webp",
-      "caption": "Střecha a balkon",
+      "caption": "Roof and balcony",
       "group": "Byty Borovského"
     },
     {
@@ -800,7 +804,7 @@
       "sha256": "1e5d42dfed5745b947fdf15dfd3d98b3181e5aa4f0cf629322fa85cabf8f5f86",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-19_p1182047.webp",
-      "caption": "Pokoj s prosklenými dveřmi",
+      "caption": "Room with glazed doors",
       "group": "Byty Borovského"
     },
     {
@@ -816,7 +820,7 @@
       "sha256": "22b198e14077517ace8aabda70e0c32a64fc654ee815f2abfdb42238244dacbf",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-20_p1182053.webp",
-      "caption": "Pokoj v přízemí mezonetu",
+      "caption": "Room on the maisonette's lower level",
       "group": "Byty Borovského"
     },
     {
@@ -832,7 +836,7 @@
       "sha256": "30eb0d1a1862d93a51dad7fe51fb5d709ea5ec8ba3c0674a6d380f591ede4d8d",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-21_p1182062.webp",
-      "caption": "Prosklené dveře do zeleně",
+      "caption": "Glazed doors facing greenery",
       "group": "Byty Borovského"
     },
     {
@@ -848,7 +852,7 @@
       "sha256": "0adfbf9b6c158d1289cf4461e42f73753e80d94046fecf80301f45156c65aa09",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-22_p1182069.webp",
-      "caption": "Vstup na schodiště",
+      "caption": "Staircase entrance",
       "group": "Byty Borovského"
     },
     {
@@ -864,7 +868,7 @@
       "sha256": "d7507fb48dcfb13ce924472ef2af997616dac587b78b1095a6345d596b828e80",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-23_p1182072.webp",
-      "caption": "Schodiště do galerie",
+      "caption": "Staircase to the gallery",
       "group": "Byty Borovského"
     },
     {
@@ -880,7 +884,7 @@
       "sha256": "423afc1d071fa68916b956a9fac866ba63670ea20cf09f90829cc78be19f584f",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-24_p1182078.webp",
-      "caption": "Galerie u střešního okna",
+      "caption": "Gallery beside a roof window",
       "group": "Byty Borovského"
     },
     {
@@ -896,7 +900,7 @@
       "sha256": "82ab3f9ecbbe17faaf2a55e9035087afffc3229f05eb1c779d085bafdf5c78d8",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-25_p1182083.webp",
-      "caption": "Galerie s pohledem do patra",
+      "caption": "Gallery overlooking the lower level",
       "group": "Byty Borovského"
     },
     {
@@ -912,7 +916,7 @@
       "sha256": "d10e116ea9342ff010aa024ff986663d21214696447d2efc6dff218090637083",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-26_p1182088.webp",
-      "caption": "Zábradlí galerie",
+      "caption": "Gallery railing",
       "group": "Byty Borovského"
     },
     {
@@ -928,7 +932,7 @@
       "sha256": "010ff2f9945bb3ca10a135260e15b2c12b4b47f34055730ddfc9bd41ac63f236",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-27_p1182092.webp",
-      "caption": "Podkrovní pokoj",
+      "caption": "Attic room",
       "group": "Byty Borovského"
     },
     {
@@ -944,7 +948,7 @@
       "sha256": "87eb1f0d1f4a8298bd05efb9e3cf8afdf57ff3e6c674e0a69e2ff65727e16e9a",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-28_p1182099.webp",
-      "caption": "Střešní okna v podkroví",
+      "caption": "Attic roof windows",
       "group": "Byty Borovského"
     },
     {
@@ -960,7 +964,7 @@
       "sha256": "8164e99fb5cf27a17679cadb36865b7fc5d49939ec8c070fc3696d292239f196",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-29_p1182104.webp",
-      "caption": "Průchod v podkroví",
+      "caption": "Attic passage",
       "group": "Byty Borovského"
     },
     {
@@ -976,7 +980,7 @@
       "sha256": "9bbc53c041419afd2a3c7e19835da7f6622846fc84dd49fbab28daa09f3df206",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-30_p1182107.webp",
-      "caption": "Detail šikminy",
+      "caption": "Sloping ceiling detail",
       "group": "Byty Borovského"
     },
     {
@@ -992,7 +996,7 @@
       "sha256": "5dd6514891f0e6dd659bb452183d83b33d3a15d88ec5eba1c0f86e652da25885",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-31_p1182114.webp",
-      "caption": "Galerie u schodiště",
+      "caption": "Gallery beside the staircase",
       "group": "Byty Borovského"
     },
     {
@@ -1008,7 +1012,7 @@
       "sha256": "73535a1f8f76dd0653017ade128a2b09c6912fa72ceb82aeea58241dc8b7ab39",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-32_p1182120.webp",
-      "caption": "Pohled z galerie",
+      "caption": "View from the gallery",
       "group": "Byty Borovského"
     },
     {
@@ -1024,7 +1028,7 @@
       "sha256": "29fc3cd3b29015e1371f7649c8addffc620f0195de645bb42d433fb9b5d612c0",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-33_p1182122.webp",
-      "caption": "Horní chodba",
+      "caption": "Upper hallway",
       "group": "Byty Borovského"
     },
     {
@@ -1040,7 +1044,7 @@
       "sha256": "6eee67af4122c8efe1db0329b4c79d485ccedbdc3517f6f4655e4c5f9f3aeb73",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-34_p1182127.webp",
-      "caption": "Galerie nad obývacím pokojem",
+      "caption": "Gallery above the living room",
       "group": "Byty Borovského"
     },
     {
@@ -1072,7 +1076,7 @@
         }
       ],
       "src": "assets/media-20261116/visual/bb-35_p1182132.webp",
-      "caption": "Střešní okna u galerie",
+      "caption": "Roof windows beside the gallery",
       "group": "Byty Borovského"
     },
     {
@@ -1088,7 +1092,7 @@
       "sha256": "ebf631c48f95185a4a54649f93252c3cd15f522efb6c18b011ac861259addb45",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-36_p1182138.webp",
-      "caption": "Pokoj v horním patře",
+      "caption": "Room on the upper level",
       "group": "Byty Borovského"
     },
     {
@@ -1104,7 +1108,7 @@
       "sha256": "99430c6336e3ad824ed1c55b1944350efe79601641e517dc070f46f0f83d4319",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-37_p1182143.webp",
-      "caption": "Ložnice pod střešními okny",
+      "caption": "Bedroom beneath roof windows",
       "group": "Byty Borovského"
     },
     {
@@ -1120,7 +1124,7 @@
       "sha256": "22edae1343e413a4130eedaf35acd4def6130cf73f5399f923ae780de01085b2",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-38_p1182148.webp",
-      "caption": "Průhled podkrovím",
+      "caption": "View through the attic",
       "group": "Byty Borovského"
     },
     {
@@ -1136,7 +1140,7 @@
       "sha256": "5ac8d42591cdf09453d832b35bedbbdab0bfce9bd4f481af8bd01f19b753c2e2",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-39_p1182153.webp",
-      "caption": "Podkrovní kout",
+      "caption": "Attic nook",
       "group": "Byty Borovského"
     },
     {
@@ -1152,7 +1156,7 @@
       "sha256": "b12b4ceea7adfa5c3e4db9c3f8432f754d0bbc242a3f7edb661fd9a2bb43a9f4",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-40_p1182158.webp",
-      "caption": "Galerie s otevřeným schodištěm",
+      "caption": "Gallery with open staircase",
       "group": "Byty Borovského"
     },
     {
@@ -1168,7 +1172,7 @@
       "sha256": "2be6dd4627fb1e90b2bbf896f4d46503b3e0435a5d01aebdc363a03aa0797bfd",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-41_p1182162.webp",
-      "caption": "Pohled do spodního patra",
+      "caption": "View of the lower level",
       "group": "Byty Borovského"
     },
     {
@@ -1184,7 +1188,7 @@
       "sha256": "b5255e11f1436c18170298d93174e7d30c09ff985eeb12ec6773cd56e93e2865",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-42_p1182167.webp",
-      "caption": "Zábradlí a schodiště",
+      "caption": "Railing and staircase",
       "group": "Byty Borovského"
     },
     {
@@ -1200,7 +1204,7 @@
       "sha256": "d7b353f4ec0b8b4f48c38c75fd52ee7c3341aba1255111781457fce5fc3e809f",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-43_p1182172.webp",
-      "caption": "Schody a vstupní dveře",
+      "caption": "Stairs and entrance door",
       "group": "Byty Borovského"
     },
     {
@@ -1216,7 +1220,7 @@
       "sha256": "2516b62bb8e7bb1211964651995db261323c3df95a632410586af2c5bd077cf3",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-44_p1182178.webp",
-      "caption": "Chodba u koupelny",
+      "caption": "Hallway beside the bathroom",
       "group": "Byty Borovského"
     },
     {
@@ -1232,7 +1236,7 @@
       "sha256": "05dadd1f1e8ce65a70ab6c8ca46c22ce954c4aec6ca096e4d2a9f7a3a581a0f6",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-45_p1182182.webp",
-      "caption": "Průhled do pokoje",
+      "caption": "View into the room",
       "group": "Byty Borovského"
     },
     {
@@ -1248,7 +1252,7 @@
       "sha256": "175183756bd8c368a9b65c61cbfb06c7cc648436f51b8aef4a7a309a243cd719",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-46_p1182187.webp",
-      "caption": "Pokoj s výhledem do zeleně",
+      "caption": "Room overlooking greenery",
       "group": "Byty Borovského"
     },
     {
@@ -1264,7 +1268,7 @@
       "sha256": "ee066e93b01398005bb50673873fcdc29c8aebb5a990465eb12cec55be67d872",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-47_p1182192.webp",
-      "caption": "Pokoj ve spodním patře",
+      "caption": "Room on the lower level",
       "group": "Byty Borovského"
     },
     {
@@ -1280,7 +1284,7 @@
       "sha256": "29c622ca22207a7becb0fec2deefdc0038b686538d6976b2d4e9ca7b991cdeef",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-48_p1182197.webp",
-      "caption": "Detail pokoje",
+      "caption": "Room detail",
       "group": "Byty Borovského"
     },
     {
@@ -1296,7 +1300,7 @@
       "sha256": "a2932e1023d3013827f2ea75b74e203b2d4a15a53bd0032c3f70965c3acca573",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-49_p1182202.webp",
-      "caption": "Výhled mezi stromy",
+      "caption": "View between the trees",
       "group": "Byty Borovského"
     },
     {
@@ -1312,7 +1316,7 @@
       "sha256": "10c20e39e1dc2639346404b8296a2c409e7357166ff2908b1b820692296c7827",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-50_p1182215.webp",
-      "caption": "Obytný prostor s kamny",
+      "caption": "Living area with stove",
       "group": "Byty Borovského"
     },
     {
@@ -1328,7 +1332,7 @@
       "sha256": "21efccddd6662d3d8c5b589c5d0d146fcf9d7847e6356d1d7978dc6b27f71b14",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-51_p1182218.webp",
-      "caption": "Obytný prostor s vysokým stropem",
+      "caption": "Living area with high ceiling",
       "group": "Byty Borovského"
     },
     {
@@ -1344,7 +1348,7 @@
       "sha256": "98f93f91baee8763f7fbcc73e6efe89cfcdd3405e6791d3031b6058354bcd53d",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-52_p1182223.webp",
-      "caption": "Kamna v obývacím pokoji",
+      "caption": "Stove in the living room",
       "group": "Byty Borovského"
     },
     {
@@ -1376,7 +1380,7 @@
         }
       ],
       "src": "assets/media-20261116/visual/bb-53_p1182229.webp",
-      "caption": "Obývací pokoj pod galerií",
+      "caption": "Living room beneath the gallery",
       "group": "Byty Borovského"
     },
     {
@@ -1392,7 +1396,7 @@
       "sha256": "3db8f10be320a8d636a513396247cc1d41b5f8e640a0686323a6bc173bcab4a3",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-54_p1182232.webp",
-      "caption": "Prostor pod galerií",
+      "caption": "Space beneath the gallery",
       "group": "Byty Borovského"
     },
     {
@@ -1408,7 +1412,7 @@
       "sha256": "adef9a5c90545f2efd5cfe773a61c754fd5df213c132f9d36e2c54b0f5001a4d",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-55_p1182237.webp",
-      "caption": "Obývací pokoj s balkonovými dveřmi",
+      "caption": "Living room with balcony doors",
       "group": "Byty Borovského"
     },
     {
@@ -1440,7 +1444,7 @@
         }
       ],
       "src": "assets/media-20261116/visual/bb-56_p1182242.webp",
-      "caption": "Balkon u koruny stromu",
+      "caption": "Balcony beside the treetops",
       "group": "Byty Borovského"
     },
     {
@@ -1456,7 +1460,7 @@
       "sha256": "197e2abe4ec18fb898016373e46e9125b3d5f5b285e93404fe604eb342902535",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-57_p1182247.webp",
-      "caption": "Výhled z balkonu",
+      "caption": "View from the balcony",
       "group": "Byty Borovského"
     },
     {
@@ -1472,7 +1476,7 @@
       "sha256": "900d8be9d8185fa84d2e04c41fcb14d66598cee4551c79ff5bba8e1720be6524",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-58_p1182252.webp",
-      "caption": "Zábradlí balkonu a zeleň",
+      "caption": "Balcony railing and greenery",
       "group": "Byty Borovského"
     },
     {
@@ -1488,7 +1492,7 @@
       "sha256": "723387067d42b6a1af8dcafc1194cf91b41e4e248f8fc0d955038f9bcb0b0a89",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-59_p1182257.webp",
-      "caption": "Balkon pod vikýřem",
+      "caption": "Balcony beneath the dormer",
       "group": "Byty Borovského"
     },
     {
@@ -1504,7 +1508,7 @@
       "sha256": "57caec20feba9c7bbb8659d5d12e8d1404004da0f29ff39344d8e1611e06f132",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-60_p1182262.webp",
-      "caption": "Detail fasády a balkonu",
+      "caption": "Facade and balcony detail",
       "group": "Byty Borovského"
     },
     {
@@ -1520,7 +1524,7 @@
       "sha256": "fbd8ac462a5e217e61373816077419c6ef1463ba994055be4826b34acee81f57",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-61_p1182268.webp",
-      "caption": "Chodba u vstupu",
+      "caption": "Entrance hallway",
       "group": "Byty Borovského"
     },
     {
@@ -1536,7 +1540,7 @@
       "sha256": "ed3581cf531bd637fe8bae5b13640f924be36614f85484a99dd58bb610e30e25",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-62_p1182272.webp",
-      "caption": "Toaleta a umyvadlo",
+      "caption": "Toilet and basin",
       "group": "Byty Borovského"
     },
     {
@@ -1552,7 +1556,7 @@
       "sha256": "4ccd4968282129a7d7481108edec005b0e6e1cfbc6eeb26f4412d92b92d3a0be",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-63_p1182283.webp",
-      "caption": "Vana a umyvadlo",
+      "caption": "Bathtub and basin",
       "group": "Byty Borovského"
     },
     {
@@ -1568,7 +1572,7 @@
       "sha256": "dda362fe874415121aa5b58021d465c3932df6b9412ba7e5e14c886d45414f8b",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-64_p1182287.webp",
-      "caption": "Pokoj se dvěma střešními okny",
+      "caption": "Room with two roof windows",
       "group": "Byty Borovského"
     },
     {
@@ -1584,7 +1588,7 @@
       "sha256": "3f4631708b903a2053e08f1b06bf39c2d5677ca082f56903b096f4122e8310e0",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-65_p1182292.webp",
-      "caption": "Podkroví",
+      "caption": "Attic",
       "group": "Byty Borovského"
     },
     {
@@ -1600,7 +1604,7 @@
       "sha256": "bc209bcdd7e9b10bce3b01aa3625fb8d30c60aad63e1499d33e176abc2fb2bdf",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-66_p1182297.webp",
-      "caption": "Šikmina v pokoji",
+      "caption": "Sloping ceiling in the room",
       "group": "Byty Borovského"
     },
     {
@@ -1616,7 +1620,7 @@
       "sha256": "cc5c137e4c7b3e2c6ac38001c60bae155197685891ae9a685c49c9c73218c8c7",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-67_p1182305.webp",
-      "caption": "Dveře do podkrovního pokoje",
+      "caption": "Door to the attic room",
       "group": "Byty Borovského"
     },
     {
@@ -1648,7 +1652,7 @@
         }
       ],
       "src": "assets/media-20261116/visual/bb-68_p1182307.webp",
-      "caption": "Vstupy do mezonetů",
+      "caption": "Maisonette entrances",
       "group": "Byty Borovského"
     },
     {
@@ -1664,7 +1668,7 @@
       "sha256": "49a0b5d1e641fad74ba9c15a008d4368a7b774021bc36d96486d99cce9365089",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-69_p1182312.webp",
-      "caption": "Byty Borovského z ulice",
+      "caption": "Byty Borovského from the street",
       "group": "Byty Borovského"
     },
     {
@@ -1680,7 +1684,7 @@
       "sha256": "49dbe6a34623a2366524225349f20547da327858a2795c0636f5ab577be06c92",
       "responsive": [],
       "src": "assets/media-20261116/visual/bb-70_p1182318.webp",
-      "caption": "Příjezd před domem",
+      "caption": "Driveway in front of the building",
       "group": "Byty Borovského"
     },
     {
@@ -1696,7 +1700,7 @@
       "sha256": "81ae8347e0530f27d52c70e2fb69001f44929deede3552070d5ddf4066ccc7d1",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0184.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1712,7 +1716,7 @@
       "sha256": "4da75b0ca52627008540266d62b19d7e5970535d90534828b3db4c0d36cbb841",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0186.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1728,7 +1732,7 @@
       "sha256": "fcecec5483121bb7adf7a8dc7c05a4b61abcdd6d1f60ae99eaa25a5046cf98ea",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0188.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1744,7 +1748,7 @@
       "sha256": "e3078c50c3c52077017ca56eec386bf5f3d3cf0159c95d30fd629d982cdfd063",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0190.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1760,7 +1764,7 @@
       "sha256": "151fecdd7830cfc78c32d3ece4675c8eb5bd81ec4eec3ea595f59d9bfe04aa19",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0192.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1776,7 +1780,7 @@
       "sha256": "3d89e998c884c9722fdbad2d6ce00e5d3d390b733f9cbc2a7a1c687cc8798280",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0196.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1792,7 +1796,7 @@
       "sha256": "84865098afc65a53bcf20db67fb11de0f9be1a140021059ffbadc248e83befc9",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0198.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1808,7 +1812,7 @@
       "sha256": "98e471d01f0f5975a2a65a973ea7b9d830be6dab478c9892c7a42e78ecd1b3b7",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0203.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1824,7 +1828,7 @@
       "sha256": "8ae8bb03202f27ed89c99147b9cfa72b403d3eec0b2e848628fa5907e891131d",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0204.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1840,7 +1844,7 @@
       "sha256": "4340b3c73d3c0dd4171a653200280ccc505438b99eef0ec6df9a17068701ff6f",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0206.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -1856,7 +1860,7 @@
       "sha256": "8ff8d78191aa61863bb1a320673f67290ba3da32fde0567ac71b0939fc87e713",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0207.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -1872,7 +1876,7 @@
       "sha256": "761191369f6f72232421cce45d1f967a8e7546ad11c0a653cad3fad392957e41",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0208.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -1888,7 +1892,7 @@
       "sha256": "8cb3fd1bb88ddfa1dc63124d276c4ce15a42872bff1451dd9fe38340924471b6",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0216.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -1904,7 +1908,7 @@
       "sha256": "539052eb28f164085f589274151f89f294509c93dc3ccaa072c3d97c6d65edfa",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0218.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -1920,7 +1924,7 @@
       "sha256": "6954ce625e48ccff2612a0a1ddbea083a0cadd0b9a7f5e393212ba1842a97f24",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0220.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1936,7 +1940,7 @@
       "sha256": "5ec737203249e24ebce13622735a87e8c02aeb40440d68605b1f1e86aa9f87ca",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0222.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1952,7 +1956,7 @@
       "sha256": "12835adb5bfb797d116475f567b3ab8df77c940899d8419671bdf16c5e41064b",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0223.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1968,7 +1972,7 @@
       "sha256": "bae2687a29be4e37adc904cb6fc013af97b72eab022d1d5aca0bf45fa2d46bfd",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0227.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -1984,7 +1988,7 @@
       "sha256": "347fe343b64675009a3b20d2444803e1ab9520419d78febf4099d50fd61e7881",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0231.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2000,7 +2004,7 @@
       "sha256": "cedfbd0a1349c7484c175a38ee2929b75da5bd07b27b8add925cd9342eb21057",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0233.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2016,7 +2020,7 @@
       "sha256": "5de3e5194f8c63a549f7e1f83c3ca7bb63252e5b7784eebc35ac0b5a6e6bcf7b",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0235.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2032,7 +2036,7 @@
       "sha256": "ca234c83e0691cc7b6cf28ec7d12ccf4b6faadd7d828657ff59f3d0d55b4d03c",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0237.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2048,7 +2052,7 @@
       "sha256": "d3681702520312a9fdc27cee5acad1bb59210276839fac41963c1c9ad39b2ebb",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0238.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2064,7 +2068,7 @@
       "sha256": "283a42930e695e1ee5696319e96799a954b339a6e6ecc0d1e3a9073d6ba14f0d",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0245.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2080,7 +2084,7 @@
       "sha256": "8039b584b8cdccde7b37685adbdc7a965ff89dd0e3f3f6f5eedb5072d7e3474f",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0249.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2096,7 +2100,7 @@
       "sha256": "aba6ce094c22c21caf5e1749c20e8c8ea5c4370cea2ace391251df5bd6965c46",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0253.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2112,7 +2116,7 @@
       "sha256": "0a040409449df7e2a18818142573d850f0be88ea29a4f8216c3aebe00a43830a",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0254.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2128,7 +2132,7 @@
       "sha256": "fab85a577ab6e879dd8708e09e355be4612b9c6d159b6f4285ae2a4f59633c0d",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0256.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2144,7 +2148,7 @@
       "sha256": "c14da786c4e45ea09af6bdbcb28f922d9ff7bc214717c6bf6238f29de61c0956",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0257.webp",
-      "caption": "Městská plovárna a okolí",
+      "caption": "Municipal swimming pool and surroundings",
       "group": "Slaný"
     },
     {
@@ -2160,7 +2164,7 @@
       "sha256": "275221c65ec6a7aaf1e93b0e0420b1360fc14e8044e7057b61c5e6296daf266a",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0261.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2176,7 +2180,7 @@
       "sha256": "0a88f0cc96267383c1b98d9a5436ddd30c4afd8034896d3a046ad7c3046c1a77",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0265.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2192,7 +2196,7 @@
       "sha256": "3d6513e1c07f8084dd08061888570be38f4b51f363e6ed57aecd0ef706104f79",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0269.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2208,7 +2212,7 @@
       "sha256": "e735dbd06616261329d39eb8f1fda30e46e5809303f5188d187fbe5295932b06",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0270.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2224,7 +2228,7 @@
       "sha256": "472cf3b4e9538511f15ce4b748e21aecb4f2a4c3c5ee3ac6df8f9938e9f02926",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0281.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2240,7 +2244,7 @@
       "sha256": "46b4dbd8f69a79f967f9c6549719fffe8b466fb77281da26bc0427e0ca718460",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0286.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2256,7 +2260,7 @@
       "sha256": "21f7be3bced5a7b134e37b63d2e9552418f84742c14459e1db218d002de42349",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0292.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2272,7 +2276,7 @@
       "sha256": "2abe90fc28ac20845be26c3065c1473d2b85cc5d39e2023534952cd50b3fd3f9",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0294.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2288,7 +2292,7 @@
       "sha256": "88064f2fa30704039776ad71a2bccda260528cd7c2be56d5476553140249c75b",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0297.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2304,7 +2308,7 @@
       "sha256": "a83d27d45680d86ae3ea9d625b154ff56ab2beb681e6ca5203d61243a9b31eac",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0300.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2320,7 +2324,7 @@
       "sha256": "110bbb110b947cb0a23df4c6b5416deed3f53c7d739c52a439f7bc9da3a012ca",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0301.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2336,7 +2340,7 @@
       "sha256": "71f4641889a7529b0e0d5f6fd6c49ce16d6a4c14ec49eb163be3ed07e9cfb8ae",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0304.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2352,7 +2356,7 @@
       "sha256": "95c6b7cec8d0aabc09d32ebb24f8de50d5a590655d5e2928fedb9d8152307776",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0307.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2368,7 +2372,7 @@
       "sha256": "2f95caa6f738f9f033389da70b13df0483a5dabbf7dd1befa26232c36c19f688",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0310.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2384,7 +2388,7 @@
       "sha256": "a093bbf33a6985723577c92b260e8cd9631fb433810db2ba430c8e16ca6beee5",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0317.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2400,7 +2404,7 @@
       "sha256": "1ccbb35f362272932b94db7f8bce4987997a260daa88eb799c7ebc3efa806f17",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0319.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2416,7 +2420,7 @@
       "sha256": "f5101029e24e0c7374abc124a9c1e034728db8e4dab6990a6b4b929d68ec7d3b",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0321.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2432,7 +2436,7 @@
       "sha256": "f0656cb82175d9c99ed959b52f8387bf1505cbbee77c0bb15668342ed9f71248",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0325.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2448,7 +2452,7 @@
       "sha256": "5175cd84315d91e567dd3715f0556f4f34f4120a617df185d0330dddbca51eaa",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0327.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2464,7 +2468,7 @@
       "sha256": "696db61c89cede5a873198bd738f011647a188676092fa4e8caf6901d07c87d2",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0330.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2480,7 +2484,7 @@
       "sha256": "432ff8ba64bd4607211807d12d2dcc45b2ccf0365858c80e5bad580758124fac",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0332.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2496,7 +2500,7 @@
       "sha256": "6565e1c4f8b1db5df2610d7081cf70fdd31e31b9d44a28e0f124bad36e67538e",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0337.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2512,7 +2516,7 @@
       "sha256": "a12bf83f1b9761db17e80f8268a16a7f64808acfe9061ccd172ac7b9857153b0",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0339.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2528,7 +2532,7 @@
       "sha256": "ceca34be1ad453fea9e4f7ed43a461427464f7a3e744ff658d2903e8ead9ae52",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0345.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2544,7 +2548,7 @@
       "sha256": "57bd5725a01885378c2f8ea6e594d1e8a1963cd95cf49e9b20ea5981a96d7084",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0346.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2560,7 +2564,7 @@
       "sha256": "a0c0e550a25679e0a18fc6cc330b8abbbc3dace05c7ab15ed94f0bd153dfba00",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0348.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2576,7 +2580,7 @@
       "sha256": "3b3f294ef321d85a982b60178f12bcea7e8ff1871802aa14afd95c521cb2c30f",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0359.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2592,7 +2596,7 @@
       "sha256": "b85b13b5d548a753820ba63e01de17a296b2db1ba0398844692027978d15fd47",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0364.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2608,7 +2612,7 @@
       "sha256": "b20f76b43fb4c82c2ae6ef0fad40181df245c2e3ad72bfdcbabbbc614b7d88bd",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0366.webp",
-      "caption": "Mezonety Byty Borovského",
+      "caption": "Byty Borovského maisonettes",
       "group": "Slaný"
     },
     {
@@ -2624,7 +2628,7 @@
       "sha256": "e530e2ff4b22dbf67e9982b616adf981527c80fe27dff6d886eca856e4776e23",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0372.webp",
-      "caption": "Dokončený dům 1. etapy Verde",
+      "caption": "Completed Verde Phase 1 building",
       "group": "Slaný"
     },
     {
@@ -2640,7 +2644,7 @@
       "sha256": "bf4272e8922fe17fd0abe4cf73ca6fab1d1a46348545353f5a71fa2aeb12355e",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0374.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2656,7 +2660,7 @@
       "sha256": "e6e5168be82d2e40bab078a14a8d6ab61f8adf692af9becd3ca79ebccfd6c278",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0375.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2672,7 +2676,7 @@
       "sha256": "9b45587957da105f15e9d3616148270afba41857ef586ca7c0f561325587e73a",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0376.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2688,7 +2692,7 @@
       "sha256": "d05f30848d5500a9a667c98e9a8ab1a6109d773f37ba0277df608bdbd33d12a9",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0377.webp",
-      "caption": "Zeleň v okolí projektu",
+      "caption": "Greenery around the development",
       "group": "Slaný"
     },
     {
@@ -2704,7 +2708,7 @@
       "sha256": "05e97f8f8cd4eac03cf635debb5f8c68874f7c126f3533af75dc61f0200436f5",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0383.webp",
-      "caption": "Městská plovárna a okolí",
+      "caption": "Municipal swimming pool and surroundings",
       "group": "Slaný"
     },
     {
@@ -2720,7 +2724,7 @@
       "sha256": "0ce5361e8cb886fe3ac8b8ccc3ed6f2f62d06f8b4dcd856cb6878a7c3da5ab27",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0384.webp",
-      "caption": "Městská plovárna a okolí",
+      "caption": "Municipal swimming pool and surroundings",
       "group": "Slaný"
     },
     {
@@ -2736,7 +2740,7 @@
       "sha256": "a1c6f6cd5877e1af04e4c83edc782aab9db1345d399997b8f239ae67c2e4f3b0",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0385.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -2752,7 +2756,7 @@
       "sha256": "02aa92a9dc5882ba94825ccf2fa67ca3d6701acd1242df34200ff6c81de3dbf9",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0389.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -2768,7 +2772,7 @@
       "sha256": "14a6982e336b3ddca14375ea8544e0f4c46353e11735105de3ab2ee922f2599b",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0395.webp",
-      "caption": "Výstavba 2. etapy Verde",
+      "caption": "Verde Phase 2 construction",
       "group": "Slaný"
     },
     {
@@ -2784,7 +2788,7 @@
       "sha256": "74c2c0663cd6be8815bc4d14812108a5d1664d3cd4ed10b8d7807d94822cd9bf",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0399.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2800,7 +2804,7 @@
       "sha256": "de54603cf58b682fc4e213a3047dc05ce2c328d3e30a9f45f3315ff53ff5981c",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0403.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2816,7 +2820,7 @@
       "sha256": "9cd255bd7d70687dbde3499ad52ef3c61eb2d056fedd18279567e58336c79e10",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0404.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2832,7 +2836,7 @@
       "sha256": "4698152bd9104009880f3161c8bb8f7f36467c24a6ce4a2c4e74bb3e6fc21764",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0407.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2848,7 +2852,7 @@
       "sha256": "2f5affad3d3e6ad0d3745421b15a964141d8567d39434968f784f35a905ccf30",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0410.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
@@ -2864,13 +2868,13 @@
       "sha256": "28bdaa1431a4ef20559ba1e8a2646a975deea4e1c9546ff7de3b1a73224622c7",
       "responsive": [],
       "src": "assets/media-20261116/visual/dron-0415.webp",
-      "caption": "Slaný z výšky",
+      "caption": "Slaný from above",
       "group": "Slaný"
     },
     {
       "slug": "mezonet-obyvak",
-      "caption": "Obývací pokoj s kuchyní a kamny",
-      "group": "Byty Borovského · návrh zařízení",
+      "caption": "Living room with kitchen and stove",
+      "group": "Byty Borovského · furnishing concept",
       "kind": "visual",
       "src": "assets/media-20261115/visual/mezonet-obyvak.webp",
       "thumb": "assets/media-20261115/thumb/mezonet-obyvak.webp",
@@ -2882,8 +2886,8 @@
     },
     {
       "slug": "mezonet-koupelna",
-      "caption": "Koupelna s vanou",
-      "group": "Byty Borovského · návrh zařízení",
+      "caption": "Bathroom with bathtub",
+      "group": "Byty Borovského · furnishing concept",
       "kind": "visual",
       "src": "assets/media-20261115/visual/mezonet-koupelna.webp",
       "thumb": "assets/media-20261115/thumb/mezonet-koupelna.webp",
@@ -2895,8 +2899,8 @@
     },
     {
       "slug": "mezonet-loznice",
-      "caption": "Podkrovní ložnice",
-      "group": "Byty Borovského · návrh zařízení",
+      "caption": "Attic bedroom",
+      "group": "Byty Borovského · furnishing concept",
       "kind": "visual",
       "src": "assets/media-20261115/visual/mezonet-loznice.webp",
       "thumb": "assets/media-20261115/thumb/mezonet-loznice.webp",
@@ -2929,7 +2933,7 @@
   "maisonetteClips": [
     {
       "slug": "mezonet-pred-zarizenim",
-      "title": "Obývací pokoj před zařízením",
+      "title": "Living room before furnishing",
       "source": "hf_20261110_141008_4e773d41-9d46-4943-b700-a0b1c6e74f4a.mp4",
       "video": "assets/media-20261115/clips/mezonet-pred-zarizenim.mp4",
       "poster": "assets/media-20261115/visual/mezonet-pred-zarizenim.webp",
@@ -2937,7 +2941,7 @@
     },
     {
       "slug": "mezonet-obyvak",
-      "title": "Obývací pokoj s kamny",
+      "title": "Living room with stove",
       "source": "hf_20261110_141029_35f9945b-e379-4bfe-ac11-6d0bddab20a4.mp4",
       "video": "assets/media-20261115/clips/mezonet-obyvak.mp4",
       "poster": "assets/media-20261115/visual/mezonet-obyvak.webp",
@@ -2945,7 +2949,7 @@
     },
     {
       "slug": "mezonet-jidelna",
-      "title": "Jídelna s kuchyní",
+      "title": "Dining area and kitchen",
       "source": "hf_20261110_144434_4aec691d-76c4-4da6-a66d-8e71a7bf2a75.mp4",
       "video": "assets/media-20261115/clips/mezonet-jidelna.mp4",
       "poster": "assets/media-20261115/visual/mezonet-jidelna.webp",
@@ -2953,7 +2957,7 @@
     },
     {
       "slug": "mezonet-loznice-okno",
-      "title": "Ložnice s francouzským oknem",
+      "title": "Bedroom with a full-height window",
       "source": "hf_20261110_152205_3c83ee61-0c29-4ecc-bf27-e5deb72aadb8.mp4",
       "video": "assets/media-20261115/clips/mezonet-loznice-okno.mp4",
       "poster": "assets/media-20261115/visual/mezonet-loznice-okno.webp",
@@ -2961,7 +2965,7 @@
     },
     {
       "slug": "mezonet-koupelna",
-      "title": "Koupelna s vanou",
+      "title": "Bathroom with bathtub",
       "source": "hf_20261110_153746_f17efcf2-c30d-4a9f-b19b-404f53b828d2.mp4",
       "video": "assets/media-20261115/clips/mezonet-koupelna.mp4",
       "poster": "assets/media-20261115/visual/mezonet-koupelna.webp",
@@ -2969,7 +2973,7 @@
     },
     {
       "slug": "mezonet-loznice",
-      "title": "Podkrovní ložnice",
+      "title": "Attic bedroom",
       "source": "hf_20261110_154558_addd2d2a-506b-4c57-b0ea-24ef7002f146.mp4",
       "video": "assets/media-20261115/clips/mezonet-loznice.mp4",
       "poster": "assets/media-20261115/visual/mezonet-loznice.webp",
