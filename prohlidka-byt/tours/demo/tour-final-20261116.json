@@ -21,7 +21,7 @@
     "rooms": [
       {
         "id": "hala",
-        "name": "Hala",
+        "name": "Entrance hall",
         "areaM2": 8.9,
         "polygon": [
           [
@@ -469,7 +469,7 @@
         1.5,
         5.63
       ],
-      "title": "Hala",
+      "title": "Entrance hall",
       "text": "Entrance hall of approximately 9 m². The layout is based on project documentation; the building is under construction and photographs are not yet available.",
       "kind": "info"
     },
@@ -535,7 +535,7 @@
     "rooms": [
       {
         "id": "hala",
-        "name": "Hala",
+        "name": "Entrance hall",
         "areaM2": 8.9,
         "polygon": [
           [
@@ -1347,9 +1347,9 @@
     "screens": [
       {
         "id": "tv-obyvak",
-        "title": "Verde II film",
-        "video": "video/fd-reel.mp4?v=42dce99e3bb9",
-        "videoSd": "video/fd-reel.mp4?v=42dce99e3bb9",
+        "title": "Verde Slaný II project film",
+        "video": "video/fd-reel.mp4?v=67a7065fa799",
+        "videoSd": "video/fd-reel.mp4?v=67a7065fa799",
         "poster": "video/fd-reel-poster.jpg?v=en-v34",
         "roomId": "obyvak",
         "x": 8.35,

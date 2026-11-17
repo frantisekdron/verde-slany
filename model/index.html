@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Verde Slaný in 3D</title></head><body>
-<a href="../dum-verde-ii/index.html?v=english-20261117">Open the 3D model of three buildings</a>
-<script>
-  const params = new URLSearchParams(location.search);
-  const target = new URL(params.get('mode') === 'select' ? 'select.html' : '../dum-verde-ii/index.html?v=english-20261117', location.href);
-  for (const key of ['noc', 'bezui', 'ladit']) if (params.get(key) === '1') target.searchParams.set(key, '1');
-  location.replace(target.href);
-</script></body></html>
+<a href="/verde-slany/dum-verde-ii/index.html?v=bilingual-20261117&amp;lang=en">Open the 3D model of three buildings</a>
+<script src="/verde-slany/model-route.js?v=bilingual-20261117"></script>
+</body></html>

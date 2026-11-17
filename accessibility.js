@@ -8,7 +8,7 @@
   const plan = $('#floorplan');
   if (plan) {
     plan.setAttribute('role', 'group');
-    plan.setAttribute('aria-label', "Interactive apartment floor plan");
+    plan.setAttribute('aria-label', window.VERDE_LOCALE.cs ? 'Interaktivní půdorys bytů' : 'Interactive apartment floor plan');
     plan.setAttribute('aria-describedby', 'planHelp');
   }
 

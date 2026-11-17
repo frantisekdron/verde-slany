@@ -9,9 +9,33 @@
     "duration": 103.742667,
     "width": 1920,
     "height": 1080,
-    "revision": "v34-en-final-20261117",
-    "sha256": "f3410bfaa3c46e38009f3023a30f7af8b0c8e6ab1a965715399f30986ebaddcd",
-    "source": "_strih/strih/final_v2/export_4K/Verde_F2_phase_two_v34_EN_FINAL.mp4"
+    "revision": "v34-en-final-20261117-2158",
+    "sha256": "c01060707365fa2354b4bbf914201a5906e9c0f89e8bb5b79a6b6b5fd878176f",
+    "source": "_strih/strih/final_v2/export_4K/Verde_F2_phase_two_v34_EN_FINAL.mp4",
+    "embed": "https://player.vimeo.com/video/1247765951?h=daa91d3b3f",
+    "vimeo": "https://vimeo.com/1247765951/daa91d3b3f",
+    "mobileSHA256": "67a7065fa799027463f408c75da82770e7015d8ee88db5717a4425bf1a280c1f",
+    "languages": {
+      "en": {
+        "vimeo": "https://vimeo.com/1247765951/daa91d3b3f",
+        "local": {
+          "path": "assets/media-20261117/verde-ii-en-v34-720.mp4",
+          "sha256": "67a7065fa799027463f408c75da82770e7015d8ee88db5717a4425bf1a280c1f"
+        }
+      },
+      "cs": {
+        "desktop": {
+          "path": "assets/media-20261117/verde-ii-cs-v34.mp4",
+          "sha256": "3a2a3a14f8be1e0b67f270efba446db6a8535a99e13670fe071e47ae37873932"
+        },
+        "mobile": {
+          "path": "assets/media-20261117/verde-ii-cs-v34-720.mp4",
+          "sha256": "231c18dfbd283601762001005c055f65a2b8e00a0e31756a14dd05f33e0b0de1"
+        }
+      }
+    },
+    "csCaptions": "assets/media-20261117/verde-ii-cs.vtt",
+    "csCaptionsSHA256": "891d5675593cc25d37ea9a85c6135e45847f25c981bd21e92cd043920e14e987"
   },
   "model": {
     "building": "Verde II · SO 05",
@@ -3207,11 +3231,157 @@
   "tours": {
     "byt": {
       "manifest": "prohlidka-byt/tours/demo/tour.json",
-      "sha256": "ae4dbc86342c842f91ab4197790cac21ee1dd830d33400af0d0dce80e641e95b"
+      "sha256": "4e4d40d1f585d3e1f708a0f3fcc201746194a5cdc0ebde2fdec2c970ba04de6a",
+      "languages": {
+        "en": "prohlidka-byt/tours/demo/tour.json",
+        "cs": "prohlidka-byt/tours/demo/tour-cs.json"
+      },
+      "csSHA256": "ea2bdce1f15a6af9da7b54801215c4b94568823a8c068fe637ef4988edb1e06f"
     },
     "mezonet": {
       "manifest": "prohlidka-mezonet/tours/demo/tour.json",
-      "sha256": "e75fc0dd85575aa133e05a3d27b7eb9e8b1e9fa4b381653d82934f6d0c663877"
+      "sha256": "82fe80101fbcbd28c0b726931c7eda7ccc45d936f1d6b84022b3343233607645",
+      "languages": {
+        "en": "prohlidka-mezonet/tours/demo/tour.json",
+        "cs": "prohlidka-mezonet/tours/demo/tour-cs.json"
+      },
+      "csSHA256": "6909fb3f7f3bdbc5ea3fc197eee01fbdc517c86021e4d76e3a6252ffb5f6023b"
+    }
+  },
+  "localizedMedia": {
+    "etapy-top-labelled-en": {
+      "source": "_strih/strih/final_v2/v34/en/38_TOP_en.mov",
+      "variants": {
+        "1920": {
+          "path": "assets/media-20261117/etapy-top-labelled-en.webp",
+          "sha256": "b96b34a0e48fd963d20874b8ecad856b5f1953043765dd76ac5a979dc96a392a",
+          "width": 1920,
+          "height": 1080
+        },
+        "1440": {
+          "path": "assets/media-20261117/etapy-top-labelled-en-1440.webp",
+          "sha256": "0bf563af6a901725e506d4447b07e927db02a58f16865953cbe30b0eae9d56d9",
+          "width": 1440,
+          "height": 810
+        },
+        "960": {
+          "path": "assets/media-20261117/etapy-top-labelled-en-960.webp",
+          "sha256": "affb0a062e72264fd92385c4d5262f79b9841df14ce3aec636f6c3e271475536",
+          "width": 960,
+          "height": 540
+        },
+        "480": {
+          "path": "assets/media-20261117/etapy-top-labelled-en-480.webp",
+          "sha256": "e71cb580087716cfd7cf8e5676d2f4041f3cff00f48f13aab80516d2b953879f",
+          "width": 480,
+          "height": 270
+        }
+      },
+      "frameSeconds": 4
+    },
+    "slany-locality-en": {
+      "source": "_strih/strih/final_v2/v16/okoli_v5_20min_en.mp4",
+      "variants": {
+        "1920": {
+          "path": "assets/media-20261117/slany-locality-en.webp",
+          "sha256": "cb7036b9b3ebf5c367e89ecfb06ba55515df8af6aaefd67d6b70803a3a5a500a",
+          "width": 1920,
+          "height": 1080
+        },
+        "1440": {
+          "path": "assets/media-20261117/slany-locality-en-1440.webp",
+          "sha256": "a6a53455254199740730aa87a7af7104aaba913fcc246405eec88b5f4c900a42",
+          "width": 1440,
+          "height": 810
+        },
+        "960": {
+          "path": "assets/media-20261117/slany-locality-en-960.webp",
+          "sha256": "63a7976644c7b96e5b3ab4aaa9b05e75b95a3a5a10ad2fc397a13e4b0e268132",
+          "width": 960,
+          "height": 540
+        },
+        "480": {
+          "path": "assets/media-20261117/slany-locality-en-480.webp",
+          "sha256": "dba80f30324469fbe4685d6493374778d33f890d6a6f93fa3d2ea4e2573f96f6",
+          "width": 480,
+          "height": 270
+        }
+      },
+      "frameSeconds": 3.65
+    },
+    "mapa-d7-en": {
+      "source": "_strih/strih/final_v2/v16/okoli_v5_20min_en.mp4",
+      "variants": {
+        "1920": {
+          "path": "assets/media-20261117/mapa-d7-en.webp",
+          "sha256": "cc66b030e0ae7bc29b2a2de9ee7f91e6ea07e32cfbbf152652e6be39d7ce302b",
+          "width": 1920,
+          "height": 1080
+        },
+        "1440": {
+          "path": "assets/media-20261117/mapa-d7-en-1440.webp",
+          "sha256": "8604283101069cf8f7abe6b4c66eedf89dd35767e0bc88220c3ec86962d1760e",
+          "width": 1440,
+          "height": 810
+        },
+        "960": {
+          "path": "assets/media-20261117/mapa-d7-en-960.webp",
+          "sha256": "9e6f1cf3b299b7c910b5ef5c784c99f533b8fdab2a55fcc3e0f7726c806efc3e",
+          "width": 960,
+          "height": 540
+        },
+        "480": {
+          "path": "assets/media-20261117/mapa-d7-en-480.webp",
+          "sha256": "32d671926be6b086ac8e868d9fbeed8d80c1ad75ee00e310f2d72dae8521e901",
+          "width": 480,
+          "height": 270
+        }
+      },
+      "frameSeconds": 11.7
+    },
+    "etapy-parking-labelled-en": {
+      "source": "PRO_WEB_verde-slany_2026-11-16/05_Etapy_a_vyznaceni/04_Etapy_od_parkoviste_bez_stitku.jpg",
+      "variants": {
+        "2560": {
+          "path": "assets/media-20261117/etapy-parking-labelled-en.webp",
+          "sha256": "327b4bf066c219a87eebb100ba57f1e9b3d5652e55e0b05cbab7f44d4c1cde73",
+          "width": 2560,
+          "height": 1707
+        },
+        "1440": {
+          "path": "assets/media-20261117/etapy-parking-labelled-en-1440.webp",
+          "sha256": "855eee87a034cc5f4e3fa077a6a8980cc0b5d3d1123db463fd242d0ad7dc2a8e",
+          "width": 1440,
+          "height": 960
+        },
+        "960": {
+          "path": "assets/media-20261117/etapy-parking-labelled-en-960.webp",
+          "sha256": "bfa8b01cd8e1d5484a5b4ffda01d65704f207c862e4ee3810646496a7b7f4e5f",
+          "width": 960,
+          "height": 640
+        },
+        "480": {
+          "path": "assets/media-20261117/etapy-parking-labelled-en-480.webp",
+          "sha256": "c2ab6abc5bd9d7662a895d7ee73cc09839863a245f0e9f07fbee42f12851cb95",
+          "width": 480,
+          "height": 320
+        }
+      },
+      "labelsSource": "_strih/strih/final_v2/v34/en_seg.py:ETAPY_EN",
+      "geometrySource": "_strih/strih/final_v2/seg_v7/v31/obrysy_v31_PD.json",
+      "method": "SVG labels at original approved anchors, rendered for responsive web display"
+    },
+    "film-en": {
+      "path": "assets/media-20261117/verde-ii-en-v34-720.mp4",
+      "sha256": "67a7065fa799027463f408c75da82770e7015d8ee88db5717a4425bf1a280c1f"
+    },
+    "film-cs": {
+      "path": "assets/media-20261117/verde-ii-cs-v34-720.mp4",
+      "sha256": "231c18dfbd283601762001005c055f65a2b8e00a0e31756a14dd05f33e0b0de1"
+    },
+    "film-cs-desktop": {
+      "path": "assets/media-20261117/verde-ii-cs-v34.mp4",
+      "sha256": "3a2a3a14f8be1e0b67f270efba446db6a8535a99e13670fe071e47ae37873932"
     }
   }
 }

@@ -2467,9 +2467,9 @@
     "screens": [
       {
         "id": "tv-obyvak",
-        "title": "Verde II film",
-        "video": "video/fd-reel.mp4?v=42dce99e3bb9",
-        "videoSd": "video/fd-reel.mp4?v=42dce99e3bb9",
+        "title": "Verde Slaný II project film",
+        "video": "video/fd-reel.mp4?v=67a7065fa799",
+        "videoSd": "video/fd-reel.mp4?v=67a7065fa799",
         "poster": "video/fd-reel-poster.jpg?v=en-v34",
         "roomId": "obyvak",
         "x": 4.811,

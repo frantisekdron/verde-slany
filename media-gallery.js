@@ -28,7 +28,7 @@
       if (button.dataset.clip && !customImage) {
         play.dataset.src = button.dataset.clip;
         play.hidden = false;
-        play.textContent = "Play clip";
+        play.textContent = window.VERDE_LOCALE.cs ? 'Přehrát záběr' : 'Play clip';
       }
     });
   });
@@ -37,14 +37,14 @@
       player.pause();
       player.hidden = true;
       viewport.hidden = false;
-      play.textContent = "Play clip";
+      play.textContent = window.VERDE_LOCALE.cs ? 'Přehrát záběr' : 'Play clip';
       return;
     }
     player.src = play.dataset.src;
     player.setAttribute('aria-label', document.getElementById('galleryDialogTitle').textContent);
     viewport.hidden = true;
     player.hidden = false;
-    play.textContent = "Show still image";
+    play.textContent = window.VERDE_LOCALE.cs ? 'Zobrazit snímek' : 'Show still image';
     player.play().catch(() => { /* Native controls remain available. */ });
   });
   dialog.addEventListener('close', resetVideo);

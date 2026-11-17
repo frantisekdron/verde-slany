@@ -1,0 +1,24 @@
+.viewer-return {
+  position: fixed;
+  z-index: 12;
+  top: 12px;
+  left: 12px;
+  line-height: 36px;
+  padding: 0 10px;
+  border-radius: 7px;
+  background: #182c25;
+  color: #fff;
+  text-decoration: none;
+  font: 600 12px/36px Exo, system-ui, sans-serif;
+}
+
+.viewer-return:focus-visible { outline: 2px solid #fff; outline-offset: 2px }
+.bezui .viewer-return { display: none }
+
+.tour-site-return {
+  top: auto;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}

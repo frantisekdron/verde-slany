@@ -36,7 +36,7 @@
   });
   document.querySelectorAll('#visualGallery figcaption').forEach(caption => {
     const words = caption.textContent.trim().split(' · ');
-    if (words.length > 2 && ['Verde II', 'Byty Borovského'].includes(words[0])) caption.textContent = words.at(-1) === "Visualisation" ? words.slice(-2).join(' · ') : words.at(-1);
+    if (words.length > 2 && ['Verde II', 'Byty Borovského'].includes(words[0])) caption.textContent = words.at(-1) === (window.VERDE_LOCALE.cs ? 'Vizualizace' : 'Visualisation') ? words.slice(-2).join(' · ') : words.at(-1);
   });
 
   const tabList = document.querySelector('.media-tabs');
@@ -62,6 +62,7 @@
       const url = new URL(location.href);
       url.hash = tab.dataset.mediaTarget;
       history.pushState(history.state, '', url);
+      window.VERDE_LOCALE.syncLanguageLinks();
     }
     if (focus) tab.focus({preventScroll: true});
   }

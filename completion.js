@@ -5,16 +5,17 @@ if (window.matchMedia('(max-width: 700px)').matches) {
   });
 }
 (()=>{
+ const {cs, language, home}=window.VERDE_LOCALE;
  const review=document.querySelector('.variant-review');if (review) { const params = new URLSearchParams(location.search); review.hidden = !(['a','b'].includes(params.get('variant')) || params.get('review') === '1'); if (params.get('review') === '1') review.open = true; }
  const media=document.querySelector('#media'),body=document.querySelector('#mediaBody'),gallery=document.querySelector('#galleryDialog');
  if(!media||!body||!gallery)return;
  const grid=document.querySelector('#visualGallery'),toggle=document.querySelector('#galleryToggle');
- if(grid&&toggle&&grid.children.length>4){grid.classList.add('is-collapsible');toggle.hidden=false;const total=grid.children.length;toggle.textContent="Show all "+total+" visualisations";toggle.addEventListener('click',()=>{const open=grid.classList.toggle('is-expanded');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?"Show less":"Show all "+total+" visualisations";if(!open)document.querySelector('#galerie').scrollIntoView({block:'start'});});}
+ if(grid&&toggle&&grid.children.length>4){grid.classList.add('is-collapsible');toggle.hidden=false;const total=grid.children.length;const showAll=cs?'Zobrazit všech '+total+' vizualizací':'Show all '+total+' visualisations';toggle.textContent=showAll;toggle.addEventListener('click',()=>{const open=grid.classList.toggle('is-expanded');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?(cs?'Zobrazit méně':'Show less'):showAll;if(!open)document.querySelector('#galerie').scrollIntoView({block:'start'});});}
 
  let galleryTrigger=null,arealTrigger=null;
  const mapZoom=document.querySelector('#localityMapZoom');
- function resetMapZoom(){document.querySelector('.gallery-image-viewport').tabIndex=-1;gallery.classList.remove('is-map-zoomed');mapZoom.setAttribute('aria-pressed','false');mapZoom.textContent="Zoom in on labels +";}
- mapZoom.addEventListener('click',()=>{const zoomed=gallery.classList.toggle('is-map-zoomed');document.querySelector('.gallery-image-viewport').tabIndex=zoomed?0:-1;mapZoom.setAttribute('aria-pressed',String(zoomed));mapZoom.textContent=zoomed?"Show the full image −":"Zoom in on labels +";});
+ function resetMapZoom(){document.querySelector('.gallery-image-viewport').tabIndex=-1;gallery.classList.remove('is-map-zoomed');mapZoom.setAttribute('aria-pressed','false');mapZoom.textContent=cs?'Přiblížit popisky +':'Zoom in on labels +';}
+ mapZoom.addEventListener('click',()=>{const zoomed=gallery.classList.toggle('is-map-zoomed');document.querySelector('.gallery-image-viewport').tabIndex=zoomed?0:-1;mapZoom.setAttribute('aria-pressed',String(zoomed));mapZoom.textContent=zoomed?(cs?'Zobrazit celý snímek −':'Show the full image −'):(cs?'Přiblížit popisky +':'Zoom in on labels +');});
  const galleryImage = document.querySelector('#galleryDialogImage');
  document.querySelectorAll('.gallery-open, .locality-zoom').forEach(button => {
   button.addEventListener('click', () => {
@@ -50,11 +51,11 @@ if (window.matchMedia('(max-width: 700px)').matches) {
  });
  function openAreal(trigger){
   arealTrigger=trigger;
-  document.querySelector('#mediaTitle').textContent="3D model · Verde II, Verde I and Byty Borovského";
+  document.querySelector('#mediaTitle').textContent=cs?'3D model · Verde II, Verde I a Byty Borovského':'3D model · Verde II, Verde I and Byty Borovského';
   media.classList.add('areal-media');
-  const url=new URL('/verde-slany/dum-verde-ii/index.html?v=english-20261117',location.origin);
-  body.innerHTML="<p class=\"areal-access\"><a target=\"_blank\" rel=\"noopener\">Open the model in a separate window ↗</a><button id=\"arealToCatalog\" type=\"button\">Go to apartment listings →</button></p>";
-  body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title="3D model of Verde II, Verde I and Byty Borovského";frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
+  const url=new URL(home+'dum-verde-ii/index.html?v=bilingual-20261117&lang='+language,location.origin);
+  body.innerHTML=cs?'<p class="areal-access"><a target="_blank" rel="noopener">Otevřít model v samostatném okně ↗</a><button id="arealToCatalog" type="button">Přejít na nabídku bytů →</button></p>':"<p class=\"areal-access\"><a target=\"_blank\" rel=\"noopener\">Open the model in a separate window ↗</a><button id=\"arealToCatalog\" type=\"button\">Go to apartment listings →</button></p>";
+  body.querySelector('a').href=url.pathname+url.search;const frame=document.createElement('iframe');frame.src=url.pathname+url.search;frame.title=cs?'3D model domů Verde II, Verde I a Byty Borovského':'3D model of Verde II, Verde I and Byty Borovského';frame.allow='fullscreen';frame.allowFullscreen=true;body.append(frame);
   body.querySelector('#arealToCatalog').onclick=()=>{arealTrigger=null;media.close();document.querySelector('#changeProject').click()};media.showModal();
  }
  document.querySelectorAll('#openAreal,.open-areal-inline').forEach(button=>button.addEventListener('click',()=>openAreal(button)));

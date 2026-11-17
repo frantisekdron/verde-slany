@@ -1,0 +1,55 @@
+.locale-switch {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: 1px;
+  margin: 0;
+  color: inherit;
+  font: 600 12px/1 var(--sans, Exo, Arial, sans-serif);
+  white-space: nowrap;
+}
+
+.locale-switch > * {
+  display: grid;
+  min-width: 32px;
+  min-height: 44px;
+  place-items: center;
+}
+
+.locale-switch [aria-current] { opacity: .68 }
+.locale-switch a { color: inherit; text-decoration: underline; text-underline-offset: 4px }
+.locale-switch a:hover { text-decoration-thickness: 2px }
+.locale-switch a:focus-visible { outline: 2px solid currentColor; outline-offset: -2px }
+
+main > .locale-switch { float: right; margin: -8px 0 4px 16px }
+.verde-home .site-header { gap: clamp(15px, 2.3vw, 38px) }
+.verde-home .site-header #siteNavigation { gap: clamp(15px, 2vw, 36px) }
+
+@media (max-width: 780px) and (min-width: 721px) {
+  .verde-home .site-header { gap: 13px }
+  .verde-home .site-header .contact { padding-inline: 11px }
+}
+
+@media (max-width: 720px) {
+  .verde-home .site-header { gap: 9px }
+  .site-header .locale-switch > * { min-width: 29px }
+}
+
+@media (max-width: 380px) {
+  .verde-home .site-header { gap: 6px }
+  .site-header .locale-switch > * { min-width: 27px }
+  .site-header .contact { padding-inline: 9px }
+}
+
+@media (max-width: 350px) {
+  .verde-home .site-header { gap: 5px; padding-inline: 12px }
+  .site-header .brand { gap: 6px }
+  .site-header .brand-word { font-size: 17px }
+  .site-header .contact { padding-inline: 6px }
+  .site-header .site-menu:not([hidden]) {
+    min-width: 44px;
+    gap: 0;
+    padding: 0;
+    font-size: 0;
+  }
+}

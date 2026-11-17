@@ -174,8 +174,10 @@
   #prechod { position: fixed; inset: 0; background: #0d1412; opacity: 0; pointer-events: none; transition: opacity .45s; z-index: 19; }
   #prechod.vid { opacity: 1; }
 </style>
-</head>
+<link rel="stylesheet" href="/verde-slany/viewer-return.css?v=bilingual-20261117"></head>
 <body>
+<a class="viewer-return model-site-return" hidden href="/verde-slany/#prohlidka">← Verde Slaný</a>
+<script src="/verde-slany/viewer-return.js?v=bilingual-20261117"></script>
 <canvas id="scena" tabindex="0" aria-label="3D model of Verde II, Verde I and Byty Borovského"></canvas>
 
 <div class="hlavicka">
@@ -248,7 +250,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 const params = new URLSearchParams(location.search);
 const BUST = '?v=domy-20261116';
 const MODEL = 'verde-ii-so05.glb?v=25';
-const PROHLIDKA = '../prohlidka-byt/index.html?tour=tours/demo/tour.json%3Fv%3De71a30f1ba80';
+const PROHLIDKA = '../prohlidka-byt/index.html?lang=en&v=bilingual-20261117';
 const DOTYK = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
 if (DOTYK) document.body.classList.add('dotyk');
 if (params.get('bezui') === '1') document.body.classList.add('bezui');
@@ -716,7 +718,7 @@ const DVERE = [
   { u: 4.29, v: 4.57, n: V_W.clone(), jm: 'JZ', nadpis: "ENTER APARTMENT", popis: "Sample two-bedroom apartment, Level 3 · 3D tour", titul: "3D tour – sample two-bedroom apartment, Level 3" },                        // od parkoviště (ZJZ)
   { u: 4.33, v: -3.73, n: V_W.clone().negate(), jm: 'SV', nadpis: "ENTER APARTMENT", popis: "Sample two-bedroom apartment, Level 3 · 3D tour", titul: "3D tour – sample two-bedroom apartment, Level 3" },               // od SV
 ];
-const MEZONET_URL = '../prohlidka-mezonet/index.html?tour=tours/demo/tour.json%3Fv%3D1a058b9a0547';
+const MEZONET_URL = '../prohlidka-mezonet/index.html?lang=en&v=bilingual-20261117';
 const BB_FRONTA = []; let pridejZnackuDveri = null;                            // dveře BB se registrují z postavy stávajících domů (asynchronně)
 function registrujDvere(d) { if (pridejZnackuDveri) { pridejZnackuDveri(d); DVERE.push(d); } else BB_FRONTA.push(d); }
 const nazevVerdeI = document.getElementById('nazevVerdeI');
