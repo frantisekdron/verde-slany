@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS file_objects (
+ id TEXT PRIMARY KEY, size INTEGER NOT NULL, mime TEXT NOT NULL,
+ etag TEXT NOT NULL, created TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS file_chunks (
+ file_id TEXT NOT NULL, part INTEGER NOT NULL, data BLOB NOT NULL,
+ PRIMARY KEY(file_id,part)
+);

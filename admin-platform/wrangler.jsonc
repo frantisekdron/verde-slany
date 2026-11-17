@@ -1,0 +1,10 @@
+{
+ "name":"verde-slany-admin-api",
+ "main":"api/worker.ts",
+ "compatibility_date":"2026-05-15",
+ "compatibility_flags":["nodejs_compat"],
+ "workers_dev":true,
+ "vars":{"AUTH_MODE":"password","NOTIFICATIONS_ENABLED":"false","ADMIN_ORIGINS":"https://frantisekdron.github.io,http://127.0.0.1:8786,http://127.0.0.1:5181","PUBLIC_BASE":"https://frantisekdron.github.io/verde-slany/"},
+ "d1_databases":[{"binding":"DB","database_name":"verde-slany-admin","database_id":"00000000-0000-4000-8000-000000000000","migrations_dir":"migrations"}],
+ "rules":[{"type":"Text","globs":["**/*.txt"],"fallthrough":true}]
+}

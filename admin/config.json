@@ -1,0 +1,5 @@
+{
+  "apiBase": "https://verde-slany-admin-api.frantisekdron.workers.dev",
+  "demoApiBase": "https://verde-slany-admin-demo.frantisekdron.workers.dev",
+  "publicBase": "https://frantisekdron.github.io/verde-slany/"
+}

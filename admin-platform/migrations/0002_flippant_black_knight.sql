@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `one_active_reservation_per_unit` ON `sales_cases` (`unit`) WHERE "sales_cases"."stage" = 'reserved';
