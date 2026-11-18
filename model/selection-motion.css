@@ -1,0 +1,17 @@
+/* The iframe camera and floor drawing share one progress value and one clock. */
+html[data-variant="b"] #explorer[data-project="verde"][data-view="plan"] .stage-area #planView{position:absolute;inset:0;z-index:2;width:100%;height:100%;min-height:0}
+html[data-variant="b"] #explorer[data-project="verde"] #planView{animation:none}
+html[data-variant="b"] #explorer #planView:is(.motion-plan,.is-returning){position:absolute;inset:0;z-index:2;width:100%;height:100%;min-height:0;opacity:var(--floor-opacity,0);transform:scale(var(--floor-scale,.94));filter:blur(var(--floor-blur,4px));transform-origin:50% 50%;pointer-events:none;transition:none!important;animation:none!important;will-change:opacity,transform,filter}
+html[data-motion="on"] #explorer:is(.is-opening,.is-returning) .stage-area:after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;background:#eef3ea;opacity:var(--floor-veil,0);transition:none;animation:none!important}
+html[data-motion="on"] #explorer.is-opening .simple-progress{z-index:5}
+html[data-variant="b"] #explorer.is-opening .simple-instruction{opacity:0}
+html[data-variant="b"] .floors #floorButtons button.is-pending{background:var(--selection-accent);color:#fff;border-color:var(--selection-accent)}
+html[data-variant="b"] #explorer .simple-progress .motion-dot{animation:none;box-shadow:none;flex:none;width:15px;height:15px;border-radius:50%;background:conic-gradient(#435955 calc(var(--flight-progress,0)*1turn),#dce6d6 0);position:relative}
+html[data-variant="b"] #explorer .simple-progress .motion-dot:after{content:'';position:absolute;inset:3px;background:#fffdf5;border-radius:50%}
+html[data-variant="b"] #explorer.is-waiting-model .motion-dot{animation:motion-pulse 1.1s ease-in-out infinite}
+html[data-variant="b"] #motionEnable{font-size:11px!important;color:#40594c!important}
+@media(prefers-reduced-motion:reduce){
+ html[data-motion="off"] #planView{transition:none!important;animation:none!important;transform:none!important;filter:none!important}
+ /* Explicit opt-in still works for a visitor who wants the camera flight. */
+ html[data-motion="on"][data-variant="b"] #explorer #planView:is(.motion-plan,.is-returning){transform:scale(var(--floor-scale,.94))!important;transition:none!important}
+}

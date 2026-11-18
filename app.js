@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const selectionStyles=document.createElement('link');selectionStyles.rel='stylesheet';selectionStyles.href='model/catalog-integration.css?v=handoff-20261110';document.head.append(selectionStyles);
+const selectionStyles=document.createElement('link');selectionStyles.rel='stylesheet';selectionStyles.href='model/selection-motion.css?v=motion-20261118';document.head.append(selectionStyles);
 const homePath=window.VERDE_LOCALE.home;
 const sectionLinks=$$('a[href*="#"]').flatMap(element=>{
  const url=new URL(element.href,document.baseURI);
@@ -21,16 +21,17 @@ const priceNumber=v=>{const raw=String(v??'').trim().replace(/^od\s+/i,'').repla
 const unitByKey=k=>data.units.find(u=>u.key===k&&u.project==='verde');
 const statusClass=u=>u.status==='volné'?'available':u.status==='prodáno'?'sold':u.status==='v jednání'?'negotiating':'reserved';
 const floorLabel=(p,n)=>p==='borovskeho'&&n===3?'3. + 4. NP':n+'. NP';
+const presentationPreference=()=>{const q=new URLSearchParams(location.search);return q.get('review')==='1'&&q.get('variant')==='a'?'a':'b'};
 const motionPreference=()=>{const setting=new URLSearchParams(location.search).get('motion');return setting==='on'||(setting!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)};
 let allowMotion=motionPreference();
-let uiVariant=new URLSearchParams(location.search).get('variant')==='a'?'a':'b',modelReady=false,transitionFloor=null,transitionId=0,transitionTimer=null,returnTimer=null,returning=false,detailMotionId=0;
+let uiVariant=presentationPreference(),modelReady=false,waitingForModel=false,transitionFloor=null,transitionId=0,transitionTimer=null,returnTimer=null,returning=false,detailMotionId=0;
 let state={project:'verde',floor:null,view:'building',block:'',layout:'',free:false,sort:'id',unit:null};
 let saved=[];try{saved=JSON.parse(localStorage.getItem('verde.saved.v2')||'[]').filter(k=>unitByKey(k)).slice(0,3)}catch{}
 let inquiryBusy=false,inquiryRequestKey=null,previewKey=null,planZoom=1,catalogExpanded=false;
 const freeLabel=n=>n===1?"1 volný byt":n<5?n+" volné byty":n+" volných bytů";
-function readState(){allowMotion=motionPreference();uiVariant=new URLSearchParams(location.search).get('variant')==='a'?'a':'b';previewKey=null;planZoom=1;catalogExpanded=false;const q=new URLSearchParams(location.search),p=q.get('project'),unit=unitByKey(q.get('unit'));state.project='verde';state.floor=unit?.floorNo||(state.project&&projects[state.project].floors.includes(Number(q.get('floor')))?Number(q.get('floor')):null);state.view=['building','plan','list'].includes(q.get('view'))?q.get('view'):(state.floor?'plan':'building');state.unit=unit?.key||null;state.block=['A','B'].includes(q.get('block'))?q.get('block'):'';state.layout=q.get('layout')||'';state.free=q.get('free')==='1';state.sort=['price','area'].includes(q.get('sort'))?q.get('sort'):'id';}
+function readState(){allowMotion=motionPreference();uiVariant=presentationPreference();previewKey=null;planZoom=1;catalogExpanded=false;const q=new URLSearchParams(location.search),p=q.get('project'),unit=unitByKey(q.get('unit'));state.project='verde';state.floor=unit?.floorNo||(state.project&&projects[state.project].floors.includes(Number(q.get('floor')))?Number(q.get('floor')):null);state.view=['building','plan','list'].includes(q.get('view'))?q.get('view'):(state.floor?'plan':'building');state.unit=unit?.key||null;state.block=['A','B'].includes(q.get('block'))?q.get('block'):'';state.layout=q.get('layout')||'';state.free=q.get('free')==='1';state.sort=['price','area'].includes(q.get('sort'))?q.get('sort'):'id';}
 function writeState(replace=false){const url=new URL(location.href);for(const k of ['project','floor','view','block','layout','free','sort','unit'])url.searchParams.delete(k);if(state.project){url.searchParams.set('project',state.project);if(state.floor)url.searchParams.set('floor',state.floor);url.searchParams.set('view',state.view);if(state.block)url.searchParams.set('block',state.block);if(state.layout)url.searchParams.set('layout',state.layout);if(state.free)url.searchParams.set('free','1');if(state.sort!=='id')url.searchParams.set('sort',state.sort);if(state.unit)url.searchParams.set('unit',state.unit)}url.hash='vyber';history[replace?'replaceState':'pushState']({},'',url);updateSectionLinks();syncLanguageLinks()}
-function setState(patch,opts={}){if(returning){returning=false;clearTimeout(returnTimer);returnTimer=null;$('#planView').classList.remove('is-returning')}cancelFloorTransition();detailMotionId++;if(patch.project!==undefined||patch.floor!==undefined||patch.block!==undefined){previewKey=null;planZoom=1}catalogExpanded=false;Object.assign(state,patch);if(!opts.fromHistory)writeState(opts.replace);render();if(opts.scroll)$('#explorer').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
+function setState(patch,opts={}){if(returning){$('#buildingFrame')?.contentWindow?.postMessage({type:'verde:reset-building'},location.origin);$('#explorer').classList.remove('is-returning');returning=false;clearTimeout(returnTimer);returnTimer=null;$('#planView').classList.remove('is-returning')}cancelFloorTransition();detailMotionId++;if(patch.project!==undefined||patch.floor!==undefined||patch.block!==undefined){previewKey=null;planZoom=1}catalogExpanded=false;Object.assign(state,patch);if(!opts.fromHistory)writeState(opts.replace);render();if(opts.scroll)$('#explorer').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 function projectUnits(){return data.units.filter(u=>u.project===state.project&&(state.project!=='borovskeho'||u.floorNo===3))}
 function matches(u,ignoreFloor=false){return (!state.floor||ignoreFloor||u.floorNo===state.floor)&&(!state.layout||u.disposition===state.layout)&&(!state.free||u.status==='volné')&&(!state.block||u.flat.startsWith(state.block+'.'))}
 function polygonPoints(p){return p.trim().split(/\s+/).map(p=>p.split(',').map(Number))}
@@ -49,21 +50,93 @@ function drawInspector(){const host=$('#selectionInspector'),p=projects[state.pr
 }
 function applyZoom(){const svg=$('#floorplan svg');if(svg){svg.style.width=(planZoom*100)+'%';svg.style.height=($('#floorplan').clientHeight*planZoom)+'px';svg.style.maxWidth='none';svg.style.flexShrink='0'}$('#zoomReset').textContent=Math.round(planZoom*100)+' %';$('#zoomOut').disabled=planZoom<=1;$('#zoomIn').disabled=planZoom>=2.5}
 function selectProject(p){setState({project:p,floor:null,view:'building',block:'',layout:'',free:false,sort:'id',unit:null},{scroll:true})}
+function motionLabel(cs,en){return window.VERDE_LOCALE.cs?cs:en}
+function measureFloorFrame(n){
+ const frame=$('#buildingFrame'),plan=$('#planView'),svg=$('#floorplan svg'),floor=data.floors['verde-'+n];
+ if(!frame||!svg||!floor)return undefined;
+ // Measure the final drawing without its temporary zoom, before the next paint.
+ plan.style.setProperty('transform','none','important');
+ const matrix=svg.getScreenCTM(),r=frame.getBoundingClientRect(),box=bounds(floor.polygons.map(p=>p.points),0);
+ const a=new DOMPoint(box[0],box[1]).matrixTransform(matrix),b=new DOMPoint(box[0]+box[2],box[1]+box[3]).matrixTransform(matrix);
+ plan.style.removeProperty('transform');
+ if(!r.width||!r.height)return undefined;
+ const limit=(v,min,max)=>Math.max(min,Math.min(max,v));
+ return {width:limit((b.x-a.x)/r.width,.2,.94),height:limit((b.y-a.y)/r.height,.15,.8),x:limit(((a.x+b.x)/2-r.x)/r.width,.25,.75),y:limit(((a.y+b.y)/2-r.y)/r.height,.22,.78)};
+}
+function paintFlight({blend=0,progress=0}){
+ const plan=$('#planView'),host=$('#explorer');
+ plan.style.setProperty('--floor-opacity',String(blend));
+ plan.style.setProperty('--floor-scale',String(.94+.06*blend));
+ plan.style.setProperty('--floor-blur',((1-blend)*4).toFixed(3)+'px');
+ host.style.setProperty('--floor-veil',String(Math.sin(Math.PI*blend)*.18));
+ host.style.setProperty('--flight-progress',String(progress));
+}
+function clearFlight(){
+ const plan=$('#planView'),host=$('#explorer');
+ for(const key of ['--floor-opacity','--floor-scale','--floor-blur'])plan.style.removeProperty(key);
+ for(const key of ['--floor-veil','--flight-progress'])host.style.removeProperty(key);
+ $$('#floorButtons button').forEach(button=>{button.classList.remove('is-pending');button.removeAttribute('aria-disabled')});
+}
 async function finishFloorTransition(n,immediate=false){
- const plan=$('#planView'),revealed=plan.classList.contains('is-revealing'),id=transitionId;
- // Finish every visible CSS transition before replacing the presentation state.
- if(revealed&&!immediate){
-  const transitions=plan.getAnimations().filter(a=>['opacity','transform','filter'].includes(a.transitionProperty));
-  await Promise.all(transitions.map(a=>a.finished.catch(()=>{})));
+ if(transitionFloor!==null&&transitionFloor!==n)return;
+ const id=transitionId;
+ if(!immediate&&transitionFloor!==null){
+  // Paint the final shared frame before unlocking the drawing for interaction.
+  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
   if(id!==transitionId||transitionFloor!==n)return;
  }
- cancelFloorTransition();setState({floor:n,view:'plan',unit:null},{scroll:false});
- if(uiVariant==='b'&&allowMotion&&!revealed&&!immediate)plan.animate([{opacity:0,transform:'scale(.97)'},{opacity:1,transform:'scale(1)'}],{duration:550,easing:'cubic-bezier(.2,.7,.2,1)'});
+ cancelFloorTransition(false);setState({floor:n,view:'plan',unit:null},{scroll:false});
+ if(immediate&&modelReady)$('#buildingFrame')?.contentWindow?.postMessage({type:'verde:hold-floor',floor:n,framing:measureFloorFrame(n)},location.origin);
 }
-function cancelFloorTransition(){transitionId++;const plan=$('#planView');plan.classList.remove('motion-plan','is-revealing');plan.inert=false;plan.removeAttribute('aria-hidden');if(state.view!=='plan')plan.hidden=true;clearTimeout(transitionTimer);transitionTimer=null;transitionFloor=null;$('#simpleProgress').hidden=true;$('#explorer').classList.remove('is-opening','is-handoff');}
-function finishReturn(){if(!returning)return;returning=false;clearTimeout(returnTimer);returnTimer=null;$('#planView').classList.remove('is-returning');setState({view:'building',floor:null,block:'',unit:null},{scroll:true})}
-function returnBuilding(){const frame=$('#buildingFrame');if(uiVariant==='b'&&state.project==='verde'&&state.view==='plan'&&allowMotion&&modelReady&&frame){returning=true;$('#planView').classList.add('is-returning');frame.contentWindow?.postMessage({type:'verde:return-building'},location.origin);clearTimeout(returnTimer);returnTimer=setTimeout(finishReturn,2400);return}if(frame)frame.contentWindow?.postMessage({type:'verde:reset-building'},location.origin);setState({view:'building',floor:null,block:'',unit:null},{scroll:true})}
-function selectFloor(n){if(uiVariant==='b'&&state.project==='verde'&&state.view==='building'&&modelReady&&$('#buildingFrame')&&allowMotion){cancelFloorTransition();transitionFloor=n;drawPlan(n);$('#planView').hidden=false;applyZoom();$('#planView').inert=true;$('#planView').setAttribute('aria-hidden','true');$('#planView').classList.add('motion-plan');$('#planView').classList.remove('is-revealing');$('#explorer').scrollIntoView({block:'start',behavior:'smooth'});$('#simpleProgressText').textContent='Otevíráme '+floorLabel(state.project,n)+'…';$('#simpleProgress').hidden=false;$('#explorer').classList.add('is-opening');$('#buildingFrame').contentWindow.postMessage({type:'verde:open-floor',floor:n},location.origin);transitionTimer=setTimeout(()=>finishFloorTransition(n),7000);return;}if(uiVariant==='b'&&state.project==='verde'&&state.view==='plan'&&modelReady&&allowMotion&&$('#buildingFrame'))$('#buildingFrame').contentWindow.postMessage({type:'verde:open-floor',floor:n},location.origin);finishFloorTransition(n)}
+function cancelFloorTransition(resetModel=true){
+ if(resetModel&&transitionFloor!==null)$('#buildingFrame')?.contentWindow?.postMessage({type:'verde:reset-building'},location.origin);
+ transitionId++;waitingForModel=false;
+ const plan=$('#planView');plan.classList.remove('motion-plan','is-revealing');plan.inert=false;plan.removeAttribute('aria-hidden');
+ if(state.view!=='plan')plan.hidden=true;
+ clearTimeout(transitionTimer);transitionTimer=null;transitionFloor=null;
+ $('#simpleProgress').hidden=true;$('#explorer').classList.remove('is-opening','is-handoff','is-waiting-model');clearFlight();
+}
+function finishReturn(force=false){
+ if(!returning)return;
+ if(force)$('#buildingFrame')?.contentWindow?.postMessage({type:'verde:reset-building'},location.origin);
+ returning=false;clearTimeout(returnTimer);returnTimer=null;
+ $('#planView').classList.remove('is-returning');$('#explorer').classList.remove('is-returning');
+ setState({view:'building',floor:null,block:'',unit:null},{scroll:false});
+}
+function returnBuilding(){
+ if(returning)return;
+ const frame=$('#buildingFrame');
+ if(uiVariant==='b'&&state.project==='verde'&&state.view==='plan'&&allowMotion&&modelReady&&frame){
+  returning=true;paintFlight({blend:1,progress:1});
+  $('#planView').classList.add('is-returning');$('#planView').inert=true;$('#planView').setAttribute('aria-hidden','true');$('#explorer').classList.add('is-returning');
+  $('.stage-area').scrollIntoView({block:'center',behavior:'smooth'});
+  frame.contentWindow.postMessage({type:'verde:return-building'},location.origin);
+  clearTimeout(returnTimer);returnTimer=setTimeout(()=>finishReturn(true),3400);return;
+ }
+ if(frame)frame.contentWindow?.postMessage({type:'verde:reset-building'},location.origin);
+ setState({view:'building',floor:null,block:'',unit:null},{scroll:true});
+}
+function startFloorFlight(){
+ if(!modelReady||transitionFloor===null)return;
+ waitingForModel=false;$('#explorer').classList.remove('is-waiting-model');
+ $('#simpleProgressText').textContent=motionLabel('Otevíráme ','Opening ')+floorLabel('verde',transitionFloor)+'…';
+ $('#buildingFrame').contentWindow.postMessage({type:'verde:open-floor',floor:transitionFloor,framing:measureFloorFrame(transitionFloor)},location.origin);
+ clearTimeout(transitionTimer);const n=transitionFloor;transitionTimer=setTimeout(()=>finishFloorTransition(n,true),6500);
+}
+function selectFloor(n){
+ if(transitionFloor!==null||returning)return;
+ if(uiVariant==='b'&&state.project==='verde'&&state.view==='building'&&$('#buildingFrame')&&allowMotion){
+  cancelFloorTransition();transitionFloor=n;drawPlan(n);$('#planView').hidden=false;applyZoom();
+  $('#planView').inert=true;$('#planView').setAttribute('aria-hidden','true');$('#planView').classList.add('motion-plan');paintFlight({blend:0,progress:0});
+  $('.stage-area').scrollIntoView({block:'center',behavior:'smooth'});
+  $$('#floorButtons button').forEach(button=>{button.classList.toggle('is-pending',Number(button.dataset.floor)===n);button.setAttribute('aria-disabled','true');button.setAttribute('aria-pressed',String(Number(button.dataset.floor)===n))});
+  $('#simpleProgress').hidden=false;$('#explorer').classList.add('is-opening');
+  if(modelReady)startFloorFlight();
+  else{waitingForModel=true;$('#explorer').classList.add('is-waiting-model');$('#simpleProgressText').textContent=motionLabel('Načítáme 3D dům pro vaše podlaží…','Loading the 3D building for your level…');transitionTimer=setTimeout(()=>finishFloorTransition(n,true),16000)}
+  return;
+ }
+ finishFloorTransition(n,true);
+}
 function maisonetteUnits(){return data.units.filter(u=>u.project==='borovskeho'&&u.floorNo===3).sort((a,b)=>a.flat.localeCompare(b.flat,'cs'))}
 function maisonetteStatus(u){return u.status==='volné'?'Volný':u.status==='v jednání'?'V jednání':u.status==='rezervováno'?'Rezervován':'Prodáno'}
 function maisonetteCards(){
@@ -78,15 +151,15 @@ function drawMaisonetteAvailability(){
  host.innerHTML=`<div><strong>${title}</strong><p>${free.length?'Volné jednotky: <b>'+free.map(u=>esc(u.flat)).join(' a ')+'</b>':'Aktuální možnosti ověřte u makléře.'}</p><small class="bb-availability-source">Ceník z 2. 11. 2026 · dostupnost potvrdí prodejce.</small></div><div class="bb-availability-meta"><span>Mezonety · 3. + 4. NP</span>${negotiating.length?`<span class="bb-state negotiating">${negotiating.length} v jednání · ${negotiating.map(u=>esc(u.flat)).join(', ')}</span>`:''}</div>`;
 }
 function drawBuilding(){const p=state.project,host=$('#buildingView');if(!p)return;const presentation=p+'-'+uiVariant+(p==='borovskeho'?'-'+maisonetteUnits().map(u=>u.key+':'+u.status+':'+u.price).join('|'):'');if(host.dataset.project===presentation&&host.childElementCount)return;host.dataset.project=presentation;modelReady=false;
- if(p==='verde'){host.innerHTML='<iframe id="buildingFrame" src="'+'model/select.html?v=verde2-cs-20261118&lang=cs'+'" title="Interaktivní 3D výběr podlaží Verde Slaný II" loading="eager"></iframe><p class="building-instruction">Otočte dům tažením. Kliknutím na podlaží otevřete půdorys.</p>';$('#buildingFrame').addEventListener('load',sendModelStats)}
+ if(p==='verde'){host.innerHTML='<iframe id="buildingFrame" src="'+'model/select.html?v=motion-20261118&lang=cs'+'" title="Interaktivní 3D výběr podlaží Verde Slaný II" loading="eager"></iframe><p class="building-instruction">Otočte dům tažením. Kliknutím na podlaží otevřete půdorys.</p>';$('#buildingFrame').addEventListener('load',sendModelStats)}
  else {host.innerHTML=`<div class="bb-house-overview"><div class="bb-house-photo"><img src="/verde-slany/assets/media-20261116/visual/bb-68_p1182307.webp?v=final-20261116" alt="Dokončený dům Byty Borovského" width="1920" height="1277" srcset="/verde-slany/assets/media-20261116/responsive/bb-68_p1182307-480.webp?v=final-20261116 480w, /verde-slany/assets/media-20261116/responsive/bb-68_p1182307-960.webp?v=final-20261116 960w, /verde-slany/assets/media-20261116/responsive/bb-68_p1182307-1440.webp?v=final-20261116 1440w, /verde-slany/assets/media-20261116/visual/bb-68_p1182307.webp?v=final-20261116 1920w" sizes="(max-width: 700px) 94vw, (max-width: 1100px) 50vw, 720px" decoding="async"><div class="bb-house-caption"><span>SKUTEČNÝ DŮM · BYTY BOROVSKÉHO</span><h3>Mezonety ve<br>3. a 4. podlaží.</h3><button class="button light" id="mezonetFloor" type="button">Vybrat v půdorysu ↗</button></div><small class="bb-photo-credit">Fotografie po retuši</small></div><div class="bb-house-offer"><p class="eyebrow">VYBERTE SI KONKRÉTNÍ MEZONET</p>${maisonetteCards()}</div></div>`;bindMaisonetteCards(host);}
  if($('#mezonetFloor'))$('#mezonetFloor').onclick=()=>{selectFloor(3);$('#explorer').scrollIntoView({block:'start',behavior:'instant'})};
 }
 function sendModelStats(){const frame=$('#buildingFrame');if(!frame)return;const floors=projects.verde.floors.map(n=>({floor:n,available:data.units.filter(u=>u.project==='verde'&&u.floorNo===n&&u.status==='volné').length}));frame.contentWindow?.postMessage({type:'verde:stats',floors},location.origin)}
-window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#buildingFrame')?.contentWindow)return;if(e.data?.type==='verde:select-floor'&&state.project==='verde'&&projects.verde.floors.includes(e.data.floor))selectFloor(e.data.floor);if(e.data?.type==='verde:ready'){modelReady=true;sendModelStats()}if(e.data?.type==='verde:floor-open'&&transitionFloor===e.data.floor)finishFloorTransition(e.data.floor);if(e.data?.type==='verde:returned')finishReturn();if(e.data?.type==='verde:open-tour'&&e.data.project==='verde')openTour('verde');if(e.data?.type==='verde:motion-step'&&transitionFloor===e.data.floor){const step=e.data.step;if(step==='reveal'){$('#planView').classList.add('is-revealing');$('#explorer').classList.add('is-handoff');}$('#simpleProgressText').textContent=step==='opening'?'Zvýrazňujeme '+floorLabel('verde',e.data.floor)+'…':step==='overhead'?'Pohled shora · '+floorLabel('verde',e.data.floor):step==='reveal'?'Přibližujeme vybrané podlaží…':'Vyberte si svůj byt…'}});
+window.addEventListener('message',e=>{if(e.origin!==location.origin||e.source!==$('#buildingFrame')?.contentWindow)return;if(e.data?.type==='verde:select-floor'&&state.project==='verde'&&projects.verde.floors.includes(e.data.floor))selectFloor(e.data.floor);if(e.data?.type==='verde:ready'){modelReady=true;sendModelStats();if(waitingForModel)startFloorFlight();else if(state.view==='plan'&&state.floor)$('#buildingFrame').contentWindow.postMessage({type:'verde:hold-floor',floor:state.floor,framing:measureFloorFrame(state.floor)},location.origin)}if(e.data?.type==='verde:motion-progress'&&((transitionFloor===e.data.floor&&!returning)||(returning&&e.data.direction==='close')))paintFlight(e.data);if(e.data?.type==='verde:floor-open'&&transitionFloor===e.data.floor)finishFloorTransition(e.data.floor);if(e.data?.type==='verde:returned')finishReturn();if(e.data?.type==='verde:open-tour'&&e.data.project==='verde')openTour('verde');if(e.data?.type==='verde:motion-step'&&transitionFloor===e.data.floor){const step=e.data.step;if(step==='reveal'){$('#planView').classList.add('is-revealing');$('#explorer').classList.add('is-handoff');}$('#simpleProgressText').textContent=step==='opening'?'Zvýrazňujeme '+floorLabel('verde',e.data.floor)+'…':step==='overhead'?'Pohled shora · '+floorLabel('verde',e.data.floor):step==='reveal'?'Přibližujeme vybrané podlaží…':'Vyberte si svůj byt…'}});
 function updateSteps(){const step=state.unit?2:state.floor&&state.view==='plan'?1:0;$$('.steps li').forEach((li,i)=>{li.classList.toggle('is-active',i===step);li.classList.toggle('is-complete',i<step)})}
 function drawPlan(n){$('#planHeading').textContent=floorLabel(state.project,n);$('#floorplan').innerHTML=planSVG(state.project,n,null,state.block);for(const b of ['','A','B'])$('#block'+(b||'All')).setAttribute('aria-pressed',String(state.block===b));$('#planHelp').textContent=state.project==='borovskeho'&&n===3?'Zeleně jsou volné mezonety, oranžově jednotky v jednání a šedě prodané. Klikněte na byt nebo použijte nabídku pod půdorysem.':(matchMedia('(hover: hover)').matches?'Najeďte na byt. Kliknutím otevřete jeho detail.':'Klepněte na byt pro detail. Pro větší plán vyberte blok nebo přibližte.');bindPolygons();applyZoom();let choices=$('#bbPlanChoices');if(!choices){choices=document.createElement('div');choices.id='bbPlanChoices';choices.className='bb-plan-choices';$('#planView').append(choices)}choices.hidden=state.project!=='borovskeho';if(!choices.hidden){choices.innerHTML='<h3>Volné mezonety na tomto podlaží</h3>'+maisonetteCards();bindMaisonetteCards(choices)}}
-function render(){updateSectionLinks();document.documentElement.dataset.variant=uiVariant;document.documentElement.dataset.motion=allowMotion?'on':'off';$('#motionEnable').hidden=uiVariant!=='b'||state.project!=='verde';$('#motionEnable').textContent=allowMotion?'Vypnout animaci':'Zapnout animaci';$('#motionEnable').setAttribute('aria-pressed',String(allowMotion));$('#variantA').setAttribute('aria-pressed',String(uiVariant==='a'));$('#variantB').setAttribute('aria-pressed',String(uiVariant==='b'));updateSteps();for(const p of Object.keys(projects)){const available=data.units.filter(u=>u.project===p&&u.status==='volné').length,neg=data.units.filter(u=>u.project===p&&u.status==='v jednání').length;$(p==='verde'?'#verdeAvailable':'#bbAvailable').textContent=`${available} ${available===1?'volný byt':available<5?'volné byty':'volných bytů'}${neg?' · '+neg+' v jednání':''}`}
+function render(){updateSectionLinks();document.documentElement.dataset.variant=uiVariant;document.documentElement.dataset.motion=allowMotion?'on':'off';$('#motionEnable').hidden=uiVariant!=='b'||state.project!=='verde';$('#motionEnable').textContent=allowMotion?motionLabel('Animace zapnutá','Animation on'):motionLabel('Animace vypnutá','Animation off');$('#motionEnable').setAttribute('aria-label',allowMotion?motionLabel('Vypnout animaci výběru podlaží','Turn off level selection animation'):motionLabel('Zapnout animaci výběru podlaží','Turn on level selection animation'));$('#motionEnable').setAttribute('aria-pressed',String(allowMotion));$('#variantA').setAttribute('aria-pressed',String(uiVariant==='a'));$('#variantB').setAttribute('aria-pressed',String(uiVariant==='b'));updateSteps();for(const p of Object.keys(projects)){const available=data.units.filter(u=>u.project===p&&u.status==='volné').length,neg=data.units.filter(u=>u.project===p&&u.status==='v jednání').length;$(p==='verde'?'#verdeAvailable':'#bbAvailable').textContent=`${available} ${available===1?'volný byt':available<5?'volné byty':'volných bytů'}${neg?' · '+neg+' v jednání':''}`}
  $('#projectChoices').hidden=!!state.project;$('#selectionWorkspace').hidden=!state.project;$('#vyber').dataset.project=state.project||'';updateSaved();if(!state.project){if($('#detail').open)$('#detail').close();$('#selectionHeading').textContent='Nabídka bydlení';$('#buildingView').replaceChildren();$('#buildingView').dataset.project='';return;}
  const p=projects[state.project];$('#selectionHeading').textContent=state.project==='verde'?'Byty ve Verde II':'Mezonety Borovského';$('#explorer').dataset.view=state.view;$('#explorer').dataset.project=state.project;drawMaisonetteAvailability();$('#simpleBack').hidden=state.view==='building';$('#simpleList').textContent=state.view==='list'?'Zpět k výběru ↑':state.project==='borovskeho'?'Seznam mezonetů ↓':'Seznam bytů ↓';$('#simpleInstruction').hidden=state.view!=='building';$('#simpleInstruction h3').textContent=state.project==='verde'?'Vyberte podlaží.':'Vyberte svůj mezonet.';$('#simpleInstruction p').textContent=state.project==='verde'?'Klikněte na dům nebo zvolte patro pod ním.':'Hotový dům. Mezonety ve 3. a 4. podlaží.';$('#catalogTitle').textContent=state.project==='borovskeho'?'Mezonety ve 3. a 4. podlaží.':state.floor?'Byty na '+floorLabel(state.project,state.floor):'Všechny byty v projektu.';$('#explorerMark').src=state.project==='verde'?'assets/symbol.svg':'assets/logo-bb.svg';$('#selectionProject').textContent=p.name;$('#explorerTitle').textContent=p.name;$('#explorerHint').textContent=state.project==='verde'?' / druhá etapa':' / hotové mezonety';$('#floorStepLabel').textContent=state.floor?floorLabel(state.project,state.floor):'Podlaží';$('#buildingStep').textContent='Dům';$('#unitStepLabel').textContent=state.unit?unitByKey(state.unit)?.flat:state.project==='borovskeho'?'Mezonet':'Byt';$('#buildingTab').textContent=state.project==='verde'?'3D dům':'Dům';
  for(const view of ['building','plan','list'])$('#'+view+'Tab').setAttribute('aria-pressed',String(state.view===view));
@@ -119,14 +192,16 @@ for(const b of ['','A','B'])$('#block'+(b||'All')).onclick=()=>setState({block:b
 $('#layout').onchange=e=>setState({layout:e.target.value});$('#sort').onchange=e=>setState({sort:e.target.value});$('#onlyFree').onchange=e=>setState({free:e.target.checked});$('#reset').onclick=()=>setState({floor:null,view:'list',layout:'',sort:'id',free:false,block:''});$('#showProjectTour').onclick=()=>openTour(state.project);$('#savedButton').onclick=$('#compareButton').onclick=openComparison;$('#clearSaved').onclick=()=>{saved=[];try{localStorage.removeItem('verde.saved.v2')}catch{}render()};$('#contactInquiry').onclick=()=>openInquiry();
 $$('dialog').forEach(d=>{d.querySelector('.close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}})});
 $('#detail').addEventListener('close',()=>{if(!$('#detail').open&&state.unit){state.unit=null;writeState(true);$('#unitStepLabel').textContent=state.project==='borovskeho'?'Mezonet':'Byt';updateSteps()}});$('#media').addEventListener('close',()=>$('#mediaBody').replaceChildren());
-window.addEventListener('popstate',()=>{cancelFloorTransition();detailMotionId++;readState();render()});window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#detail').open&&!$('#media').open&&!$('#inquiry').open&&!$('#comparison').open)$('#detail').close()});
-async function loadLive(){if(hosted)$('#adminLink').hidden=false;try{const draft=new URLSearchParams(location.search).get('draft')==='1';const res=await fetch(hosted?('/api/public-catalog'+(draft?'?draft=1':'')):'catalog.json?v=verde2-cs-20261118',{cache:'no-store'});if(!res.ok)throw new Error();const live=await res.json();if(!Array.isArray(live.units)||!live.floors)throw new Error();data={...live,units:live.units.filter(u=>u.project==='verde')};$('#sourceNote').textContent=draft?'Soukromý náhled konceptu · ceny a dostupnost nejsou zveřejněné.':'Ceník z 2. 11. 2026 · zveřejněno 9. 11. 2026. Aktuální cenu a dostupnost potvrdí prodejce.';readState();render();sendModelStats()}catch{$('#sourceNote').textContent='Zobrazen uložený ceník z 2. 11. 2026. Aktuální dostupnost se nepodařilo načíst; potvrďte ji s prodejcem.'}
+window.addEventListener('popstate',()=>{cancelFloorTransition();detailMotionId++;readState();render();$('#buildingFrame')?.contentWindow?.postMessage({type:state.view==='plan'?'verde:hold-floor':'verde:reset-building',floor:state.floor},location.origin)});window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#detail').open&&!$('#media').open&&!$('#inquiry').open&&!$('#comparison').open)$('#detail').close()});
+async function loadLive(){if(hosted)$('#adminLink').hidden=false;try{const draft=new URLSearchParams(location.search).get('draft')==='1';const res=await fetch(hosted?('/api/public-catalog'+(draft?'?draft=1':'')):'catalog.json?v=verde2-cs-20261118',{cache:'no-store'});if(!res.ok)throw new Error();const live=await res.json();if(!Array.isArray(live.units)||!live.floors)throw new Error();data={...live,units:live.units.filter(u=>u.project==='verde')};$('#sourceNote').textContent=draft?'Soukromý náhled konceptu · ceny a dostupnost nejsou zveřejněné.':'Ceník z 2. 11. 2026 · zveřejněno 9. 11. 2026. Aktuální cenu a dostupnost potvrdí prodejce.';if(transitionFloor===null&&!returning){readState();render()}sendModelStats()}catch{$('#sourceNote').textContent='Zobrazen uložený ceník z 2. 11. 2026. Aktuální dostupnost se nepodařilo načíst; potvrďte ji s prodejcem.'}
  try{const newsDraft=new URLSearchParams(location.search).get('draft')==='1';const res=await fetch(hosted?('/api/public-news'+(newsDraft?'?draft=1':'')):'news.json',{cache:'no-store'});if(res.ok){const raw=await res.json(),posts=Array.isArray(raw)?raw:raw.posts||[];if(posts.length){$('#aktuality').hidden=false;$('#newsList').replaceChildren(...posts.map(post=>{const p=postCopy(post);const a=document.createElement('article');const h=document.createElement('h3');h.textContent=p.title||'';const date=document.createElement('small');date.textContent=p.date||'';const body=document.createElement('p');body.textContent=p.text||p.body||'';const photos=(Array.isArray(p.images)&&p.images.length?p.images:[p.image]).filter(safeURL);if(photos.length){const gallery=document.createElement('div');gallery.className='news-gallery';photos.forEach((src,index)=>{const link=document.createElement('a');link.href=src;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','Otevřít fotografii '+(index+1)+': '+(p.title||''));const img=document.createElement('img');img.src=src;img.alt=(p.title||'Fotografie projektu')+' · '+(index+1);img.loading='lazy';img.decoding='async';link.append(img);gallery.append(link)});a.append(gallery)}a.append(date,h,body);return a}))}}}catch{}}
 window.addEventListener('resize',()=>{if(state.view==='plan')applyZoom()});
 $('#zoomIn').onclick=()=>{planZoom=Math.min(2.5,planZoom+.25);applyZoom()};$('#zoomOut').onclick=()=>{planZoom=Math.max(1,planZoom-.25);applyZoom()};$('#zoomReset').onclick=()=>{planZoom=1;applyZoom()};$('#moreUnits').onclick=()=>{catalogExpanded=true;drawUnits()};
 $('#expandExplorer').hidden=!document.fullscreenEnabled;$('#expandExplorer').onclick=()=>{const action=document.fullscreenElement?document.exitFullscreen():$('#explorer').requestFullscreen();action.catch(()=>{})};document.addEventListener('fullscreenchange',()=>{$('#expandExplorer').setAttribute('aria-label',document.fullscreenElement?'Zmenšit výběr':'Zvětšit výběr na celou obrazovku')});
-function chooseVariant(v){cancelFloorTransition();uiVariant=v;const url=new URL(location.href);url.searchParams.set('variant',v);history.replaceState({},'',url);$('#buildingView').replaceChildren();$('#buildingView').dataset.project='';render()}
-$('#motionEnable').onclick=()=>{allowMotion=!allowMotion;const url=new URL(location.href);url.searchParams.set('motion',allowMotion?'on':'off');history.replaceState({},'',url);render()};
+function chooseVariant(v){cancelFloorTransition();uiVariant=v;const url=new URL(location.href);url.searchParams.set('variant',v);url.searchParams.set('review','1');history.replaceState({},'',url);$('#buildingView').replaceChildren();$('#buildingView').dataset.project='';render()}
+$('#motionEnable').onclick=()=>{allowMotion=!allowMotion;const url=new URL(location.href);url.searchParams.set('motion',allowMotion?'on':'off');history.replaceState({},'',url);syncLanguageLinks();if(!allowMotion&&transitionFloor!==null)finishFloorTransition(transitionFloor,true);else if(!allowMotion&&returning)finishReturn(true);else render()};
 $('#variantA').onclick=()=>chooseVariant('a');$('#variantB').onclick=()=>chooseVariant('b');$('#skipMotion').onclick=()=>{if(transitionFloor)finishFloorTransition(transitionFloor,true)};
 $('#simpleBack').onclick=returnBuilding;$('#simpleList').onclick=()=>{if(state.view==='list'){setState({view:state.floor?'plan':'building'});$('#explorer').scrollIntoView({block:'start',behavior:'smooth'})}else{setState({view:'list',unit:null});$('#catalogHeading').scrollIntoView({block:'start',behavior:'smooth'})}};
 readState();render();loadLive();
+
+window.addEventListener('resize',()=>{if(state.view==='plan'||transitionFloor!==null)requestAnimationFrame(applyZoom)});

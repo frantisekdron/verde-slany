@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "sourceCommit": "721c36a83d2c2892f1301757c066c9d210d2b668",
+  "sourceCommit": "93c6e6b1719f85b28327053236c15ead73d62cdb",
   "units": 48,
   "inquiry": "mailto",
   "adminSync": false,
@@ -11,11 +11,11 @@
   "projectCardImages": 0,
   "contactRedesign": "2026-11-10",
   "selectionViewer": "standalone-house",
-  "selectionMotion": "highlight-overhead-speedramp",
+  "selectionMotion": "continuous camera arc with synchronized drawing and reverse flight",
   "maisonetteSelection": "phase overview only",
   "localityUpdate": "2026-11-10",
   "localityPhotos": 5,
-  "selectionHandoff": "soft-focus crossfade with completed CSS transitions",
+  "selectionHandoff": "shared camera progress with measured floor-plan framing",
   "filmVersion": "v34-bilingual-20261117",
   "filmDuration": 103.742667,
   "dronePhotographs": 65,
@@ -29,5 +29,7 @@
   "englishPath": "/en/",
   "interactivePage": "prozkoumat/",
   "hero": "approved three-building 3D, loaded on demand",
-  "publicInventory": "Verde II only"
+  "publicInventory": "Verde II only",
+  "selectionDefault": "animated, respects reduced-motion preference",
+  "motionRevision": "motion-20261118"
 }
