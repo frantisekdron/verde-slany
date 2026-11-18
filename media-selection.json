@@ -3383,5 +3383,35 @@
       "path": "assets/media-20261117/verde-ii-cs-v34.mp4",
       "sha256": "3a2a3a14f8be1e0b67f270efba446db6a8535a99e13670fe071e47ae37873932"
     }
+  },
+  "hero": {
+    "source": "04_Vizualizace_exterier/04_Od_zapadu_ulice_podel_domu.png",
+    "sourceSHA256": "628878e6bd15bc82edce2c660b89e3d96b993c8298b2c0d2f093a81c0560a980",
+    "src": "assets/media-20261116/visual/verde-street.webp",
+    "sha256": "1fd0a06d17eb395ea1b98897c70b32b6e962aa03410a49480a652928fba93c01",
+    "width": 2100,
+    "height": 1409,
+    "responsive": [
+      {
+        "file": "assets/media-20261116/responsive/verde-street-480.webp",
+        "width": 480,
+        "bytes": 29758,
+        "sha256": "a7b64ca3d14f9f7cfc6361b42a93c5a3b2af9f235500c99aa135876d9758b05d"
+      },
+      {
+        "file": "assets/media-20261116/responsive/verde-street-960.webp",
+        "width": 960,
+        "bytes": 104740,
+        "sha256": "6fb98c06ce3496cc10a105cbe6895b66d5ee660ef9d74c5336657c1f5ae47581"
+      },
+      {
+        "file": "assets/media-20261116/responsive/verde-street-1440.webp",
+        "width": 1440,
+        "bytes": 223556,
+        "sha256": "8bd1ded052f01f2525e96b394465ada2a950aa85c6416216490a0bc9fe999474"
+      }
+    ],
+    "revision": "cs-admin-hero-20261118",
+    "type": "visualisation"
   }
 }

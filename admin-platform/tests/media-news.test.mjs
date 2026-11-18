@@ -90,7 +90,7 @@ test('library migration preserves uploads; archive protects drafts, all news pho
 test('unsaved changes cancel navigation once even when both page and panel are dirty',async()=>{
  const browser=new EventTarget(),cleanups=[];let prompts=0,selected='news';
  browser.confirm=()=>{prompts++;return false;};
- const guards=await moduleWith('../app/editor-guards.ts',['useUnsavedGuard'],{window:browser,useEffect:callback=>{const cleanup=callback();if(cleanup)cleanups.push(cleanup);}});
+ const guards=await moduleWith('../app/editor-guards.ts',['useUnsavedGuard'],{t:value=>value,window:browser,useEffect:callback=>{const cleanup=callback();if(cleanup)cleanups.push(cleanup);}});
  guards.useUnsavedGuard(true);guards.useUnsavedGuard(true);
  const source=await readFile(new URL('../app/ui.tsx',import.meta.url),'utf8');
  const code=stripTypeScriptTypes(source.slice(source.indexOf('function navigate('),source.indexOf('async function api(')));

@@ -1,3 +1,4 @@
+import {t,adminLocale,adminLanguage} from './i18n';
 // Session credentials stay in memory and are never written to browser storage.
 type Config={apiBase:string;publicBase:string;demo:boolean};
 let config:Config={apiBase:'',publicBase:'/verde-slany/',demo:false};
@@ -6,13 +7,13 @@ const views=new Map<string,string>();
 const publications=typeof BroadcastChannel==='function'?new BroadcastChannel('verde-publication'):null;
 export async function initialize(){
  const response=await globalThis.fetch(new URL('./config.json',document.baseURI),{cache:'no-store'});
- if(!response.ok)throw new Error('The administration configuration could not be loaded.');
+ if(!response.ok)throw new Error(t('The administration configuration could not be loaded.'));
  const value:any=await response.json();
  const demo=new URLSearchParams(location.search).get('demo')==='1';
  const server=demo?value.demoApiBase:value.apiBase;
- if(!server)throw new Error('The administration server is not configured.');
+ if(!server)throw new Error(t('The administration server is not configured.'));
  const url=new URL(server);
- if(url.protocol!=='https:'&&!(url.protocol==='http:'&&['127.0.0.1','localhost'].includes(url.hostname)))throw new Error('Invalid administration server.');
+ if(url.protocol!=='https:'&&!(url.protocol==='http:'&&['127.0.0.1','localhost'].includes(url.hostname)))throw new Error(t('Invalid administration server.'));
  config={apiBase:url.origin,publicBase:value.publicBase||'/verde-slany/',demo};
 }
 export const demoMode=()=>config.demo;
@@ -40,16 +41,17 @@ export async function apiFetch(input:RequestInfo|URL,options:RequestInit={}){
  return response;
 }
 export async function downloadBackup(){
- const response=await apiFetch('/api/export');if(!response.ok)throw new Error('The backup could not be downloaded.');
+ const response=await apiFetch('/api/export');if(!response.ok)throw new Error(t('The backup could not be downloaded.'));
  const url=URL.createObjectURL(await response.blob()),link=document.createElement('a');
  link.href=url;link.download='verde-private-backup.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 export async function openPreview(path:string){
- const target=path.replace(/^\/verde-slany\//,'').replace(/\?.*$/,'').replace(/\/$/,'');
+ const slug=path.replace(/^\/verde-slany\//,'').replace(/\?.*$/,'').replace(/\/$/,'').replace(/^(?:cs|en)(?:\/|$)/,'');
+ const target=adminLanguage()==='cs'?'cs'+(slug?'/'+slug:''):slug;
  const popup=window.open('about:blank','_blank');
  try{
   const response=await apiFetch('/api/preview-link',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target})});
-  const data:any=await response.json();if(!response.ok)throw new Error(data.error||'Preview is unavailable.');
+  const data:any=await response.json();if(!response.ok)throw new Error(data.error||t('Preview is unavailable.'));
   if(popup){popup.opener=null;popup.location.href=data.url;}else location.assign(data.url);
- }catch(error){popup?.close();window.alert((error as Error).message);}
+ }catch(error){popup?.close();window.alert(t((error as Error).message));}
 }

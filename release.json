@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "sourceCommit": "839221802489490f813fe6dc092484afd8b62a07",
+  "sourceCommit": "5cc507b3cb8d7a719492e54b3a88e3fdcba3e75c",
   "units": 48,
   "inquiry": "mailto",
   "adminSync": {
@@ -34,8 +34,11 @@
   "defaultLocale": "cs",
   "englishPath": "/en/",
   "interactivePage": "prozkoumat/",
-  "hero": "approved three-building 3D, loaded on demand",
+  "hero": "approved west-side street visualisation",
   "publicInventory": "Verde II only",
-  "selectionDefault": "animated, respects reduced-motion preference",
-  "motionRevision": "motion-20261118"
+  "selectionDefault": "animation on by default; explicit motion=off remains available",
+  "motionRevision": "motion-20261118",
+  "heroRevision": "cs-admin-hero-20261118",
+  "adminDefaultLocale": "cs",
+  "adminLocaleRevision": "cs-admin-hero-20261118"
 }

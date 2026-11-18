@@ -29,7 +29,7 @@ const termText=value=>String(value??'').replace(/([1-4])Q\s*\/\s*(\d{4})/,'Q$1 $
 const priceText=value=>{const n=priceNumber(value);return Number.isFinite(n)?new Intl.NumberFormat('en-GB').format(n)+' CZK':({'Cena nezveřejněna':'Price not published','Cena na dotaz':'Price on request','Na dotaz':'Price on request'}[value]||value)};
 const floorLabel=(p,n)=>p==='borovskeho'&&n===3?'Levels 3 + 4':'Level '+n;
 const presentationPreference=()=>{const q=new URLSearchParams(location.search);return q.get('review')==='1'&&q.get('variant')==='a'?'a':'b'};
-const motionPreference=()=>{const setting=new URLSearchParams(location.search).get('motion');return setting==='on'||(setting!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)};
+const motionPreference=()=>{const setting=new URLSearchParams(location.search).get('motion');return setting!=='off'};
 let allowMotion=motionPreference();
 let uiVariant=presentationPreference(),modelReady=false,waitingForModel=false,transitionFloor=null,transitionId=0,transitionTimer=null,returnTimer=null,returning=false,detailMotionId=0;
 let state={project:'verde',floor:null,view:'building',block:'',layout:'',free:false,sort:'id',unit:null};

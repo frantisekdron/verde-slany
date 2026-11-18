@@ -22,7 +22,7 @@ const unitByKey=k=>data.units.find(u=>u.key===k&&u.project==='verde');
 const statusClass=u=>u.status==='volné'?'available':u.status==='prodáno'?'sold':u.status==='v jednání'?'negotiating':'reserved';
 const floorLabel=(p,n)=>p==='borovskeho'&&n===3?'3. + 4. NP':n+'. NP';
 const presentationPreference=()=>{const q=new URLSearchParams(location.search);return q.get('review')==='1'&&q.get('variant')==='a'?'a':'b'};
-const motionPreference=()=>{const setting=new URLSearchParams(location.search).get('motion');return setting==='on'||(setting!=='off'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)};
+const motionPreference=()=>{const setting=new URLSearchParams(location.search).get('motion');return setting!=='off'};
 let allowMotion=motionPreference();
 let uiVariant=presentationPreference(),modelReady=false,waitingForModel=false,transitionFloor=null,transitionId=0,transitionTimer=null,returnTimer=null,returning=false,detailMotionId=0;
 let state={project:'verde',floor:null,view:'building',block:'',layout:'',free:false,sort:'id',unit:null};

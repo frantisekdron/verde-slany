@@ -88,3 +88,13 @@ There were no password accounts or active password sessions in the source CMS.
 Published values matching current content defaults were normalized to empty
 overrides; all 633 such values matched the 1,131-field source configuration.
 The original private admin remains available as a rollback source.
+
+## Administration language
+
+The default is Czech, including sign-in, account/password screens, publishing,
+reservations, news, media management and validation messages. Browser language
+and older English preferences do not change the default. An explicit `?lang=en`
+opens English. The CZ / EN buttons switch interface language without reloading
+the application, losing authentication or changing entered data. API identifiers,
+unit status values and Czech/English article text are never translated in storage.
+Private previews open in the selected interface language.

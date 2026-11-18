@@ -98,3 +98,9 @@
 @media (prefers-reduced-motion: reduce) {
   .experience-art img { transition: none }
 }
+
+/* Approved street visualisation replaces the duplicated hero model. */
+.verde-home .hero-figure.hero-visual { background: #d9dfd4 }
+.verde-home .hero-visual .hero-image { object-fit: cover; object-position: 40% center }
+.verde-home .hero-visual figcaption { left: 22px; bottom: 20px; padding: 8px 12px; background: #f8faf2ed; color: #183c30; border-radius: 3px; font: 550 11px/1.4 var(--sans) }
+@media(max-width:720px){.verde-home .hero .hero-figure.hero-visual{height:290px;min-height:290px}.verde-home .hero-visual figcaption{left:16px;bottom:16px}}
