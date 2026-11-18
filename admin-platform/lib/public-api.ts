@@ -5,10 +5,20 @@ import {requirePermission} from './permissions';
 import {changeCase} from './sales';
 import {listPosts} from './news';
 import {env} from 'cloudflare:workers';
+import {publishedSiteData} from './public-site';
+export async function publicSite(req:Request){
+ // Private previews use their authenticated endpoints. This feed never serves drafts.
+ if(new URL(req.url).searchParams.has('draft'))return json({error:'Drafts are available only in the private administration preview.'},403);
+ const [snapshot,posts]=await Promise.all([state(),listPosts()]);
+ const payload=publishedSiteData(catalogData(snapshot.published,snapshot.version,snapshot.updated),posts,new URL(req.url).origin,String((env as any).PUBLIC_BASE),(env as any).DEMO_MODE==='true');
+ const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(payload)));
+ const revision=Array.from(new Uint8Array(digest)).map(value=>value.toString(16).padStart(2,'0')).join('');
+ return json({...payload,revision});
+}
 export async function publicNews(req:Request){
  const draft=new URL(req.url).searchParams.get('draft')==='1';
  if(draft)requirePermission(await member(),'content');
- const items=(await listPosts()).map((p:any)=>({id:p.id,article:draft?p.draft:p.published})).filter((p:any)=>p.article&&!p.article.archived).map((p:any)=>({id:p.id,title:p.article.title,body:p.article.body,date:p.article.date,image:p.article.image,images:p.article.images||[]} )).sort((a:any,b:any)=>b.date.localeCompare(a.date));
+ const items=(await listPosts()).map((p:any)=>({id:p.id,article:draft?p.draft:p.published})).filter((p:any)=>p.article&&!p.article.archived).map((p:any)=>({id:p.id,title:p.article.title,body:p.article.body,date:p.article.date,image:p.article.image,images:p.article.images||[],translations:p.article.translations||{}} )).sort((a:any,b:any)=>b.date.localeCompare(a.date));
  return json(items);
 }
 const json=(v:any,status=200)=>Response.json(v,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});

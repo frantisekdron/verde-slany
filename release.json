@@ -1,9 +1,15 @@
 {
   "date": "2026-11-18",
-  "sourceCommit": "93c6e6b1719f85b28327053236c15ead73d62cdb",
+  "sourceCommit": "839221802489490f813fe6dc092484afd8b62a07",
   "units": 48,
   "inquiry": "mailto",
-  "adminSync": false,
+  "adminSync": {
+    "prices": true,
+    "availability": true,
+    "news": true,
+    "refreshSeconds": 30,
+    "revision": "live-20261118"
+  },
   "modelRevision": "O41-final-20261116, SO07 a Byty Borovského",
   "mediaUpdate": "2026-11-16",
   "galleryCount": 14,

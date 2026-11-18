@@ -3,6 +3,7 @@ type Config={apiBase:string;publicBase:string;demo:boolean};
 let config:Config={apiBase:'',publicBase:'/verde-slany/',demo:false};
 let token='';
 const views=new Map<string,string>();
+const publications=typeof BroadcastChannel==='function'?new BroadcastChannel('verde-publication'):null;
 export async function initialize(){
  const response=await globalThis.fetch(new URL('./config.json',document.baseURI),{cache:'no-store'});
  if(!response.ok)throw new Error('The administration configuration could not be loaded.');
@@ -27,6 +28,10 @@ export async function apiFetch(input:RequestInfo|URL,options:RequestInit={}){
   const data:any=await response.clone().json();
   if(response.ok&&typeof data.token==='string'&&/^[-\w]{43}$/.test(data.token))token=data.token;
   for(const [key,value] of Object.entries(data.fileUrls||{}))if(typeof value==='string')views.set(key,value);
+  if(response.ok&&options.method==='POST'){
+   let action='';try{action=JSON.parse(String(options.body||'{}')).action||'';}catch{}
+   if(['/api/apply','/api/publish','/api/sales'].includes(path)||path==='/api/news'&&['publish','archive'].includes(action))publications?.postMessage({type:'published',demo:config.demo});
+  }
  }
  if(path==='/api/auth/logout'||response.status===401&&path!=='/api/auth/login'){
   token='';views.clear();

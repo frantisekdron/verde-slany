@@ -46,13 +46,39 @@ Before deploying the frontend, build with the correct production URLs in
 `static/config.json`. Deploy Worker changes and D1 migrations separately.
 No private configuration is included in the static build.
 
-## Existing publication workflow
+## Automatic publication to GitHub Pages
 
-This migration preserves the existing workflow: edits and publications update
-the working CMS preview. Publishing the separate static public website requires
-a separate reviewed release. The public price list and email enquiry flow are
-unchanged. Email notifications remain disabled. Do not describe a successful
-CMS save as a new GitHub Pages release or an email delivery.
+The public website reads `/api/public-site` without authentication, on page load,
+every 30 seconds while visible, and when the visitor returns to the tab or comes
+back online. A publication in another tab of the same browser also triggers an
+immediate refresh through BroadcastChannel (no credentials or content sent).
+The endpoint exposes only published Verde II prices, availability
+and published non-archived news, with a content revision. It never includes
+customer details, unpublished drafts, credentials or internal CMS fields.
+
+- Save draft keeps a change private. Publish publishes permitted saved fields.
+- Confirm price and availability publishes only those two fields for that unit.
+- Confirming, cancelling or completing a reservation immediately updates the
+  published availability in the same database transaction.
+- Publish article and Hide article update both the home page and news page.
+  Uploaded article photos become public only while referenced by a publication.
+- Czech and English selections, floor plans, comparisons, dialogs and all 48
+  direct unit pages read the same prices and availability. English news copy is
+  optional; without it, the Czech article carries a language note on the EN page.
+- An in-progress 3D flight completes before the selector refreshes. Filter,
+  zoom, saved-unit and enquiry-form state stays intact.
+- If the API is unavailable, the page retains the last loaded data (or static
+  fallback on first load), labels it as unverified, and retries automatically.
+
+Test website: https://frantisekdron.github.io/verde-slany/?demo=1
+
+The explicit demo parameter selects only the separate demo Worker. A visible
+banner marks test data, and links to the demo administration preserve isolation.
+Demo changes never affect the production website or database.
+
+No manual GitHub deployment is needed for these publications. Page layout, other
+page text, galleries and other media remain part of the reviewed GitHub release
+workflow. This integration does not change email enquiries or enable emails.
 
 ## Migration on 18 November 2026
 

@@ -1,7 +1,8 @@
-export type NewsArticle={title:string;body:string;date:string;image?:string;images?:string[];archived?:boolean};
+export type NewsArticle={title:string;body:string;date:string;image?:string;images?:string[];archived?:boolean;translations?:{en?:{title:string;body:string}}};
 export function postImages(post:NewsArticle|null|undefined){return Array.isArray(post?.images)?post.images.filter((value):value is string=>typeof value==='string'&&!!value):post?.image?[post.image]:[];}
 const esc=(value:unknown)=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!));
 function articleMarkup(post:NewsArticle,locale:'en'|'cs'){
+ if(locale==='en'&&post.translations?.en)post={...post,...post.translations.en};
  const images=postImages(post);
  const openPhoto=locale==='cs'?'Otevřít fotografii':'Open photo';
  const media=images.length?`<div class="cms-news-media${images.length>1?' multiple':''}">${images.map((src,index)=>`<a href="${esc(src)}" target="_blank" rel="noopener noreferrer" aria-label="${openPhoto} ${index+1}: ${esc(post.title)}"><img src="${esc(src)}" alt="${esc(post.title)} · ${index+1}" decoding="async" loading="lazy"></a>`).join('')}</div>`:'';
