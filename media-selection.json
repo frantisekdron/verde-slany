@@ -3385,33 +3385,34 @@
     }
   },
   "hero": {
-    "source": "04_Vizualizace_exterier/04_Od_zapadu_ulice_podel_domu.png",
-    "sourceSHA256": "628878e6bd15bc82edce2c660b89e3d96b993c8298b2c0d2f093a81c0560a980",
-    "src": "assets/media-20261116/visual/verde-street.webp",
-    "sha256": "1fd0a06d17eb395ea1b98897c70b32b6e962aa03410a49480a652928fba93c01",
+    "source": "04_Vizualizace_exterier/06_Od_jihovychodu_svah_s_vysadbou.png",
+    "sourceSHA256": "0ac2987210ab86e0def00881052c8324960d551ec394d3343fd0e2968a44fd76",
+    "src": "assets/media-20261116/visual/verde-southeast.webp",
+    "sha256": "4543b293f57da87c98ca2ef8621aca9a01417415fd5f25c1145eeed590a626ef",
     "width": 2100,
     "height": 1409,
     "responsive": [
       {
-        "file": "assets/media-20261116/responsive/verde-street-480.webp",
+        "file": "assets/media-20261116/responsive/verde-southeast-480.webp",
         "width": 480,
-        "bytes": 29758,
-        "sha256": "a7b64ca3d14f9f7cfc6361b42a93c5a3b2af9f235500c99aa135876d9758b05d"
+        "bytes": 32070,
+        "sha256": "f343f98edcc05767bf06d8bcda0271f991bb059cb0029525a3505f456e9812ab"
       },
       {
-        "file": "assets/media-20261116/responsive/verde-street-960.webp",
+        "file": "assets/media-20261116/responsive/verde-southeast-960.webp",
         "width": 960,
-        "bytes": 104740,
-        "sha256": "6fb98c06ce3496cc10a105cbe6895b66d5ee660ef9d74c5336657c1f5ae47581"
+        "bytes": 114652,
+        "sha256": "fadfe3e5676f26f94ee923dcfce516c77be5552401585583dbf6f5ecd0786440"
       },
       {
-        "file": "assets/media-20261116/responsive/verde-street-1440.webp",
+        "file": "assets/media-20261116/responsive/verde-southeast-1440.webp",
         "width": 1440,
-        "bytes": 223556,
-        "sha256": "8bd1ded052f01f2525e96b394465ada2a950aa85c6416216490a0bc9fe999474"
+        "bytes": 243578,
+        "sha256": "aad918bcb8a7f33ec85d2363a4acaa9512446ae16d2cd84f7a2932e0c2eff353"
       }
     ],
-    "revision": "cs-admin-hero-20261118",
-    "type": "visualisation"
+    "revision": "hero-southeast-20261118",
+    "type": "visualisation",
+    "presentation": "framed approved south-east view; wordmark behind the roof with CSS clipping"
   }
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "sourceCommit": "5cc507b3cb8d7a719492e54b3a88e3fdcba3e75c",
+  "sourceCommit": "b57a7124385d5e608dffb8584c343447adccb5a0",
   "units": 48,
   "inquiry": "mailto",
   "adminSync": {
@@ -34,11 +34,11 @@
   "defaultLocale": "cs",
   "englishPath": "/en/",
   "interactivePage": "prozkoumat/",
-  "hero": "approved west-side street visualisation",
+  "hero": "approved south-east visualisation in architectural frame",
   "publicInventory": "Verde II only",
   "selectionDefault": "animation on by default; explicit motion=off remains available",
   "motionRevision": "motion-20261118",
-  "heroRevision": "cs-admin-hero-20261118",
+  "heroRevision": "hero-southeast-20261118",
   "adminDefaultLocale": "cs",
   "adminLocaleRevision": "cs-admin-hero-20261118"
 }

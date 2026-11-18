@@ -99,8 +99,49 @@
   .experience-art img { transition: none }
 }
 
-/* Approved street visualisation replaces the duplicated hero model. */
-.verde-home .hero-figure.hero-visual { background: #d9dfd4 }
-.verde-home .hero-visual .hero-image { object-fit: cover; object-position: 40% center }
-.verde-home .hero-visual figcaption { left: 22px; bottom: 20px; padding: 8px 12px; background: #f8faf2ed; color: #183c30; border-radius: 3px; font: 550 11px/1.4 var(--sans) }
-@media(max-width:720px){.verde-home .hero .hero-figure.hero-visual{height:290px;min-height:290px}.verde-home .hero-visual figcaption{left:16px;bottom:16px}}
+/* The approved south-east view is a framed architectural image. The two
+   image layers share one URL; the outline only places the type behind the roof. */
+.verde-home .hero.verde-hero {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 8fr);
+  align-items: center; gap: clamp(28px, 3.5vw, 54px);
+  padding: clamp(28px, 3.5vw, 50px) max(var(--inset), calc((100vw - var(--measure)) / 2)) clamp(32px, 4vw, 56px);
+}
+.verde-home .hero.verde-hero .hero-copy { padding: 0 }
+.verde-home .hero .hero-figure.hero-framed {
+  align-self: center; width: 100%; min-height: 0; height: auto; padding: 7px;
+  background: var(--paper); border: 1px solid #b8c8ba; border-radius: 12px;
+  box-shadow: 0 18px 45px -28px #193e3159, 0 2px 5px #193e3105;
+  overflow: hidden;
+}
+.hero-scene { position: relative; isolation: isolate; container-type: inline-size; aspect-ratio: 2100 / 1409; overflow: hidden; border-radius: 6px; background: #dce3d9 }
+.verde-home .hero-framed .hero-image, .hero-framed .hero-foreground {
+  display: block; position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; margin: 0; transform: none; pointer-events: none;
+}
+.hero-wordmark { position: absolute; z-index: 1; right: 15%; top: 4%; color: #193e31; text-align: center; pointer-events: none }
+.hero-wordmark > span { display: block; padding-left: .2em; font: 550 2.5cqw/1.4 var(--sans); letter-spacing: .22em }
+.hero-wordmark > b { display: block; margin-top: .025em; font: 400 24cqw/.84 var(--serif); letter-spacing: -.08em; padding-right: .08em }
+.hero-framed .hero-foreground { z-index: 2; clip-path: polygon(28.7% 15%, 39.5% 5%, 53.4% 3%, 65.4% 16.2%, 66.7% 16.8%, 66.7% 20.2%, 73.3% 24%, 77.1% 28.1%, 77.1% 29.2%, 78% 28.7%, 79.6% 30%, 79.6% 65%, 28.7% 70%) }
+.verde-home .hero-framed figcaption {
+  position: static; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 44px; padding: 12px 8px 4px; background: transparent; color: var(--forest); border-radius: 0;
+  font: 500 11px/1.5 var(--sans);
+}
+.hero-frame-name { display: inline-flex; align-items: baseline; gap: 12px; font-weight: 650 }
+.hero-frame-name > span { color: #50635a; font-weight: 400 }
+.hero-frame-kind { border-left: 1px solid #cbd5cb; padding-left: 12px; white-space: nowrap; color: #40594c }
+@media (min-width: 721px) and (max-width: 1100px) {
+  .verde-home .hero.verde-hero { gap: 28px; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) }
+  .verde-home .hero.verde-hero h1, .verde-home .hero.verde-hero h1 em { font-size: clamp(62px, 7.2vw, 85px) }
+  .hero-frame-name > span { display: none }
+}
+@media (max-width: 720px) {
+  .verde-home .hero.verde-hero { gap: 24px; padding: 18px var(--inset) 32px }
+  .verde-home .hero.verde-hero .hero-copy { padding: 0 }
+  .verde-home .hero .hero-figure.hero-framed { padding: 5px; border-radius: 10px }
+  .hero-scene { border-radius: 5px }
+  .verde-home .hero-framed figcaption { min-height: 40px; padding: 9px 5px 3px; font-size: 10px; gap: 9px }
+  .hero-frame-name { gap: 8px }
+  .hero-frame-kind { padding-left: 9px }
+}
+@media (max-width: 360px) { .hero-frame-name > span { display: none } }
